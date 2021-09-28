@@ -82,11 +82,14 @@ def show_XY_spectrum(N,Bzmin,Bzmax,Bx):
         ax.plot(Bzlist,eval_stor[:,j],'k-')
     return fig, ax
 
+
+
 def dot_vectors(A,B):
     return np.conjugate(np.transpose(A)) @ B
 
-def evaluate_op(A,B,C):
+def evaluate_op_vectors(A,B,C):
     return np.conjugate(np.transpose(A)) @ B @ C
+
 
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
@@ -112,21 +115,23 @@ if __name__ == '__main__':
     target_paramlist = [[J,Bx,Bz,N,pbc] for Bz in Bzlist]
 
 
+    # Object that knows how to deal with the various operations needed
+    vectorspace = vector_methods()
+
+    # Reference vector is internal for now
+    vectorspace = unitary_methods(N)
 
 
-
-    EVcontinuer = vector_continuer(dot_vectors,
-                                   evaluate_op,
+    EVcontinuer = vector_continuer(vectorspace,
                                    XY_hamiltonian,
                                    training_paramlist,
                                    target_paramlist,
-                                   4)
+                                   N)
 
     EVcontinuer.get_base_eigenvectors()
     EVcontinuer.form_orthogonal_basis()
 
     #added_evals = EVcontinuer.get_target_eigenvectors(ortho=True)
-
     added_evals = EVcontinuer.get_target_eigenvectors(ortho=False)
 
     if 'ax' in locals():

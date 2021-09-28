@@ -1,25 +1,67 @@
 import numpy as np
 import scipy
-from scipy import linalg
+import qiskit as qk
+
+class vector_methods():
+
+    def __init__(self):
+        pass
+
+    def dot(self,A,B):
+        return np.conjugate(np.transpose(A)) @ B
+
+    def evaluate_operator(self,A,op,B):
+        return np.conjugate(np.transpose(A)) @ op @ B
+
+    def representation_from_vector(self,A):
+        return A
+
+
+
+class unitary_methods():
+
+
+    def __init__(self,Nqubits):
+        refvec = np.zeros(2**Nqubits,dtype=complex)
+        refvec[0] = 1.
+
+        self.Nqubits = Nqubits
+        self.reference_vector = refvec
+        self.backend = qk.Aer.get_backend('unitary_simulator')
+
+    def dot(self,A,B):
+        return np.conjugate(np.transpose(A @ self.reference_vector)) @ \
+               (B @ self.reference_vector)
+
+    def evaluate_operator(self,A,op,B):
+        return np.conjugate(np.transpose(A @ self.reference_vector)) @ \
+               op @ \
+               (B @ self.reference_vector)
+
+    def representation_from_vector(self,A):
+        circuit = qk.QuantumCircuit(self.Nqubits)
+        circuit.initialize(A, circuit.qubits)
+        job = qk.execute(circuit, self.backend)
+        result = job.result()
+        return result.get_unitary(circuit, decimals=8)
 
 
 class vector_continuer:
 
     def __init__(self,
-                 dot_function=None,
-                 operator_evaluator=None,
+                 vectorspace=None,
                  hamiltonian_function=None,
                  training_paramsets=[],
                  target_paramsets=[],
                  Nsites=1):
 
-        self.dot = dot_function
-        self.operator_evaluator = operator_evaluator
+        self.vectorspace = vectorspace
+        self.dot = vectorspace.dot
+        self.operator_evaluator = vectorspace.evaluate_operator
         self.hamiltonian_function = hamiltonian_function
         self.Nsites = Nsites
         self.training_paramsets = training_paramsets
         self.target_paramsets = target_paramsets
-
         self.base_vecs = []
 
     def get_base_eigenvectors(self):
@@ -30,7 +72,9 @@ class vector_continuer:
             ham = self.hamiltonian_function(*params)
             evals, evecs = np.linalg.eigh(ham)
 
-            self.base_vecs.append(evecs[:,0])
+            repr = self.vectorspace.representation_from_vector(evecs[:,0])
+
+            self.base_vecs.append(repr)
             print("Adding vector for parameter set",params)
             #print("Check: energy should be",evals[0])
             #print(np.conjugate(np.transpose(evecs[:,0])) @ ham @ evecs[:,0])
@@ -137,18 +181,6 @@ class vector_continuer:
 
 
 
-
-
-    def get_target_eigenvectors_nonortho(self):
-
-        nvec = len(self.base_vecs)
-        new_evals = np.zeros([len(self.target_paramsets),nvec],dtype=complex)
-
-        for ip,param in enumerate(self.target_paramsets):
-
-            ham = self.hamiltonian_function(*param)
-
-            evecs = self.do_continuation(ham,ortho=False)
 
 
 
