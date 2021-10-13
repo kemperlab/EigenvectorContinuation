@@ -1,6 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 from continuers import *
+from qiskit.opflow import I, X, Y, Z
 
 # pauli_x = np.array([[0,1],[1,0]],dtype=complex)
 # pauli_y = np.array([[0,-1.j],[1.j,0]],dtype=complex)
@@ -67,6 +68,11 @@ def XY_hamiltonian(J, Bx, Bz, N, pbc):
 
     return ham
 
+def XY_hamiltonian_Qiskit(J, Bx, Bz, N, pbc):
+    assert(N==2)
+    hamiltonian = J*((X^X) + (Y^Y)) + Bz*((I^Z) + (Z^I)) + Bx*((I^X) + (X^I))
+    return hamiltonian
+
 def show_XY_spectrum(N,Bzmin,Bzmax,Bx):
 
     Bzlist = np.linspace(Bzmin,Bzmax,100)
@@ -90,19 +96,52 @@ def dot_vectors(A,B):
 def evaluate_op_vectors(A,B,C):
     return np.conjugate(np.transpose(A)) @ B @ C
 
+def characterize_eigenspectrum(J=-1,Bz=0,Bx=0,N=8,pbc=True):
+
+    ham = XY_hamiltonian(J,Bz,Bx,N,False)
+
+    bcterm = ['Z']*N
+    bcterm1 = bcterm
+    bcterm1[0] = 'X'
+    bcterm1[-1] = 'X'
+    print(bcterm1)
+
+    bcterm2 = bcterm
+    bcterm1[0] = 'Y'
+    bcterm1[-1] = 'Y'
+    print(bcterm2)
+
+    ham += many_kron(bcterm1)
+    ham += many_kron(bcterm2)
+
+    evals, evecs = np.linalg.eigh(ham)
+
+    mztot_oplist = ['Z']*N
+    mztot_op = many_kron(mztot_oplist)
+
+    for k in range(2**N):
+        energy = evals[k]
+        evec = evecs[:,k]
+        mz = np.real( np.conj(np.transpose(evec)) @ mztot_op @ evec )
+        if abs(mz) < 0.01:
+            print(mz,energy)
+
 
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
 
-    fig, ax = show_XY_spectrum(4,0,2,0.05)
+    fig, ax = show_XY_spectrum(2,0,2,0.05)
+
+    #characterize_eigenspectrum(J=-1,Bz=0.000001,Bx=0,N=8,pbc=True)
+    #bork()
 
     J = -1
     Bx = 0.05
-    N = 4
+    N = 2
     pbc = False
 
     # Set up training parameter sets for eigenvector continuer
-    Bzlist = [0,0.2,0.5,0.75]
+    Bzlist = [0,0.2,0.75]
     training_paramlist = [[J,Bx,Bz,N,pbc] for Bz in Bzlist]
 
     if 'ax' in locals():
@@ -116,11 +155,12 @@ if __name__ == '__main__':
 
 
     # Object that knows how to deal with the various operations needed
-    vectorspace = vector_methods()
+    vectorspace = vector_methods(XY_hamiltonian)
 
     # Reference vector is internal for now
-    vectorspace = unitary_methods(N)
+    #vectorspace = unitary_methods(N, XY_hamiltonian)
 
+    #vectorspace = circuit_methods(N,XY_hamiltonian_Qiskit)
 
     EVcontinuer = vector_continuer(vectorspace,
                                    XY_hamiltonian,
@@ -129,7 +169,7 @@ if __name__ == '__main__':
                                    N)
 
     EVcontinuer.get_base_eigenvectors()
-    EVcontinuer.form_orthogonal_basis()
+    #EVcontinuer.form_orthogonal_basis()
 
     #added_evals = EVcontinuer.get_target_eigenvectors(ortho=True)
     added_evals = EVcontinuer.get_target_eigenvectors(ortho=False)
