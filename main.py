@@ -3,6 +3,8 @@ import matplotlib.pyplot as plt
 from continuers import *
 from qiskit.opflow import I, X, Y, Z
 
+from quantum_circuit_mimic import *
+
 # pauli_x = np.array([[0,1],[1,0]],dtype=complex)
 # pauli_y = np.array([[0,-1.j],[1.j,0]],dtype=complex)
 # pauli_z = np.array([[1,0],[0,-1]],dtype=complex)
@@ -149,8 +151,8 @@ if __name__ == '__main__':
             ax.axvline(b)
 
     # Set up target parameter sets for eigenvector continuer
-    Bzlist = np.linspace(0,2,20)
-    #Bzlist = [0.6]
+    # Bzlist = np.linspace(0,2,20)
+    Bzlist = [0.6]
     target_paramlist = [[J,Bx,Bz,N,pbc] for Bz in Bzlist]
 
 
@@ -173,11 +175,12 @@ if __name__ == '__main__':
 
     #added_evals = EVcontinuer.get_target_eigenvectors(ortho=True)
     added_evals = EVcontinuer.get_target_eigenvectors(ortho=False)
-
+    
+    circuit_evals = get_evals_targetlist(J=J,Bx=Bx,Bzlist=[0,0.2,0.5],Bztargetlist=[0.6],N=N )
     if 'ax' in locals():
         for ip in range(len(training_paramlist)):
             ax.plot(Bzlist,np.real(added_evals[:,ip]),'o')
-
+            ax.plot(Bzlist,np.real(circuit_evals[:,ip]),'*')
 
     plt.show()
 
