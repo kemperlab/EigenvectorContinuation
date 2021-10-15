@@ -145,7 +145,8 @@ if __name__ == '__main__':
     # Set up training parameter sets for eigenvector continuer
     Bzlist = [0,0.2,0.75]
     training_paramlist = [[J,Bx,Bz,N,pbc] for Bz in Bzlist]
-
+    training_paramlist_qc = [{"J":J,"Bx":Bx,"Bz":Bz,"N":N,"pbc":pbc} for Bz in Bzlist]
+    
     if 'ax' in locals():
         for b in Bzlist:
             ax.axvline(b)
@@ -154,7 +155,7 @@ if __name__ == '__main__':
     # Bzlist = np.linspace(0,2,20)
     Bzlist = [0.6]
     target_paramlist = [[J,Bx,Bz,N,pbc] for Bz in Bzlist]
-
+    target_paramlist_qc = [{"J":J,"Bx":Bx,"Bz":Bz,"N":N,"pbc":pbc} for Bz in Bzlist]
 
     # Object that knows how to deal with the various operations needed
     vectorspace = vector_methods(XY_hamiltonian)
@@ -175,12 +176,12 @@ if __name__ == '__main__':
 
     #added_evals = EVcontinuer.get_target_eigenvectors(ortho=True)
     added_evals = EVcontinuer.get_target_eigenvectors(ortho=False)
-    
-    circuit_evals = get_evals_targetlist(J=J,Bx=Bx,Bzlist=[0,0.2,0.5],Bztargetlist=[0.6],N=N )
+    print(added_evals)
+    circuit_evals = get_evals_targetlist(training_paramlist=training_paramlist_qc,target_paramlist=target_paramlist_qc)
     if 'ax' in locals():
         for ip in range(len(training_paramlist)):
-            ax.plot(Bzlist,np.real(added_evals[:,ip]),'o')
-            ax.plot(Bzlist,np.real(circuit_evals[:,ip]),'*')
+            ax.plot(Bzlist,np.real(added_evals[:,ip]),'o',color="b")
+            ax.plot(Bzlist,np.real(circuit_evals[:,ip]),'*',color="r")
 
     plt.show()
 

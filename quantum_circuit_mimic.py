@@ -14,6 +14,8 @@ paulis['Y'] = np.array([[0,-1.j],[1.j,0]],dtype=complex)
 paulis['Z'] = np.array([[1,0],[0,-1]],dtype=complex)
 paulis['I'] = np.array([[1,0],[0,1]],dtype=complex)
 
+####################
+
 def many_kron(ops):
     # Takes an array of Pauli characters and produces the tensor product
     op = paulis[ops[0]]
@@ -25,6 +27,7 @@ def many_kron(ops):
 
     return op
 
+###############################
 
 def XY_hamiltonian(J, Bx, Bz, N, pbc):
 
@@ -67,13 +70,14 @@ def XY_hamiltonian(J, Bx, Bz, N, pbc):
         ham += J*many_kron(oplist)
 
     return ham
+##############################
 
-
-def get_circuit_unitary_fromVQE(param,N=2):
+def get_circuit_unitary_fromVQE(param):
     J = param["J"]
     Bx = param["Bx"]
     Bz= param["Bz"]
-    pbc =False
+    pbc =param["pbc"]
+    N = param["N"]
     
     # this hamiltonian needs to be written in using pauli strings later
     ham = XY_hamiltonian(J, Bx, Bz, N, pbc)
@@ -109,6 +113,8 @@ def get_circuit_unitary_fromVQE(param,N=2):
     U = result.get_unitary(qc)
 
     return cc,U
+
+###########################################################
     
 def make_cntrlU(U):
     L = len(U)
@@ -126,10 +132,19 @@ def reducerho(wf,lA,lB):
     rhoA=np.matmul(slicedwf,slicestar)
     
     return rhoA
+#############################
+# for the moment lets take the unitaries later we take the circuits as well
+def get_training_vectors(paramslist):
+    Uilist = []
+    for parami in paramslist:
+        circuiti,Ui = get_circuit_unitary_fromVQE(param=parami)
+        Uilist.append(Ui)
+    return Uilist
+#####################
 
-def get_phii_phij_fromcircuit(parami,paramj,N=2):
-    circuiti,Ui = get_circuit_unitary_fromVQE(param=parami,N=N)
-    circuitj,Uj = get_circuit_unitary_fromVQE(param=paramj,N=N)
+def get_phii_phij_fromcircuit(Ui,Uj,N=2):
+    # circuiti,Ui = get_circuit_unitary_fromVQE(param=parami,N=N)
+    # circuitj,Uj = get_circuit_unitary_fromVQE(param=paramj,N=N)
     
     psi_0_an  = np.zeros([2],dtype="complex")
     psi_0_an[0] = 1.0
@@ -153,26 +168,22 @@ def get_phii_phij_fromcircuit(parami,paramj,N=2):
     
     return 2*rho_an[0,1]
 
-def create_overlap_matrix_fromQC(J=-1,Bx=0.05,Bzlist=[0,0.2,0.5],N=2):
-    
+def create_overlap_matrix_fromQC(Uilist,N=2):
+    basis_length = len(Uilist)
     # params= []
-    overlap_matrix = np.identity(len(Bzlist),dtype="complex")
-    for i in range(len(Bzlist)-1):
-        for j in range(i+1,len(Bzlist)):
+    overlap_matrix = np.identity(basis_length,dtype="complex")
+    for i in range(basis_length-1):
+        for j in range(i+1,basis_length):
             # print(i,j)
-            param1 = {"J":J,"Bx":Bx,"Bz":Bzlist[i]} 
-            param2 = {"J":J,"Bx":Bx,"Bz":Bzlist[j]} 
-            phij = get_phii_phij_fromcircuit(parami=param1,paramj=param2,N=N)
+            phij = get_phii_phij_fromcircuit(Ui=Uilist[i],Uj = Uilist[j],N=N)
             overlap_matrix[i,j] = phij
             overlap_matrix[j,i] = np.conjugate(phij)
-        
-    
-    # print(overlap_matrix)
+     
     return overlap_matrix
-
-def get_HPauli_ij_fromcircuit(parami,paramj,paulisop,N=2):
-    circuiti,Ui = get_circuit_unitary_fromVQE(param=parami,N=N)
-    circuitj,Uj = get_circuit_unitary_fromVQE(param=paramj,N=N)
+##################################
+def get_HPauli_ij_fromcircuit(Ui,Uj,paulisop,N=2):
+    # circuiti,Ui = get_circuit_unitary_fromVQE(param=parami,N=N)
+    # circuitj,Uj = get_circuit_unitary_fromVQE(param=paramj,N=N)
     
     H = many_kron(ops=paulisop)
     psi_0_an  = np.zeros([2],dtype="complex")
@@ -198,7 +209,7 @@ def get_HPauli_ij_fromcircuit(parami,paramj,paulisop,N=2):
     
     return 2*rho_an[0,1]
 
-def get_HXY_bare_ij_fromcircuit( N, pbc,parami,paramj):
+def get_HXY_bare_ij_fromcircuit( N, pbc,Ui,Uj):
     
     hamBz=0.0+0.0*1.j
     hamBx=0.0+0.0*1.j
@@ -211,14 +222,14 @@ def get_HXY_bare_ij_fromcircuit( N, pbc,parami,paramj):
         oplist = ['I']*N
         oplist[isite] = 'Z'
         #print("".join(oplist))
-        hamij = get_HPauli_ij_fromcircuit(parami=parami,paramj=paramj,paulisop=oplist,N=N)
+        hamij = get_HPauli_ij_fromcircuit(Ui=Ui,Uj=Uj,paulisop=oplist,N=N)
         hamBz += hamij
 
         # BX
         oplist = ['I']*N
         oplist[isite] = 'X'
         #print("".join(oplist))
-        hamij = get_HPauli_ij_fromcircuit(parami=parami,paramj=paramj,paulisop=oplist,N=N)
+        hamij = get_HPauli_ij_fromcircuit(Ui=Ui,Uj=Uj,paulisop=oplist,N=N)
         hamBx += hamij
 
         jsite = (isite + 1) % N
@@ -230,53 +241,64 @@ def get_HXY_bare_ij_fromcircuit( N, pbc,parami,paramj):
         oplist[isite] = 'X'
         oplist[jsite] = 'X'
         #print("".join(oplist))
-        hamij = get_HPauli_ij_fromcircuit(parami=parami,paramj=paramj,paulisop=oplist,N=N)
+        hamij = get_HPauli_ij_fromcircuit(Ui=Ui,Uj=Uj,paulisop=oplist,N=N)
         hamXX += hamij
         # YY
         oplist = ['I']*N
         oplist[isite] = 'Y'
         oplist[jsite] = 'Y'
         #print("".join(oplist))
-        hamij = get_HPauli_ij_fromcircuit(parami=parami,paramj=paramj,paulisop=oplist,N=N)
+        hamij = get_HPauli_ij_fromcircuit(Ui=Ui,Uj=Uj,paulisop=oplist,N=N)
         hamYY += hamij
 
     return [hamBz,hamBx,hamXX,hamYY]
 
-def get_HXY_together_ij_fromcircuit(J, Bx, Bz, N, pbc,parami,paramj):
-    [hamBz,hamBx,hamXX,hamYY] = get_HXY_bare_ij_fromcircuit( N, pbc,parami,paramj)
-    # prntlst = [hamBz,hamBx,hamXX,hamYY] 
-    # print(prntlst)
+def get_HXY_together_ij_fromcircuit(paramn,Ui,Uj):
+    J =paramn["J"]
+    Bx = paramn["Bx"]
+    Bz = paramn["Bz"]
+    N = paramn["N"]
+    pbc = paramn["pbc"]
+    
+    [hamBz,hamBx,hamXX,hamYY] = get_HXY_bare_ij_fromcircuit( N, pbc,Ui,Uj)
+    
     hamij = Bz*hamBz + Bx*hamBx + J*(hamXX+hamYY)
+    
     return hamij
 
-def make_target_hamiltonian_fromQC(J,Bx,Bz_training_list,N,pbc,Bz):
-    ham_target = np.identity(len(Bz_training_list),dtype="complex")
-    for i in range(len(Bz_training_list)):
-        for j in range(i,len(Bz_training_list)):
-            # print(i,j)
-            param1 = {"J":J,"Bx":Bx,"Bz":Bz_training_list[i]} 
-            param2 = {"J":J,"Bx":Bx,"Bz":Bz_training_list[j]} 
-            hamij = get_HXY_together_ij_fromcircuit(J, Bx, Bz, N, pbc,parami=param1,paramj=param2)
+def make_target_hamiltonian_fromQC(Uilist,paramn):
+    base_length = len(Uilist)
+    ham_target = np.identity(base_length,dtype="complex")
+    for i in range(base_length):
+        for j in range(i,base_length):
+            hamij = get_HXY_together_ij_fromcircuit(paramn,Ui=Uilist[i],Uj=Uilist[j])
             ham_target[i,j] = hamij
             ham_target[j,i] = np.conjugate(hamij)        
-    
-    # print(ham_target)
+ 
     return ham_target
     
-def get_evals_target_ham(J=-1,Bx=0.05,Bzlist=[0,0.2,0.5],Bz=0.6,N=2):
-    pbc=False
-    overlap_matrix = create_overlap_matrix_fromQC(J=J,Bx=Bx,Bzlist=Bzlist,N=N)
+    
+def get_evals_target_ham(Uilist,paramn):
+    J =paramn["J"]
+    Bx = paramn["Bx"]
+    Bz = paramn["Bz"]
+    N = paramn["N"]
+    pbc = paramn["pbc"]
+    overlap_matrix = create_overlap_matrix_fromQC(Uilist=Uilist,N=N)
     # print(overlap_matrix)
-    smaller_ham = make_target_hamiltonian_fromQC(J,Bx,Bz_training_list=Bzlist,N=N,pbc=pbc,Bz = 0.6)
+    smaller_ham = make_target_hamiltonian_fromQC(Uilist,paramn)
     # print(smaller_ham)
     evals, evecs = linalg.eigh(smaller_ham,overlap_matrix)
     # print("Evals: ",evals)
     return evals
     
-def get_evals_targetlist(J=-1,Bx=0.05,Bzlist=[0,0.2,0.5],Bztargetlist=[0.6],N=2 ):
-    evals_qc = np.zeros([len(Bztargetlist),len(Bzlist)],dtype=complex)
-    for ip,Bz in enumerate(Bztargetlist):
-        evals = get_evals_target_ham(J=J,Bx=Bx,Bzlist=Bzlist,Bz=Bz,N=N)
-        for k in range(len(Bzlist)):
+
+def get_evals_targetlist(training_paramlist,target_paramlist ):
+    evals_qc = np.zeros([len(target_paramlist),len(training_paramlist)],dtype=complex)
+    Uilist = get_training_vectors(training_paramlist)
+    for ip,paramn in enumerate(target_paramlist):
+        evals = get_evals_target_ham(Uilist,paramn)
+        for k in range(len(training_paramlist)):
                 evals_qc[ip,k] = evals[k]
     return evals_qc
+
