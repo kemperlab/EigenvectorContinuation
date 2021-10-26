@@ -32,8 +32,6 @@ def many_kron(ops):
 def XY_hamiltonian(J, Bx, Bz, N, pbc):
 
 
-
-
     ham = np.zeros([2**N,2**N],dtype=complex)
 
     # Build hamiltonian matrix
@@ -287,7 +285,7 @@ def get_evals_target_ham(Uilist,paramn):
     overlap_matrix = create_overlap_matrix_fromQC(Uilist=Uilist,N=N)
     # print(overlap_matrix)
     smaller_ham = make_target_hamiltonian_fromQC(Uilist,paramn)
-    # print(smaller_ham)
+    print(smaller_ham)
     evals, evecs = linalg.eigh(smaller_ham,overlap_matrix)
     # print("Evals: ",evals)
     return evals

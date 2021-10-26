@@ -216,8 +216,9 @@ class vector_continuer:
             evals, evecs = np.linalg.eigh(smaller_ham)
         else:       # Solve the generalized eigenvalue problem
             evals, evecs = scipy.linalg.eigh(smaller_ham,overlap_matrix)
-
-
+        
+        print("overlap_matrix: ",overlap_matrix)
+        print("Hamiltonian",smaller_ham)
         return evecs
 
     def get_target_eigenvectors(self,ortho):
@@ -237,7 +238,7 @@ class vector_continuer:
 
         for ip,param in enumerate(self.target_paramsets):
             ham = self.hamiltonian_function(*param)
-
+            
             evecs = self.do_continuation(ham,ortho=ortho)
 
             for k in range(nvec):

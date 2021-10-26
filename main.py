@@ -4,6 +4,7 @@ from continuers import *
 from qiskit.opflow import I, X, Y, Z
 
 from quantum_circuit_mimic import *
+from quantum_circuit_qasm import *
 
 # pauli_x = np.array([[0,1],[1,0]],dtype=complex)
 # pauli_y = np.array([[0,-1.j],[1.j,0]],dtype=complex)
@@ -143,7 +144,8 @@ if __name__ == '__main__':
     pbc = False
 
     # Set up training parameter sets for eigenvector continuer
-    Bzlist = [0,0.2,0.75]
+    # Bzlist = [0,0.2,0.75]
+    Bzlist = [0,1.2]
     training_paramlist = [[J,Bx,Bz,N,pbc] for Bz in Bzlist]
     training_paramlist_qc = [{"J":J,"Bx":Bx,"Bz":Bz,"N":N,"pbc":pbc} for Bz in Bzlist]
     
@@ -153,7 +155,7 @@ if __name__ == '__main__':
 
     # Set up target parameter sets for eigenvector continuer
     # Bzlist = np.linspace(0,2,20)
-    Bzlist = [0.6]
+    Bzlist = [1.7]
     target_paramlist = [[J,Bx,Bz,N,pbc] for Bz in Bzlist]
     target_paramlist_qc = [{"J":J,"Bx":Bx,"Bz":Bz,"N":N,"pbc":pbc} for Bz in Bzlist]
 
@@ -176,13 +178,15 @@ if __name__ == '__main__':
 
     #added_evals = EVcontinuer.get_target_eigenvectors(ortho=True)
     added_evals = EVcontinuer.get_target_eigenvectors(ortho=False)
-    print(added_evals)
+    print("Eigen values: ",added_evals)
     circuit_evals = get_evals_targetlist(training_paramlist=training_paramlist_qc,target_paramlist=target_paramlist_qc)
+    qasm_circuit_evals = get_evals_targetlist_qasmcirc(training_paramlist=training_paramlist_qc,target_paramlist=target_paramlist_qc)
+    # [hamBz,hamBx,hamXX,hamYY] = get_HXY_bare_ij_fromcircuit( N, pbc,Ui,Uj)
     if 'ax' in locals():
         for ip in range(len(training_paramlist)):
             ax.plot(Bzlist,np.real(added_evals[:,ip]),'o',color="b")
             ax.plot(Bzlist,np.real(circuit_evals[:,ip]),'*',color="r")
-
+            ax.plot(Bzlist,np.real(qasm_circuit_evals[:,ip]),'^',color="g")
     plt.show()
 
 
