@@ -283,11 +283,11 @@ def get_evals_target_ham(Uilist,paramn):
     N = paramn["N"]
     pbc = paramn["pbc"]
     overlap_matrix = create_overlap_matrix_fromQC(Uilist=Uilist,N=N)
-    # print(overlap_matrix)
+    print("Overlap matrix mimic:\n" , overlap_matrix)
     smaller_ham = make_target_hamiltonian_fromQC(Uilist,paramn)
-    print(smaller_ham)
+    print("Hamiltonian mimic:\n" ,smaller_ham)
     evals, evecs = linalg.eigh(smaller_ham,overlap_matrix)
-    # print("Evals: ",evals)
+    print("Evals circuit mimic: ",evals)
     return evals
     
 

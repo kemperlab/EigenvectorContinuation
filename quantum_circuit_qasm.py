@@ -9,6 +9,8 @@ from hamiltonian import *
 from scipy import linalg
 
 from qiskit.extensions import UnitaryGate
+import qiskit as qk
+from qiskit import IBMQ
 
 
 def get_circuit_unitary_fromVQE(param):
@@ -61,7 +63,28 @@ def get_circuit_list(training_paramlist):
         basis_circuits_list.append(circuiti)
     return basis_circuits_list
 
-def measure_inbasis_circ(circ,N=2,basis="X"):
+def get_backend_layout_shots(L=2,machine="simulator"):
+    
+    if(machine=="simulator"):
+        backend = Aer.get_backend('qasm_simulator')
+        layout =[]
+        for i in range(L+1):
+            layout.append(i)
+        shots=8192
+        layout = [3,6,7]
+    elif(machine=="ibm"):    
+        if(L==2):
+            if IBMQ.active_account() is None:
+                provider = IBMQ.load_account()
+            provider  = IBMQ.get_provider(hub='ibm-q-ncsu', group='nc-state', project='physics-of-spin-')
+            backend = provider.get_backend('ibmq_qasm_simulator')
+            
+            # backend = provider.get_backend('ibmq_santiago')
+            layout = [0,1,2]
+            shots=8192
+    return backend,layout,shots
+
+def measure_inbasis_circ(circ,N=2,basis="X",machine="simulator"):
     q = QuantumRegister(N)
     c = ClassicalRegister(1)
     qc = QuantumCircuit(q,c)
@@ -75,8 +98,14 @@ def measure_inbasis_circ(circ,N=2,basis="X"):
         
     qc.measure(q[0],c[0])
     # print(qc)
-    backend = Aer.get_backend('qasm_simulator')
-    job = execute(qc, backend=backend,shots=8192)
+    # backend = Aer.get_backend('qasm_simulator')
+    backend,layout,shots = get_backend_layout_shots(L=2,machine=machine)
+    # job = execute(qc, backend=backend,shots=shots)
+    transpiled_qc = qk.transpile(qc, backend, initial_layout=layout)      
+    qobj = qk.assemble(transpiled_qc, backend=backend,shots=shots)
+    # print("qobjects created")
+    job=backend.run(qobj)
+    # print("jobs created")
     result = job.result()
     counts = result.get_counts()
     # qobj = execute(qc)
@@ -234,74 +263,165 @@ def get_HXY_bare_ij_fromcircuit( N, pbc,circi,circj):
         hamYY += hamij
 
     return [hamBz,hamBx,hamXX,hamYY]
+##########################
+def make_hamiltonian_contributions_fromQC(basis_circuits_list,N,pbc):
+    base_length = len(basis_circuits_list)
+    
+    Bzmatrix = np.zeros((base_length,base_length),dtype="complex")
+    Bxmatrix = np.zeros((base_length,base_length),dtype="complex")
+    Jmatrix = np.zeros((base_length,base_length),dtype="complex")
+    
+    for i in range(base_length):
+        for j in range(i,base_length):
+            [hamBz,hamBx,hamXX,hamYY] = get_HXY_bare_ij_fromcircuit(N, pbc,circi=basis_circuits_list[i],circj=basis_circuits_list[j])
+            Bxmatrix[i,j] = hamBx
+            Bzmatrix[i,j] = hamBz
+            Jmatrix[i,j] = hamXX+hamYY
+            if(i!= 0):
+                Bxmatrix[j,i] = np.conjugate(Bxmatrix[i,j])
+                Bzmatrix[j,i] = np.conjugate(Bzmatrix[i,j])
+                Jmatrix[j,i] = np.conjugate(Jmatrix[i,j])
+ 
+    return Bzmatrix,Bxmatrix,Jmatrix
+###################################
+# def get_HXY_together_ij_fromcircuit(paramn,circi,circj):
+#     J =paramn["J"]
+#     Bx = paramn["Bx"]
+#     Bz = paramn["Bz"]
+#     N = paramn["N"]
+#     pbc = paramn["pbc"]
+    
+#     [hamBz,hamBx,hamXX,hamYY] = get_HXY_bare_ij_fromcircuit( N, pbc,circi,circj)
+#     # prntlst = [hamBz,hamBx,hamXX,hamYY] 
+#     # print(prntlst)
+#     hamij = Bz*hamBz + Bx*hamBx + J*(hamXX+hamYY)
+    
+#     return hamij
 
-def get_HXY_together_ij_fromcircuit(paramn,circi,circj):
-    J =paramn["J"]
+# def make_target_hamiltonian_fromQC(basis_circuits_list,paramn):
+#     base_length = len(basis_circuits_list)
+#     ham_target = np.identity(base_length,dtype="complex")
+#     for i in range(base_length):
+#         for j in range(i,base_length):
+#             hamij = get_HXY_together_ij_fromcircuit(paramn=paramn,circi=basis_circuits_list[i],circj=basis_circuits_list[j])
+#             ham_target[i,j] = hamij
+#             ham_target[j,i] = np.conjugate(hamij)        
+ 
+#     return ham_target
+########################################
+def make_target_hamiltonian_fromQC(Bzmatrix,Bxmatrix,Jmatrix,paramn):
+    
+    J = paramn["J"]
     Bx = paramn["Bx"]
     Bz = paramn["Bz"]
     N = paramn["N"]
     pbc = paramn["pbc"]
     
-    [hamBz,hamBx,hamXX,hamYY] = get_HXY_bare_ij_fromcircuit( N, pbc,circi,circj)
-    # prntlst = [hamBz,hamBx,hamXX,hamYY] 
-    # print(prntlst)
-    hamij = Bz*hamBz + Bx*hamBx + J*(hamXX+hamYY)
+    base_length = len(Bxmatrix)
     
-    return hamij
-
-def make_target_hamiltonian_fromQC(basis_circuits_list,paramn):
-    base_length = len(basis_circuits_list)
     ham_target = np.identity(base_length,dtype="complex")
     for i in range(base_length):
         for j in range(i,base_length):
-            hamij = get_HXY_together_ij_fromcircuit(paramn=paramn,circi=basis_circuits_list[i],circj=basis_circuits_list[j])
+            hamij = Bz*Bzmatrix[i,j] + Bx*Bxmatrix[i,j] + J*Jmatrix[i,j]
             ham_target[i,j] = hamij
-            ham_target[j,i] = np.conjugate(hamij)        
+            if(i!=j):
+                ham_target[j,i] = np.conjugate(hamij)        
  
     return ham_target
-
-def get_evals_target_ham_qasmcirc(basis_circuits_list,paramn):
-    
+##############################################
+def get_evals_of_target_ham_from_matrices(overlap_matrix,Bzmatrix,Bxmatrix,Jmatrix ,paramn):
     J =paramn["J"]
     Bx = paramn["Bx"]
     Bz = paramn["Bz"]
     N = paramn["N"]
     pbc = paramn["pbc"]
-   
-    overlap_matrix = create_overlap_matrix_fromQC(basis_circuits_list=basis_circuits_list,N=N)
-    
-#     overlap_matrix[0,1] *= -1
-#     overlap_matrix[1,0] *= -1
-#     overlap_matrix[1,2] *= -1
-#     overlap_matrix[2,1] *= -1
-    
-    # print("Overlap:")
-    # print(overlap_matrix)
-    
-    #print(linalg.lu(overlap_matrix))
-    
-    smaller_ham = make_target_hamiltonian_fromQC(basis_circuits_list=basis_circuits_list,paramn=paramn)
-    
-    
-#     smaller_ham[0,1] *= -1
-#     smaller_ham[1,0] *= -1
-#     smaller_ham[1,2] *= -1
-#     smaller_ham[2,1] *= -1
-    
-    # print("Hamiltonian:")
-    # print(smaller_ham)
-    
+  
+    smaller_ham = make_target_hamiltonian_fromQC(Bzmatrix,Bxmatrix,Jmatrix,paramn)
+    print("Hamiltonian qasm:\n", smaller_ham)
     evals, evecs = linalg.eigh(smaller_ham,overlap_matrix)
     # evals, evecs = linalg.eigh(smaller_ham,overlap_matrix,driver="gv")
-    # print("Evals: ",evals)
+    print("Evals qasm: ",evals)
     return evals
+############################################################
+
+# def get_evals_target_ham_qasmcirc(basis_circuits_list,paramn):
+    
+#     J =paramn["J"]
+#     Bx = paramn["Bx"]
+#     Bz = paramn["Bz"]
+#     N = paramn["N"]
+#     pbc = paramn["pbc"]
+   
+#     overlap_matrix = create_overlap_matrix_fromQC(basis_circuits_list=basis_circuits_list,N=N)
+    
+# #     overlap_matrix[0,1] *= -1
+# #     overlap_matrix[1,0] *= -1
+# #     overlap_matrix[1,2] *= -1
+# #     overlap_matrix[2,1] *= -1
+    
+#     # print("Overlap:")
+#     # print(overlap_matrix)
+    
+#     #print(linalg.lu(overlap_matrix))
+    
+#     smaller_ham = make_target_hamiltonian_fromQC(basis_circuits_list=basis_circuits_list,paramn=paramn)
+    
+    
+# #     smaller_ham[0,1] *= -1
+# #     smaller_ham[1,0] *= -1
+# #     smaller_ham[1,2] *= -1
+# #     smaller_ham[2,1] *= -1
+    
+#     # print("Hamiltonian:")
+#     # print(smaller_ham)
+    
+#     evals, evecs = linalg.eigh(smaller_ham,overlap_matrix)
+#     # evals, evecs = linalg.eigh(smaller_ham,overlap_matrix,driver="gv")
+#     # print("Evals: ",evals)
+#     return evals
+
+####################################
+# def get_evals_targetlist_qasmcirc(training_paramlist,target_paramlist ):
+#     evals_qc = np.zeros([len(target_paramlist),len(training_paramlist)],dtype=complex)
+#     basis_circuits_list = get_circuit_list(training_paramlist)
+#     # Uilist = get_training_vectors(training_paramlist)
+#     for ip,paramn in enumerate(target_paramlist):
+#         evals = get_evals_target_ham_qasmcirc(basis_circuits_list,paramn)
+#         for k in range(len(training_paramlist)):
+#                 evals_qc[ip,k] = evals[k]
+#     return evals_qc
+#############################
 
 def get_evals_targetlist_qasmcirc(training_paramlist,target_paramlist ):
     evals_qc = np.zeros([len(target_paramlist),len(training_paramlist)],dtype=complex)
     basis_circuits_list = get_circuit_list(training_paramlist)
+    
+    paramn = target_paramlist[0]
+    N = paramn["N"]
+    pbc = paramn["pbc"]
+    Bx = paramn["Bx"]
+    Bzlist_target=[]
+    for paramn in target_paramlist:
+        Bzlist_target.append(paramn["Bz"])
+        
+    Bzlist_training = []
+    for paramn in training_paramlist:
+        Bzlist_training.append(paramn["Bz"] )
+    tag ="Bx="+str(Bx)+"Bztrain"+str(Bzlist_training)+"Bztarget"+str(Bzlist_target)
+                             
+    overlap_matrix = create_overlap_matrix_fromQC(basis_circuits_list = basis_circuits_list, N = N)
+    print("Overlap matrix qasm:\n", overlap_matrix)
+    np.savetxt('matrix_data/overlap_matrix' + tag + '.txt', overlap_matrix)
+    Bzmatrix,Bxmatrix,Jmatrix = make_hamiltonian_contributions_fromQC(basis_circuits_list = basis_circuits_list, N = N,pbc=pbc)
+    np.savetxt('matrix_data/Bzmatrix'+ tag + '.txt', Bzmatrix)
+    np.savetxt('matrix_data/Bxmatrix'+ tag + '.txt', overlap_matrix)
+    np.savetxt('matrix_data/Jmatrix'+ tag + '.txt', Jmatrix)
+    
     # Uilist = get_training_vectors(training_paramlist)
     for ip,paramn in enumerate(target_paramlist):
-        evals = get_evals_target_ham_qasmcirc(basis_circuits_list,paramn)
+        # evals = get_evals_target_ham_qasmcirc(basis_circuits_list,paramn)
+        # evals = get_evals_target_ham(basis_circuits_list,paramn)
+        evals = get_evals_of_target_ham_from_matrices(overlap_matrix,Bzmatrix,Bxmatrix,Jmatrix ,paramn)
         for k in range(len(training_paramlist)):
                 evals_qc[ip,k] = evals[k]
     return evals_qc

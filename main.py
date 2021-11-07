@@ -139,13 +139,13 @@ if __name__ == '__main__':
     #bork()
 
     J = -1
-    Bx = 0.05
+    Bx = 0.1
     N = 2
     pbc = False
 
     # Set up training parameter sets for eigenvector continuer
     # Bzlist = [0,0.2,0.75]
-    Bzlist = [0,1.2]
+    Bzlist = [0,1.3]
     training_paramlist = [[J,Bx,Bz,N,pbc] for Bz in Bzlist]
     training_paramlist_qc = [{"J":J,"Bx":Bx,"Bz":Bz,"N":N,"pbc":pbc} for Bz in Bzlist]
     
