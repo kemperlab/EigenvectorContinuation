@@ -93,7 +93,7 @@ def get_circuit_unitary_fromVQE(param):
     ansatz = TwoLocal(rotation_blocks='ry', entanglement_blocks='cz')
     slsqp = SLSQP(maxiter=1000)
     spsa = SPSA(maxiter=1000)
-    vqe = VQE(ansatz, optimizer=slsqp, quantum_instance=qi, initial_point=initial)
+    vqe = VQE(ansatz, optimizer=spsa, quantum_instance=qi, initial_point=initial)
     VQEresult = vqe.compute_minimum_eigenvalue(operator=hamiltonian)
     # print("VQE found eigenvalue:",VQEresult.eigenvalue)
     evals, evecs = linalg.eigh(ham)
@@ -294,9 +294,12 @@ def get_evals_target_ham(Uilist,paramn):
 def get_evals_targetlist(training_paramlist,target_paramlist ):
     evals_qc = np.zeros([len(target_paramlist),len(training_paramlist)],dtype=complex)
     Uilist = get_training_vectors(training_paramlist)
+    # print("printing Uilist from mimic")
+    # for u in Uilist:
+    #     print(u)
     for ip,paramn in enumerate(target_paramlist):
         evals = get_evals_target_ham(Uilist,paramn)
         for k in range(len(training_paramlist)):
                 evals_qc[ip,k] = evals[k]
-    return evals_qc
+    return evals_qc,Uilist
 

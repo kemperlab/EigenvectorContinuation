@@ -5,6 +5,7 @@ from qiskit.opflow import I, X, Y, Z
 
 from quantum_circuit_mimic import *
 from quantum_circuit_qasm import *
+from quantum_circuit_qasm_qsearch import *
 
 # pauli_x = np.array([[0,1],[1,0]],dtype=complex)
 # pauli_y = np.array([[0,-1.j],[1.j,0]],dtype=complex)
@@ -179,20 +180,25 @@ if __name__ == '__main__':
     #added_evals = EVcontinuer.get_target_eigenvectors(ortho=True)
     added_evals = EVcontinuer.get_target_eigenvectors(ortho=False)
     print("Eigen values: ",added_evals)
-    circuit_evals = get_evals_targetlist(training_paramlist=training_paramlist_qc,target_paramlist=target_paramlist_qc)
-    qasm_circuit_evals,qasm_circuit_evals_bundle = get_evals_targetlist_qasmcirc(training_paramlist=training_paramlist_qc,target_paramlist=target_paramlist_qc)
-    # [hamBz,hamBx,hamXX,hamYY] = get_HXY_bare_ij_fromcircuit( N, pbc,Ui,Uj)
+    circuit_evals,Uilist = get_evals_targetlist(training_paramlist=training_paramlist_qc,target_paramlist=target_paramlist_qc)
+    # qasm_circuit_evals,qasm_circuit_evals_bundle = get_evals_targetlist_qasmcirc(training_paramlist=training_paramlist_qc,target_paramlist=target_paramlist_qc)
+
+    qsearch_circuit_evals_bundle, backend_name, layout = get_evals_targetlist_qsearchcirc(training_paramlist=training_paramlist_qc, target_paramlist=target_paramlist_qc,Uilist=Uilist)
+
+    qasm_circuit_evals_bundle, backend_name, layout = get_evals_targetlist_qasmcirc(
+        training_paramlist=training_paramlist_qc, target_paramlist=target_paramlist_qc)
     if 'ax' in locals():
         for ip in range(len(training_paramlist)):
             ax.plot(Bzlist,np.real(added_evals[:,ip]),'o',color="b")
             ax.plot(Bzlist,np.real(circuit_evals[:,ip]),'*',color="r")
-            ax.plot(Bzlist,np.real(qasm_circuit_evals[:,ip]),'^',color="g")
+            # ax.plot(Bzlist,np.real(qasm_circuit_evals[:,ip]),'^',color="g")
             ax.plot(Bzlist, np.real(qasm_circuit_evals_bundle[:, ip]), '^', color="k")
+            ax.plot(Bzlist, np.real(qsearch_circuit_evals_bundle[:, ip]), '^', color="g")
         ####################
-    backend_name = "qasm_simulator"
-    layout = [5,3,4]
+    # backend_name = "qasm_simulator"
+    # layout = [5,3,4]
     ###########################
-    figname = "plots/Bx=" + str(Bx) + "Bztrain" + str([0,1.3]) + "Bztarget" + str([1.7]) \
+    figname = "plots/Bx=" + str(Bx) + "Bztrain" + str([0,1.3]) + "Bztarget" + str(Bzlist) \
           + "backend_name=" + backend_name + "layout=" + str(layout) + ".pdf"
     fig.savefig(figname)
     plt.show()
