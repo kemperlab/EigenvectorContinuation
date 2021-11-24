@@ -291,7 +291,7 @@ def get_evals_target_ham(Uilist,paramn):
     return evals
     
 
-def get_evals_targetlist(training_paramlist,target_paramlist ):
+def get_evals_targetlist_mimic(training_paramlist,target_paramlist ):
     evals_qc = np.zeros([len(target_paramlist),len(training_paramlist)],dtype=complex)
     Uilist = get_training_vectors(training_paramlist)
     # print("printing Uilist from mimic")
@@ -301,5 +301,5 @@ def get_evals_targetlist(training_paramlist,target_paramlist ):
         evals = get_evals_target_ham(Uilist,paramn)
         for k in range(len(training_paramlist)):
                 evals_qc[ip,k] = evals[k]
-    return evals_qc,Uilist
+    return evals_qc
 

@@ -4,8 +4,11 @@ from continuers import *
 from qiskit.opflow import I, X, Y, Z
 
 from quantum_circuit_mimic import *
-from quantum_circuit_qasm import *
-from quantum_circuit_qasm_qsearch import *
+# from qasm_bundle_circuit import *
+# from qsearch_bundle_circuit import *
+from qasm_bundle_circuit import *
+from qsearch_bundle_circuit import *
+from qasm_separate_cricuit import *
 
 # pauli_x = np.array([[0,1],[1,0]],dtype=complex)
 # pauli_y = np.array([[0,-1.j],[1.j,0]],dtype=complex)
@@ -146,19 +149,19 @@ if __name__ == '__main__':
 
     # Set up training parameter sets for eigenvector continuer
     # Bzlist = [0,0.2,0.75]
-    Bzlist = [0,1.3]
-    training_paramlist = [[J,Bx,Bz,N,pbc] for Bz in Bzlist]
-    training_paramlist_qc = [{"J":J,"Bx":Bx,"Bz":Bz,"N":N,"pbc":pbc} for Bz in Bzlist]
+    Bzlist_training = [0,1.3]
+    training_paramlist = [[J,Bx,Bz,N,pbc] for Bz in Bzlist_training]
+    training_paramlist_qc = [{"J":J,"Bx":Bx,"Bz":Bz,"N":N,"pbc":pbc} for Bz in Bzlist_training]
     
     if 'ax' in locals():
-        for b in Bzlist:
+        for b in Bzlist_training:
             ax.axvline(b)
 
     # Set up target parameter sets for eigenvector continuer
     # Bzlist = np.linspace(0,2,20)
-    Bzlist = [1.7]
-    target_paramlist = [[J,Bx,Bz,N,pbc] for Bz in Bzlist]
-    target_paramlist_qc = [{"J":J,"Bx":Bx,"Bz":Bz,"N":N,"pbc":pbc} for Bz in Bzlist]
+    Bzlist_target = [1.7]
+    target_paramlist = [[J,Bx,Bz,N,pbc] for Bz in Bzlist_target]
+    target_paramlist_qc = [{"J":J,"Bx":Bx,"Bz":Bz,"N":N,"pbc":pbc} for Bz in Bzlist_target]
 
     # Object that knows how to deal with the various operations needed
     vectorspace = vector_methods(XY_hamiltonian)
@@ -180,25 +183,34 @@ if __name__ == '__main__':
     #added_evals = EVcontinuer.get_target_eigenvectors(ortho=True)
     added_evals = EVcontinuer.get_target_eigenvectors(ortho=False)
     print("Eigen values: ",added_evals)
-    circuit_evals,Uilist = get_evals_targetlist(training_paramlist=training_paramlist_qc,target_paramlist=target_paramlist_qc)
+    mimic_evals = get_evals_targetlist_mimic(training_paramlist=training_paramlist_qc,target_paramlist=target_paramlist_qc)
+
+    ##########
+    backend_name = "qasm_simulator"
+    layout = [5,3,4]
+    shots=8192
+    ##########
     # qasm_circuit_evals,qasm_circuit_evals_bundle = get_evals_targetlist_qasmcirc(training_paramlist=training_paramlist_qc,target_paramlist=target_paramlist_qc)
+    qasm_circuit_evals_separate =  get_evals_targetlist_qasmcirc_sepaate\
+        ( training_paramlist=training_paramlist_qc, target_paramlist=target_paramlist_qc,backend_name=backend_name,layout=layout,shots=shots)
 
-    qsearch_circuit_evals_bundle, backend_name, layout = get_evals_targetlist_qsearchcirc(training_paramlist=training_paramlist_qc, target_paramlist=target_paramlist_qc,Uilist=Uilist)
+    qsearch_circuit_evals_bundle = get_evals_targetlist_qsearchcirc\
+        (training_paramlist=training_paramlist_qc, target_paramlist=target_paramlist_qc,backend_name=backend_name,layout=layout,shots=shots)
 
-    qasm_circuit_evals_bundle, backend_name, layout = get_evals_targetlist_qasmcirc(
-        training_paramlist=training_paramlist_qc, target_paramlist=target_paramlist_qc)
+    qasm_circuit_evals_bundle = get_evals_targetlist_qasmcirc(
+        training_paramlist=training_paramlist_qc, target_paramlist=target_paramlist_qc,backend_name=backend_name,layout=layout,shots=shots)
     if 'ax' in locals():
         for ip in range(len(training_paramlist)):
-            ax.plot(Bzlist,np.real(added_evals[:,ip]),'o',color="b")
-            ax.plot(Bzlist,np.real(circuit_evals[:,ip]),'*',color="r")
+            ax.plot(Bzlist_target,np.real(added_evals[:,ip]),'o',color="b")
+            ax.plot(Bzlist_target,np.real(mimic_evals[:,ip]),'*',color="r")
             # ax.plot(Bzlist,np.real(qasm_circuit_evals[:,ip]),'^',color="g")
-            ax.plot(Bzlist, np.real(qasm_circuit_evals_bundle[:, ip]), '^', color="k")
-            ax.plot(Bzlist, np.real(qsearch_circuit_evals_bundle[:, ip]), '^', color="g")
+            ax.plot(Bzlist_target, np.real(qasm_circuit_evals_separate[:, ip]), 's', color="orange")
+            ax.plot(Bzlist_target, np.real(qasm_circuit_evals_bundle[:, ip]), '^', color="k")
+            ax.plot(Bzlist_target, np.real(qsearch_circuit_evals_bundle[:, ip]), '^', color="g")
         ####################
-    # backend_name = "qasm_simulator"
-    # layout = [5,3,4]
+
     ###########################
-    figname = "plots/Bx=" + str(Bx) + "Bztrain" + str([0,1.3]) + "Bztarget" + str(Bzlist) \
+    figname = "plots/Bx=" + str(Bx) + "Bztrain" + str(Bzlist_training) + "Bztarget" + str(Bzlist_target) \
           + "backend_name=" + backend_name + "layout=" + str(layout) + ".pdf"
     fig.savefig(figname)
     plt.show()

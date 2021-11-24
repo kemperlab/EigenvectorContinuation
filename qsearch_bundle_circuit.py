@@ -15,54 +15,7 @@ from qiskit.extensions import UnitaryGate
 import qiskit as qk
 from qiskit import IBMQ
 from qiskit.ignis.mitigation.measurement import complete_meas_cal, CompleteMeasFitter
-
-###################################
-# given the parameters this function gets the VQE circuit and Unitary
-# def get_circuit_unitary_fromVQE(param):
-#
-#     J = param["J"]
-#     Bx = param["Bx"]
-#     Bz= param["Bz"]
-#     pbc =param["pbc"]
-#     N = param["N"]
-#
-#     # this hamiltonian needs to be written in using pauli strings later
-#     ham = XY_hamiltonian(J, Bx, Bz, N, pbc)
-#     hamiltonian = J*((X^X) + (Y^Y)) + Bz*((I^Z) + (Z^I)) + Bx*((I^X) + (X^I))
-#     # print(ham)
-#     # print(hamiltonian)
-#     # print(type(hamiltonian))
-#     initial = [ 4.13850621,  4.68105177,  0.10459295,  5.19511699, -3.60948918, 2.08480452, -3.83679895,  1.9264198 ]
-#     #initial = None
-#
-#     seed = 50
-#     algorithm_globals.random_seed = seed
-#     qi = QuantumInstance(Aer.get_backend('statevector_simulator'), seed_transpiler=seed, seed_simulator=seed)
-#
-#     ansatz = TwoLocal(rotation_blocks='ry', entanglement_blocks='cz')
-#     slsqp = SLSQP(maxiter=1000)
-#     spsa = SPSA(maxiter=1000)
-#
-#     vqe = VQE(ansatz, optimizer=spsa, quantum_instance=qi, initial_point=initial)
-#
-#     # VQEresult = vqe.compute_minimum_eigenvalue(operator=hamiltonian)
-#     # print("VQE found eigenvalue:",VQEresult.eigenvalue)
-#     # evals, evecs = linalg.eigh(ham)
-#     # print("I expected:",evals[0])
-#     print("is it working?")
-#     cc = vqe.get_optimal_circuit()
-#     print("yes it is")
-#     backend = Aer.get_backend('unitary_simulator')
-#     qc = QuantumCircuit(2)
-#     qc.compose(cc,inplace=True)
-#     #print(qc.decompose().draw())
-#     job = execute(qc, backend=backend)
-#     result = job.result()
-#
-#     U = result.get_unitary(qc)
-#
-#     return cc,U
-###############################
+######################################################
 def get_circuit_unitary_fromVQE(param):
     J = param["J"]
     Bx = param["Bx"]
@@ -115,8 +68,7 @@ def get_basis_list(training_paramlist):
         basis_unitaries_list.append(Unitaryi)
 
     return basis_circuits_list,basis_unitaries_list
-
-##############################
+######################################################
 # This function gets the simulator either Aer qasm or ibmq ones
 def get_backend(backend_name="qasm_simulator"):
     if(backend_name=="qasm_simulator"):
@@ -128,46 +80,7 @@ def get_backend(backend_name="qasm_simulator"):
         backend = provider.get_backend(backend_name)
 
     return backend
-
-# given the circ this func attaches the basis rotation gate and returns the average m value
-# not used while bundling circuit
-# def measure_inbasis_circ(circ,N=2,basis="X",backend_name="qasm_simulator",layout=[0,1,2],shots=8192):
-#     q = QuantumRegister(N)
-#     c = ClassicalRegister(1)
-#     qc = QuantumCircuit(q,c)
-#     # print(circ)
-#     qc.compose(circ,inplace=True)
-#
-#     if(basis=="X"):
-#         qc.h(q[0])
-#     elif(basis=="Y"):
-#         qc.rx(-np.pi/2,q[0])
-#
-#     qc.measure(q[0],c[0])
-#     # print(qc)
-#     # backend = Aer.get_backend('qasm_simulator')
-#     backend = get_backend(backend_name=backend_name)
-#     # job = execute(qc, backend=backend,shots=shots)
-#     transpiled_qc = qk.transpile(qc, backend, initial_layout=layout)
-#     qobj = qk.assemble(transpiled_qc, backend=backend,shots=shots)
-#     # print("qobjects created")
-#     job=backend.run(qobj)
-#     # print("jobs created")
-#     result = job.result()
-#     counts = result.get_counts()
-#     # qobj = execute(qc)
-#
-#
-#     try:
-#         p = (counts['0'] -counts['1'])/(counts['0'] + counts['1'])
-#     except:
-#         try:
-#             p = counts['0']/counts['0']
-#         except:
-#             p = -1
-#
-#     return p
-######################################################
+#########################################################
 # given the circ this func attaches the basis rotation gate and returns the circuit
 def make_measure_inbasis_circ(circ, N=2, basis="X"):
     q = QuantumRegister(N)
@@ -181,31 +94,8 @@ def make_measure_inbasis_circ(circ, N=2, basis="X"):
     elif (basis == "Y"):
         qc.rx(-np.pi / 2, q[0])
     qc.measure(q[0], c[0])
-
-    # if (basis == "X"):
-    #     qc.h(q[N-1])
-    # elif (basis == "Y"):
-    #     qc.rx(-np.pi / 2, q[N-1])
-    # qc.measure(q[N-1], c[0])
-
     return qc
-#############################################
-# # given the result it returns the average m value
-# def get_p_from_result(result):
-#
-#     counts = result.get_counts()
-#
-#     try:
-#         p = (counts['0'] - counts['1']) / (counts['0'] + counts['1'])
-#     except:
-#         try:
-#             p = counts['0'] / counts['0']
-#         except:
-#             p = -1
-#
-#     return p
-########################################
-#
+##################################################################
 # given the counts it returns the average m value
 def get_p_from_counts(counts):
 
@@ -218,14 +108,6 @@ def get_p_from_counts(counts):
             p = -1
 
     return p
-###########################################
-# given the circ this func calls the basis rotation func and returns the off diagonal value
-# # not used while bundling circuit
-# def measure_real_imaginary_from_circ(circ,N=2,backend_name="qasm_simulator",layout=[0,1,2],shots=8192):
-#     px = measure_inbasis_circ(circ=circ,N=N,basis="X",backend_name=backend_name,layout=layout,shots=shots)
-#     py = measure_inbasis_circ(circ=circ,N=N,basis="Y",backend_name=backend_name,layout=layout,shots=shots)
-#     # py=0.0
-#     return px + 1.j*py
 ###########################
 
 # given the two basis circuits this returns the dot product circuit with control qubit
@@ -711,20 +593,20 @@ def unpackplist(plist,N,pbc,basis_length):
     return overlap_matrix,Bzmatrix, Bxmatrix, Jmatrix
 #############################################
 
-def get_evals_targetlist_qsearchcirc(training_paramlist,target_paramlist,Uilist ):
+def get_evals_targetlist_qsearchcirc(training_paramlist,target_paramlist,backend_name,layout,shots=8192 ):
     ####################   input QC ##################
-    backend_name = "qasm_simulator"
-    layout = [0,1,2]
+    # backend_name = "qasm_simulator"
+    # layout = [0,1,2]
 
     # backend_name = "ibmq_jakarta"
     # layout = [5,3,4]
     # backend_name = "ibmq_manila"
     # layout = [2, 3, 4]
-
-    shots = 8192
+    optimizationlevel = 3
+    # shots = 8192
     ########################### input over #######################
 
-    # ###### getting basis circuit list
+    ################ getting basis circuit list  #######################
     evals_qc = np.zeros([len(target_paramlist),len(training_paramlist)],dtype=complex)
     basis_circuits_list,basis_unitaries_list = get_basis_list(training_paramlist = training_paramlist)
     #
@@ -743,10 +625,12 @@ def get_evals_targetlist_qsearchcirc(training_paramlist,target_paramlist,Uilist 
     Bzlist_training = []
     for paramn in training_paramlist:
         Bzlist_training.append(paramn["Bz"] )
-    tag ="Bx="+str(Bx)+"Bztrain"+str(Bzlist_training)+"Bztarget"+str(Bzlist_target)\
-         +"backend_name="+backend_name +"layout=" + str(layout)
+    # tag ="Bx="+str(Bx)+"Bztrain"+str(Bzlist_training)+"Bztarget"+str(Bzlist_target)\
+    #      +"backend_name="+backend_name +"layout=" + str(layout)
     #
     # pickle.dump(basis_circuits_list, open("matrix_data/basis_circuits_list"+tag+".p", "wb"))
+    filename = "matrix_data/basis_circuits_list" + "Bx="+str(Bx)+"Bztrain"+str(Bzlist_training)+"Bztarget"+str(Bzlist_target) + "from_sc_bundle.p"
+    pickle.dump(basis_circuits_list, open(filename, "wb"))
 
     ############## Lets try the bundling method here ##################
 
@@ -755,8 +639,9 @@ def get_evals_targetlist_qsearchcirc(training_paramlist,target_paramlist,Uilist 
     print("basis_unitaries_list after circuits", basis_unitaries_list)
     # print the bundle list
     # print( qc_bundlelist)
-    optimizationlevel=0
-    filename = "circuits/transpiled_test"+"opt="+str(optimizationlevel)+".p"
+
+    filename = "circuits/sc_trans"+"Bx="+str(Bx)+"Bztrain"+str(Bzlist_training)+"Bztarget"+str(Bzlist_target)\
+         +"backend_name="+backend_name +"layout=" + str(layout)+"opt="+str(optimizationlevel)+".p"
     backend = get_backend(backend_name=backend_name)
     transpiled_bundlelist = qk.transpile(circuits=qc_bundlelist,backend=backend,initial_layout=layout,optimization_level=optimizationlevel)
 
@@ -768,27 +653,39 @@ def get_evals_targetlist_qsearchcirc(training_paramlist,target_paramlist,Uilist 
     results = job.result()
     # allresults = results.results
     allcounts = results.get_counts()
-    # # read out error mitigation
-    # qr = QuantumRegister(1)
-    # meas_calibs, state_labels = complete_meas_cal(qr=qr, circlabel='mcal')
-    # # make sure it is layout[0]
-    # t_qc_calibs = qk.transpile(meas_calibs, backend=backend,initial_layout=[layout[0]])
-    # qobj_calibs = qk.assemble(t_qc_calibs,backend=backend, shots=shots)
-    # job_calibs = backend.run(qobj_calibs)
-    # calib_results = job_calibs.result()
-    #
-    # meas_fitter = CompleteMeasFitter(calib_results, state_labels, circlabel='mcal')
-    # meas_filter = meas_fitter.filter
-    # print("calibration matrix : ")
-    # print(meas_fitter.cal_matrix)
-    # mitigated_results = meas_filter.apply(results)
-    # mitigated_counts = mitigated_results.get_counts()
+    # read out error mitigation
+    qr = QuantumRegister(1)
+    meas_calibs, state_labels = complete_meas_cal(qr=qr, circlabel='mcal')
+    # make sure it is layout[0]
+    t_qc_calibs = qk.transpile(meas_calibs, backend=backend,initial_layout=[layout[0]])
+    qobj_calibs = qk.assemble(t_qc_calibs,backend=backend, shots=shots)
+    job_calibs = backend.run(qobj_calibs)
+    calib_results = job_calibs.result()
+
+    meas_fitter = CompleteMeasFitter(calib_results, state_labels, circlabel='mcal')
+    meas_filter = meas_fitter.filter
+    print("calibration matrix : ")
+    print(meas_fitter.cal_matrix)
+    mitigated_results = meas_filter.apply(results)
+    mitigated_counts = mitigated_results.get_counts()
+    ########## saving results  ##############
+    filename = "circuits/sc_results" + "Bx=" + str(Bx) + "Bztrain" + str(Bzlist_training) + "Bztarget" + str(
+        Bzlist_target) \
+               + "backend_name=" + backend_name + "layout=" + str(layout) + "opt=" + str(optimizationlevel) + ".p"
 
 
+    pickle.dump(mitigated_results, open(filename, "wb"))
+
+    filename = "circuits/sc_counts" + "Bx=" + str(Bx) + "Bztrain" + str(Bzlist_training) + "Bztarget" + str(
+        Bzlist_target) \
+               + "backend_name=" + backend_name + "layout=" + str(layout) + "opt=" + str(optimizationlevel) + ".p"
+
+    pickle.dump(mitigated_counts , open(filename, "wb"))
+##################### saving over ################3
     plist = []
     for i in range(len(transpiled_bundlelist)):
-        # p = get_p_from_counts(counts=mitigated_counts[i])
-        p = get_p_from_counts(counts=allcounts[i])
+        p = get_p_from_counts(counts=mitigated_counts[i])
+        # p = get_p_from_counts(counts=allcounts[i])
         plist.append(p)
 
     # p_overlap = plist[0] + 1.j * plist[1]
@@ -799,12 +696,15 @@ def get_evals_targetlist_qsearchcirc(training_paramlist,target_paramlist,Uilist 
     #     unpackplist(plist=plist, N=N, pbc=pbc, basis_length=basis_length)
     overlap_matrix_bundle, Bzmatrix_bundle, Bxmatrix_bundle, Jmatrix_bundle = \
         unpackplist(plist=plist, N=N, pbc=pbc, basis_length=basis_length)
-    print("Overlap matrix_bundle qsearch:\n", overlap_matrix_bundle)
-    np.savetxt('matrix_data/overlap_matrix_bundle' + tag + '.txt', overlap_matrix_bundle)
 
-    np.savetxt('matrix_data/Bxmatrix_bundle' + tag + '.txt', overlap_matrix_bundle)
-    np.savetxt('matrix_data/Bzmatrix_bundle' + tag + '.txt', Bzmatrix_bundle)
-    np.savetxt('matrix_data/Jmatrix_bundle' + tag + '.txt', Jmatrix_bundle)
+    tag = "Bx=" + str(Bx) + "Bztrain" + str(Bzlist_training) + "Bztarget" + str(Bzlist_target)+ \
+          "backend_name=" + backend_name + "layout=" + str(layout) + "opt=" + str(optimizationlevel)
+    print("Overlap matrix_bundle qsearch:\n", overlap_matrix_bundle)
+    np.savetxt('matrix_data/overlap_matrix_bundle_sc' + tag + '.txt', overlap_matrix_bundle)
+
+    np.savetxt('matrix_data/Bxmatrix_bundle_sc' + tag + '.txt', overlap_matrix_bundle)
+    np.savetxt('matrix_data/Bzmatrix_bundle_sc' + tag + '.txt', Bzmatrix_bundle)
+    np.savetxt('matrix_data/Jmatrix_bundle_sc' + tag + '.txt', Jmatrix_bundle)
     print("Bzmatrix_bundle qsearch:\n", Bzmatrix_bundle)
     print("Bxmatrix_bundle qsearch:\n", Bxmatrix_bundle)
     print("Jmatrix_bundle qsearch:\n", Jmatrix_bundle)
@@ -820,32 +720,9 @@ def get_evals_targetlist_qsearchcirc(training_paramlist,target_paramlist,Uilist 
 
     ##################### bundling over ################
 
-    # ############### separate circuits begin
-    #
-    # overlap_matrix = create_overlap_matrix_fromQC(basis_circuits_list = basis_circuits_list, N = N,backend_name=backend_name,layout=layout,shots=shots)
-    # print("Overlap matrix qasm:\n", overlap_matrix)
-    # np.savetxt('matrix_data/overlap_matrix' + tag + '.txt', overlap_matrix)
-    # Bzmatrix,Bxmatrix,Jmatrix = make_hamiltonian_contributions_fromQC(basis_circuits_list = basis_circuits_list, N = N,pbc=pbc,backend_name=backend_name,layout=layout,shots=shots)
-    # np.savetxt('matrix_data/Bzmatrix'+ tag + '.txt', Bzmatrix)
-    # np.savetxt('matrix_data/Bxmatrix'+ tag + '.txt', overlap_matrix)
-    # np.savetxt('matrix_data/Jmatrix'+ tag + '.txt', Jmatrix)
-    # print("Bzmatrix qasm:\n", Bzmatrix)
-    # print("Bxmatrix qasm:\n", Bxmatrix)
-    # print("Jmatrix qasm:\n", Jmatrix)
-    #
-    #
-    # # Uilist = get_training_vectors(training_paramlist)
-    # for ip,paramn in enumerate(target_paramlist):
-    #     # evals = get_evals_target_ham_qasmcirc(basis_circuits_list,paramn)
-    #     # evals = get_evals_target_ham(basis_circuits_list,paramn)
-    #     evals,evecs = get_evals_of_target_ham_from_matrices(overlap_matrix,Bzmatrix,Bxmatrix,Jmatrix ,paramn)
-    #     for k in range(len(training_paramlist)):
-    #             evals_qc[ip,k] = evals[k]
-
-    ############### separate circuits setting over
 
     # return evals_qc,evals_qc_bundle
-    return evals_qc_bundle,backend_name,layout
+    return evals_qc_bundle
 
 #
 # def get_evals_targetlist_qasmcirc(training_paramlist, target_paramlist):
