@@ -349,7 +349,7 @@ def main():
 #           unsure: do I take some new Bz values, calculate the ham, then do the sandwich to get
 #           the subspace ham?
 
-# START ^
+# START ^ [TEST]
 
 if __name__ == "__main__":
     main()
