@@ -1,0 +1,1219 @@
+[-1, 0.5, 0.5, 2, False]
+Adding vector for parameter set [-1, 0.5, 0.5, 2, False]
+[-1, 0.5, 1.9, 2, False]
+Adding vector for parameter set [-1, 0.5, 1.9, 2, False]
+
+basis continuer:
+[ 0.18030122+0.j -0.62766357+0.j -0.62766357+0.j  0.42375506+0.j]
+[-0.03016916+0.j  0.23687401+0.j  0.23687401+0.j -0.94173841+0.j]
+overlap_matrix_continuer:
+  [[ 1.        +0.j -0.70186033+0.j]
+ [-0.70186033-0.j  1.        +0.j]]
+Hamiltonian_continuer:
+  [[-2.54001823+0.j  1.89890259+0.j]
+ [ 1.89890259-0.j -1.92522195+0.j]]
+fullvec
+[-0.16515629+0.j  0.59430659+0.j  0.59430659+0.j -0.51606469+0.j]
+overlap_matrix_continuer:
+  [[ 1.        +0.j -0.70186033+0.j]
+ [-0.70186033-0.j  1.        +0.j]]
+Hamiltonian_continuer:
+  [[-2.86354983+0.j  2.76488172+0.j]
+ [ 2.76488172-0.j -3.87433625+0.j]]
+fullvec
+[-0.03690276+0.j  0.25633092+0.j  0.25633092+0.j -0.93125029+0.j]
+Eigen values_continuer:  [[-2.55717413+0.j -0.98980947+0.j]
+ [-3.87627234+0.j -1.75401756+0.j]]
+basis_unitaries_list before circuits [array([[ 0.18030122+0.j,  0.        -0.j,  0.        -0.j,
+        -0.98361144-0.j],
+       [-0.62766357+0.j, -0.63812146-0.j,  0.4308155 -0.j,
+        -0.11505408-0.j],
+       [-0.62766357+0.j,  0.75142319-0.j,  0.16782188-0.j,
+        -0.11505408-0.j],
+       [ 0.42375506+0.j,  0.16782188-0.j,  0.88669827-0.j,
+         0.07767656-0.j]]), array([[-0.03016916+0.j,  0.        -0.j,  0.        -0.j,
+        -0.99954481-0.j],
+       [ 0.23687401+0.j, -0.23698189-0.j,  0.94216727-0.j,
+        -0.00714954-0.j],
+       [ 0.23687401+0.j,  0.95459884-0.j,  0.18050109-0.j,
+        -0.00714954-0.j],
+       [-0.94173841+0.j,  0.18050109-0.j,  0.28238305-0.j,
+         0.02842439-0.j]])]
+(8, 8)
+[[ 0.70710678+0.j  0.        +0.j  0.        +0.j  0.        +0.j
+   0.70710678+0.j  0.        +0.j  0.        +0.j  0.        +0.j]
+ [ 0.        +0.j  0.70710678+0.j  0.        +0.j  0.        +0.j
+   0.        +0.j  0.70710678+0.j  0.        +0.j  0.        +0.j]
+ [ 0.        +0.j  0.        +0.j  0.70710678+0.j  0.        +0.j
+   0.        +0.j  0.        +0.j  0.70710678+0.j  0.        +0.j]
+ [ 0.        +0.j  0.        +0.j  0.        +0.j  0.70710678+0.j
+   0.        +0.j  0.        +0.j  0.        +0.j  0.70710678+0.j]
+ [ 0.70710678+0.j  0.        +0.j  0.        +0.j  0.        +0.j
+  -0.70710678+0.j -0.        +0.j -0.        +0.j -0.        +0.j]
+ [ 0.        +0.j  0.70710678+0.j  0.        +0.j  0.        +0.j
+  -0.        +0.j -0.70710678+0.j -0.        +0.j -0.        +0.j]
+ [ 0.        +0.j  0.        +0.j  0.70710678+0.j  0.        +0.j
+  -0.        +0.j -0.        +0.j -0.70710678+0.j -0.        +0.j]
+ [ 0.        +0.j  0.        +0.j  0.        +0.j  0.70710678+0.j
+  -0.        +0.j -0.        +0.j -0.        +0.j -0.70710678+0.j]]
+(8, 8)
+Successfully loaded project project_dir2siteBx=0.5Bztrain[0.5, 1.9]
+Phi01	Complete!
+PauliZ000	Complete!
+PauliX000	Complete!
+PauliX0X100	Complete!
+PauliY0Y100	Complete!
+PauliZ100	Complete!
+PauliX100	Complete!
+PauliZ001	Complete!
+PauliX001	Complete!
+PauliX0X101	Complete!
+PauliY0Y101	Complete!
+PauliZ101	Complete!
+PauliX101	Complete!
+PauliZ011	Complete!
+PauliX011	Complete!
+PauliX0X111	Complete!
+PauliY0Y111	Complete!
+PauliZ111	Complete!
+PauliX111	Complete!
+Started running project project_dir2siteBx=0.5Bztrain[0.5, 1.9]
+Phi01	Complete!
+PauliZ000	Complete!
+PauliX000	Complete!
+PauliX0X100	Complete!
+PauliY0Y100	Complete!
+PauliZ100	Complete!
+PauliX100	Complete!
+PauliZ001	Complete!
+PauliX001	Complete!
+PauliX0X101	Complete!
+PauliY0Y101	Complete!
+PauliZ101	Complete!
+PauliX101	Complete!
+PauliZ011	Complete!
+PauliX011	Complete!
+PauliX0X111	Complete!
+PauliY0Y111	Complete!
+PauliZ111	Complete!
+PauliX111	Complete!
+Finished running project project_dir2siteBx=0.5Bztrain[0.5, 1.9]
+Successfully loaded project project_dir2siteBx=0.5Bztrain[0.5, 1.9]
+Phi01	Complete!
+PauliZ000	Complete!
+PauliX000	Complete!
+PauliX0X100	Complete!
+PauliY0Y100	Complete!
+PauliZ100	Complete!
+PauliX100	Complete!
+PauliZ001	Complete!
+PauliX001	Complete!
+PauliX0X101	Complete!
+PauliY0Y101	Complete!
+PauliZ101	Complete!
+PauliX101	Complete!
+PauliZ011	Complete!
+PauliX011	Complete!
+PauliX0X111	Complete!
+PauliY0Y111	Complete!
+PauliZ111	Complete!
+PauliX111	Complete!
+Started running project project_dir2siteBx=0.5Bztrain[0.5, 1.9]
+Phi01	Complete!
+PauliZ000	Complete!
+PauliX000	Complete!
+PauliX0X100	Complete!
+PauliY0Y100	Complete!
+PauliZ100	Complete!
+PauliX100	Complete!
+PauliZ001	Complete!
+PauliX001	Complete!
+PauliX0X101	Complete!
+PauliY0Y101	Complete!
+PauliZ101	Complete!
+PauliX101	Complete!
+PauliZ011	Complete!
+PauliX011	Complete!
+PauliX0X111	Complete!
+PauliY0Y111	Complete!
+PauliZ111	Complete!
+PauliX111	Complete!
+Finished running project project_dir2siteBx=0.5Bztrain[0.5, 1.9]
+Successfully loaded project project_dir2siteBx=0.5Bztrain[0.5, 1.9]
+Phi01	Complete!
+PauliZ000	Complete!
+PauliX000	Complete!
+PauliX0X100	Complete!
+PauliY0Y100	Complete!
+PauliZ100	Complete!
+PauliX100	Complete!
+PauliZ001	Complete!
+PauliX001	Complete!
+PauliX0X101	Complete!
+PauliY0Y101	Complete!
+PauliZ101	Complete!
+PauliX101	Complete!
+PauliZ011	Complete!
+PauliX011	Complete!
+PauliX0X111	Complete!
+PauliY0Y111	Complete!
+PauliZ111	Complete!
+PauliX111	Complete!
+Started running project project_dir2siteBx=0.5Bztrain[0.5, 1.9]
+Phi01	Complete!
+PauliZ000	Complete!
+PauliX000	Complete!
+PauliX0X100	Complete!
+PauliY0Y100	Complete!
+PauliZ100	Complete!
+PauliX100	Complete!
+PauliZ001	Complete!
+PauliX001	Complete!
+PauliX0X101	Complete!
+PauliY0Y101	Complete!
+PauliZ101	Complete!
+PauliX101	Complete!
+PauliZ011	Complete!
+PauliX011	Complete!
+PauliX0X111	Complete!
+PauliY0Y111	Complete!
+PauliZ111	Complete!
+PauliX111	Complete!
+Finished running project project_dir2siteBx=0.5Bztrain[0.5, 1.9]
+Successfully loaded project project_dir2siteBx=0.5Bztrain[0.5, 1.9]
+Phi01	Complete!
+PauliZ000	Complete!
+PauliX000	Complete!
+PauliX0X100	Complete!
+PauliY0Y100	Complete!
+PauliZ100	Complete!
+PauliX100	Complete!
+PauliZ001	Complete!
+PauliX001	Complete!
+PauliX0X101	Complete!
+PauliY0Y101	Complete!
+PauliZ101	Complete!
+PauliX101	Complete!
+PauliZ011	Complete!
+PauliX011	Complete!
+PauliX0X111	Complete!
+PauliY0Y111	Complete!
+PauliZ111	Complete!
+PauliX111	Complete!
+Started running project project_dir2siteBx=0.5Bztrain[0.5, 1.9]
+Phi01	Complete!
+PauliZ000	Complete!
+PauliX000	Complete!
+PauliX0X100	Complete!
+PauliY0Y100	Complete!
+PauliZ100	Complete!
+PauliX100	Complete!
+PauliZ001	Complete!
+PauliX001	Complete!
+PauliX0X101	Complete!
+PauliY0Y101	Complete!
+PauliZ101	Complete!
+PauliX101	Complete!
+PauliZ011	Complete!
+PauliX011	Complete!
+PauliX0X111	Complete!
+PauliY0Y111	Complete!
+PauliZ111	Complete!
+PauliX111	Complete!
+Finished running project project_dir2siteBx=0.5Bztrain[0.5, 1.9]
+Successfully loaded project project_dir2siteBx=0.5Bztrain[0.5, 1.9]
+Phi01	Complete!
+PauliZ000	Complete!
+PauliX000	Complete!
+PauliX0X100	Complete!
+PauliY0Y100	Complete!
+PauliZ100	Complete!
+PauliX100	Complete!
+PauliZ001	Complete!
+PauliX001	Complete!
+PauliX0X101	Complete!
+PauliY0Y101	Complete!
+PauliZ101	Complete!
+PauliX101	Complete!
+PauliZ011	Complete!
+PauliX011	Complete!
+PauliX0X111	Complete!
+PauliY0Y111	Complete!
+PauliZ111	Complete!
+PauliX111	Complete!
+Started running project project_dir2siteBx=0.5Bztrain[0.5, 1.9]
+Phi01	Complete!
+PauliZ000	Complete!
+PauliX000	Complete!
+PauliX0X100	Complete!
+PauliY0Y100	Complete!
+PauliZ100	Complete!
+PauliX100	Complete!
+PauliZ001	Complete!
+PauliX001	Complete!
+PauliX0X101	Complete!
+PauliY0Y101	Complete!
+PauliZ101	Complete!
+PauliX101	Complete!
+PauliZ011	Complete!
+PauliX011	Complete!
+PauliX0X111	Complete!
+PauliY0Y111	Complete!
+PauliZ111	Complete!
+PauliX111	Complete!
+Finished running project project_dir2siteBx=0.5Bztrain[0.5, 1.9]
+Successfully loaded project project_dir2siteBx=0.5Bztrain[0.5, 1.9]
+Phi01	Complete!
+PauliZ000	Complete!
+PauliX000	Complete!
+PauliX0X100	Complete!
+PauliY0Y100	Complete!
+PauliZ100	Complete!
+PauliX100	Complete!
+PauliZ001	Complete!
+PauliX001	Complete!
+PauliX0X101	Complete!
+PauliY0Y101	Complete!
+PauliZ101	Complete!
+PauliX101	Complete!
+PauliZ011	Complete!
+PauliX011	Complete!
+PauliX0X111	Complete!
+PauliY0Y111	Complete!
+PauliZ111	Complete!
+PauliX111	Complete!
+Started running project project_dir2siteBx=0.5Bztrain[0.5, 1.9]
+Phi01	Complete!
+PauliZ000	Complete!
+PauliX000	Complete!
+PauliX0X100	Complete!
+PauliY0Y100	Complete!
+PauliZ100	Complete!
+PauliX100	Complete!
+PauliZ001	Complete!
+PauliX001	Complete!
+PauliX0X101	Complete!
+PauliY0Y101	Complete!
+PauliZ101	Complete!
+PauliX101	Complete!
+PauliZ011	Complete!
+PauliX011	Complete!
+PauliX0X111	Complete!
+PauliY0Y111	Complete!
+PauliZ111	Complete!
+PauliX111	Complete!
+Finished running project project_dir2siteBx=0.5Bztrain[0.5, 1.9]
+Successfully loaded project project_dir2siteBx=0.5Bztrain[0.5, 1.9]
+Phi01	Complete!
+PauliZ000	Complete!
+PauliX000	Complete!
+PauliX0X100	Complete!
+PauliY0Y100	Complete!
+PauliZ100	Complete!
+PauliX100	Complete!
+PauliZ001	Complete!
+PauliX001	Complete!
+PauliX0X101	Complete!
+PauliY0Y101	Complete!
+PauliZ101	Complete!
+PauliX101	Complete!
+PauliZ011	Complete!
+PauliX011	Complete!
+PauliX0X111	Complete!
+PauliY0Y111	Complete!
+PauliZ111	Complete!
+PauliX111	Complete!
+Started running project project_dir2siteBx=0.5Bztrain[0.5, 1.9]
+Phi01	Complete!
+PauliZ000	Complete!
+PauliX000	Complete!
+PauliX0X100	Complete!
+PauliY0Y100	Complete!
+PauliZ100	Complete!
+PauliX100	Complete!
+PauliZ001	Complete!
+PauliX001	Complete!
+PauliX0X101	Complete!
+PauliY0Y101	Complete!
+PauliZ101	Complete!
+PauliX101	Complete!
+PauliZ011	Complete!
+PauliX011	Complete!
+PauliX0X111	Complete!
+PauliY0Y111	Complete!
+PauliZ111	Complete!
+PauliX111	Complete!
+Finished running project project_dir2siteBx=0.5Bztrain[0.5, 1.9]
+Successfully loaded project project_dir2siteBx=0.5Bztrain[0.5, 1.9]
+Phi01	Complete!
+PauliZ000	Complete!
+PauliX000	Complete!
+PauliX0X100	Complete!
+PauliY0Y100	Complete!
+PauliZ100	Complete!
+PauliX100	Complete!
+PauliZ001	Complete!
+PauliX001	Complete!
+PauliX0X101	Complete!
+PauliY0Y101	Complete!
+PauliZ101	Complete!
+PauliX101	Complete!
+PauliZ011	Complete!
+PauliX011	Complete!
+PauliX0X111	Complete!
+PauliY0Y111	Complete!
+PauliZ111	Complete!
+PauliX111	Complete!
+Started running project project_dir2siteBx=0.5Bztrain[0.5, 1.9]
+Phi01	Complete!
+PauliZ000	Complete!
+PauliX000	Complete!
+PauliX0X100	Complete!
+PauliY0Y100	Complete!
+PauliZ100	Complete!
+PauliX100	Complete!
+PauliZ001	Complete!
+PauliX001	Complete!
+PauliX0X101	Complete!
+PauliY0Y101	Complete!
+PauliZ101	Complete!
+PauliX101	Complete!
+PauliZ011	Complete!
+PauliX011	Complete!
+PauliX0X111	Complete!
+PauliY0Y111	Complete!
+PauliZ111	Complete!
+PauliX111	Complete!
+Finished running project project_dir2siteBx=0.5Bztrain[0.5, 1.9]
+Successfully loaded project project_dir2siteBx=0.5Bztrain[0.5, 1.9]
+Phi01	Complete!
+PauliZ000	Complete!
+PauliX000	Complete!
+PauliX0X100	Complete!
+PauliY0Y100	Complete!
+PauliZ100	Complete!
+PauliX100	Complete!
+PauliZ001	Complete!
+PauliX001	Complete!
+PauliX0X101	Complete!
+PauliY0Y101	Complete!
+PauliZ101	Complete!
+PauliX101	Complete!
+PauliZ011	Complete!
+PauliX011	Complete!
+PauliX0X111	Complete!
+PauliY0Y111	Complete!
+PauliZ111	Complete!
+PauliX111	Complete!
+Started running project project_dir2siteBx=0.5Bztrain[0.5, 1.9]
+Phi01	Complete!
+PauliZ000	Complete!
+PauliX000	Complete!
+PauliX0X100	Complete!
+PauliY0Y100	Complete!
+PauliZ100	Complete!
+PauliX100	Complete!
+PauliZ001	Complete!
+PauliX001	Complete!
+PauliX0X101	Complete!
+PauliY0Y101	Complete!
+PauliZ101	Complete!
+PauliX101	Complete!
+PauliZ011	Complete!
+PauliX011	Complete!
+PauliX0X111	Complete!
+PauliY0Y111	Complete!
+PauliZ111	Complete!
+PauliX111	Complete!
+Finished running project project_dir2siteBx=0.5Bztrain[0.5, 1.9]
+Successfully loaded project project_dir2siteBx=0.5Bztrain[0.5, 1.9]
+Phi01	Complete!
+PauliZ000	Complete!
+PauliX000	Complete!
+PauliX0X100	Complete!
+PauliY0Y100	Complete!
+PauliZ100	Complete!
+PauliX100	Complete!
+PauliZ001	Complete!
+PauliX001	Complete!
+PauliX0X101	Complete!
+PauliY0Y101	Complete!
+PauliZ101	Complete!
+PauliX101	Complete!
+PauliZ011	Complete!
+PauliX011	Complete!
+PauliX0X111	Complete!
+PauliY0Y111	Complete!
+PauliZ111	Complete!
+PauliX111	Complete!
+Started running project project_dir2siteBx=0.5Bztrain[0.5, 1.9]
+Phi01	Complete!
+PauliZ000	Complete!
+PauliX000	Complete!
+PauliX0X100	Complete!
+PauliY0Y100	Complete!
+PauliZ100	Complete!
+PauliX100	Complete!
+PauliZ001	Complete!
+PauliX001	Complete!
+PauliX0X101	Complete!
+PauliY0Y101	Complete!
+PauliZ101	Complete!
+PauliX101	Complete!
+PauliZ011	Complete!
+PauliX011	Complete!
+PauliX0X111	Complete!
+PauliY0Y111	Complete!
+PauliZ111	Complete!
+PauliX111	Complete!
+Finished running project project_dir2siteBx=0.5Bztrain[0.5, 1.9]
+Successfully loaded project project_dir2siteBx=0.5Bztrain[0.5, 1.9]
+Phi01	Complete!
+PauliZ000	Complete!
+PauliX000	Complete!
+PauliX0X100	Complete!
+PauliY0Y100	Complete!
+PauliZ100	Complete!
+PauliX100	Complete!
+PauliZ001	Complete!
+PauliX001	Complete!
+PauliX0X101	Complete!
+PauliY0Y101	Complete!
+PauliZ101	Complete!
+PauliX101	Complete!
+PauliZ011	Complete!
+PauliX011	Complete!
+PauliX0X111	Complete!
+PauliY0Y111	Complete!
+PauliZ111	Complete!
+PauliX111	Complete!
+Started running project project_dir2siteBx=0.5Bztrain[0.5, 1.9]
+Phi01	Complete!
+PauliZ000	Complete!
+PauliX000	Complete!
+PauliX0X100	Complete!
+PauliY0Y100	Complete!
+PauliZ100	Complete!
+PauliX100	Complete!
+PauliZ001	Complete!
+PauliX001	Complete!
+PauliX0X101	Complete!
+PauliY0Y101	Complete!
+PauliZ101	Complete!
+PauliX101	Complete!
+PauliZ011	Complete!
+PauliX011	Complete!
+PauliX0X111	Complete!
+PauliY0Y111	Complete!
+PauliZ111	Complete!
+PauliX111	Complete!
+Finished running project project_dir2siteBx=0.5Bztrain[0.5, 1.9]
+Successfully loaded project project_dir2siteBx=0.5Bztrain[0.5, 1.9]
+Phi01	Complete!
+PauliZ000	Complete!
+PauliX000	Complete!
+PauliX0X100	Complete!
+PauliY0Y100	Complete!
+PauliZ100	Complete!
+PauliX100	Complete!
+PauliZ001	Complete!
+PauliX001	Complete!
+PauliX0X101	Complete!
+PauliY0Y101	Complete!
+PauliZ101	Complete!
+PauliX101	Complete!
+PauliZ011	Complete!
+PauliX011	Complete!
+PauliX0X111	Complete!
+PauliY0Y111	Complete!
+PauliZ111	Complete!
+PauliX111	Complete!
+Started running project project_dir2siteBx=0.5Bztrain[0.5, 1.9]
+Phi01	Complete!
+PauliZ000	Complete!
+PauliX000	Complete!
+PauliX0X100	Complete!
+PauliY0Y100	Complete!
+PauliZ100	Complete!
+PauliX100	Complete!
+PauliZ001	Complete!
+PauliX001	Complete!
+PauliX0X101	Complete!
+PauliY0Y101	Complete!
+PauliZ101	Complete!
+PauliX101	Complete!
+PauliZ011	Complete!
+PauliX011	Complete!
+PauliX0X111	Complete!
+PauliY0Y111	Complete!
+PauliZ111	Complete!
+PauliX111	Complete!
+Finished running project project_dir2siteBx=0.5Bztrain[0.5, 1.9]
+Successfully loaded project project_dir2siteBx=0.5Bztrain[0.5, 1.9]
+Phi01	Complete!
+PauliZ000	Complete!
+PauliX000	Complete!
+PauliX0X100	Complete!
+PauliY0Y100	Complete!
+PauliZ100	Complete!
+PauliX100	Complete!
+PauliZ001	Complete!
+PauliX001	Complete!
+PauliX0X101	Complete!
+PauliY0Y101	Complete!
+PauliZ101	Complete!
+PauliX101	Complete!
+PauliZ011	Complete!
+PauliX011	Complete!
+PauliX0X111	Complete!
+PauliY0Y111	Complete!
+PauliZ111	Complete!
+PauliX111	Complete!
+Started running project project_dir2siteBx=0.5Bztrain[0.5, 1.9]
+Phi01	Complete!
+PauliZ000	Complete!
+PauliX000	Complete!
+PauliX0X100	Complete!
+PauliY0Y100	Complete!
+PauliZ100	Complete!
+PauliX100	Complete!
+PauliZ001	Complete!
+PauliX001	Complete!
+PauliX0X101	Complete!
+PauliY0Y101	Complete!
+PauliZ101	Complete!
+PauliX101	Complete!
+PauliZ011	Complete!
+PauliX011	Complete!
+PauliX0X111	Complete!
+PauliY0Y111	Complete!
+PauliZ111	Complete!
+PauliX111	Complete!
+Finished running project project_dir2siteBx=0.5Bztrain[0.5, 1.9]
+Successfully loaded project project_dir2siteBx=0.5Bztrain[0.5, 1.9]
+Phi01	Complete!
+PauliZ000	Complete!
+PauliX000	Complete!
+PauliX0X100	Complete!
+PauliY0Y100	Complete!
+PauliZ100	Complete!
+PauliX100	Complete!
+PauliZ001	Complete!
+PauliX001	Complete!
+PauliX0X101	Complete!
+PauliY0Y101	Complete!
+PauliZ101	Complete!
+PauliX101	Complete!
+PauliZ011	Complete!
+PauliX011	Complete!
+PauliX0X111	Complete!
+PauliY0Y111	Complete!
+PauliZ111	Complete!
+PauliX111	Complete!
+Started running project project_dir2siteBx=0.5Bztrain[0.5, 1.9]
+Phi01	Complete!
+PauliZ000	Complete!
+PauliX000	Complete!
+PauliX0X100	Complete!
+PauliY0Y100	Complete!
+PauliZ100	Complete!
+PauliX100	Complete!
+PauliZ001	Complete!
+PauliX001	Complete!
+PauliX0X101	Complete!
+PauliY0Y101	Complete!
+PauliZ101	Complete!
+PauliX101	Complete!
+PauliZ011	Complete!
+PauliX011	Complete!
+PauliX0X111	Complete!
+PauliY0Y111	Complete!
+PauliZ111	Complete!
+PauliX111	Complete!
+Finished running project project_dir2siteBx=0.5Bztrain[0.5, 1.9]
+Successfully loaded project project_dir2siteBx=0.5Bztrain[0.5, 1.9]
+Phi01	Complete!
+PauliZ000	Complete!
+PauliX000	Complete!
+PauliX0X100	Complete!
+PauliY0Y100	Complete!
+PauliZ100	Complete!
+PauliX100	Complete!
+PauliZ001	Complete!
+PauliX001	Complete!
+PauliX0X101	Complete!
+PauliY0Y101	Complete!
+PauliZ101	Complete!
+PauliX101	Complete!
+PauliZ011	Complete!
+PauliX011	Complete!
+PauliX0X111	Complete!
+PauliY0Y111	Complete!
+PauliZ111	Complete!
+PauliX111	Complete!
+Started running project project_dir2siteBx=0.5Bztrain[0.5, 1.9]
+Phi01	Complete!
+PauliZ000	Complete!
+PauliX000	Complete!
+PauliX0X100	Complete!
+PauliY0Y100	Complete!
+PauliZ100	Complete!
+PauliX100	Complete!
+PauliZ001	Complete!
+PauliX001	Complete!
+PauliX0X101	Complete!
+PauliY0Y101	Complete!
+PauliZ101	Complete!
+PauliX101	Complete!
+PauliZ011	Complete!
+PauliX011	Complete!
+PauliX0X111	Complete!
+PauliY0Y111	Complete!
+PauliZ111	Complete!
+PauliX111	Complete!
+Finished running project project_dir2siteBx=0.5Bztrain[0.5, 1.9]
+Successfully loaded project project_dir2siteBx=0.5Bztrain[0.5, 1.9]
+Phi01	Complete!
+PauliZ000	Complete!
+PauliX000	Complete!
+PauliX0X100	Complete!
+PauliY0Y100	Complete!
+PauliZ100	Complete!
+PauliX100	Complete!
+PauliZ001	Complete!
+PauliX001	Complete!
+PauliX0X101	Complete!
+PauliY0Y101	Complete!
+PauliZ101	Complete!
+PauliX101	Complete!
+PauliZ011	Complete!
+PauliX011	Complete!
+PauliX0X111	Complete!
+PauliY0Y111	Complete!
+PauliZ111	Complete!
+PauliX111	Complete!
+Started running project project_dir2siteBx=0.5Bztrain[0.5, 1.9]
+Phi01	Complete!
+PauliZ000	Complete!
+PauliX000	Complete!
+PauliX0X100	Complete!
+PauliY0Y100	Complete!
+PauliZ100	Complete!
+PauliX100	Complete!
+PauliZ001	Complete!
+PauliX001	Complete!
+PauliX0X101	Complete!
+PauliY0Y101	Complete!
+PauliZ101	Complete!
+PauliX101	Complete!
+PauliZ011	Complete!
+PauliX011	Complete!
+PauliX0X111	Complete!
+PauliY0Y111	Complete!
+PauliZ111	Complete!
+PauliX111	Complete!
+Finished running project project_dir2siteBx=0.5Bztrain[0.5, 1.9]
+Successfully loaded project project_dir2siteBx=0.5Bztrain[0.5, 1.9]
+Phi01	Complete!
+PauliZ000	Complete!
+PauliX000	Complete!
+PauliX0X100	Complete!
+PauliY0Y100	Complete!
+PauliZ100	Complete!
+PauliX100	Complete!
+PauliZ001	Complete!
+PauliX001	Complete!
+PauliX0X101	Complete!
+PauliY0Y101	Complete!
+PauliZ101	Complete!
+PauliX101	Complete!
+PauliZ011	Complete!
+PauliX011	Complete!
+PauliX0X111	Complete!
+PauliY0Y111	Complete!
+PauliZ111	Complete!
+PauliX111	Complete!
+Started running project project_dir2siteBx=0.5Bztrain[0.5, 1.9]
+Phi01	Complete!
+PauliZ000	Complete!
+PauliX000	Complete!
+PauliX0X100	Complete!
+PauliY0Y100	Complete!
+PauliZ100	Complete!
+PauliX100	Complete!
+PauliZ001	Complete!
+PauliX001	Complete!
+PauliX0X101	Complete!
+PauliY0Y101	Complete!
+PauliZ101	Complete!
+PauliX101	Complete!
+PauliZ011	Complete!
+PauliX011	Complete!
+PauliX0X111	Complete!
+PauliY0Y111	Complete!
+PauliZ111	Complete!
+PauliX111	Complete!
+Finished running project project_dir2siteBx=0.5Bztrain[0.5, 1.9]
+Successfully loaded project project_dir2siteBx=0.5Bztrain[0.5, 1.9]
+Phi01	Complete!
+PauliZ000	Complete!
+PauliX000	Complete!
+PauliX0X100	Complete!
+PauliY0Y100	Complete!
+PauliZ100	Complete!
+PauliX100	Complete!
+PauliZ001	Complete!
+PauliX001	Complete!
+PauliX0X101	Complete!
+PauliY0Y101	Complete!
+PauliZ101	Complete!
+PauliX101	Complete!
+PauliZ011	Complete!
+PauliX011	Complete!
+PauliX0X111	Complete!
+PauliY0Y111	Complete!
+PauliZ111	Complete!
+PauliX111	Complete!
+Started running project project_dir2siteBx=0.5Bztrain[0.5, 1.9]
+Phi01	Complete!
+PauliZ000	Complete!
+PauliX000	Complete!
+PauliX0X100	Complete!
+PauliY0Y100	Complete!
+PauliZ100	Complete!
+PauliX100	Complete!
+PauliZ001	Complete!
+PauliX001	Complete!
+PauliX0X101	Complete!
+PauliY0Y101	Complete!
+PauliZ101	Complete!
+PauliX101	Complete!
+PauliZ011	Complete!
+PauliX011	Complete!
+PauliX0X111	Complete!
+PauliY0Y111	Complete!
+PauliZ111	Complete!
+PauliX111	Complete!
+Finished running project project_dir2siteBx=0.5Bztrain[0.5, 1.9]
+Successfully loaded project project_dir2siteBx=0.5Bztrain[0.5, 1.9]
+Phi01	Complete!
+PauliZ000	Complete!
+PauliX000	Complete!
+PauliX0X100	Complete!
+PauliY0Y100	Complete!
+PauliZ100	Complete!
+PauliX100	Complete!
+PauliZ001	Complete!
+PauliX001	Complete!
+PauliX0X101	Complete!
+PauliY0Y101	Complete!
+PauliZ101	Complete!
+PauliX101	Complete!
+PauliZ011	Complete!
+PauliX011	Complete!
+PauliX0X111	Complete!
+PauliY0Y111	Complete!
+PauliZ111	Complete!
+PauliX111	Complete!
+Started running project project_dir2siteBx=0.5Bztrain[0.5, 1.9]
+Phi01	Complete!
+PauliZ000	Complete!
+PauliX000	Complete!
+PauliX0X100	Complete!
+PauliY0Y100	Complete!
+PauliZ100	Complete!
+PauliX100	Complete!
+PauliZ001	Complete!
+PauliX001	Complete!
+PauliX0X101	Complete!
+PauliY0Y101	Complete!
+PauliZ101	Complete!
+PauliX101	Complete!
+PauliZ011	Complete!
+PauliX011	Complete!
+PauliX0X111	Complete!
+PauliY0Y111	Complete!
+PauliZ111	Complete!
+PauliX111	Complete!
+Finished running project project_dir2siteBx=0.5Bztrain[0.5, 1.9]
+basis_unitaries_list after circuits [array([[ 0.18030122+0.j,  0.        -0.j,  0.        -0.j,
+        -0.98361144-0.j],
+       [-0.62766357+0.j, -0.63812146-0.j,  0.4308155 -0.j,
+        -0.11505408-0.j],
+       [-0.62766357+0.j,  0.75142319-0.j,  0.16782188-0.j,
+        -0.11505408-0.j],
+       [ 0.42375506+0.j,  0.16782188-0.j,  0.88669827-0.j,
+         0.07767656-0.j]]), array([[-0.03016916+0.j,  0.        -0.j,  0.        -0.j,
+        -0.99954481-0.j],
+       [ 0.23687401+0.j, -0.23698189-0.j,  0.94216727-0.j,
+        -0.00714954-0.j],
+       [ 0.23687401+0.j,  0.95459884-0.j,  0.18050109-0.j,
+        -0.00714954-0.j],
+       [-0.94173841+0.j,  0.18050109-0.j,  0.28238305-0.j,
+         0.02842439-0.j]])]
+calibration matrix : 
+[[1. 0.]
+ [0. 1.]]
+Overlap matrix_bundle qsearch:
+ [[ 1.        +0.j         -0.70385747-0.00219727j]
+ [-0.70385747+0.00219727j  1.        +0.j        ]]
+Bzmatrix_bundle qsearch:
+ [[-0.2766113 +0.02685547j  0.77954102-0.02026367j]
+ [ 0.        +0.j         -1.77807619+0.00854492j]]
+Bxmatrix_bundle qsearch:
+ [[-1.5083007 -0.01660156j  1.49780274+0.00195313j]
+ [ 0.        +0.j         -0.89892569-0.01049805j]]
+Jmatrix_bundle qsearch:
+ [[ 1.57324218-0.00439453j -0.55957023-0.00366211j]
+ [ 0.        +0.j          0.21728513-0.0078125j ]]
+Hamiltonian qsearch:
+ [[-2.52102044+0.01489258j  1.85415031-0.0095459j ]
+ [ 1.85415031+0.0095459j  -1.91140131+0.00854492j]]
+Evals qsearch:  [-2.53008161 -1.08153439]
+Hamiltonian qsearch:
+ [[-2.82529288+0.04443359j  2.71164543-0.03183594j]
+ [ 2.71164543+0.03183594j -3.86728512+0.01794434j]]
+Evals qsearch:  [-3.86897214 -1.82981707]
+printing Uilist from mimic
+[ 0.18030122+0.j -0.62766357+0.j -0.62766357+0.j  0.42375506+0.j]
+[-0.03016916+0.j  0.23687401+0.j  0.23687401+0.j -0.94173841+0.j]
+{'J': -1, 'Bx': 0.5, 'Bz': 0.7, 'N': 2, 'pbc': False}
+rho_an [[ 0.5       +0.j -0.35093016+0.j]
+ [-0.35093016+0.j  0.5       +0.j]]
+Overlap matrix mimic:
+ [[ 1.        +0.j -0.70186033+0.j]
+ [-0.70186033-0.j  1.        +0.j]]
+Hamiltonian mimic:
+ [[-2.54001823-0.j  1.89890259+0.j]
+ [ 1.89890259-0.j -1.92522195-0.j]]
+Evals circuit mimic:  [-2.55717413 -0.98980947]
+gsc
+ [-0.89142588+0.j  0.14687568+0.j]
+(4, 4)
+(4, 4)
+{'J': -1, 'Bx': 0.5, 'Bz': 1.8, 'N': 2, 'pbc': False}
+rho_an [[ 0.5       +0.j -0.35093016+0.j]
+ [-0.35093016+0.j  0.5       +0.j]]
+Overlap matrix mimic:
+ [[ 1.        +0.j -0.70186033+0.j]
+ [-0.70186033-0.j  1.        +0.j]]
+Hamiltonian mimic:
+ [[-2.86354983-0.j  2.76488172+0.j]
+ [ 2.76488172-0.j -3.87433625-0.j]]
+Evals circuit mimic:  [-3.87627234 -1.75401756]
+gsc
+ [-0.04240248+0.j  0.96978314+0.j]
+(4, 4)
+(4, 4)
+Uilist = 
+ [array([[ 0.18030122+0.j,  0.        -0.j,  0.        -0.j,
+        -0.98361144-0.j],
+       [-0.62766357+0.j, -0.63812146-0.j,  0.4308155 -0.j,
+        -0.11505408-0.j],
+       [-0.62766357+0.j,  0.75142319-0.j,  0.16782188-0.j,
+        -0.11505408-0.j],
+       [ 0.42375506+0.j,  0.16782188-0.j,  0.88669827-0.j,
+         0.07767656-0.j]]), array([[-0.03016916+0.j,  0.        -0.j,  0.        -0.j,
+        -0.99954481-0.j],
+       [ 0.23687401+0.j, -0.23698189-0.j,  0.94216727-0.j,
+        -0.00714954-0.j],
+       [ 0.23687401+0.j,  0.95459884-0.j,  0.18050109-0.j,
+        -0.00714954-0.j],
+       [-0.94173841+0.j,  0.18050109-0.j,  0.28238305-0.j,
+         0.02842439-0.j]])]
+{'J': -1, 'Bx': 0.5, 'Bz': 0.7, 'N': 2, 'pbc': False}
+rho_an [[ 0.5       +0.j -0.35093016+0.j]
+ [-0.35093016+0.j  0.5       +0.j]]
+Overlap matrix mimic:
+ [[ 1.        +0.j -0.70186033+0.j]
+ [-0.70186033-0.j  1.        +0.j]]
+Hamiltonian mimic:
+ [[-2.54001823-0.j  1.89890259+0.j]
+ [ 1.89890259-0.j -1.92522195-0.j]]
+Evals circuit mimic:  [-2.55717413 -0.98980947]
+gs coefficients for target:  [-0.89142588+0.j  0.14687568+0.j]
+psi big: 
+ [[-0.15906389+1.89570714e-17j]
+ [ 0.57238341-6.59932490e-17j]
+ [ 0.57238341-6.59932490e-17j]
+ [-0.49702775+4.45540797e-17j]
+ [ 0.05231997-7.69491039e-18j]
+ [-0.13618742+2.67874782e-17j]
+ [-0.13618742+2.67874782e-17j]
+ [-0.18051357-1.80850535e-17j]]
+gs_LCU: 
+ [[-0.16515629+1.96831568e-17j]
+ [ 0.59430659-6.85208934e-17j]
+ [ 0.59430659-6.85208934e-17j]
+ [-0.51606469+4.62605704e-17j]]
+{'J': -1, 'Bx': 0.5, 'Bz': 1.8, 'N': 2, 'pbc': False}
+rho_an [[ 0.5       +0.j -0.35093016+0.j]
+ [-0.35093016+0.j  0.5       +0.j]]
+Overlap matrix mimic:
+ [[ 1.        +0.j -0.70186033+0.j]
+ [-0.70186033-0.j  1.        +0.j]]
+Hamiltonian mimic:
+ [[-2.86354983-0.j  2.76488172+0.j]
+ [ 2.76488172-0.j -3.87433625-0.j]]
+Evals circuit mimic:  [-3.87627234 -1.75401756]
+gs coefficients for target:  [-0.04240248+0.j  0.96978314+0.j]
+psi big: 
+ [[-0.03645849+9.24997629e-19j]
+ [ 0.25324497-3.22009648e-18j]
+ [ 0.25324497-3.22009648e-18j]
+ [-0.92003905+2.17398654e-18j]
+ [ 0.03007781-4.42366570e-18j]
+ [-0.0782917 +1.53996398e-17j]
+ [-0.0782917 +1.53996398e-17j]
+ [-0.10377401-1.03967722e-17j]]
+gs_LCU: 
+ [[-0.03690276+9.36269298e-19j]
+ [ 0.25633092-3.25933535e-18j]
+ [ 0.25633092-3.25933535e-18j]
+ [-0.93125029+2.20047791e-18j]]
+LCU_gs_list_mimic_exact
+[[-0.16515629+0.j  0.59430659+0.j  0.59430659+0.j -0.51606469+0.j]
+ [-0.03690276+0.j  0.25633092+0.j  0.25633092+0.j -0.93125029+0.j]]
+LCU_gs_list_mimic
+[matrix([[-0.16515629+1.96831568e-17j],
+        [ 0.59430659-6.85208934e-17j],
+        [ 0.59430659-6.85208934e-17j],
+        [-0.51606469+4.62605704e-17j]]), matrix([[-0.03690276+9.36269298e-19j],
+        [ 0.25633092-3.25933535e-18j],
+        [ 0.25633092-3.25933535e-18j],
+        [-0.93125029+2.20047791e-18j]])]
+LCU U shape:  (8, 8)
+Started running project Zmeas_2siteBx=0.5Bztrain[0.5, 1.9]Bztarg0.7
+LCUcircZbasis	Not started.
+Starting compilation of LCUcircZbasis
+There are 8 processors available to Pool.
+The branching factor is 2.
+The beam factor is 4.
+Creating a pool of 8 workers
+New best! 0.29309152671160665 at depth 0
+New best! score: 0.27754202301595177 at depth: 1
+New best! score: 0.2706272502753755 at depth: 1
+New best! score: 0.24304688863842872 at depth: 2
+New best! score: 0.2189924290632972 at depth: 2
+New best! score: 0.21716428221939932 at depth: 3
+New best! score: 0.21019686877504984 at depth: 3
+New best! score: 0.20519627565163356 at depth: 3
+New best! score: 0.16170710418897016 at depth: 4
+New best! score: 0.16140663702775826 at depth: 4
+New best! score: 0.16116613477867103 at depth: 4
+New best! score: 0.1534456373340638 at depth: 4
+New best! score: 0.09251454794775726 at depth: 4
+New best! score: 0.08195224593560091 at depth: 5
+New best! score: 0.07848597460327056 at depth: 5
+New best! score: 0.07706816596827204 at depth: 6
+New best! score: 0.06547735724794679 at depth: 6
+New best! score: 0.045334556491618105 at depth: 7
+New best! score: 0.04533455594317792 at depth: 8
+New best! score: 0.03900545849810899 at depth: 7
+New best! score: 5.551115123125783e-16 at depth: 8
+New best! score: 3.3306690738754696e-16 at depth: 8
+Finished compilation at depth 8 with score 3.3306690738754696e-16 after 25.548741937003797 seconds.
+Finished compilation of LCUcircZbasis
+LCUcircZbasis	Complete!
+Finished running project Zmeas_2siteBx=0.5Bztrain[0.5, 1.9]Bztarg0.7
+LCU U shape:  (8, 8)
+Started running project Zmeas_2siteBx=0.5Bztrain[0.5, 1.9]Bztarg1.8
+LCUcircZbasis	Not started.
+Starting compilation of LCUcircZbasis
+There are 8 processors available to Pool.
+The branching factor is 2.
+The beam factor is 4.
+Creating a pool of 8 workers
+New best! 0.29329360572560914 at depth 0
+New best! score: 0.27754202343823153 at depth: 1
+New best! score: 0.2706272488393311 at depth: 1
+New best! score: 0.2430468891273765 at depth: 2
+New best! score: 0.2189924261457712 at depth: 2
+New best! score: 0.21716428426372048 at depth: 3
+New best! score: 0.21019686987284514 at depth: 3
+New best! score: 0.20519627301205556 at depth: 3
+New best! score: 0.16170710604416672 at depth: 4
+New best! score: 0.1611661347775959 at depth: 4
+New best! score: 0.1534456377835749 at depth: 4
+New best! score: 0.09251454797896963 at depth: 4
+New best! score: 0.08195224597134909 at depth: 5
+New best! score: 0.08171374272643572 at depth: 6
+New best! score: 0.08110508516597781 at depth: 5
+New best! score: 0.08035872343542294 at depth: 6
+New best! score: 0.07960798971395167 at depth: 5
+New best! score: 0.0654773562840062 at depth: 6
+New best! score: 0.06064422283439819 at depth: 6
+New best! score: 0.045334555785999875 at depth: 7
+New best! score: 0.04022834651841267 at depth: 7
+New best! score: 0.03862069661705547 at depth: 8
+New best! score: 5.551115123125783e-16 at depth: 8
+New best! score: 2.220446049250313e-16 at depth: 8
+New best! score: 0.0 at depth: 8
+Finished compilation at depth 8 with score 0.0 after 30.637509987005615 seconds.
+Finished compilation of LCUcircZbasis
+LCUcircZbasis	Complete!
+Finished running project Zmeas_2siteBx=0.5Bztrain[0.5, 1.9]Bztarg1.8
+Result(backend_name='qasm_simulator', backend_version='0.9.0', qobj_id='37865745-5621-4912-af03-7abe984f1b61', job_id='ef14b8d3-0c10-468c-8133-275cc08ec553', success=True, results=[ExperimentResult(shots=8192, success=True, meas_level=2, data=ExperimentResultData(counts={'0x5': 133, '0x2': 2651, '0x4': 2784, '0x6': 1998, '0x7': 238, '0x0': 220, '0x3': 142, '0x1': 26}), header=QobjExperimentHeader(clbit_labels=[['c39', 0], ['c39', 1], ['c39', 2]], creg_sizes=[['c39', 3]], global_phase=5.056385205361218, memory_slots=3, metadata=None, n_qubits=3, name='circuit-70', qreg_sizes=[['q', 3]], qubit_labels=[['q', 0], ['q', 1], ['q', 2]]), status=DONE, seed_simulator=1853156506, metadata={'parallel_state_update': 8, 'noise': 'ideal', 'measure_sampling': True, 'device': 'CPU', 'num_qubits': 3, 'parallel_shots': 1, 'remapped_qubits': False, 'method': 'statevector', 'active_input_qubits': [0, 1, 2], 'num_clbits': 3, 'input_qubit_map': [[2, 2], [0, 0], [1, 1]], 'fusion': {'applied': False, 'max_fused_qubits': 5, 'enabled': True, 'threshold': 14}}, time_taken=0.021522121), ExperimentResult(shots=8192, success=True, meas_level=2, data=ExperimentResultData(counts={'0x1': 6, '0x4': 561, '0x6': 6935, '0x2': 504, '0x5': 46, '0x0': 8, '0x7': 86, '0x3': 46}), header=QobjExperimentHeader(clbit_labels=[['c40', 0], ['c40', 1], ['c40', 2]], creg_sizes=[['c40', 3]], global_phase=3.6186728073925067, memory_slots=3, metadata=None, n_qubits=3, name='circuit-72', qreg_sizes=[['q', 3]], qubit_labels=[['q', 0], ['q', 1], ['q', 2]]), status=DONE, seed_simulator=716844831, metadata={'parallel_state_update': 8, 'noise': 'ideal', 'measure_sampling': True, 'device': 'CPU', 'num_qubits': 3, 'parallel_shots': 1, 'remapped_qubits': False, 'method': 'statevector', 'active_input_qubits': [0, 1, 2], 'num_clbits': 3, 'input_qubit_map': [[2, 2], [0, 0], [1, 1]], 'fusion': {'applied': False, 'max_fused_qubits': 5, 'enabled': True, 'threshold': 14}}, time_taken=0.018855678)], date=2022-02-16T16:20:10.817500, status=COMPLETED, status=QobjHeader(backend_name='qasm_simulator', backend_version='0.9.0'), metadata={'time_taken': 0.041232501000000005, 'parallel_experiments': 1, 'omp_enabled': True, 'max_gpu_memory_mb': 0, 'num_mpi_processes': 1, 'max_memory_mb': 15724, 'mpi_rank': 0}, time_taken=0.041553497314453125)
+{'101': 133, '010': 2651, '100': 2784, '110': 1998, '111': 238, '000': 220, '011': 142, '001': 26}
+{'001': 6, '100': 561, '110': 6935, '010': 504, '101': 46, '000': 8, '111': 86, '011': 46}
+LCU_mvals
+[-0.46465438390173786, -1.73001998001998]
+Mag_evals
+[[-0.47809233+0.j -1.41582249+0.j]
+ [-1.73173059+0.j -0.16218423+0.j]]
+[array([-0.89142588+0.j,  0.14687568+0.j]), array([-0.04240248+0.j,  0.96978314+0.j])]
+LCU U shape:  (8, 8)
+Successfully loaded project Zmeas_2siteBx=0.5Bztrain[0.5, 1.9]Bztarg0.7
+LCUcircZbasis	Complete!
+Started running project Zmeas_2siteBx=0.5Bztrain[0.5, 1.9]Bztarg0.7
+LCUcircZbasis	Complete!
+Finished running project Zmeas_2siteBx=0.5Bztrain[0.5, 1.9]Bztarg0.7
+LCU U shape:  (8, 8)
+Started running project Xmeas_2siteBx=0.5Bztrain[0.5, 1.9]Bztarg0.7
+LCUcircZbasis	Not started.
+Starting compilation of LCUcircZbasis
+There are 8 processors available to Pool.
+The branching factor is 2.
+The beam factor is 4.
+Creating a pool of 8 workers
+New best! 0.2930915303676995 at depth 0
+New best! score: 0.2775420232676069 at depth: 1
+New best! score: 0.27062725003293675 at depth: 1
+New best! score: 0.24304688847458378 at depth: 2
+New best! score: 0.2189924260876518 at depth: 2
+New best! score: 0.217164283437294 at depth: 3
+New best! score: 0.21019686654276037 at depth: 3
+New best! score: 0.2051962731280026 at depth: 3
+New best! score: 0.17456795196435781 at depth: 4
+New best! score: 0.1611661376333684 at depth: 4
+New best! score: 0.09957025863772606 at depth: 4
+New best! score: 0.09251454782304602 at depth: 4
+New best! score: 0.08446780208897542 at depth: 5
+New best! score: 0.08195224601707629 at depth: 5
+New best! score: 0.08035872352986428 at depth: 6
+New best! score: 0.07960799026238663 at depth: 5
+New best! score: 0.07893030776781007 at depth: 6
+New best! score: 0.07706816601297428 at depth: 6
+New best! score: 0.07083380893076274 at depth: 6
+New best! score: 0.06064422286931148 at depth: 6
+New best! score: 0.045334555943548294 at depth: 7
+New best! score: 0.039005458581326424 at depth: 7
+New best! score: 0.03862622450547337 at depth: 7
+New best! score: 3.3306690738754696e-16 at depth: 8
+Finished compilation at depth 8 with score 3.3306690738754696e-16 after 26.357800369005417 seconds.
+Finished compilation of LCUcircZbasis
+LCUcircZbasis	Complete!
+Finished running project Xmeas_2siteBx=0.5Bztrain[0.5, 1.9]Bztarg0.7
+LCU U shape:  (8, 8)
+Started running project Ymeas_2siteBx=0.5Bztrain[0.5, 1.9]Bztarg0.7
+LCUcircZbasis	Not started.
+Starting compilation of LCUcircZbasis
+There are 8 processors available to Pool.
+The branching factor is 2.
+The beam factor is 4.
+Creating a pool of 8 workers
+New best! 0.2930915275956516 at depth 0
+New best! score: 0.2775420232969714 at depth: 1
+New best! score: 0.27062724948789796 at depth: 1
+New best! score: 0.2189924256671253 at depth: 2
+New best! score: 0.21716428531061127 at depth: 3
+New best! score: 0.2101968675252508 at depth: 3
+New best! score: 0.2051962760256304 at depth: 3
+New best! score: 0.17456795168135808 at depth: 4
+New best! score: 0.16116613580143613 at depth: 4
+New best! score: 0.09957025832058097 at depth: 4
+New best! score: 0.09251454783608593 at depth: 4
+New best! score: 0.08110508499552471 at depth: 5
+New best! score: 0.07848597462514373 at depth: 5
+New best! score: 0.07706816587525145 at depth: 6
+New best! score: 0.07083380761272173 at depth: 6
+New best! score: 0.060644223009623355 at depth: 6
+New best! score: 0.04533455594433211 at depth: 7
+New best! score: 0.039005458616667044 at depth: 7
+New best! score: 8.881784197001252e-16 at depth: 8
+Finished compilation at depth 8 with score 8.881784197001252e-16 after 23.107457798003452 seconds.
+Finished compilation of LCUcircZbasis
+LCUcircZbasis	Complete!
+Finished running project Ymeas_2siteBx=0.5Bztrain[0.5, 1.9]Bztarg0.7
+LCU U shape:  (8, 8)
+Successfully loaded project Zmeas_2siteBx=0.5Bztrain[0.5, 1.9]Bztarg1.8
+LCUcircZbasis	Complete!
+Started running project Zmeas_2siteBx=0.5Bztrain[0.5, 1.9]Bztarg1.8
+LCUcircZbasis	Complete!
+Finished running project Zmeas_2siteBx=0.5Bztrain[0.5, 1.9]Bztarg1.8
+LCU U shape:  (8, 8)
+Started running project Xmeas_2siteBx=0.5Bztrain[0.5, 1.9]Bztarg1.8
+LCUcircZbasis	Not started.
+Starting compilation of LCUcircZbasis
+There are 8 processors available to Pool.
+The branching factor is 2.
+The beam factor is 4.
+Creating a pool of 8 workers
+New best! 0.29329360508596247 at depth 0
+New best! score: 0.2775420229042058 at depth: 1
+New best! score: 0.2706272498262078 at depth: 1
+New best! score: 0.24304689024019266 at depth: 2
+New best! score: 0.21899242753455528 at depth: 2
+New best! score: 0.21716428195309867 at depth: 3
+New best! score: 0.21019686540556892 at depth: 3
+New best! score: 0.2051962724093095 at depth: 3
+New best! score: 0.16170710551926404 at depth: 4
+New best! score: 0.161166134655648 at depth: 4
+New best! score: 0.099570258557798 at depth: 4
+New best! score: 0.09251454770998191 at depth: 4
+New best! score: 0.0819522463826996 at depth: 5
+New best! score: 0.07848597458763595 at depth: 5
+New best! score: 0.06547735791017117 at depth: 6
+New best! score: 0.060644222976252715 at depth: 6
+New best! score: 0.04533455637938899 at depth: 7
+New best! score: 0.038626225052731056 at depth: 7
+New best! score: 0.0 at depth: 8
+Finished compilation at depth 8 with score 0.0 after 25.830256727000233 seconds.
+Finished compilation of LCUcircZbasis
+LCUcircZbasis	Complete!
+Finished running project Xmeas_2siteBx=0.5Bztrain[0.5, 1.9]Bztarg1.8
+LCU U shape:  (8, 8)
+Started running project Ymeas_2siteBx=0.5Bztrain[0.5, 1.9]Bztarg1.8
+LCUcircZbasis	Not started.
+Starting compilation of LCUcircZbasis
+There are 8 processors available to Pool.
+The branching factor is 2.
+The beam factor is 4.
+Creating a pool of 8 workers
+New best! 0.29329360664623194 at depth 0
+New best! score: 0.2775420237246602 at depth: 1
+New best! score: 0.2706272485314736 at depth: 1
+New best! score: 0.24304688893387727 at depth: 2
+New best! score: 0.2189924267909379 at depth: 2
+New best! score: 0.21716428257136422 at depth: 3
+New best! score: 0.21019686626751755 at depth: 3
+New best! score: 0.20519627854053835 at depth: 3
+New best! score: 0.17456795175209172 at depth: 4
+New best! score: 0.16116613472120545 at depth: 4
+New best! score: 0.09957025962983634 at depth: 4
+New best! score: 0.09251454844620399 at depth: 4
+New best! score: 0.08110508493721635 at depth: 5
+New best! score: 0.07848597509931976 at depth: 5
+New best! score: 0.077068166029159 at depth: 6
+New best! score: 0.07083380763833536 at depth: 6
+New best! score: 0.06547735649209208 at depth: 6
+New best! score: 0.060644222976252715 at depth: 6
+New best! score: 0.04533455582040902 at depth: 7
+New best! score: 0.03900545855897508 at depth: 7
+New best! score: 0.038626225052731056 at depth: 7
+New best! score: -4.440892098500626e-16 at depth: 8
+Finished compilation at depth 8 with score -4.440892098500626e-16 after 23.57088672100508 seconds.
+Finished compilation of LCUcircZbasis
+LCUcircZbasis	Complete!
+Finished running project Ymeas_2siteBx=0.5Bztrain[0.5, 1.9]Bztarg1.8
+Result(backend_name='qasm_simulator', backend_version='0.9.0', qobj_id='39b4591e-1618-4bb7-9378-575a1e71bfed', job_id='bc7d881d-4432-420b-9c0e-834e20831e53', success=True, results=[ExperimentResult(shots=8192, success=True, meas_level=2, data=ExperimentResultData(counts={'0x1': 23, '0x5': 160, '0x2': 2665, '0x6': 2041, '0x4': 2648, '0x0': 224, '0x7': 269, '0x3': 162}), header=QobjExperimentHeader(clbit_labels=[['c41', 0], ['c41', 1], ['c41', 2]], creg_sizes=[['c41', 3]], global_phase=5.056385205361218, memory_slots=3, metadata=None, n_qubits=3, name='circuit-74', qreg_sizes=[['q', 3]], qubit_labels=[['q', 0], ['q', 1], ['q', 2]]), status=DONE, seed_simulator=2358291482, metadata={'parallel_state_update': 8, 'noise': 'ideal', 'measure_sampling': True, 'device': 'CPU', 'num_qubits': 3, 'parallel_shots': 1, 'remapped_qubits': False, 'method': 'statevector', 'active_input_qubits': [0, 1, 2], 'num_clbits': 3, 'input_qubit_map': [[2, 2], [0, 0], [1, 1]], 'fusion': {'applied': False, 'max_fused_qubits': 5, 'enabled': True, 'threshold': 14}}, time_taken=0.022354914), ExperimentResult(shots=8192, success=True, meas_level=2, data=ExperimentResultData(counts={'0x2': 237, '0x4': 237, '0x6': 6708, '0x1': 296, '0x5': 87, '0x7': 36, '0x0': 470, '0x3': 121}), header=QobjExperimentHeader(clbit_labels=[['c42', 0], ['c42', 1], ['c42', 2]], creg_sizes=[['c42', 3]], global_phase=0.6951566038537837, memory_slots=3, metadata=None, n_qubits=3, name='circuit-76', qreg_sizes=[['q', 3]], qubit_labels=[['q', 0], ['q', 1], ['q', 2]]), status=DONE, seed_simulator=4164171386, metadata={'parallel_state_update': 8, 'noise': 'ideal', 'measure_sampling': True, 'device': 'CPU', 'num_qubits': 3, 'parallel_shots': 1, 'remapped_qubits': False, 'method': 'statevector', 'active_input_qubits': [0, 1, 2], 'num_clbits': 3, 'input_qubit_map': [[2, 2], [0, 0], [1, 1]], 'fusion': {'applied': False, 'max_fused_qubits': 5, 'enabled': True, 'threshold': 14}}, time_taken=0.018526443), ExperimentResult(shots=8192, success=True, meas_level=2, data=ExperimentResultData(counts={'0x5': 26, '0x1': 262, '0x2': 884, '0x4': 928, '0x6': 2956, '0x7': 278, '0x0': 2818, '0x3': 40}), header=QobjExperimentHeader(clbit_labels=[['c43', 0], ['c43', 1], ['c43', 2]], creg_sizes=[['c43', 3]], global_phase=0.686828427102757, memory_slots=3, metadata=None, n_qubits=3, name='circuit-78', qreg_sizes=[['q', 3]], qubit_labels=[['q', 0], ['q', 1], ['q', 2]]), status=DONE, seed_simulator=3446427569, metadata={'parallel_state_update': 8, 'noise': 'ideal', 'measure_sampling': True, 'device': 'CPU', 'num_qubits': 3, 'parallel_shots': 1, 'remapped_qubits': False, 'method': 'statevector', 'active_input_qubits': [0, 1, 2], 'num_clbits': 3, 'input_qubit_map': [[2, 2], [0, 0], [1, 1]], 'fusion': {'applied': False, 'max_fused_qubits': 5, 'enabled': True, 'threshold': 14}}, time_taken=0.017623015000000002), ExperimentResult(shots=8192, success=True, meas_level=2, data=ExperimentResultData(counts={'0x2': 506, '0x1': 7, '0x5': 46, '0x6': 6955, '0x4': 516, '0x3': 51, '0x0': 8, '0x7': 103}), header=QobjExperimentHeader(clbit_labels=[['c44', 0], ['c44', 1], ['c44', 2]], creg_sizes=[['c44', 3]], global_phase=3.6186728073925067, memory_slots=3, metadata=None, n_qubits=3, name='circuit-80', qreg_sizes=[['q', 3]], qubit_labels=[['q', 0], ['q', 1], ['q', 2]]), status=DONE, seed_simulator=1425702738, metadata={'parallel_state_update': 8, 'noise': 'ideal', 'measure_sampling': True, 'device': 'CPU', 'num_qubits': 3, 'parallel_shots': 1, 'remapped_qubits': False, 'method': 'statevector', 'active_input_qubits': [0, 1, 2], 'num_clbits': 3, 'input_qubit_map': [[2, 2], [0, 0], [1, 1]], 'fusion': {'applied': False, 'max_fused_qubits': 5, 'enabled': True, 'threshold': 14}}, time_taken=0.016703889), ExperimentResult(shots=8192, success=True, meas_level=2, data=ExperimentResultData(counts={'0x5': 36, '0x2': 1638, '0x6': 4328, '0x4': 1630, '0x1': 112, '0x7': 9, '0x0': 409, '0x3': 30}), header=QobjExperimentHeader(clbit_labels=[['c45', 0], ['c45', 1], ['c45', 2]], creg_sizes=[['c45', 3]], global_phase=1.7927219517459108, memory_slots=3, metadata=None, n_qubits=3, name='circuit-82', qreg_sizes=[['q', 3]], qubit_labels=[['q', 0], ['q', 1], ['q', 2]]), status=DONE, seed_simulator=485322112, metadata={'parallel_state_update': 8, 'noise': 'ideal', 'measure_sampling': True, 'device': 'CPU', 'num_qubits': 3, 'parallel_shots': 1, 'remapped_qubits': False, 'method': 'statevector', 'active_input_qubits': [0, 1, 2], 'num_clbits': 3, 'input_qubit_map': [[2, 2], [0, 0], [1, 1]], 'fusion': {'applied': False, 'max_fused_qubits': 5, 'enabled': True, 'threshold': 14}}, time_taken=0.016346423000000002), ExperimentResult(shots=8192, success=True, meas_level=2, data=ExperimentResultData(counts={'0x5': 12, '0x2': 1907, '0x6': 2088, '0x4': 1828, '0x3': 12, '0x0': 2173, '0x7': 96, '0x1': 76}), header=QobjExperimentHeader(clbit_labels=[['c46', 0], ['c46', 1], ['c46', 2]], creg_sizes=[['c46', 3]], global_phase=0.8863032395574866, memory_slots=3, metadata=None, n_qubits=3, name='circuit-84', qreg_sizes=[['q', 3]], qubit_labels=[['q', 0], ['q', 1], ['q', 2]]), status=DONE, seed_simulator=210901829, metadata={'parallel_state_update': 8, 'noise': 'ideal', 'measure_sampling': True, 'device': 'CPU', 'num_qubits': 3, 'parallel_shots': 1, 'remapped_qubits': False, 'method': 'statevector', 'active_input_qubits': [0, 1, 2], 'num_clbits': 3, 'input_qubit_map': [[2, 2], [0, 0], [1, 1]], 'fusion': {'applied': False, 'max_fused_qubits': 5, 'enabled': True, 'threshold': 14}}, time_taken=0.016359743)], date=2022-02-16T16:21:51.248726, status=COMPLETED, status=QobjHeader(backend_name='qasm_simulator', backend_version='0.9.0'), metadata={'time_taken': 0.109601153, 'parallel_experiments': 1, 'omp_enabled': True, 'max_gpu_memory_mb': 0, 'num_mpi_processes': 1, 'max_memory_mb': 15724, 'mpi_rank': 0}, time_taken=0.1100168228149414)
+Jxx =  0.8761108207004704
+Jyy =  0.5222778803058266
+Bx =  -1.6304234187140616
+Bz =  -0.4795460543679071
+Jxx =  0.1835103060587133
+Jyy =  0.06578289144572286
+Bx =  -0.9791380387257964
+Bz =  -1.740012523481528
+LCU_Evals
+[-2.5492826484208626, -3.870884759134085]

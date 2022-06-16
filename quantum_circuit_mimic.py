@@ -7,6 +7,7 @@ from qiskit.opflow import I, X, Y, Z
 
 import numpy as np
 from scipy import linalg
+from scipy.linalg import null_space
 
 paulis = {}
 paulis['X'] = np.array([[0,1],[1,0]],dtype=complex)
@@ -131,6 +132,27 @@ def reducerho(wf,lA,lB):
     
     return rhoA
 #############################
+def makeUnitaryfromvec(vec):
+    length = len(vec)
+    ket0 = np.zeros([length], dtype="complex")
+    ket0[0] = 1.0
+    ket0 = np.reshape(ket0, (length, 1))
+    bravec = np.reshape(vec, (1, length))
+    Unitaryvec = np.matmul(ket0, bravec)
+    nullspace = null_space(Unitaryvec)
+    U_vec = np.zeros((length, length), dtype="complex")
+    U_vec[:, 0] = vec
+    for i in range(length - 1):
+        U_vec[:, i + 1] = nullspace[:, i]
+    return U_vec
+
+def get_training_vectors_exact(basis_vecs):
+    Uilist=[]
+    for basis_v in basis_vecs:
+        Ui = makeUnitaryfromvec(vec=basis_v)
+        Uilist.append(Ui)
+    return Uilist
+
 # for the moment lets take the unitaries later we take the circuits as well
 def get_training_vectors(paramslist):
     Uilist = []
@@ -163,6 +185,7 @@ def get_phii_phij_fromcircuit(Ui,Uj,N=2):
     
     # step 3
     rho_an = reducerho(wf = psi_1,lA=2,lB=2**N)
+    print("rho_an", rho_an)
     
     return 2*rho_an[0,1]
 
@@ -194,6 +217,8 @@ def get_HPauli_ij_fromcircuit(Ui,Uj,paulisop,N=2):
     
     #     step 0
     psi_0 = np.kron(psi_0_an,psi_0_sys)
+
+    # print()
     
     #   step 1
     Ujd = np.conjugate(np.transpose(Uj))
@@ -286,20 +311,145 @@ def get_evals_target_ham(Uilist,paramn):
     print("Overlap matrix mimic:\n" , overlap_matrix)
     smaller_ham = make_target_hamiltonian_fromQC(Uilist,paramn)
     print("Hamiltonian mimic:\n" ,smaller_ham)
-    evals, evecs = linalg.eigh(smaller_ham,overlap_matrix)
+    evals, evecs = linalg.eigh(smaller_ham,b=overlap_matrix)
     print("Evals circuit mimic: ",evals)
     return evals
     
 
-def get_evals_targetlist_mimic(training_paramlist,target_paramlist ):
+def get_evals_targetlist_mimic(training_paramlist,target_paramlist, basis_vecs, Basis_exact_flag=True):
     evals_qc = np.zeros([len(target_paramlist),len(training_paramlist)],dtype=complex)
-    Uilist = get_training_vectors(training_paramlist)
-    # print("printing Uilist from mimic")
-    # for u in Uilist:
-    #     print(u)
+    if(Basis_exact_flag==True):
+        Uilist = get_training_vectors_exact(basis_vecs = basis_vecs)
+    else:
+        Uilist = get_training_vectors(training_paramlist = training_paramlist)
+    # Uilist = get_training_vectors(training_paramlist)
+    print("printing Uilist from mimic")
+    for u in Uilist:
+        print(u[:,0])
     for ip,paramn in enumerate(target_paramlist):
         evals = get_evals_target_ham(Uilist,paramn)
         for k in range(len(training_paramlist)):
                 evals_qc[ip,k] = evals[k]
     return evals_qc
 
+################ The following is to make LCU
+
+def get_evals_gs_target_ham(Uilist,paramn):
+    J = paramn["J"]
+    Bx = paramn["Bx"]
+    Bz = paramn["Bz"]
+    N = paramn["N"]
+    pbc = paramn["pbc"]
+    print(paramn)
+    overlap_matrix = create_overlap_matrix_fromQC(Uilist=Uilist,N=N)
+    print("Overlap matrix mimic:\n" , overlap_matrix)
+    smaller_ham = make_target_hamiltonian_fromQC(Uilist,paramn)
+    #print(smaller_ham)
+    print("Hamiltonian mimic:\n" ,smaller_ham)
+    evals, evecs = linalg.eigh(smaller_ham,overlap_matrix)
+    print("Evals circuit mimic: ",evals)
+    #print("GS circuit mimic: ", evecs[:,0])
+    return evals,evecs[:, 0]
+###############################
+
+def get_LCU_gs_list_mimic_exact(training_paramlist,target_paramlist, basis_vecs, Basis_exact_flag=True):
+    gs_LCU = np.zeros([len(target_paramlist),2**2],dtype=complex)
+
+    if(Basis_exact_flag==True):
+        Uilist = get_training_vectors_exact(basis_vecs = basis_vecs)
+    else:
+        Uilist = get_training_vectors(training_paramlist = training_paramlist)
+    # Uilist = get_training_vectors(training_paramlist)
+    print("printing Uilist from mimic")
+    for u in Uilist:
+        print(u[:,0])
+    for ip,paramn in enumerate(target_paramlist):
+        evals,gsc = get_evals_gs_target_ham(Uilist,paramn)
+        print("gsc\n",gsc)
+        gs_temp = np.zeros(2 ** 2, dtype=complex)
+        for k in range(len(training_paramlist)):
+            Ui = Uilist[k]
+            print(np.shape(Ui))
+            gs_temp += gsc[k]*Ui[:,0]
+        gs_LCU[ip,:] = gs_temp
+
+    return gs_LCU
+#####################
+def make_open_cntrlU(U):
+    L = len(U)
+    opncntrlU = np.identity(2*L,dtype=complex)
+    for i in range(L):
+        for j in range(L):
+            opncntrlU[i,j] = U[i,j]
+    return opncntrlU
+
+def get_psi_LCU_mimic(gs,Uilist,N=2):
+    import cmath
+    rs = np.zeros(len(gs))
+    phases = np.zeros(len(gs))
+    for i in range(len(gs)):
+        rs[i] = abs(gs[i])
+        phases[i]  = cmath.phase(gs[i])
+
+    k = rs[0]/rs[1]
+    Vk = (1/np.sqrt(k+1))*np.matrix([[np.sqrt(k), -1],[1,np.sqrt(k)]],dtype = "complex")
+    psi_an = np.zeros([2], dtype="complex")
+    psi_an[0] = 1.0
+
+    psi_sys = np.zeros([2 ** (N)], dtype="complex")
+    psi_sys[0] = 1.0
+
+    #     step 0
+    psi = np.kron(psi_an, psi_sys)
+    Ua = np.exp(1.j* phases[0])*Uilist[0]
+    Ub = np.exp(1.j* phases[1])*Uilist[1]
+    Ustep0 = np.kron(Vk,np.identity(2**N))
+    Ustep1 = make_open_cntrlU(U = Ua)
+    Ustep2 = make_cntrlU(U = Ub)
+    Ustep3 = np.kron(np.conjugate(np.transpose(Vk)),np.identity(N**2))
+
+    # print(np.shape(Ustep0))
+    # print(np.shape(psi))
+    psi = np.reshape(psi, (len(psi), 1))
+    # print(np.shape(psi))
+
+    psi = np.matmul(Ustep0,psi)
+    psi = np.matmul(Ustep1, psi)
+    psi = np.matmul(Ustep2, psi)
+    psi = np.matmul(Ustep3, psi)
+
+    return psi
+
+def make_target_LCU_mimic(training_paramlist,target_paramlist, basis_vecs, Basis_exact_flag=True):
+    if (Basis_exact_flag == True):
+        Uilist = get_training_vectors_exact(basis_vecs=basis_vecs)
+    else:
+        Uilist = get_training_vectors(training_paramlist=training_paramlist)
+    print("Uilist = \n",Uilist)
+    gs_LCU_coeffs_list = []
+    gs_LCU_list = []
+    N=2
+    for ip,paramn in enumerate(target_paramlist):
+        evals,gs = get_evals_gs_target_ham(Uilist=Uilist, paramn=paramn)
+        print("gs coefficients for target: ",gs)
+        rs = np.zeros(len(gs))
+        for i in range(len(gs)):
+            rs[i] = abs(gs[i])
+        if (rs[0] < 10 ** (-8)):
+            psi_sys = np.zeros([2 ** (N)], dtype="complex")
+            psi_sys[0] = 1.0
+            gs_LCU = np.matmul(Uilist[1],psi_sys)
+        elif (rs[1] < 10 ** (-8)):
+            psi_sys = np.zeros([2 ** (N)], dtype="complex")
+            psi_sys[0] = 1.0
+            gs_LCU = np.matmul(Uilist[0],psi_sys)
+        else:
+            psi = get_psi_LCU_mimic(gs=gs, Uilist = Uilist, N=N)
+            print("psi big: \n",psi)
+            gs_LCU = psi[:2**N]
+            gs_LCU = gs_LCU/(linalg.norm(gs_LCU))
+        print("gs_LCU: \n", gs_LCU)
+        gs_LCU_list.append(gs_LCU)
+        gs_LCU_coeffs_list.append(gs)
+
+    return gs_LCU_list, gs_LCU_coeffs_list

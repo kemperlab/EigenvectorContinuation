@@ -1,0 +1,259 @@
+[-1, 0.1, 0.1, 2, False]
+Adding vector for parameter set [-1, 0.1, 0.1, 2, False]
+[-1, 0.1, 1.3, 2, False]
+Adding vector for parameter set [-1, 0.1, 1.3, 2, False]
+
+basis continuer:
+[ 0.06338421+0.j -0.70356409+0.j -0.70356409+0.j  0.07731482+0.j]
+[-0.00593814+0.j  0.15533724+0.j  0.15533724+0.j -0.97555391+0.j]
+overlap_matrix_continuer:
+  [[ 1.        +0.j -0.29438056+0.j]
+ [-0.29438056-0.j  1.        +0.j]]
+Hamiltonian_continuer:
+  [[-2.02078205+0.j  0.62466751+0.j]
+ [ 0.62466751-0.j -0.72850563+0.j]]
+fullvec
+[-0.06308015+0.j  0.70222138+0.j  0.70222138+0.j -0.09895023+0.j]
+overlap_matrix_continuer:
+  [[ 1.        +0.j -0.29438056+0.j]
+ [-0.29438056-0.j  1.        +0.j]]
+Hamiltonian_continuer:
+  [[-2.02156606+0.j  0.65468687+0.j]
+ [ 0.65468687-0.j -1.1091737 +0.j]]
+fullvec
+[-0.06247528+0.j  0.69906782+0.j  0.69906782+0.j -0.13676699+0.j]
+overlap_matrix_continuer:
+  [[ 1.        +0.j -0.29438056+0.j]
+ [-0.29438056-0.j  1.        +0.j]]
+Hamiltonian_continuer:
+  [[-2.02235007+0.j  0.68470622+0.j]
+ [ 0.68470622-0.j -1.48984176+0.j]]
+fullvec
+[-0.06086212+0.j  0.68881268+0.j  0.68881268+0.j -0.21764648+0.j]
+overlap_matrix_continuer:
+  [[ 1.        +0.j -0.29438056+0.j]
+ [-0.29438056-0.j  1.        +0.j]]
+Hamiltonian_continuer:
+  [[-2.02391809+0.j  0.74474493+0.j]
+ [ 0.74474493-0.j -2.25117789+0.j]]
+fullvec
+[-0.02223849+0.j  0.32624945+0.j  0.32624945+0.j -0.88692054+0.j]
+overlap_matrix_continuer:
+  [[ 1.        +0.j -0.29438056+0.j]
+ [-0.29438056-0.j  1.        +0.j]]
+Hamiltonian_continuer:
+  [[-2.02548611+0.j  0.80478365+0.j]
+ [ 0.80478365-0.j -3.01251402+0.j]]
+fullvec
+[-5.86367980e-04+0.j  9.79035724e-02+0.j  9.79035724e-02+0.j
+ -9.90368334e-01+0.j]
+overlap_matrix_continuer:
+  [[ 1.        +0.j -0.29438056+0.j]
+ [-0.29438056-0.j  1.        +0.j]]
+Hamiltonian_continuer:
+  [[-2.02627011+0.j  0.834803  +0.j]
+ [ 0.834803  -0.j -3.39318209+0.j]]
+fullvec
+[ 0.00189162+0.j  0.07109834+0.j  0.07109834+0.j -0.99493039+0.j]
+overlap_matrix_continuer:
+  [[ 1.        +0.j -0.29438056+0.j]
+ [-0.29438056-0.j  1.        +0.j]]
+Hamiltonian_continuer:
+  [[-2.02705412+0.j  0.86482236+0.j]
+ [ 0.86482236-0.j -3.77385015+0.j]]
+fullvec
+[ 0.00330228+0.j  0.05577882+0.j  0.05577882+0.j -0.9968784 +0.j]
+results/LCU/Basis/basis_uniatrismeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.3]
+Successfully loaded project Zmeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.3]Bztarg0.3
+LCUcircZbasis	Complete!
+Started running project Zmeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.3]Bztarg0.3
+LCUcircZbasis	Complete!
+Finished running project Zmeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.3]Bztarg0.3
+results/LCU/Basis/basis_uniatrismeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.3]
+Successfully loaded project Xmeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.3]Bztarg0.3
+LCUcircXbasis	Complete!
+Started running project Xmeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.3]Bztarg0.3
+LCUcircXbasis	Complete!
+Finished running project Xmeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.3]Bztarg0.3
+results/LCU/Basis/basis_uniatrismeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.3]
+Successfully loaded project Ymeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.3]Bztarg0.3
+LCUcircYbasis	Complete!
+Started running project Ymeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.3]Bztarg0.3
+LCUcircYbasis	Complete!
+Finished running project Ymeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.3]Bztarg0.3
+results/LCU/Basis/basis_uniatrismeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.3]
+Successfully loaded project Zmeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.3]Bztarg0.5
+LCUcircZbasis	Complete!
+Started running project Zmeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.3]Bztarg0.5
+LCUcircZbasis	Complete!
+Finished running project Zmeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.3]Bztarg0.5
+results/LCU/Basis/basis_uniatrismeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.3]
+Successfully loaded project Xmeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.3]Bztarg0.5
+LCUcircXbasis	Complete!
+Started running project Xmeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.3]Bztarg0.5
+LCUcircXbasis	Complete!
+Finished running project Xmeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.3]Bztarg0.5
+results/LCU/Basis/basis_uniatrismeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.3]
+Successfully loaded project Ymeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.3]Bztarg0.5
+LCUcircYbasis	Complete!
+Started running project Ymeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.3]Bztarg0.5
+LCUcircYbasis	Complete!
+Finished running project Ymeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.3]Bztarg0.5
+results/LCU/Basis/basis_uniatrismeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.3]
+Successfully loaded project Zmeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.3]Bztarg0.7
+LCUcircZbasis	Complete!
+Started running project Zmeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.3]Bztarg0.7
+LCUcircZbasis	Complete!
+Finished running project Zmeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.3]Bztarg0.7
+results/LCU/Basis/basis_uniatrismeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.3]
+Successfully loaded project Xmeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.3]Bztarg0.7
+LCUcircXbasis	Complete!
+Started running project Xmeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.3]Bztarg0.7
+LCUcircXbasis	Complete!
+Finished running project Xmeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.3]Bztarg0.7
+results/LCU/Basis/basis_uniatrismeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.3]
+Successfully loaded project Ymeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.3]Bztarg0.7
+LCUcircYbasis	Complete!
+Started running project Ymeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.3]Bztarg0.7
+LCUcircYbasis	Complete!
+Finished running project Ymeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.3]Bztarg0.7
+results/LCU/Basis/basis_uniatrismeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.3]
+Successfully loaded project Zmeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.3]Bztarg1.1
+LCUcircZbasis	Complete!
+Started running project Zmeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.3]Bztarg1.1
+LCUcircZbasis	Complete!
+Finished running project Zmeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.3]Bztarg1.1
+results/LCU/Basis/basis_uniatrismeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.3]
+Successfully loaded project Xmeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.3]Bztarg1.1
+LCUcircXbasis	Complete!
+Started running project Xmeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.3]Bztarg1.1
+LCUcircXbasis	Complete!
+Finished running project Xmeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.3]Bztarg1.1
+results/LCU/Basis/basis_uniatrismeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.3]
+Successfully loaded project Ymeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.3]Bztarg1.1
+LCUcircYbasis	Complete!
+Started running project Ymeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.3]Bztarg1.1
+LCUcircYbasis	Complete!
+Finished running project Ymeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.3]Bztarg1.1
+results/LCU/Basis/basis_uniatrismeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.3]
+Successfully loaded project Zmeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.3]Bztarg1.5
+LCUcircZbasis	Complete!
+Started running project Zmeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.3]Bztarg1.5
+LCUcircZbasis	Complete!
+Finished running project Zmeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.3]Bztarg1.5
+results/LCU/Basis/basis_uniatrismeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.3]
+Successfully loaded project Xmeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.3]Bztarg1.5
+LCUcircXbasis	Complete!
+Started running project Xmeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.3]Bztarg1.5
+LCUcircXbasis	Complete!
+Finished running project Xmeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.3]Bztarg1.5
+results/LCU/Basis/basis_uniatrismeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.3]
+Successfully loaded project Ymeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.3]Bztarg1.5
+LCUcircYbasis	Complete!
+Started running project Ymeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.3]Bztarg1.5
+LCUcircYbasis	Complete!
+Finished running project Ymeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.3]Bztarg1.5
+results/LCU/Basis/basis_uniatrismeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.3]
+Successfully loaded project Zmeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.3]Bztarg1.7
+LCUcircZbasis	Complete!
+Started running project Zmeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.3]Bztarg1.7
+LCUcircZbasis	Complete!
+Finished running project Zmeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.3]Bztarg1.7
+results/LCU/Basis/basis_uniatrismeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.3]
+Successfully loaded project Xmeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.3]Bztarg1.7
+LCUcircXbasis	Complete!
+Started running project Xmeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.3]Bztarg1.7
+LCUcircXbasis	Complete!
+Finished running project Xmeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.3]Bztarg1.7
+results/LCU/Basis/basis_uniatrismeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.3]
+Successfully loaded project Ymeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.3]Bztarg1.7
+LCUcircYbasis	Complete!
+Started running project Ymeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.3]Bztarg1.7
+LCUcircYbasis	Complete!
+Finished running project Ymeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.3]Bztarg1.7
+results/LCU/Basis/basis_uniatrismeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.3]
+Successfully loaded project Zmeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.3]Bztarg1.9
+LCUcircZbasis	Complete!
+Started running project Zmeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.3]Bztarg1.9
+LCUcircZbasis	Complete!
+Finished running project Zmeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.3]Bztarg1.9
+results/LCU/Basis/basis_uniatrismeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.3]
+Successfully loaded project Xmeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.3]Bztarg1.9
+LCUcircXbasis	Complete!
+Started running project Xmeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.3]Bztarg1.9
+LCUcircXbasis	Complete!
+Finished running project Xmeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.3]Bztarg1.9
+results/LCU/Basis/basis_uniatrismeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.3]
+Successfully loaded project Ymeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.3]Bztarg1.9
+LCUcircYbasis	Complete!
+Started running project Ymeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.3]Bztarg1.9
+LCUcircYbasis	Complete!
+Finished running project Ymeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.3]Bztarg1.9
+Transpiling  ibmq_qasm_simulator
+Transpiledlcu
+global phase: 5.2309
+             ┌───────────────────────┐                                     »
+q0_0 -> 0 ───┤ U3(2.8413,-2.9383,-π) ├─────────────────────────────────────»
+           ┌─┴───────────────────────┴─┐         ┌──────────────────────┐  »
+q0_1 -> 1 ─┤ U3(1.3201,1.7905,-2.7074) ├───■─────┤ U3(1.5178,-1.9316,0) ├──»
+          ┌┴───────────────────────────┴┐┌─┴─┐┌──┴──────────────────────┴─┐»
+q0_2 -> 2 ┤ U3(0.26844,-0.69019,1.7378) ├┤ X ├┤ U3(0.73534,2.1328,-2.676) ├»
+          └─────────────────────────────┘└───┘└───────────────────────────┘»
+    c0: 3/═════════════════════════════════════════════════════════════════»
+                                                                           »
+«                      ┌─────────────┐             »
+«q0_0 -> 0 ──■─────────┤ U1(-1.8007) ├─────────────»
+«          ┌─┴─┐┌──────┴─────────────┴───────┐     »
+«q0_1 -> 1 ┤ X ├┤ U3(1.8236,-0.53607,-2.239) ├──■──»
+«          └───┘└────────────────────────────┘┌─┴─┐»
+«q0_2 -> 2 ───────────────────────────────────┤ X ├»
+«                                             └───┘»
+«    c0: 3/════════════════════════════════════════»
+«                                                  »
+«                                               ┌──────────────────────┐   »
+«q0_0 -> 0 ───────────────────────────────■─────┤ U3(π,-2.8868,1.0668) ├───»
+«             ┌──────────────────────┐  ┌─┴─┐┌──┴──────────────────────┴──┐»
+«q0_1 -> 1 ───┤ U3(0.98416,-1.938,0) ├──┤ X ├┤ U3(1.8694,-1.212,-0.65462) ├»
+«          ┌──┴──────────────────────┴─┐└───┘└────────────────────────────┘»
+«q0_2 -> 2 ┤ U3(1.7924,0.25346,2.0671) ├───────────────────────────────────»
+«          └───────────────────────────┘                                   »
+«    c0: 3/════════════════════════════════════════════════════════════════»
+«                                                                          »
+«                                                    »
+«q0_0 -> 0 ──────────────────────────────────────────»
+«                   ┌──────────────────────┐         »
+«q0_1 -> 1 ──■──────┤ U3(0.70842,1.704,-π) ├──────■──»
+«          ┌─┴─┐┌───┴──────────────────────┴───┐┌─┴─┐»
+«q0_2 -> 2 ┤ X ├┤ U3(1.0209,-0.037447,-2.2177) ├┤ X ├»
+«          └───┘└──────────────────────────────┘└───┘»
+«    c0: 3/══════════════════════════════════════════»
+«                                                    »
+«                                                ┌──────────────────┐         »
+«q0_0 -> 0 ───────────────────────────────■──────┤ U3(0.30028,-π,0) ├─────────»
+«             ┌──────────────────────┐  ┌─┴─┐┌───┴──────────────────┴───┐     »
+«q0_1 -> 1 ───┤ U3(2.6511,1.6077,-π) ├──┤ X ├┤ U3(0.22385,2.9197,1.671) ├──■──»
+«          ┌──┴──────────────────────┴─┐└───┘└──────────────────────────┘┌─┴─┐»
+«q0_2 -> 2 ┤ U3(3.0998,0.37498,1.9093) ├─────────────────────────────────┤ X ├»
+«          └───────────────────────────┘                                 └───┘»
+«    c0: 3/═══════════════════════════════════════════════════════════════════»
+«                                                                             »
+«          ┌─┐                                     
+«q0_0 -> 0 ┤M├─────────────────────────────────────
+«          └╥┘      ┌─────────────────┐      ┌─┐   
+«q0_1 -> 1 ─╫───────┤ U3(2.1074,-π,0) ├──────┤M├───
+«           ║ ┌─────┴─────────────────┴─────┐└╥┘┌─┐
+«q0_2 -> 2 ─╫─┤ U3(0.53779,-1.6653,-2.7803) ├─╫─┤M├
+«           ║ └─────────────────────────────┘ ║ └╥┘
+«    c0: 3/═╩═════════════════════════════════╩══╩═
+«           0                                 1  2 
+jobid lcu:  625dc51b709df84454068fb6
+jobid lcu calib:  625dc560b9626e0ef63670d9
+calibration matrix : 
+[[1. 0. 0. 0. 0. 0. 0. 0.]
+ [0. 1. 0. 0. 0. 0. 0. 0.]
+ [0. 0. 1. 0. 0. 0. 0. 0.]
+ [0. 0. 0. 1. 0. 0. 0. 0.]
+ [0. 0. 0. 0. 1. 0. 0. 0.]
+ [0. 0. 0. 0. 0. 1. 0. 0.]
+ [0. 0. 0. 0. 0. 0. 1. 0.]
+ [0. 0. 0. 0. 0. 0. 0. 1.]]

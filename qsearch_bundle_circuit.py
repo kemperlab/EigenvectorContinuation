@@ -1,5 +1,4 @@
 import pickle
-
 import numpy as np
 from qiskit import Aer, execute, QuantumCircuit,QuantumRegister,ClassicalRegister
 from qiskit.algorithms import VQE
@@ -10,12 +9,16 @@ from qiskit.opflow import I, X, Y, Z
 
 from hamiltonian import *
 from scipy import linalg
-
+from scipy.linalg import null_space
 from qiskit.extensions import UnitaryGate
 import qiskit as qk
 from qiskit import IBMQ
 from qiskit.ignis.mitigation.measurement import complete_meas_cal, CompleteMeasFitter
-######################################################
+
+from numpy.linalg import cond
+#############################################################
+
+# given the parameters this gets the vqe circuit and the unitary
 def get_circuit_unitary_fromVQE(param):
     J = param["J"]
     Bx = param["Bx"]
@@ -69,6 +72,30 @@ def get_basis_list(training_paramlist):
 
     return basis_circuits_list,basis_unitaries_list
 ######################################################
+
+# To not use any VQE, pass the vector this will give the corresponding unitary.
+def makeUnitaryfromvec(vec):
+    length = len(vec)
+    ket0 = np.zeros([length], dtype="complex")
+    ket0[0] = 1.0
+    ket0 = np.reshape(ket0, (length, 1))
+    bravec = np.reshape(vec, (1, length))
+    Unitaryvec = np.matmul(ket0, bravec)
+    nullspace = null_space(Unitaryvec)
+    U_vec = np.zeros((length, length), dtype="complex")
+    U_vec[:, 0] = vec
+    for i in range(length - 1):
+        U_vec[:, i + 1] = nullspace[:, i]
+    return U_vec
+
+# pass the vectors list this will give the unitaries list
+def get_training_vectors_exact(basis_vecs):
+    Uilist=[]
+    for basis_v in basis_vecs:
+        Ui = makeUnitaryfromvec(vec=basis_v)
+        Uilist.append(Ui)
+    return Uilist
+#############################
 # This function gets the simulator either Aer qasm or ibmq ones
 def get_backend(backend_name="qasm_simulator"):
     if(backend_name=="qasm_simulator"):
@@ -76,6 +103,7 @@ def get_backend(backend_name="qasm_simulator"):
     else:
         if IBMQ.active_account() is None:
             provider = IBMQ.load_account()
+#         provider  = IBMQ.get_provider(hub='ibm-q', group='open', project='main')
         provider  = IBMQ.get_provider(hub='ibm-q-ncsu', group='nc-state', project='physics-of-spin-')
         backend = provider.get_backend(backend_name)
 
@@ -99,23 +127,23 @@ def make_measure_inbasis_circ(circ, N=2, basis="X"):
 # given the counts it returns the average m value
 def get_p_from_counts(counts):
 
-    try:
+   try:
         p = (counts['0'] - counts['1']) / (counts['0'] + counts['1'])
-    except:
+   except:
         try:
             p = counts['0'] / counts['0']
         except:
             p = -1
 
-    return p
+   return p
 ###########################
 
 # given the two basis circuits this returns the dot product circuit with control qubit
-def convert_U_to_qsearch_circuit(U,circname="circ"):
+def convert_U_to_qsearch_circuit(U,circname="circ",project_dir = "project_dir"):
     # print("Ufeeded in")
     # print(U)
     import search_compiler as sc
-    project = sc.Project("project_dir")
+    project = sc.Project(project_dir)
     project.add_compilation( circname, U)
     project.run()
     circ_str = project.assemble( circname)
@@ -144,17 +172,17 @@ def make_cntrlU(U):
             cntrlU[L+i,L+j] = U[i,j]
     return cntrlU
 
-def phi_ij(Ui,Uj,N,circname):
+def phi_ij(Ui,Uj,N,circname,project_dir):
     Ujd = np.conjugate(np.transpose(Uj))
     U = np.matmul(Ujd, Ui)
     had = (1/np.sqrt(2))*np.array([[1,1],[1,-1]],dtype=complex)
-    Uini = np.kron(had,np.identity(4,dtype=complex))
+    Uini = np.kron(had,np.identity(2**N,dtype=complex))
     print(np.shape(Uini))
     print(Uini)
     U_ansys = make_cntrlU(U=U)
     U_ansys = np.matmul(U_ansys,Uini)
     print(np.shape(U_ansys))
-    circij = convert_U_to_qsearch_circuit(U=U_ansys,circname=circname)
+    circij = convert_U_to_qsearch_circuit(U=U_ansys,circname=circname,project_dir=project_dir)
     return circij
 ########################################
 # given the basis circuitlist this function gets the overlap matrix by running the circuits
@@ -331,7 +359,12 @@ def get_evals_of_target_ham_from_matrices(overlap_matrix,Bzmatrix,Bxmatrix,Jmatr
 
     smaller_ham = make_target_hamiltonian_fromQC(Bzmatrix,Bxmatrix,Jmatrix,paramn)
     print("Hamiltonian qsearch:\n", smaller_ham)
+    # This is to solve smaller ham explicitly using inverse
+    #mham = linalg.inv(overlap_matrix) @ smaller_ham
+    #evals, evecs = linalg.eigh(mham)
+    
     evals, evecs = linalg.eigh(smaller_ham,overlap_matrix)
+    
     # evals, evecs = linalg.eigh(smaller_ham,overlap_matrix,driver="gv")
     print("Evals qsearch: ",evals)
     return evals,evecs
@@ -386,7 +419,7 @@ def get_evals_of_target_ham_from_matrices(overlap_matrix,Bzmatrix,Bxmatrix,Jmatr
 #############################
 #####################
 # given the circi, circj, paulisop this makes the circuit for Paulidot product
-def make_Pauli_ij_circuit(Ui, Uj, paulisop, circname):
+def make_Pauli_ij_circuit(Ui, Uj, paulisop,N, circname,project_dir):
     # circuiti,Ui = get_circuit_unitary_fromVQE(param=parami,N=N)
     # circuitj,Uj = get_circuit_unitary_fromVQE(param=paramj,N=N)
 
@@ -399,18 +432,18 @@ def make_Pauli_ij_circuit(Ui, Uj, paulisop, circname):
     # U_ansys = make_cntrlU(U=U)
 
     had = (1 / np.sqrt(2)) * np.array([[1, 1], [1, -1]], dtype=complex)
-    Uini = np.kron(had, np.identity(4, dtype=complex))
+    Uini = np.kron(had, np.identity(2**N, dtype=complex))
     # print(np.shape(Uini))
     # print(Uini)
     U_ansys = make_cntrlU(U=U)
     U_ansys = np.matmul(U_ansys, Uini)
 
-    circ_Pij = convert_U_to_qsearch_circuit(U=U_ansys,circname=circname)
+    circ_Pij = convert_U_to_qsearch_circuit(U=U_ansys,circname=circname,project_dir=project_dir)
 
     return circ_Pij
 #####################################
 # given the circi, circj, this makes the circuit for Paulidot product and bundles all of them
-def make_Paulibundledcircuits_ij(N, pbc, Ui, Uj,circname_ij):
+def make_Paulibundledcircuits_ij(N, pbc, Ui, Uj,circname_ij,project_dir):
     bundled_Pauliij_circuitlist = []
     # Build hamiltonian matrix
     for isite in range(N):
@@ -420,7 +453,7 @@ def make_Paulibundledcircuits_ij(N, pbc, Ui, Uj,circname_ij):
         oplist[isite] = 'Z'
         circname = "Pauli"+'Z'+str(isite) + circname_ij
         # print("".join(oplist))
-        circ_Pij = make_Pauli_ij_circuit(Ui=Ui, Uj=Uj, paulisop=oplist, circname=circname )
+        circ_Pij = make_Pauli_ij_circuit(Ui=Ui, Uj=Uj, paulisop=oplist, N=N,circname=circname,project_dir=project_dir )
         circ_Pijx = make_measure_inbasis_circ(circ= circ_Pij, N=N+1, basis="X")
         bundled_Pauliij_circuitlist.append(circ_Pijx)
         circ_Pijy = make_measure_inbasis_circ(circ= circ_Pij, N=N+1, basis="Y")
@@ -431,7 +464,7 @@ def make_Paulibundledcircuits_ij(N, pbc, Ui, Uj,circname_ij):
         oplist[isite] = 'X'
         # print("".join(oplist))
         circname = "Pauli" + 'X' + str(isite) + circname_ij
-        circ_Pij = make_Pauli_ij_circuit(Ui=Ui, Uj=Uj, paulisop=oplist, circname=circname )
+        circ_Pij = make_Pauli_ij_circuit(Ui=Ui, Uj=Uj, paulisop=oplist, N=N,circname=circname,project_dir=project_dir )
         circ_Pijx = make_measure_inbasis_circ(circ=circ_Pij, N=N+1, basis="X")
         bundled_Pauliij_circuitlist.append(circ_Pijx)
         circ_Pijy = make_measure_inbasis_circ(circ=circ_Pij, N=N+1, basis="Y")
@@ -447,7 +480,7 @@ def make_Paulibundledcircuits_ij(N, pbc, Ui, Uj,circname_ij):
         oplist[jsite] = 'X'
         # print("".join(oplist))
         circname = "Pauli" + 'X' + str(isite)+  'X' + str(jsite) + circname_ij
-        circ_Pij = make_Pauli_ij_circuit(Ui=Ui, Uj=Uj, paulisop=oplist, circname=circname)
+        circ_Pij = make_Pauli_ij_circuit(Ui=Ui, Uj=Uj, paulisop=oplist, N=N,circname=circname,project_dir=project_dir)
         circ_Pijx = make_measure_inbasis_circ(circ=circ_Pij, N=N+1, basis="X")
         bundled_Pauliij_circuitlist.append(circ_Pijx)
         circ_Pijy = make_measure_inbasis_circ(circ=circ_Pij, N=N+1, basis="Y")
@@ -458,7 +491,7 @@ def make_Paulibundledcircuits_ij(N, pbc, Ui, Uj,circname_ij):
         oplist[jsite] = 'Y'
         # print("".join(oplist))
         circname = "Pauli" + 'Y' + str(isite) +  'Y' + str(jsite) + circname_ij
-        circ_Pij = make_Pauli_ij_circuit(Ui=Ui, Uj=Uj, paulisop=oplist, circname=circname)
+        circ_Pij = make_Pauli_ij_circuit(Ui=Ui, Uj=Uj, paulisop=oplist,N=N, circname=circname,project_dir=project_dir)
         circ_Pijx = make_measure_inbasis_circ(circ=circ_Pij, N=N+1, basis="X")
         bundled_Pauliij_circuitlist.append(circ_Pijx)
         circ_Pijy = make_measure_inbasis_circ(circ=circ_Pij, N=N+1, basis="Y")
@@ -467,14 +500,15 @@ def make_Paulibundledcircuits_ij(N, pbc, Ui, Uj,circname_ij):
     return bundled_Pauliij_circuitlist
 #########################################
 # given the basis circuit list this bundles circuits for all ij
-def make_hamiltonian_circuit_bundlelist(basis_unitaries_list, N, pbc):
+def make_hamiltonian_circuit_bundlelist(basis_unitaries_list, N, pbc,project_dir):
+
     base_length = len(basis_unitaries_list)
 
     bundled_Paulifull_circuitlist = []
 
     for i in range(base_length):
         for j in range(i, base_length):
-            bundled_Paulij_circuitlist = make_Paulibundledcircuits_ij(N=N, pbc=pbc, Ui=basis_unitaries_list[i],Uj=basis_unitaries_list[j],  circname_ij = str(i)+str(j))
+            bundled_Paulij_circuitlist = make_Paulibundledcircuits_ij(N=N, pbc=pbc, Ui=basis_unitaries_list[i],Uj=basis_unitaries_list[j],  circname_ij = str(i)+str(j),project_dir=project_dir)
             bundled_Paulifull_circuitlist.extend(bundled_Paulij_circuitlist)
 
     return bundled_Paulifull_circuitlist
@@ -554,14 +588,14 @@ def get_ham_pauli_ijcomponents_from_plist(parray,N,pbc):
     return [hamBz, hamBx, hamXX, hamYY]
 ################################
 # given the basiscircuitlist this wraps everything for final bundle list
-def make_circuit_bundle_forQC(basis_unitaries_list , N ,pbc):
+def make_circuit_bundle_forQC(basis_unitaries_list , N ,pbc,project_dir):
 #     lets bundle the overlap circuits
     basis_length = len(basis_unitaries_list)
     qc_bundlelist=[]
     for i in range (basis_length-1):
         for j in range(i+1,basis_length):
             circname = "Phi"+str(i)+str(j)
-            circij = phi_ij(Ui=basis_unitaries_list[i],Uj=basis_unitaries_list[j],N=N,circname=circname)
+            circij = phi_ij(Ui=basis_unitaries_list[i],Uj=basis_unitaries_list[j],N=N,circname=circname, project_dir=project_dir)
             phiijx = make_measure_inbasis_circ(circ=circij,N=N+1,basis="X")
             qc_bundlelist.append(phiijx)
             phiijy = make_measure_inbasis_circ(circ=circij, N=N+1, basis="Y")
@@ -569,9 +603,10 @@ def make_circuit_bundle_forQC(basis_unitaries_list , N ,pbc):
     # print(qc_bundlelist)
 
 #     lets bundle the pauli circuits
-    ham_bundlelist = make_hamiltonian_circuit_bundlelist(basis_unitaries_list=basis_unitaries_list, N=N, pbc=pbc)
+    ham_bundlelist = make_hamiltonian_circuit_bundlelist(basis_unitaries_list=basis_unitaries_list, N=N, pbc=pbc,project_dir=project_dir)
     qc_bundlelist.extend(ham_bundlelist)
     # print(qc_bundlelist)
+    print("len(ham_bundlelist)", len(ham_bundlelist))
     return qc_bundlelist
 #####################################
 # this unpacks plist to get all the matrices
@@ -582,9 +617,11 @@ def unpackplist(plist,N,pbc,basis_length):
     index=0
     for i in range(basis_length - 1):
         for j in range(i + 1, basis_length):
-            phij = poverlaplist[index*basis_length + 0] + 1.j* poverlaplist[index*basis_length + 1]
+            phij = poverlaplist[index*2 + 0] + 1.j* poverlaplist[index*2 + 1]
+            # phij = poverlaplist[index*basis_length + 0] + 1.j* poverlaplist[index*basis_length + 1]
             overlap_matrix[i, j] = phij
             overlap_matrix[j, i] = np.conjugate(phij)
+            index=index+1
     #         lets get the hamiltoninan matrix parts
     phamlist = plist[length_overlap:]
     phamarray = np.array(phamlist)
@@ -592,8 +629,8 @@ def unpackplist(plist,N,pbc,basis_length):
     # return overlap_matrix
     return overlap_matrix,Bzmatrix, Bxmatrix, Jmatrix
 #############################################
-
-def get_evals_targetlist_qsearchcirc(training_paramlist,target_paramlist,backend_name,layout,shots=8192 ):
+# this is the main function where things are put together
+def get_evals_targetlist_qsearchcirc(training_paramlist,target_paramlist,backend_name,layout,shots ,basis_vecs, Basis_exact_flag=True,date_flag = True ):
     ####################   input QC ##################
     # backend_name = "qasm_simulator"
     # layout = [0,1,2]
@@ -608,7 +645,13 @@ def get_evals_targetlist_qsearchcirc(training_paramlist,target_paramlist,backend
 
     ################ getting basis circuit list  #######################
     evals_qc = np.zeros([len(target_paramlist),len(training_paramlist)],dtype=complex)
-    basis_circuits_list,basis_unitaries_list = get_basis_list(training_paramlist = training_paramlist)
+
+    # basis_circuits_list,basis_unitaries_list = get_basis_list(training_paramlist = training_paramlist)
+
+    if (Basis_exact_flag == True):
+        basis_unitaries_list = get_training_vectors_exact(basis_vecs=basis_vecs)
+    else:
+        basis_circuits_list,basis_unitaries_list = get_basis_list(training_paramlist = training_paramlist)
     #
     # basis_unitaries_list = Uilist
     # print("printing Uilist from the qsearch")
@@ -616,6 +659,7 @@ def get_evals_targetlist_qsearchcirc(training_paramlist,target_paramlist,backend
     #     print(u)
     paramn = target_paramlist[0]
     N = paramn["N"]
+    J = paramn["J"]
     pbc = paramn["pbc"]
     Bx = paramn["Bx"]
     Bzlist_target=[]
@@ -625,32 +669,77 @@ def get_evals_targetlist_qsearchcirc(training_paramlist,target_paramlist,backend
     Bzlist_training = []
     for paramn in training_paramlist:
         Bzlist_training.append(paramn["Bz"] )
+    metadata = [N, J, pbc, Bx, Bzlist_training, Bzlist_target]
     # tag ="Bx="+str(Bx)+"Bztrain"+str(Bzlist_training)+"Bztarget"+str(Bzlist_target)\
     #      +"backend_name="+backend_name +"layout=" + str(layout)
     #
     # pickle.dump(basis_circuits_list, open("matrix_data/basis_circuits_list"+tag+".p", "wb"))
-    filename = "matrix_data/basis_circuits_list" + "Bx="+str(Bx)+"Bztrain"+str(Bzlist_training)+"Bztarget"+str(Bzlist_target) + "from_sc_bundle.p"
-    pickle.dump(basis_circuits_list, open(filename, "wb"))
+    import datetime
+    x = datetime.datetime.now()
+    date = str(x.day) + "_" + str(x.month) + "_" + str(x.year)
+    if (Basis_exact_flag):
+        tag = "base_unitaries_Nsite=" + str(N) + "Bx="+str(Bx) + "J=" + str(J)+"pbc=" + str(pbc) + "Bztrain"+str(Bzlist_training) + "Bztarget"+str(Bzlist_target) \
+                + "Basis_exact_flag= " + str(Basis_exact_flag)
+        if(date_flag):
+            tag = tag + "date_" + date
+        tag += ".p"
+        filename = "results/EVC/Basis/" + tag
+        pickle.dump(basis_unitaries_list, open(filename, "wb"))
+    else:
+        tag = "base_circuits_Nsite=" + str(N) + "Bx=" + str(Bx) + "J=" + str(J) + "pbc=" + str(pbc) + "Bztrain" + str(
+            Bzlist_training) + "Bztarget" + str(Bzlist_target) + "backend_name=" + backend_name + "layout=" + str(layout) + "shots=" + str(shots) + "opt=" +\
+              str(optimizationlevel) + "Basis_exact_flag= " + str(Basis_exact_flag)
+        if (date_flag):
+            tag = tag + "date_" + date
+        tag += ".p"
+        filename = "results/EVC/Basis/" + tag
+        pickle.dump(basis_circuits_list, open(filename, "wb"))
+    print("len(basis_unitaries_list)",len(basis_unitaries_list))
+    # filename = "matrix_data/basis_unitaries_list" + "Nsite=" + str(N) + "Bx=" + str(Bx) + "Bztrain" + str(Bzlist_training) + "Bztarget" + str(Bzlist_target) \
+    #            +"Basis_exact_flag= "+str(Basis_exact_flag)+ "from_sc_bundle.p"
+    # filename = "results/EVC/Basis/"+tag
+    # pickle.dump(basis_unitaries_list, open(filename, "wb"))
 
     ############## Lets try the bundling method here ##################
 
-    print("basis_unitaries_list before circuits",basis_unitaries_list)
-    qc_bundlelist = make_circuit_bundle_forQC(basis_unitaries_list = basis_unitaries_list, N = N,pbc=pbc)
-    print("basis_unitaries_list after circuits", basis_unitaries_list)
+    project_dir = "qsearch_dir/EVC_project_dir/Z_meas" + str(N) + "site" + "Bx="+ str(Bx) + "Bztrain" + str(Bzlist_training)
+    # print("basis_unitaries_list before circuits",basis_unitaries_list)
+    qc_bundlelist = make_circuit_bundle_forQC(basis_unitaries_list = basis_unitaries_list, N = N,pbc=pbc,project_dir=project_dir)
+    # print("basis_unitaries_list after circuits", basis_unitaries_list)
     # print the bundle list
     # print( qc_bundlelist)
 
-    filename = "circuits/sc_trans"+"Bx="+str(Bx)+"Bztrain"+str(Bzlist_training)+"Bztarget"+str(Bzlist_target)\
-         +"backend_name="+backend_name +"layout=" + str(layout)+"opt="+str(optimizationlevel)+".p"
+    # filename = "circuits/sc_trans" + "Nsite=" + str(N) + "Bx="+str(Bx)+"Bztrain"+str(Bzlist_training)+"Bztarget"+str(Bzlist_target)\
+    #      +"backend_name="+backend_name +"layout=" + str(layout)+"opt="+str(optimizationlevel)+".p"
     backend = get_backend(backend_name=backend_name)
+    print("Transpiling ", backend)
     transpiled_bundlelist = qk.transpile(circuits=qc_bundlelist,backend=backend,initial_layout=layout,optimization_level=optimizationlevel)
+    print("Transpiled")
+    print("len (qc_bundlelist) ",len(qc_bundlelist))
+    # pickle.dump(transpiled_bundlelist, open(filename , "wb" ) )
 
-    pickle.dump(transpiled_bundlelist, open(filename , "wb" ) )
+    if (date_flag):
+       tag = "Nsite=" + str(N) + "Bx=" + str(Bx) + "J=" + str(J) + "pbc=" + str(pbc) + "Bztrain" + str(
+            Bzlist_training) + \
+              "Bztarget" + str(Bzlist_target) + "backend_name=" + backend_name + "layout=" + str(
+            layout) + "shots=" + str(shots) + "opt=" + \
+              str(optimizationlevel) + "date" + date + ".p"
+    else:
+        tag = "Nsite=" + str(N) + "Bx=" + str(Bx) + "J=" + str(J) + "pbc=" + str(pbc) + "Bztrain" + str(
+            Bzlist_training) + "Bztarget" + str(Bzlist_target) \
+              + "backend_name=" + backend_name + "layout=" + str(layout) + "shots=" + str(shots) + "opt=" + str(
+            optimizationlevel) + ".p"
+    filename_notrans = "circuits/EVC/sc_EVC_notrans" + tag
+    filename_trans = "circuits/EVC/trans/sc_EVC_trans" + tag
+    pickle.dump(qc_bundlelist, open(filename_notrans, "wb"))
+    pickle.dump(transpiled_bundlelist, open(filename_trans, "wb"))
 
     qobj = qk.assemble(transpiled_bundlelist, backend=backend, shots=shots)
     # print("qobjects created")
     job = backend.run(qobj)
+
     results = job.result()
+    print("jobid evc: ",job.job_id())
     # allresults = results.results
     allcounts = results.get_counts()
     # read out error mitigation
@@ -661,7 +750,7 @@ def get_evals_targetlist_qsearchcirc(training_paramlist,target_paramlist,backend
     qobj_calibs = qk.assemble(t_qc_calibs,backend=backend, shots=shots)
     job_calibs = backend.run(qobj_calibs)
     calib_results = job_calibs.result()
-
+    print("jobid evc calibs: ", job_calibs.job_id())
     meas_fitter = CompleteMeasFitter(calib_results, state_labels, circlabel='mcal')
     meas_filter = meas_fitter.filter
     print("calibration matrix : ")
@@ -669,25 +758,43 @@ def get_evals_targetlist_qsearchcirc(training_paramlist,target_paramlist,backend
     mitigated_results = meas_filter.apply(results)
     mitigated_counts = mitigated_results.get_counts()
     ########## saving results  ##############
-    filename = "circuits/sc_results" + "Bx=" + str(Bx) + "Bztrain" + str(Bzlist_training) + "Bztarget" + str(
-        Bzlist_target) \
-               + "backend_name=" + backend_name + "layout=" + str(layout) + "opt=" + str(optimizationlevel) + ".p"
+    # filename = "circuits/sc_results"  + "Nsite=" + str(N) +  "Bx=" + str(Bx) + "Bztrain" + str(Bzlist_training) + "Bztarget" + str(
+    #     Bzlist_target) \
+    #            + "backend_name=" + backend_name + "layout=" + str(layout) + "opt=" + str(optimizationlevel) + ".p"
+
+    # filename = "circuits/sc_results" + "Nsite=" + str(N) +"J=" + str(J) + "Bx=" + str(Bx) + "Bztrain" + str( Bzlist_training) \
+    #            + "backend_name=" + backend_name + "layout=" + str(layout) + "opt=" + str(optimizationlevel) + ".p"
+
+    # pickle.dump(mitigated_results, open(filename, "wb"))
+    #
+    # filename = "circuits/sc_counts"  + "Nsite=" + str(N) +  "Bx=" + str(Bx) + "Bztrain" + str(Bzlist_training) + "Bztarget" + str(
+    #     Bzlist_target) \
+    #            + "backend_name=" + backend_name + "layout=" + str(layout) + "opt=" + str(optimizationlevel) + ".p"
+    #
+    # filename = "circuits/sc_counts" + "Nsite=" + str(N) + "J=" + str(J) + "Bx=" + str(Bx) + "Bztrain" + str(
+    #     Bzlist_training) \
+    #            + "backend_name=" + backend_name + "layout=" + str(layout) + "opt=" + str(optimizationlevel) + ".p"
+
+    # pickle.dump(mitigated_counts , open(filename, "wb"))
 
 
-    pickle.dump(mitigated_results, open(filename, "wb"))
-
-    filename = "circuits/sc_counts" + "Bx=" + str(Bx) + "Bztrain" + str(Bzlist_training) + "Bztarget" + str(
-        Bzlist_target) \
-               + "backend_name=" + backend_name + "layout=" + str(layout) + "opt=" + str(optimizationlevel) + ".p"
-
-    pickle.dump(mitigated_counts , open(filename, "wb"))
-##################### saving over ################3
+##################### saving over ################
     plist = []
     for i in range(len(transpiled_bundlelist)):
         p = get_p_from_counts(counts=mitigated_counts[i])
         # p = get_p_from_counts(counts=allcounts[i])
         plist.append(p)
-
+        ################# Lets save the results and counts ##################
+        filename_results_together = "results/EVC/results_counts" + tag
+        pickle.dump(
+            [results, calib_results, mitigated_results, allcounts, meas_fitter.cal_matrix, mitigated_counts, metadata],
+            open(filename_results_together, "wb"))
+        filename_results = "results/EVC/results" + tag
+        pickle.dump([results, calib_results, mitigated_results, metadata],
+                    open(filename_results, "wb"))
+        filename_counts = "results/EVC/counts" + tag
+        pickle.dump([allcounts, meas_fitter.cal_matrix, mitigated_counts, plist, metadata],
+                    open(filename_counts, "wb"))
     # p_overlap = plist[0] + 1.j * plist[1]
     # print("overlap element from p_overlap",p_overlap)
     #####
@@ -697,14 +804,20 @@ def get_evals_targetlist_qsearchcirc(training_paramlist,target_paramlist,backend
     overlap_matrix_bundle, Bzmatrix_bundle, Bxmatrix_bundle, Jmatrix_bundle = \
         unpackplist(plist=plist, N=N, pbc=pbc, basis_length=basis_length)
 
-    tag = "Bx=" + str(Bx) + "Bztrain" + str(Bzlist_training) + "Bztarget" + str(Bzlist_target)+ \
-          "backend_name=" + backend_name + "layout=" + str(layout) + "opt=" + str(optimizationlevel)
-    print("Overlap matrix_bundle qsearch:\n", overlap_matrix_bundle)
+    # import datetime
+    # x = datetime.datetime.now()
+    # date = str(x.day) + "_" + str(x.month) + "_" + str(x.year)
+    tag = "Nsite=" + str(N) + "Bx=" + str(Bx) + "J=" + str(J) + "pbc=" + str(pbc) + "Bztrain" + str(Bzlist_training) + "Bztarget" + str(Bzlist_target)+ \
+          "backend_name=" + backend_name + "layout=" + str(layout) + "shots=" + str(shots) + "opt=" + str(optimizationlevel)
+    if(date_flag):
+        if (date_flag):
+            tag = tag + "date_" + date
     np.savetxt('matrix_data/overlap_matrix_bundle_sc' + tag + '.txt', overlap_matrix_bundle)
-
-    np.savetxt('matrix_data/Bxmatrix_bundle_sc' + tag + '.txt', overlap_matrix_bundle)
+    np.savetxt('matrix_data/Bxmatrix_bundle_sc' + tag + '.txt', Bxmatrix_bundle)
     np.savetxt('matrix_data/Bzmatrix_bundle_sc' + tag + '.txt', Bzmatrix_bundle)
     np.savetxt('matrix_data/Jmatrix_bundle_sc' + tag + '.txt', Jmatrix_bundle)
+    print("Overlap matrix_bundle qsearch:\n", overlap_matrix_bundle)
+    print("Overlap matrix_bundle qsearch cond:\t", cond(overlap_matrix_bundle))
     print("Bzmatrix_bundle qsearch:\n", Bzmatrix_bundle)
     print("Bxmatrix_bundle qsearch:\n", Bxmatrix_bundle)
     print("Jmatrix_bundle qsearch:\n", Jmatrix_bundle)
@@ -718,7 +831,16 @@ def get_evals_targetlist_qsearchcirc(training_paramlist,target_paramlist,backend
         for k in range(len(training_paramlist)):
             evals_qc_bundle[ip, k] = evals_bundle[k]
 
-    ##################### bundling over ################
+    ##################### bundling over ################tag = tag.replace(".p", ".txt")
+    filename_summary = "summary/EVC_eigen_values_"+tag
+    # filename = "summary/LCU_eigen_values_Nsite=" + str(N) + "Bx=" + str(Bx) + "Bztrain" + str(
+    #     Bzlist_training) + "Bztarget" + str(Bzlist_target) + "backend_name=" + backend_name + "layout=" + str(layout) + "opt=" + str(optimizationlevel)".txt"
+    f = open(filename_summary, "w")
+    f.write("Energylist EVC : "+str(evals_qc_bundle))
+    # f.write("\n Energylist mitigated : " + str(Energylist))
+    # f.write("\n Magnetizationlist raw : " + str(maglist_raw))
+    # f.write("\n Magnetizationlist mitigated : " + str(maglist))
+    f.close()
 
 
     # return evals_qc,evals_qc_bundle

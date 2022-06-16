@@ -1,0 +1,11 @@
+2022-02-22 12:50:00.985964 > 	Started running project Zmeas_2siteBx=0.1J=-1pbc=FalseBztrain[0, 0.1, 0.2]Bztarg1.7
+2022-02-22 12:50:00.986192 > 	LCUcircZbasis	Not started.
+2022-02-22 12:50:00.986305 > 	Starting compilation of LCUcircZbasis
+2022-02-22 12:51:36.233101 > 	Finished compilation of LCUcircZbasis
+2022-02-22 12:51:36.234372 > 	LCUcircZbasis	Complete!
+2022-02-22 12:51:36.234472 > 	Finished running project Zmeas_2siteBx=0.1J=-1pbc=FalseBztrain[0, 0.1, 0.2]Bztarg1.7
+2022-02-23 09:35:37.632582 > 	Successfully loaded project Zmeas_2siteBx=0.1J=-1pbc=FalseBztrain[0, 0.1, 0.2]Bztarg1.7
+2022-02-23 09:35:37.632659 > 	LCUcircZbasis	Complete!
+2022-02-23 09:35:37.632725 > 	Started running project Zmeas_2siteBx=0.1J=-1pbc=FalseBztrain[0, 0.1, 0.2]Bztarg1.7
+2022-02-23 09:35:37.632844 > 	LCUcircZbasis	Complete!
+2022-02-23 09:35:37.632888 > 	Finished running project Zmeas_2siteBx=0.1J=-1pbc=FalseBztrain[0, 0.1, 0.2]Bztarg1.7
