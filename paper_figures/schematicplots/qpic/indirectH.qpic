@@ -1,0 +1,17 @@
+a W A
+b W S breadth=20
+
+a H
+
+b / n
+
+
+b G:width=15 $U_i$ a height=20
+
+
+b G:width=15 $U_j^\dagger$ a height=20
+
+
+
+a M $x/y$      height=10 width=20
+b M $\sigma^k$ height=10 width=20

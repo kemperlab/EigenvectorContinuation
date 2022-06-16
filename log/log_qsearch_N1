@@ -1,0 +1,967 @@
+[-1, 0.1, 0, 2, False]
+Adding vector for parameter set [-1, 0.1, 0, 2, False]
+[-1, 0.1, 1.3, 2, False]
+Adding vector for parameter set [-1, 0.1, 1.3, 2, False]
+
+overlap_matrix:  [[ 1.        +0.j -0.28699796+0.j]
+ [-0.28699796-0.j  1.        +0.j]]
+Hamiltonian [[-2.0198039 +0.j  0.80938206+0.j]
+ [ 0.80938206-0.j -3.39318209+0.j]]
+Eigen values:  [[-3.41401654+0.j -1.97856248+0.j]]
+Overlap matrix mimic:
+ [[1.        +0.j 0.28706706+0.j]
+ [0.28706706-0.j 1.        +0.j]]
+Hamiltonian mimic:
+ [[-2.0198592 -0.j -0.80944132+0.j]
+ [-0.80944132-0.j -3.39313686-0.j]]
+Evals circuit mimic:  [-3.41401528 -1.97864885]
+/home/akhil/anaconda3/envs/eig_cont/lib/python3.7/site-packages/qiskit/utils/deprecation.py:62: DeprecationWarning: Using a qobj for run() is deprecated as of qiskit-aer 0.9.0 and will be removed no sooner than 3 months from that release date. Transpiled circuits should now be passed directly using `backend.run(circuits, **run_options).
+  return func(*args, **kwargs)
+calibration matrix : 
+[[1. 0.]
+ [0. 1.]]
+Overlap matrix_bundle qasm:
+ [[1.        +0.j         0.29833984+0.00366211j]
+ [0.29833984-0.00366211j 1.        +0.j        ]]
+Bzmatrix_bundle qasm:
+ [[ 0.00756836-0.00537109j -0.12817383+0.02832031j]
+ [ 0.        +0.j         -1.91210937+0.00805664j]]
+Bxmatrix_bundle qasm:
+ [[-0.40332041-0.01953125j -1.43627923-0.00170898j]
+ [ 0.        +0.j         -0.58911133+0.0222168j ]]
+Jmatrix_bundle qasm:
+ [[1.9790039 -0.00195313j 0.43530271+0.01074219j]
+ [0.        +0.j         0.10229492+0.00976562j]]
+Started running project project_dir
+N_1Phi01	Not started.
+Starting compilation of N_1Phi01
+There are 8 processors available to Pool.
+The branching factor is 2.
+The beam factor is 4.
+Creating a pool of 8 workers
+New best! 0.4740174264389735 at depth 0
+New best! score: 0.3819353507383523 at depth: 1
+New best! score: 0.3182457504058678 at depth: 2
+New best! score: 0.26145736036317047 at depth: 2
+New best! score: 0.2614573601601924 at depth: 2
+New best! score: 0.22716117260455582 at depth: 3
+New best! score: 0.07615831759683656 at depth: 3
+New best! score: 0.0067134707630490675 at depth: 5
+New best! score: 0.000786113554163137 at depth: 6
+New best! score: 1.1102230246251565e-16 at depth: 7
+Finished compilation at depth 7 with score 1.1102230246251565e-16 after 2.7526942399999825 seconds.
+Finished compilation of N_1Phi01
+N_1Phi01	Complete!
+Finished running project project_dir
+Successfully loaded project project_dir
+N_1Phi01	Complete!
+Started running project project_dir
+N_1Phi01	Complete!
+N_1PauliZ000	Not started.
+Starting compilation of N_1PauliZ000
+There are 8 processors available to Pool.
+The branching factor is 2.
+The beam factor is 4.
+Creating a pool of 8 workers
+New best! 0.5005712587947175 at depth 0
+New best! score: 0.2928937113947564 at depth: 1
+New best! score: 0.2928932505720456 at depth: 2
+New best! score: 0.29101824309909163 at depth: 2
+New best! score: 0.0005600565876633379 at depth: 3
+New best! score: 0.00028006751182241274 at depth: 4
+New best! score: 0.0 at depth: 5
+Finished compilation at depth 5 with score 0.0 after 14.86897866900108 seconds.
+Finished compilation of N_1PauliZ000
+N_1Phi01	Complete!
+N_1PauliZ000	Complete!
+Finished running project project_dir
+Successfully loaded project project_dir
+N_1Phi01	Complete!
+N_1PauliZ000	Complete!
+Started running project project_dir
+N_1Phi01	Complete!
+N_1PauliZ000	Complete!
+N_1PauliX000	Not started.
+Starting compilation of N_1PauliX000
+There are 8 processors available to Pool.
+The branching factor is 2.
+The beam factor is 4.
+Creating a pool of 8 workers
+New best! 0.4984664187764215 at depth 0
+New best! score: 0.33528086266314083 at depth: 1
+New best! score: 0.3198542974485543 at depth: 1
+New best! score: 0.16703875373600607 at depth: 2
+New best! score: 0.0005600565893552067 at depth: 3
+New best! score: 0.0002800675118800333 at depth: 4
+New best! score: 0.00028006751183151657 at depth: 5
+New best! score: 0.00028006751182285683 at depth: 5
+New best! score: 0.00028006751182241274 at depth: 6
+New best! score: 0.0 at depth: 6
+Finished compilation at depth 6 with score 0.0 after 10.264556493002601 seconds.
+Finished compilation of N_1PauliX000
+N_1Phi01	Complete!
+N_1PauliZ000	Complete!
+N_1PauliX000	Complete!
+Finished running project project_dir
+Successfully loaded project project_dir
+N_1Phi01	Complete!
+N_1PauliZ000	Complete!
+N_1PauliX000	Complete!
+Started running project project_dir
+N_1Phi01	Complete!
+N_1PauliZ000	Complete!
+N_1PauliX000	Complete!
+N_1PauliX0X100	Not started.
+Starting compilation of N_1PauliX0X100
+There are 8 processors available to Pool.
+The branching factor is 2.
+The beam factor is 4.
+Creating a pool of 8 workers
+New best! 0.5099697023675531 at depth 0
+New best! score: 0.43474748767959825 at depth: 1
+New best! score: 0.2999070655527988 at depth: 2
+New best! score: 0.29289322013786023 at depth: 2
+New best! score: 0.2928932197871952 at depth: 3
+New best! score: 0.2928926161407919 at depth: 4
+New best! score: 0.2928855632396359 at depth: 4
+New best! score: 0.22585593179136332 at depth: 4
+New best! score: 5.2054097791076614e-06 at depth: 5
+New best! score: 5.205396346852353e-06 at depth: 6
+New best! score: 0.0 at depth: 7
+Finished compilation at depth 7 with score 0.0 after 20.190230733001954 seconds.
+Finished compilation of N_1PauliX0X100
+N_1Phi01	Complete!
+N_1PauliZ000	Complete!
+N_1PauliX000	Complete!
+N_1PauliX0X100	Complete!
+Finished running project project_dir
+Successfully loaded project project_dir
+N_1Phi01	Complete!
+N_1PauliZ000	Complete!
+N_1PauliX000	Complete!
+N_1PauliX0X100	Complete!
+Started running project project_dir
+N_1Phi01	Complete!
+N_1PauliZ000	Complete!
+N_1PauliX000	Complete!
+N_1PauliX0X100	Complete!
+N_1PauliY0Y100	Not started.
+Starting compilation of N_1PauliY0Y100
+There are 8 processors available to Pool.
+The branching factor is 2.
+The beam factor is 4.
+Creating a pool of 8 workers
+New best! 0.3667313668861254 at depth 0
+New best! score: 0.06200324452980133 at depth: 1
+New best! score: 0.06200324448610928 at depth: 2
+New best! score: 0.06200324448120231 at depth: 3
+New best! score: 0.031515459468509754 at depth: 3
+New best! score: 0.03151545946050782 at depth: 3
+New best! score: 0.0005600565858406847 at depth: 4
+New best! score: 0.0002800675118233009 at depth: 4
+New best! score: 0.0 at depth: 6
+Finished compilation at depth 6 with score 0.0 after 34.72794089499803 seconds.
+Finished compilation of N_1PauliY0Y100
+N_1Phi01	Complete!
+N_1PauliZ000	Complete!
+N_1PauliX000	Complete!
+N_1PauliX0X100	Complete!
+N_1PauliY0Y100	Complete!
+Finished running project project_dir
+Successfully loaded project project_dir
+N_1Phi01	Complete!
+N_1PauliZ000	Complete!
+N_1PauliX000	Complete!
+N_1PauliX0X100	Complete!
+N_1PauliY0Y100	Complete!
+Started running project project_dir
+N_1Phi01	Complete!
+N_1PauliZ000	Complete!
+N_1PauliX000	Complete!
+N_1PauliX0X100	Complete!
+N_1PauliY0Y100	Complete!
+N_1PauliZ100	Not started.
+Starting compilation of N_1PauliZ100
+There are 8 processors available to Pool.
+The branching factor is 2.
+The beam factor is 4.
+Creating a pool of 8 workers
+New best! 0.57024632608896 at depth 0
+New best! score: 0.3013488684911555 at depth: 1
+New best! score: 0.29289321964722337 at depth: 2
+New best! score: 0.28098799048038914 at depth: 2
+New best! score: 0.06151208852765855 at depth: 3
+New best! score: 0.031244142679512255 at depth: 4
+New best! score: 0.03124414242813789 at depth: 4
+New best! score: -4.440892098500626e-16 at depth: 5
+Finished compilation at depth 5 with score -4.440892098500626e-16 after 3.761345278002409 seconds.
+Finished compilation of N_1PauliZ100
+N_1Phi01	Complete!
+N_1PauliZ000	Complete!
+N_1PauliX000	Complete!
+N_1PauliX0X100	Complete!
+N_1PauliY0Y100	Complete!
+N_1PauliZ100	Complete!
+Finished running project project_dir
+Successfully loaded project project_dir
+N_1Phi01	Complete!
+N_1PauliZ000	Complete!
+N_1PauliX000	Complete!
+N_1PauliX0X100	Complete!
+N_1PauliY0Y100	Complete!
+N_1PauliZ100	Complete!
+Started running project project_dir
+N_1Phi01	Complete!
+N_1PauliZ000	Complete!
+N_1PauliX000	Complete!
+N_1PauliX0X100	Complete!
+N_1PauliY0Y100	Complete!
+N_1PauliZ100	Complete!
+N_1PauliX100	Not started.
+Starting compilation of N_1PauliX100
+There are 8 processors available to Pool.
+The branching factor is 2.
+The beam factor is 4.
+Creating a pool of 8 workers
+New best! 0.3429130516037239 at depth 0
+New best! score: 0.069745758186743 at depth: 1
+New best! score: 0.06974575814118034 at depth: 2
+New best! score: 0.0697457581402533 at depth: 3
+New best! score: 0.035802549875363465 at depth: 3
+New best! score: 0.035802549871001066 at depth: 3
+New best! score: 0.004705424405800351 at depth: 4
+New best! score: 4.440892098500626e-16 at depth: 5
+Finished compilation at depth 5 with score 4.440892098500626e-16 after 5.859691345998726 seconds.
+Finished compilation of N_1PauliX100
+N_1Phi01	Complete!
+N_1PauliZ000	Complete!
+N_1PauliX000	Complete!
+N_1PauliX0X100	Complete!
+N_1PauliY0Y100	Complete!
+N_1PauliZ100	Complete!
+N_1PauliX100	Complete!
+Finished running project project_dir
+Successfully loaded project project_dir
+N_1Phi01	Complete!
+N_1PauliZ000	Complete!
+N_1PauliX000	Complete!
+N_1PauliX0X100	Complete!
+N_1PauliY0Y100	Complete!
+N_1PauliZ100	Complete!
+N_1PauliX100	Complete!
+Started running project project_dir
+N_1Phi01	Complete!
+N_1PauliZ000	Complete!
+N_1PauliX000	Complete!
+N_1PauliX0X100	Complete!
+N_1PauliY0Y100	Complete!
+N_1PauliZ100	Complete!
+N_1PauliX100	Complete!
+N_1PauliZ001	Not started.
+Starting compilation of N_1PauliZ001
+There are 8 processors available to Pool.
+The branching factor is 2.
+The beam factor is 4.
+Creating a pool of 8 workers
+New best! 0.2966328776334318 at depth 0
+New best! score: 0.26679314535932164 at depth: 1
+New best! score: 0.2209729386573278 at depth: 2
+New best! score: 0.16010068892549822 at depth: 3
+New best! score: 0.1295056149597975 at depth: 4
+New best! score: 0.08173786646581471 at depth: 4
+New best! score: 0.016394090678502726 at depth: 5
+New best! score: 0.00827021696929986 at depth: 6
+New best! score: 0.0013106125926058976 at depth: 6
+New best! score: 0.0013106125876903851 at depth: 7
+New best! score: 0.0013106125846922279 at depth: 7
+New best! score: 5.551115123125783e-16 at depth: 7
+Finished compilation at depth 7 with score 5.551115123125783e-16 after 17.59789728800024 seconds.
+Finished compilation of N_1PauliZ001
+N_1Phi01	Complete!
+N_1PauliZ000	Complete!
+N_1PauliX000	Complete!
+N_1PauliX0X100	Complete!
+N_1PauliY0Y100	Complete!
+N_1PauliZ100	Complete!
+N_1PauliX100	Complete!
+N_1PauliZ001	Complete!
+Finished running project project_dir
+Successfully loaded project project_dir
+N_1Phi01	Complete!
+N_1PauliZ000	Complete!
+N_1PauliX000	Complete!
+N_1PauliX0X100	Complete!
+N_1PauliY0Y100	Complete!
+N_1PauliZ100	Complete!
+N_1PauliX100	Complete!
+N_1PauliZ001	Complete!
+Started running project project_dir
+N_1Phi01	Complete!
+N_1PauliZ000	Complete!
+N_1PauliX000	Complete!
+N_1PauliX0X100	Complete!
+N_1PauliY0Y100	Complete!
+N_1PauliZ100	Complete!
+N_1PauliX100	Complete!
+N_1PauliZ001	Complete!
+N_1PauliX001	Not started.
+Starting compilation of N_1PauliX001
+There are 8 processors available to Pool.
+The branching factor is 2.
+The beam factor is 4.
+Creating a pool of 8 workers
+New best! 0.6437778814699514 at depth 0
+New best! score: 0.16285605769631795 at depth: 1
+New best! score: 0.09533018154109041 at depth: 2
+New best! score: 0.09533018130914805 at depth: 3
+New best! score: 0.0897191761593722 at depth: 3
+New best! score: 0.01778508778156873 at depth: 4
+New best! score: 0.002722944252502968 at depth: 4
+New best! score: 0.0023586524534743303 at depth: 5
+New best! score: 0.0013106125834142501 at depth: 6
+New best! score: 0.0010494153004664275 at depth: 7
+New best! score: 0.0010494152470279516 at depth: 7
+New best! score: 0.0010494152470019724 at depth: 7
+New best! score: 3.3306690738754696e-16 at depth: 8
+New best! score: 1.1102230246251565e-16 at depth: 8
+Finished compilation at depth 8 with score 1.1102230246251565e-16 after 52.471768642000825 seconds.
+Finished compilation of N_1PauliX001
+N_1Phi01	Complete!
+N_1PauliZ000	Complete!
+N_1PauliX000	Complete!
+N_1PauliX0X100	Complete!
+N_1PauliY0Y100	Complete!
+N_1PauliZ100	Complete!
+N_1PauliX100	Complete!
+N_1PauliZ001	Complete!
+N_1PauliX001	Complete!
+Finished running project project_dir
+Successfully loaded project project_dir
+N_1Phi01	Complete!
+N_1PauliZ000	Complete!
+N_1PauliX000	Complete!
+N_1PauliX0X100	Complete!
+N_1PauliY0Y100	Complete!
+N_1PauliZ100	Complete!
+N_1PauliX100	Complete!
+N_1PauliZ001	Complete!
+N_1PauliX001	Complete!
+Started running project project_dir
+N_1Phi01	Complete!
+N_1PauliZ000	Complete!
+N_1PauliX000	Complete!
+N_1PauliX0X100	Complete!
+N_1PauliY0Y100	Complete!
+N_1PauliZ100	Complete!
+N_1PauliX100	Complete!
+N_1PauliZ001	Complete!
+N_1PauliX001	Complete!
+N_1PauliX0X101	Not started.
+Starting compilation of N_1PauliX0X101
+There are 8 processors available to Pool.
+The branching factor is 2.
+The beam factor is 4.
+Creating a pool of 8 workers
+New best! 0.3936872942550309 at depth 0
+New best! score: 0.16111504471336968 at depth: 1
+New best! score: 0.09067152905532683 at depth: 3
+New best! score: 0.09067152868437445 at depth: 4
+New best! score: 0.0180244340598108 at depth: 5
+New best! score: 0.01780440286023688 at depth: 6
+New best! score: 0.008270217068912733 at depth: 7
+New best! score: 0.0001014768742297889 at depth: 7
+New best! score: 2.220446049250313e-16 at depth: 7
+Finished compilation at depth 7 with score 2.220446049250313e-16 after 48.33881040000051 seconds.
+Finished compilation of N_1PauliX0X101
+N_1Phi01	Complete!
+N_1PauliZ000	Complete!
+N_1PauliX000	Complete!
+N_1PauliX0X100	Complete!
+N_1PauliY0Y100	Complete!
+N_1PauliZ100	Complete!
+N_1PauliX100	Complete!
+N_1PauliZ001	Complete!
+N_1PauliX001	Complete!
+N_1PauliX0X101	Complete!
+Finished running project project_dir
+Successfully loaded project project_dir
+N_1Phi01	Complete!
+N_1PauliZ000	Complete!
+N_1PauliX000	Complete!
+N_1PauliX0X100	Complete!
+N_1PauliY0Y100	Complete!
+N_1PauliZ100	Complete!
+N_1PauliX100	Complete!
+N_1PauliZ001	Complete!
+N_1PauliX001	Complete!
+N_1PauliX0X101	Complete!
+Started running project project_dir
+N_1Phi01	Complete!
+N_1PauliZ000	Complete!
+N_1PauliX000	Complete!
+N_1PauliX0X100	Complete!
+N_1PauliY0Y100	Complete!
+N_1PauliZ100	Complete!
+N_1PauliX100	Complete!
+N_1PauliZ001	Complete!
+N_1PauliX001	Complete!
+N_1PauliX0X101	Complete!
+N_1PauliY0Y101	Not started.
+Starting compilation of N_1PauliY0Y101
+There are 8 processors available to Pool.
+The branching factor is 2.
+The beam factor is 4.
+Creating a pool of 8 workers
+New best! 0.33607877156140875 at depth 0
+New best! score: 0.31035014657619253 at depth: 1
+New best! score: 0.3007032953127924 at depth: 3
+New best! score: 0.2768206540231559 at depth: 3
+New best! score: 0.27129131965132514 at depth: 3
+New best! score: 0.0796265474945097 at depth: 4
+New best! score: 0.0013106125903113997 at depth: 6
+New best! score: 0.0013106125833007853 at depth: 7
+New best! score: 1.1102230246251565e-16 at depth: 7
+Finished compilation at depth 7 with score 1.1102230246251565e-16 after 19.692099526000675 seconds.
+Finished compilation of N_1PauliY0Y101
+N_1Phi01	Complete!
+N_1PauliZ000	Complete!
+N_1PauliX000	Complete!
+N_1PauliX0X100	Complete!
+N_1PauliY0Y100	Complete!
+N_1PauliZ100	Complete!
+N_1PauliX100	Complete!
+N_1PauliZ001	Complete!
+N_1PauliX001	Complete!
+N_1PauliX0X101	Complete!
+N_1PauliY0Y101	Complete!
+Finished running project project_dir
+Successfully loaded project project_dir
+N_1Phi01	Complete!
+N_1PauliZ000	Complete!
+N_1PauliX000	Complete!
+N_1PauliX0X100	Complete!
+N_1PauliY0Y100	Complete!
+N_1PauliZ100	Complete!
+N_1PauliX100	Complete!
+N_1PauliZ001	Complete!
+N_1PauliX001	Complete!
+N_1PauliX0X101	Complete!
+N_1PauliY0Y101	Complete!
+Started running project project_dir
+N_1Phi01	Complete!
+N_1PauliZ000	Complete!
+N_1PauliX000	Complete!
+N_1PauliX0X100	Complete!
+N_1PauliY0Y100	Complete!
+N_1PauliZ100	Complete!
+N_1PauliX100	Complete!
+N_1PauliZ001	Complete!
+N_1PauliX001	Complete!
+N_1PauliX0X101	Complete!
+N_1PauliY0Y101	Complete!
+N_1PauliZ101	Not started.
+Starting compilation of N_1PauliZ101
+There are 8 processors available to Pool.
+The branching factor is 2.
+The beam factor is 4.
+Creating a pool of 8 workers
+New best! 0.39260869792043473 at depth 0
+New best! score: 0.1629479483723133 at depth: 1
+New best! score: 0.08858075050944181 at depth: 3
+New best! score: 0.0885807504424303 at depth: 3
+New best! score: 0.01383129165230268 at depth: 4
+New best! score: 0.01383129162799035 at depth: 5
+New best! score: 0.0032125723319889055 at depth: 5
+New best! score: 0.0032125346117330977 at depth: 6
+New best! score: 0.003103201408579448 at depth: 7
+New best! score: 0.0001097113805472727 at depth: 7
+New best! score: 9.338754691512463e-05 at depth: 7
+New best! score: 0.0 at depth: 7
+Finished compilation at depth 7 with score 0.0 after 25.60371641599704 seconds.
+Finished compilation of N_1PauliZ101
+N_1Phi01	Complete!
+N_1PauliZ000	Complete!
+N_1PauliX000	Complete!
+N_1PauliX0X100	Complete!
+N_1PauliY0Y100	Complete!
+N_1PauliZ100	Complete!
+N_1PauliX100	Complete!
+N_1PauliZ001	Complete!
+N_1PauliX001	Complete!
+N_1PauliX0X101	Complete!
+N_1PauliY0Y101	Complete!
+N_1PauliZ101	Complete!
+Finished running project project_dir
+Successfully loaded project project_dir
+N_1Phi01	Complete!
+N_1PauliZ000	Complete!
+N_1PauliX000	Complete!
+N_1PauliX0X100	Complete!
+N_1PauliY0Y100	Complete!
+N_1PauliZ100	Complete!
+N_1PauliX100	Complete!
+N_1PauliZ001	Complete!
+N_1PauliX001	Complete!
+N_1PauliX0X101	Complete!
+N_1PauliY0Y101	Complete!
+N_1PauliZ101	Complete!
+Started running project project_dir
+N_1Phi01	Complete!
+N_1PauliZ000	Complete!
+N_1PauliX000	Complete!
+N_1PauliX0X100	Complete!
+N_1PauliY0Y100	Complete!
+N_1PauliZ100	Complete!
+N_1PauliX100	Complete!
+N_1PauliZ001	Complete!
+N_1PauliX001	Complete!
+N_1PauliX0X101	Complete!
+N_1PauliY0Y101	Complete!
+N_1PauliZ101	Complete!
+N_1PauliX101	Not started.
+Starting compilation of N_1PauliX101
+There are 8 processors available to Pool.
+The branching factor is 2.
+The beam factor is 4.
+Creating a pool of 8 workers
+New best! 0.4165872938244055 at depth 0
+New best! score: 0.3403621910090322 at depth: 1
+New best! score: 0.30590210561367237 at depth: 2
+New best! score: 0.16245146111969078 at depth: 3
+New best! score: 0.09382829664819514 at depth: 4
+New best! score: 0.07962654759680143 at depth: 4
+New best! score: 0.018485737839355365 at depth: 5
+New best! score: 0.00414273435848822 at depth: 6
+New best! score: 0.003103201408047429 at depth: 6
+New best! score: 3.3306690738754696e-16 at depth: 7
+Finished compilation at depth 7 with score 3.3306690738754696e-16 after 6.359332331001497 seconds.
+Finished compilation of N_1PauliX101
+N_1Phi01	Complete!
+N_1PauliZ000	Complete!
+N_1PauliX000	Complete!
+N_1PauliX0X100	Complete!
+N_1PauliY0Y100	Complete!
+N_1PauliZ100	Complete!
+N_1PauliX100	Complete!
+N_1PauliZ001	Complete!
+N_1PauliX001	Complete!
+N_1PauliX0X101	Complete!
+N_1PauliY0Y101	Complete!
+N_1PauliZ101	Complete!
+N_1PauliX101	Complete!
+Finished running project project_dir
+Successfully loaded project project_dir
+N_1Phi01	Complete!
+N_1PauliZ000	Complete!
+N_1PauliX000	Complete!
+N_1PauliX0X100	Complete!
+N_1PauliY0Y100	Complete!
+N_1PauliZ100	Complete!
+N_1PauliX100	Complete!
+N_1PauliZ001	Complete!
+N_1PauliX001	Complete!
+N_1PauliX0X101	Complete!
+N_1PauliY0Y101	Complete!
+N_1PauliZ101	Complete!
+N_1PauliX101	Complete!
+Started running project project_dir
+N_1Phi01	Complete!
+N_1PauliZ000	Complete!
+N_1PauliX000	Complete!
+N_1PauliX0X100	Complete!
+N_1PauliY0Y100	Complete!
+N_1PauliZ100	Complete!
+N_1PauliX100	Complete!
+N_1PauliZ001	Complete!
+N_1PauliX001	Complete!
+N_1PauliX0X101	Complete!
+N_1PauliY0Y101	Complete!
+N_1PauliZ101	Complete!
+N_1PauliX101	Complete!
+N_1PauliZ011	Not started.
+Starting compilation of N_1PauliZ011
+There are 8 processors available to Pool.
+The branching factor is 2.
+The beam factor is 4.
+Creating a pool of 8 workers
+New best! 0.3320208155876795 at depth 0
+New best! score: 0.004071270903270641 at depth: 1
+New best! score: 0.002039792092840109 at depth: 3
+New best! score: 0.0020397920896716437 at depth: 4
+New best! score: 0.002039792089085779 at depth: 4
+New best! score: 0.0009750589202336402 at depth: 4
+New best! score: 0.0 at depth: 5
+Finished compilation at depth 5 with score 0.0 after 25.20598729399717 seconds.
+Finished compilation of N_1PauliZ011
+N_1Phi01	Complete!
+N_1PauliZ000	Complete!
+N_1PauliX000	Complete!
+N_1PauliX0X100	Complete!
+N_1PauliY0Y100	Complete!
+N_1PauliZ100	Complete!
+N_1PauliX100	Complete!
+N_1PauliZ001	Complete!
+N_1PauliX001	Complete!
+N_1PauliX0X101	Complete!
+N_1PauliY0Y101	Complete!
+N_1PauliZ101	Complete!
+N_1PauliX101	Complete!
+N_1PauliZ011	Complete!
+Finished running project project_dir
+Successfully loaded project project_dir
+N_1Phi01	Complete!
+N_1PauliZ000	Complete!
+N_1PauliX000	Complete!
+N_1PauliX0X100	Complete!
+N_1PauliY0Y100	Complete!
+N_1PauliZ100	Complete!
+N_1PauliX100	Complete!
+N_1PauliZ001	Complete!
+N_1PauliX001	Complete!
+N_1PauliX0X101	Complete!
+N_1PauliY0Y101	Complete!
+N_1PauliZ101	Complete!
+N_1PauliX101	Complete!
+N_1PauliZ011	Complete!
+Started running project project_dir
+N_1Phi01	Complete!
+N_1PauliZ000	Complete!
+N_1PauliX000	Complete!
+N_1PauliX0X100	Complete!
+N_1PauliY0Y100	Complete!
+N_1PauliZ100	Complete!
+N_1PauliX100	Complete!
+N_1PauliZ001	Complete!
+N_1PauliX001	Complete!
+N_1PauliX0X101	Complete!
+N_1PauliY0Y101	Complete!
+N_1PauliZ101	Complete!
+N_1PauliX101	Complete!
+N_1PauliZ011	Complete!
+N_1PauliX011	Not started.
+Starting compilation of N_1PauliX011
+There are 8 processors available to Pool.
+The branching factor is 2.
+The beam factor is 4.
+Creating a pool of 8 workers
+New best! 0.496568730379347 at depth 0
+New best! score: 0.29564476776417714 at depth: 1
+New best! score: 0.29289321921387623 at depth: 2
+New best! score: 0.26451872427003686 at depth: 2
+New best! score: 0.264518704925081 at depth: 2
+New best! score: 0.001949166840207961 at depth: 3
+New best! score: 0.0009750587897225937 at depth: 4
+New best! score: 0.0009750587897197072 at depth: 5
+New best! score: 0.0009750587897194851 at depth: 5
+New best! score: 3.3306690738754696e-16 at depth: 5
+Finished compilation at depth 5 with score 3.3306690738754696e-16 after 11.393417337996652 seconds.
+Finished compilation of N_1PauliX011
+N_1Phi01	Complete!
+N_1PauliZ000	Complete!
+N_1PauliX000	Complete!
+N_1PauliX0X100	Complete!
+N_1PauliY0Y100	Complete!
+N_1PauliZ100	Complete!
+N_1PauliX100	Complete!
+N_1PauliZ001	Complete!
+N_1PauliX001	Complete!
+N_1PauliX0X101	Complete!
+N_1PauliY0Y101	Complete!
+N_1PauliZ101	Complete!
+N_1PauliX101	Complete!
+N_1PauliZ011	Complete!
+N_1PauliX011	Complete!
+Finished running project project_dir
+Successfully loaded project project_dir
+N_1Phi01	Complete!
+N_1PauliZ000	Complete!
+N_1PauliX000	Complete!
+N_1PauliX0X100	Complete!
+N_1PauliY0Y100	Complete!
+N_1PauliZ100	Complete!
+N_1PauliX100	Complete!
+N_1PauliZ001	Complete!
+N_1PauliX001	Complete!
+N_1PauliX0X101	Complete!
+N_1PauliY0Y101	Complete!
+N_1PauliZ101	Complete!
+N_1PauliX101	Complete!
+N_1PauliZ011	Complete!
+N_1PauliX011	Complete!
+Started running project project_dir
+N_1Phi01	Complete!
+N_1PauliZ000	Complete!
+N_1PauliX000	Complete!
+N_1PauliX0X100	Complete!
+N_1PauliY0Y100	Complete!
+N_1PauliZ100	Complete!
+N_1PauliX100	Complete!
+N_1PauliZ001	Complete!
+N_1PauliX001	Complete!
+N_1PauliX0X101	Complete!
+N_1PauliY0Y101	Complete!
+N_1PauliZ101	Complete!
+N_1PauliX101	Complete!
+N_1PauliZ011	Complete!
+N_1PauliX011	Complete!
+N_1PauliX0X111	Not started.
+Starting compilation of N_1PauliX0X111
+There are 8 processors available to Pool.
+The branching factor is 2.
+The beam factor is 4.
+Creating a pool of 8 workers
+New best! 0.5337832993716443 at depth 0
+New best! score: 0.3163641231580516 at depth: 1
+New best! score: 0.2947164056811532 at depth: 1
+New best! score: 0.19325810619759187 at depth: 2
+New best! score: 0.002130409121632093 at depth: 3
+New best! score: 0.0021304091090545985 at depth: 4
+New best! score: 0.001065772491703254 at depth: 4
+New best! score: 0.0010657724900293708 at depth: 4
+New best! score: 0.0010657724900262622 at depth: 5
+New best! score: 1.1102230246251565e-16 at depth: 6
+Finished compilation at depth 6 with score 1.1102230246251565e-16 after 20.190016895001463 seconds.
+Finished compilation of N_1PauliX0X111
+N_1Phi01	Complete!
+N_1PauliZ000	Complete!
+N_1PauliX000	Complete!
+N_1PauliX0X100	Complete!
+N_1PauliY0Y100	Complete!
+N_1PauliZ100	Complete!
+N_1PauliX100	Complete!
+N_1PauliZ001	Complete!
+N_1PauliX001	Complete!
+N_1PauliX0X101	Complete!
+N_1PauliY0Y101	Complete!
+N_1PauliZ101	Complete!
+N_1PauliX101	Complete!
+N_1PauliZ011	Complete!
+N_1PauliX011	Complete!
+N_1PauliX0X111	Complete!
+Finished running project project_dir
+Successfully loaded project project_dir
+N_1Phi01	Complete!
+N_1PauliZ000	Complete!
+N_1PauliX000	Complete!
+N_1PauliX0X100	Complete!
+N_1PauliY0Y100	Complete!
+N_1PauliZ100	Complete!
+N_1PauliX100	Complete!
+N_1PauliZ001	Complete!
+N_1PauliX001	Complete!
+N_1PauliX0X101	Complete!
+N_1PauliY0Y101	Complete!
+N_1PauliZ101	Complete!
+N_1PauliX101	Complete!
+N_1PauliZ011	Complete!
+N_1PauliX011	Complete!
+N_1PauliX0X111	Complete!
+Started running project project_dir
+N_1Phi01	Complete!
+N_1PauliZ000	Complete!
+N_1PauliX000	Complete!
+N_1PauliX0X100	Complete!
+N_1PauliY0Y100	Complete!
+N_1PauliZ100	Complete!
+N_1PauliX100	Complete!
+N_1PauliZ001	Complete!
+N_1PauliX001	Complete!
+N_1PauliX0X101	Complete!
+N_1PauliY0Y101	Complete!
+N_1PauliZ101	Complete!
+N_1PauliX101	Complete!
+N_1PauliZ011	Complete!
+N_1PauliX011	Complete!
+N_1PauliX0X111	Complete!
+N_1PauliY0Y111	Not started.
+Starting compilation of N_1PauliY0Y111
+There are 8 processors available to Pool.
+The branching factor is 2.
+The beam factor is 4.
+Creating a pool of 8 workers
+New best! 0.5021236638449559 at depth 0
+New best! score: 0.2929014258879771 at depth: 1
+New best! score: 0.29289323794698074 at depth: 2
+New best! score: 0.2851466636598454 at depth: 2
+New best! score: 0.0019491668397965123 at depth: 3
+New best! score: 0.0009750587902569441 at depth: 5
+New best! score: 2.220446049250313e-16 at depth: 5
+Finished compilation at depth 5 with score 2.220446049250313e-16 after 14.28001270200184 seconds.
+Finished compilation of N_1PauliY0Y111
+N_1Phi01	Complete!
+N_1PauliZ000	Complete!
+N_1PauliX000	Complete!
+N_1PauliX0X100	Complete!
+N_1PauliY0Y100	Complete!
+N_1PauliZ100	Complete!
+N_1PauliX100	Complete!
+N_1PauliZ001	Complete!
+N_1PauliX001	Complete!
+N_1PauliX0X101	Complete!
+N_1PauliY0Y101	Complete!
+N_1PauliZ101	Complete!
+N_1PauliX101	Complete!
+N_1PauliZ011	Complete!
+N_1PauliX011	Complete!
+N_1PauliX0X111	Complete!
+N_1PauliY0Y111	Complete!
+Finished running project project_dir
+Successfully loaded project project_dir
+N_1Phi01	Complete!
+N_1PauliZ000	Complete!
+N_1PauliX000	Complete!
+N_1PauliX0X100	Complete!
+N_1PauliY0Y100	Complete!
+N_1PauliZ100	Complete!
+N_1PauliX100	Complete!
+N_1PauliZ001	Complete!
+N_1PauliX001	Complete!
+N_1PauliX0X101	Complete!
+N_1PauliY0Y101	Complete!
+N_1PauliZ101	Complete!
+N_1PauliX101	Complete!
+N_1PauliZ011	Complete!
+N_1PauliX011	Complete!
+N_1PauliX0X111	Complete!
+N_1PauliY0Y111	Complete!
+Started running project project_dir
+N_1Phi01	Complete!
+N_1PauliZ000	Complete!
+N_1PauliX000	Complete!
+N_1PauliX0X100	Complete!
+N_1PauliY0Y100	Complete!
+N_1PauliZ100	Complete!
+N_1PauliX100	Complete!
+N_1PauliZ001	Complete!
+N_1PauliX001	Complete!
+N_1PauliX0X101	Complete!
+N_1PauliY0Y101	Complete!
+N_1PauliZ101	Complete!
+N_1PauliX101	Complete!
+N_1PauliZ011	Complete!
+N_1PauliX011	Complete!
+N_1PauliX0X111	Complete!
+N_1PauliY0Y111	Complete!
+N_1PauliZ111	Not started.
+Starting compilation of N_1PauliZ111
+There are 8 processors available to Pool.
+The branching factor is 2.
+The beam factor is 4.
+Creating a pool of 8 workers
+New best! 0.35209462379155876 at depth 0
+New best! score: 0.2928932207226881 at depth: 2
+New best! score: 0.2928932189118747 at depth: 3
+New best! score: 0.2928589786847653 at depth: 4
+New best! score: 0.1781507889649655 at depth: 4
+New best! score: 0.17815078845306576 at depth: 4
+New best! score: 0.016107330926892538 at depth: 5
+New best! score: 0.0 at depth: 5
+Finished compilation at depth 5 with score 0.0 after 11.478457257999253 seconds.
+Finished compilation of N_1PauliZ111
+N_1Phi01	Complete!
+N_1PauliZ000	Complete!
+N_1PauliX000	Complete!
+N_1PauliX0X100	Complete!
+N_1PauliY0Y100	Complete!
+N_1PauliZ100	Complete!
+N_1PauliX100	Complete!
+N_1PauliZ001	Complete!
+N_1PauliX001	Complete!
+N_1PauliX0X101	Complete!
+N_1PauliY0Y101	Complete!
+N_1PauliZ101	Complete!
+N_1PauliX101	Complete!
+N_1PauliZ011	Complete!
+N_1PauliX011	Complete!
+N_1PauliX0X111	Complete!
+N_1PauliY0Y111	Complete!
+N_1PauliZ111	Complete!
+Finished running project project_dir
+Successfully loaded project project_dir
+N_1Phi01	Complete!
+N_1PauliZ000	Complete!
+N_1PauliX000	Complete!
+N_1PauliX0X100	Complete!
+N_1PauliY0Y100	Complete!
+N_1PauliZ100	Complete!
+N_1PauliX100	Complete!
+N_1PauliZ001	Complete!
+N_1PauliX001	Complete!
+N_1PauliX0X101	Complete!
+N_1PauliY0Y101	Complete!
+N_1PauliZ101	Complete!
+N_1PauliX101	Complete!
+N_1PauliZ011	Complete!
+N_1PauliX011	Complete!
+N_1PauliX0X111	Complete!
+N_1PauliY0Y111	Complete!
+N_1PauliZ111	Complete!
+Started running project project_dir
+N_1Phi01	Complete!
+N_1PauliZ000	Complete!
+N_1PauliX000	Complete!
+N_1PauliX0X100	Complete!
+N_1PauliY0Y100	Complete!
+N_1PauliZ100	Complete!
+N_1PauliX100	Complete!
+N_1PauliZ001	Complete!
+N_1PauliX001	Complete!
+N_1PauliX0X101	Complete!
+N_1PauliY0Y101	Complete!
+N_1PauliZ101	Complete!
+N_1PauliX101	Complete!
+N_1PauliZ011	Complete!
+N_1PauliX011	Complete!
+N_1PauliX0X111	Complete!
+N_1PauliY0Y111	Complete!
+N_1PauliZ111	Complete!
+N_1PauliX111	Not started.
+Starting compilation of N_1PauliX111
+There are 8 processors available to Pool.
+The branching factor is 2.
+The beam factor is 4.
+Creating a pool of 8 workers
+New best! 0.4782955588358455 at depth 0
+New best! score: 0.2941102077589608 at depth: 1
+New best! score: 0.29289321899229226 at depth: 2
+New best! score: 0.292893218960946 at depth: 3
+New best! score: 0.02971547751568393 at depth: 3
+New best! score: 0.014969785987180018 at depth: 4
+New best! score: -4.440892098500626e-16 at depth: 6
+Finished compilation at depth 6 with score -4.440892098500626e-16 after 22.401443949998793 seconds.
+Finished compilation of N_1PauliX111
+N_1Phi01	Complete!
+N_1PauliZ000	Complete!
+N_1PauliX000	Complete!
+N_1PauliX0X100	Complete!
+N_1PauliY0Y100	Complete!
+N_1PauliZ100	Complete!
+N_1PauliX100	Complete!
+N_1PauliZ001	Complete!
+N_1PauliX001	Complete!
+N_1PauliX0X101	Complete!
+N_1PauliY0Y101	Complete!
+N_1PauliZ101	Complete!
+N_1PauliX101	Complete!
+N_1PauliZ011	Complete!
+N_1PauliX011	Complete!
+N_1PauliX0X111	Complete!
+N_1PauliY0Y111	Complete!
+N_1PauliZ111	Complete!
+N_1PauliX111	Complete!
+Finished running project project_dir
+calibration matrix : 
+[[1. 0.]
+ [0. 1.]]
+Overlap matrix_bundle qasm:
+ [[ 1.        +0.j         -0.01049805-0.00976562j]
+ [-0.01049805+0.00976562j  1.        +0.j        ]]
+Bzmatrix_bundle qsearch:
+ [[ 0.03125   +0.01098633j  0.01611328+0.01245117j]
+ [ 0.        +0.j         -0.00708008-0.00927734j]]
+Bxmatrix_bundle qsearch:
+ [[ 0.00683594-0.00073242j -0.00488281-0.0402832j ]
+ [ 0.        +0.j          0.02612305+0.02246094j]]
+Jmatrix_bundle qsearch:
+ [[-0.01953125+0.03198242j -0.00708008+0.01782227j]
+ [ 0.        +0.j          0.01196289-0.01123047j]]
