@@ -1,0 +1,83 @@
+2022-02-23 23:10:31.308258 > 	Starting compilation of PauliY0Y100
+2022-02-23 23:10:31.308621 > 	There are 56 processors available to Pool.
+2022-02-23 23:10:31.308668 > 	The branching factor is 2.
+2022-02-23 23:10:31.308709 > 	The beam factor is 28.
+2022-02-23 23:10:31.449254 > 	Creating a pool of 56 workers
+2022-02-23 23:10:31.500264 > 	New best! 0.04006156789801594 at depth 0
+2022-02-23 23:10:31.500831 > 	Popped a node with score: 0.4006156789801594 at depth: 0
+2022-02-23 23:10:31.621267 > 	New best! score: 0.3166238332116508 at depth: 1
+2022-02-23 23:10:32.097297 > 	Layer completed after 0.5963269248604774 seconds
+2022-02-23 23:10:32.098172 > 	Popped a node with score: 0.3166238332116508 at depth: 1
+2022-02-23 23:10:32.098643 > 	Popped a node with score: 0.47249914822938643 at depth: 1
+2022-02-23 23:10:32.251953 > 	New best! score: 0.29289321907130883 at depth: 2
+2022-02-23 23:10:32.360014 > 	Layer completed after 0.2610642686486244 seconds
+2022-02-23 23:10:32.361829 > 	Popped a node with score: 0.29289321907130883 at depth: 2
+2022-02-23 23:10:32.362144 > 	Popped a node with score: 0.31943028425153885 at depth: 2
+2022-02-23 23:10:32.362325 > 	Popped a node with score: 0.31943028488922953 at depth: 2
+2022-02-23 23:10:32.362446 > 	Popped a node with score: 0.3893638864611364 at depth: 2
+2022-02-23 23:10:32.569723 > 	New best! score: 0.14226999132924756 at depth: 3
+2022-02-23 23:10:33.145291 > 	Layer completed after 0.7825501672923565 seconds
+2022-02-23 23:10:33.148055 > 	Popped a node with score: 0.14226999132924756 at depth: 3
+2022-02-23 23:10:33.148574 > 	Popped a node with score: 0.292893219089402 at depth: 3
+2022-02-23 23:10:33.148673 > 	Popped a node with score: 0.29341656450320297 at depth: 3
+2022-02-23 23:10:33.148759 > 	Popped a node with score: 0.31601032673998575 at depth: 3
+2022-02-23 23:10:33.148840 > 	Popped a node with score: 0.31601032675872 at depth: 3
+2022-02-23 23:10:33.148916 > 	Popped a node with score: 0.3194302841728779 at depth: 3
+2022-02-23 23:10:33.149003 > 	Popped a node with score: 0.320415945531105 at depth: 3
+2022-02-23 23:10:33.149078 > 	Popped a node with score: 0.3893638842101317 at depth: 3
+2022-02-23 23:10:33.331883 > 	New best! score: 0.079774175674032 at depth: 4
+2022-02-23 23:10:33.358998 > 	New best! score: 0.07386285635402978 at depth: 4
+2022-02-23 23:10:36.845870 > 	Layer completed after 3.696669779717922 seconds
+2022-02-23 23:10:36.852548 > 	Popped a node with score: 0.07386285635402978 at depth: 4
+2022-02-23 23:10:36.852900 > 	Popped a node with score: 0.07386285639943957 at depth: 4
+2022-02-23 23:10:36.853083 > 	Popped a node with score: 0.079774175674032 at depth: 4
+2022-02-23 23:10:36.853215 > 	Popped a node with score: 0.14226999649219496 at depth: 4
+2022-02-23 23:10:36.853337 > 	Popped a node with score: 0.2906786157374911 at depth: 4
+2022-02-23 23:10:36.853457 > 	Popped a node with score: 0.290678617592103 at depth: 4
+2022-02-23 23:10:36.853575 > 	Popped a node with score: 0.29067874586660536 at depth: 4
+2022-02-23 23:10:36.853678 > 	Popped a node with score: 0.29289322287032826 at depth: 4
+2022-02-23 23:10:36.853800 > 	Popped a node with score: 0.29289349976147605 at depth: 4
+2022-02-23 23:10:36.853901 > 	Popped a node with score: 0.3160103236012137 at depth: 4
+2022-02-23 23:10:36.854043 > 	Popped a node with score: 0.3160103239538845 at depth: 4
+2022-02-23 23:10:36.854158 > 	Popped a node with score: 0.3160103305905443 at depth: 4
+2022-02-23 23:10:36.854263 > 	Popped a node with score: 0.31943028584216826 at depth: 4
+2022-02-23 23:10:36.854672 > 	Popped a node with score: 0.3204159443130963 at depth: 4
+2022-02-23 23:10:36.854748 > 	Popped a node with score: 0.32041597253837917 at depth: 4
+2022-02-23 23:10:36.854818 > 	Popped a node with score: 0.3893638826798116 at depth: 4
+2022-02-23 23:10:38.066550 > 	New best! score: 0.0007401129138704388 at depth: 5
+2022-02-23 23:10:52.737332 > 	Layer completed after 15.882354259490967 seconds
+2022-02-23 23:10:52.751489 > 	Popped a node with score: 0.0007401129138704388 at depth: 5
+2022-02-23 23:10:52.751650 > 	Popped a node with score: 0.07386285636303969 at depth: 5
+2022-02-23 23:10:52.751801 > 	Popped a node with score: 0.07386285638785661 at depth: 5
+2022-02-23 23:10:52.751906 > 	Popped a node with score: 0.07386285708099216 at depth: 5
+2022-02-23 23:10:52.752089 > 	Popped a node with score: 0.07909277918431945 at depth: 5
+2022-02-23 23:10:52.752222 > 	Popped a node with score: 0.07909277929442204 at depth: 5
+2022-02-23 23:10:52.752342 > 	Popped a node with score: 0.07909277948661964 at depth: 5
+2022-02-23 23:10:52.752457 > 	Popped a node with score: 0.07977417518713881 at depth: 5
+2022-02-23 23:10:52.752570 > 	Popped a node with score: 0.07977417523672159 at depth: 5
+2022-02-23 23:10:52.752674 > 	Popped a node with score: 0.07977417529511521 at depth: 5
+2022-02-23 23:10:52.752770 > 	Popped a node with score: 0.1422699945528162 at depth: 5
+2022-02-23 23:10:52.753191 > 	Popped a node with score: 0.1433286429416587 at depth: 5
+2022-02-23 23:10:52.753266 > 	Popped a node with score: 0.1517069430576109 at depth: 5
+2022-02-23 23:10:52.753334 > 	Popped a node with score: 0.2906786177625966 at depth: 5
+2022-02-23 23:10:52.753403 > 	Popped a node with score: 0.2928932188888297 at depth: 5
+2022-02-23 23:10:52.753470 > 	Popped a node with score: 0.2928932189769067 at depth: 5
+2022-02-23 23:10:52.753539 > 	Popped a node with score: 0.2928943754030464 at depth: 5
+2022-02-23 23:10:52.753605 > 	Popped a node with score: 0.2928944291142328 at depth: 5
+2022-02-23 23:10:52.753672 > 	Popped a node with score: 0.29289455569336553 at depth: 5
+2022-02-23 23:10:52.753740 > 	Popped a node with score: 0.29341655962292545 at depth: 5
+2022-02-23 23:10:52.753808 > 	Popped a node with score: 0.29341656048257947 at depth: 5
+2022-02-23 23:10:52.753875 > 	Popped a node with score: 0.2934165612261673 at depth: 5
+2022-02-23 23:10:52.753952 > 	Popped a node with score: 0.29341656191337584 at depth: 5
+2022-02-23 23:10:52.754027 > 	Popped a node with score: 0.29341656834481755 at depth: 5
+2022-02-23 23:10:52.754095 > 	Popped a node with score: 0.2934165688667114 at depth: 5
+2022-02-23 23:10:52.754161 > 	Popped a node with score: 0.2939387347281647 at depth: 5
+2022-02-23 23:10:52.754228 > 	Popped a node with score: 0.31601032375901517 at depth: 5
+2022-02-23 23:10:52.754294 > 	Popped a node with score: 0.3160103287530036 at depth: 5
+2022-02-23 23:10:53.193992 > 	New best! score: 1.1102230246251565e-16 at depth: 6
+2022-02-23 23:10:53.279276 > 	New best! score: -4.440892098500626e-16 at depth: 6
+2022-02-23 23:10:54.695825 > 	Layer completed after 1.9414133690297604 seconds
+2022-02-23 23:10:54.737828 > 	Finished compilation at depth 6 with score -4.440892098500626e-16 after 23.429301347583532 seconds.
+2022-02-23 23:10:54.739185 > 	Finished compilation of PauliY0Y100
+2022-02-23 23:10:54.741056 > 	Recorded results from compilation.
+2022-02-23 23:10:54.741234 > 	Deleted checkpoint file.

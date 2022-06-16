@@ -1,0 +1,13 @@
+2022-02-25 23:17:55.879883 > 	There are 8 processors available to Pool.
+2022-02-25 23:17:55.879948 > 	The branching factor is 2.
+2022-02-25 23:17:55.879987 > 	The beam factor is 4.
+2022-02-25 23:17:55.919493 > 	Creating a pool of 8 workers
+2022-02-25 23:17:56.000249 > 	New best! 0.4006200585645662 at depth 0
+2022-02-25 23:17:56.058489 > 	New best! score: 0.3166247648233006 at depth: 1
+2022-02-25 23:17:56.476121 > 	New best! score: 0.2928932201850891 at depth: 2
+2022-02-25 23:17:56.947464 > 	New best! score: 0.2928932198706854 at depth: 3
+2022-02-25 23:18:02.508728 > 	New best! score: 0.07977417514655583 at depth: 4
+2022-02-25 23:18:02.569748 > 	New best! score: 0.07386285648227675 at depth: 4
+2022-02-25 23:18:03.349792 > 	New best! score: 0.07386285643803092 at depth: 5
+2022-02-25 23:18:13.610763 > 	New best! score: 0.0 at depth: 6
+2022-02-25 23:18:14.966239 > 	Finished compilation at depth 6 with score 0.0 after 19.08647339000163 seconds.
