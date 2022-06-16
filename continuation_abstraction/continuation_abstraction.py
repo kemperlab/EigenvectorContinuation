@@ -9,11 +9,11 @@
 # import random
 # import math
 from collections import namedtuple
+# import abc
+from abc import ABC, abstractmethod
 import numpy as np
 # from numpy import ndarray
 # from matplotlib import pyplot as plt
-
-
 
 
 class HamiltonianInitializer:
@@ -108,6 +108,108 @@ class HamiltonianInitializer:
 
         return evals, evecs
 
+class HermitianSpaceInterface(ABC):
+    """ defines behavior for objects to have a hamiltonian, inner product, 
+        and expectation value
+    """
+
+    basis_vecs = None
+    """ set of vectors that span the curent space """
+
+    ham = None
+    """ representation of hamiltonian of the current space """
+
+    def __init__(self, basis_vecs, ham):
+        """ initializes an instance of a HermitianSpace and sets state variables """
+
+        self.basis_vecs = basis_vecs
+        self.ham = ham
+
+    @abstractmethod
+    def inner_product(self, vec1, vec2):
+        """ defines inner product for space
+            should be implemented by concrete class
+        """
+
+    @abstractmethod
+    def expectation_value(self, vec1, ham, vec2):
+        """ defines expectation value calculation for space
+            should be implemented by concrete class
+        """
+
+class NumpyArraySpace(HermitianSpaceInterface):
+    """ defines Hermitian Space behavior for numpy arrays """
+
+    def inner_product(self, vec1, vec2):
+        """ defines inner product for numpy array space
+        """
+        print(self.basis_vecs, self.ham, vec1, vec2)
+
+    def expectation_value(self, vec1, ham, vec2):
+        """ defines expectation value calculation for numpy array space
+        """
+
+test = NumpyArraySpace(1,2)
+test.inner_product(3,4)
+
+# FINISHED (Thurs):
+#   abstract class mumbo jumbo
+#   everything polymorphs, throws errors, and saves values as expected
+# NEXT (Fri):
+#   implement the methods for NumpyArraySpace
+#   figure out ham in expectation value method (see note from Wednesday below)
+
+
+def main():
+    """ generates the image, hamiltonian, and overlap matrix """
+
+# START Hamiltonian & Eigenvector Initialization
+    # useful tuple when dealing with param_sets in this space
+    ParamSet = namedtuple("ParamSet", "j_x j_z b_x b_z")
+
+    # user input
+    n_qubits = 2
+    b_x = 0
+    j_x = 1
+    j_z = 1
+    b_zs = np.array([0,2,3])  # put your custom input here
+    pbc = False
+
+    # create a param_set for each b_z value
+    param_sets = [None] * len(b_zs)
+    for idx, b_z in enumerate(b_zs):
+        param_sets[idx] = ParamSet(j_x,j_z,b_x,b_z)
+
+    # initialize hamiltonians
+    hamiltonian_initializer = HamiltonianInitializer()
+    hams = [None] * len(b_zs)
+    for idx, param_set in enumerate(param_sets):
+        hams[idx] = hamiltonian_initializer.xxztype_hamiltonian(param_set,n_qubits,pbc)
+
+    # calculate evecs for each ham
+    evec_sets = [None] * len(b_zs)
+    for idx, ham in enumerate(hams):
+        evec_sets[idx] = hamiltonian_initializer.get_eigenpairs(ham)[1]
+# END Hamiltonian & Eigenvector Initialization
+
+# Finished: getting eigenvectors given a few training point b_z values
+# Next:     make interface that deals with inner product and expectation value,
+#           using the evecs given above
+#           and new Bz values
+#           unsure: do I take some new Bz values, calculate the ham, then do the sandwich to get
+#           the subspace ham?
+
+# START Interface
+
+
+
+
+
+if __name__ == "__main__":
+    main()
+    
+# shouldn't need n, evals, 
+#  input: evecs, some ham of some osrt
 
 # class TrainingPointUtil:
 #     DATA_POINTS = 100
@@ -311,50 +413,4 @@ class HamiltonianInitializer:
 
 #         self.plot_xxz_spectrum(bzlist, evals, points, phats, n)
 
-def main():
-    """ generates the image, hamiltonian, and overlap matrix """
-
-# START Hamiltonian & Eigenvector Initialization
-    # useful tuple when dealing with param_sets in this space
-    ParamSet = namedtuple("ParamSet", "j_x j_z b_x b_z")
-
-    # user input
-    n_qubits = 2
-    b_x = 0
-    j_x = 1
-    j_z = 1
-    b_zs = np.array([0,2,3])  # put your custom input here
-    pbc = False
-
-    # create a param_set for each b_z value
-    param_sets = [None] * len(b_zs)
-    for idx, b_z in enumerate(b_zs):
-        param_sets[idx] = ParamSet(j_x,j_z,b_x,b_z)
-
-    # initialize hamiltonians
-    hamiltonian_initializer = HamiltonianInitializer()
-    hams = [None] * len(b_zs)
-    for idx, param_set in enumerate(param_sets):
-        hams[idx] = hamiltonian_initializer.xxztype_hamiltonian(param_set,n_qubits,pbc)
-
-    # calculate evecs for each ham
-    evec_sets = [None] * len(b_zs)
-    for idx, ham in enumerate(hams):
-        evec_sets[idx] = hamiltonian_initializer.get_eigenpairs(ham)[1]
-# END Hamiltonian & Eigenvector Initialization
-
-# Finished: getting eigenvectors given a few training point b_z values
-# Next:     make interface that deals with inner product and sandwich, using the evecs given above
-#           and new Bz values
-#           unsure: do I take some new Bz values, calculate the ham, then do the sandwich to get
-#           the subspace ham?
-
-# START ^ [TEST]
-
-if __name__ == "__main__":
-    main()
 # %%
-
-
-# shouldn't need n, evals, 
-#  input: evecs, some ham of some osrt
