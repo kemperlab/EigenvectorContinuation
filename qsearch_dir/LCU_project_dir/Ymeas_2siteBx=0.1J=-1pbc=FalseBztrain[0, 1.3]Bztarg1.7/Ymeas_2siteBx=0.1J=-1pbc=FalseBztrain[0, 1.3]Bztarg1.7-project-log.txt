@@ -1,0 +1,66 @@
+2022-02-23 09:39:38.598687 > 	Started running project Ymeas_2siteBx=0.1J=-1pbc=FalseBztrain[0, 1.3]Bztarg1.7
+2022-02-23 09:39:38.598918 > 	LCUcircYbasis	Not started.
+2022-02-23 09:39:38.598978 > 	Starting compilation of LCUcircYbasis
+2022-02-23 09:40:09.245021 > 	Finished compilation of LCUcircYbasis
+2022-02-23 09:40:09.246636 > 	LCUcircYbasis	Complete!
+2022-02-23 09:40:09.246740 > 	Finished running project Ymeas_2siteBx=0.1J=-1pbc=FalseBztrain[0, 1.3]Bztarg1.7
+2022-02-23 10:02:17.700945 > 	Successfully loaded project Ymeas_2siteBx=0.1J=-1pbc=FalseBztrain[0, 1.3]Bztarg1.7
+2022-02-23 10:02:17.701027 > 	LCUcircYbasis	Complete!
+2022-02-23 10:02:17.701100 > 	Started running project Ymeas_2siteBx=0.1J=-1pbc=FalseBztrain[0, 1.3]Bztarg1.7
+2022-02-23 10:02:17.701222 > 	LCUcircYbasis	Complete!
+2022-02-23 10:02:17.701286 > 	Finished running project Ymeas_2siteBx=0.1J=-1pbc=FalseBztrain[0, 1.3]Bztarg1.7
+2022-02-23 10:32:26.889683 > 	Successfully loaded project Ymeas_2siteBx=0.1J=-1pbc=FalseBztrain[0, 1.3]Bztarg1.7
+2022-02-23 10:32:26.889776 > 	LCUcircYbasis	Complete!
+2022-02-23 10:32:26.889858 > 	Started running project Ymeas_2siteBx=0.1J=-1pbc=FalseBztrain[0, 1.3]Bztarg1.7
+2022-02-23 10:32:26.889999 > 	LCUcircYbasis	Complete!
+2022-02-23 10:32:26.890054 > 	Finished running project Ymeas_2siteBx=0.1J=-1pbc=FalseBztrain[0, 1.3]Bztarg1.7
+2022-02-23 10:32:58.749406 > 	Successfully loaded project Ymeas_2siteBx=0.1J=-1pbc=FalseBztrain[0, 1.3]Bztarg1.7
+2022-02-23 10:32:58.749495 > 	LCUcircYbasis	Complete!
+2022-02-23 10:32:58.749573 > 	Started running project Ymeas_2siteBx=0.1J=-1pbc=FalseBztrain[0, 1.3]Bztarg1.7
+2022-02-23 10:32:58.749705 > 	LCUcircYbasis	Complete!
+2022-02-23 10:32:58.749755 > 	Finished running project Ymeas_2siteBx=0.1J=-1pbc=FalseBztrain[0, 1.3]Bztarg1.7
+2022-02-23 10:34:44.294000 > 	Successfully loaded project Ymeas_2siteBx=0.1J=-1pbc=FalseBztrain[0, 1.3]Bztarg1.7
+2022-02-23 10:34:44.294096 > 	LCUcircYbasis	Complete!
+2022-02-23 10:34:44.294203 > 	Started running project Ymeas_2siteBx=0.1J=-1pbc=FalseBztrain[0, 1.3]Bztarg1.7
+2022-02-23 10:34:44.294369 > 	LCUcircYbasis	Complete!
+2022-02-23 10:34:44.294444 > 	Finished running project Ymeas_2siteBx=0.1J=-1pbc=FalseBztrain[0, 1.3]Bztarg1.7
+2022-02-23 10:45:47.027584 > 	Successfully loaded project Ymeas_2siteBx=0.1J=-1pbc=FalseBztrain[0, 1.3]Bztarg1.7
+2022-02-23 10:45:47.027671 > 	LCUcircYbasis	Complete!
+2022-02-23 10:45:47.027749 > 	Started running project Ymeas_2siteBx=0.1J=-1pbc=FalseBztrain[0, 1.3]Bztarg1.7
+2022-02-23 10:45:47.027900 > 	LCUcircYbasis	Complete!
+2022-02-23 10:45:47.027955 > 	Finished running project Ymeas_2siteBx=0.1J=-1pbc=FalseBztrain[0, 1.3]Bztarg1.7
+2022-02-23 10:46:44.018241 > 	Successfully loaded project Ymeas_2siteBx=0.1J=-1pbc=FalseBztrain[0, 1.3]Bztarg1.7
+2022-02-23 10:46:44.018336 > 	LCUcircYbasis	Complete!
+2022-02-23 10:46:44.018438 > 	Started running project Ymeas_2siteBx=0.1J=-1pbc=FalseBztrain[0, 1.3]Bztarg1.7
+2022-02-23 10:46:44.018615 > 	LCUcircYbasis	Complete!
+2022-02-23 10:46:44.018693 > 	Finished running project Ymeas_2siteBx=0.1J=-1pbc=FalseBztrain[0, 1.3]Bztarg1.7
+2022-02-23 10:47:31.741768 > 	Successfully loaded project Ymeas_2siteBx=0.1J=-1pbc=FalseBztrain[0, 1.3]Bztarg1.7
+2022-02-23 10:47:31.741846 > 	LCUcircYbasis	Complete!
+2022-02-23 10:47:31.741918 > 	Started running project Ymeas_2siteBx=0.1J=-1pbc=FalseBztrain[0, 1.3]Bztarg1.7
+2022-02-23 10:47:31.742039 > 	LCUcircYbasis	Complete!
+2022-02-23 10:47:31.742087 > 	Finished running project Ymeas_2siteBx=0.1J=-1pbc=FalseBztrain[0, 1.3]Bztarg1.7
+2022-02-23 10:55:30.892174 > 	Successfully loaded project Ymeas_2siteBx=0.1J=-1pbc=FalseBztrain[0, 1.3]Bztarg1.7
+2022-02-23 10:55:30.892262 > 	LCUcircYbasis	Complete!
+2022-02-23 10:55:30.892343 > 	Started running project Ymeas_2siteBx=0.1J=-1pbc=FalseBztrain[0, 1.3]Bztarg1.7
+2022-02-23 10:55:30.892480 > 	LCUcircYbasis	Complete!
+2022-02-23 10:55:30.892553 > 	Finished running project Ymeas_2siteBx=0.1J=-1pbc=FalseBztrain[0, 1.3]Bztarg1.7
+2022-02-23 10:59:46.340768 > 	Successfully loaded project Ymeas_2siteBx=0.1J=-1pbc=FalseBztrain[0, 1.3]Bztarg1.7
+2022-02-23 10:59:46.340913 > 	LCUcircYbasis	Complete!
+2022-02-23 10:59:46.341037 > 	Started running project Ymeas_2siteBx=0.1J=-1pbc=FalseBztrain[0, 1.3]Bztarg1.7
+2022-02-23 10:59:46.341247 > 	LCUcircYbasis	Complete!
+2022-02-23 10:59:46.341331 > 	Finished running project Ymeas_2siteBx=0.1J=-1pbc=FalseBztrain[0, 1.3]Bztarg1.7
+2022-02-23 11:24:18.532697 > 	Successfully loaded project Ymeas_2siteBx=0.1J=-1pbc=FalseBztrain[0, 1.3]Bztarg1.7
+2022-02-23 11:24:18.532807 > 	LCUcircYbasis	Complete!
+2022-02-23 11:24:18.532902 > 	Started running project Ymeas_2siteBx=0.1J=-1pbc=FalseBztrain[0, 1.3]Bztarg1.7
+2022-02-23 11:24:18.533044 > 	LCUcircYbasis	Complete!
+2022-02-23 11:24:18.533118 > 	Finished running project Ymeas_2siteBx=0.1J=-1pbc=FalseBztrain[0, 1.3]Bztarg1.7
+2022-02-23 11:25:40.271736 > 	Successfully loaded project Ymeas_2siteBx=0.1J=-1pbc=FalseBztrain[0, 1.3]Bztarg1.7
+2022-02-23 11:25:40.271820 > 	LCUcircYbasis	Complete!
+2022-02-23 11:25:40.271912 > 	Started running project Ymeas_2siteBx=0.1J=-1pbc=FalseBztrain[0, 1.3]Bztarg1.7
+2022-02-23 11:25:40.272072 > 	LCUcircYbasis	Complete!
+2022-02-23 11:25:40.272143 > 	Finished running project Ymeas_2siteBx=0.1J=-1pbc=FalseBztrain[0, 1.3]Bztarg1.7
+2022-02-23 13:33:32.787934 > 	Successfully loaded project Ymeas_2siteBx=0.1J=-1pbc=FalseBztrain[0, 1.3]Bztarg1.7
+2022-02-23 13:33:32.788014 > 	LCUcircYbasis	Complete!
+2022-02-23 13:33:32.788090 > 	Started running project Ymeas_2siteBx=0.1J=-1pbc=FalseBztrain[0, 1.3]Bztarg1.7
+2022-02-23 13:33:32.788228 > 	LCUcircYbasis	Complete!
+2022-02-23 13:33:32.788282 > 	Finished running project Ymeas_2siteBx=0.1J=-1pbc=FalseBztrain[0, 1.3]Bztarg1.7

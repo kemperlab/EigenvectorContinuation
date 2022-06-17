@@ -1,0 +1,151 @@
+2022-02-23 23:15:55.272189 > 	Starting compilation of LCUcircZbasis
+2022-02-23 23:15:55.272567 > 	There are 56 processors available to Pool.
+2022-02-23 23:15:55.272612 > 	The branching factor is 2.
+2022-02-23 23:15:55.272651 > 	The beam factor is 28.
+2022-02-23 23:15:55.423821 > 	Creating a pool of 56 workers
+2022-02-23 23:15:55.933165 > 	New best! 0.028965327503059624 at depth 0
+2022-02-23 23:15:55.934763 > 	Popped a node with score: 0.28965327503059624 at depth: 0
+2022-02-23 23:15:56.552549 > 	New best! score: 0.28148372364703067 at depth: 1
+2022-02-23 23:15:56.552752 > 	Layer completed after 0.6178812757134438 seconds
+2022-02-23 23:15:56.553982 > 	Popped a node with score: 0.28148372364703067 at depth: 1
+2022-02-23 23:15:56.554280 > 	Popped a node with score: 0.29037741354194935 at depth: 1
+2022-02-23 23:15:56.709184 > 	New best! score: 0.2489648981585757 at depth: 2
+2022-02-23 23:15:56.721145 > 	New best! score: 0.2235024935421811 at depth: 2
+2022-02-23 23:15:56.961213 > 	Layer completed after 0.40664976835250854 seconds
+2022-02-23 23:15:56.964362 > 	Popped a node with score: 0.2235024935421811 at depth: 2
+2022-02-23 23:15:56.964520 > 	Popped a node with score: 0.2489648981585757 at depth: 2
+2022-02-23 23:15:56.965152 > 	Popped a node with score: 0.2867808413658971 at depth: 2
+2022-02-23 23:15:56.965427 > 	Popped a node with score: 0.2902364264470082 at depth: 2
+2022-02-23 23:15:57.116083 > 	New best! score: 0.2234691755149969 at depth: 3
+2022-02-23 23:15:57.177523 > 	New best! score: 0.21407887243338453 at depth: 3
+2022-02-23 23:15:57.237923 > 	New best! score: 0.19684531953493056 at depth: 3
+2022-02-23 23:15:57.480629 > 	Layer completed after 0.5150401405990124 seconds
+2022-02-23 23:15:57.486533 > 	Popped a node with score: 0.19684531953493056 at depth: 3
+2022-02-23 23:15:57.486793 > 	Popped a node with score: 0.21407887243338453 at depth: 3
+2022-02-23 23:15:57.486936 > 	Popped a node with score: 0.2234691755149969 at depth: 3
+2022-02-23 23:15:57.487094 > 	Popped a node with score: 0.22829274693316315 at depth: 3
+2022-02-23 23:15:57.487331 > 	Popped a node with score: 0.23941378105481537 at depth: 3
+2022-02-23 23:15:57.487503 > 	Popped a node with score: 0.24211310376529072 at depth: 3
+2022-02-23 23:15:57.487697 > 	Popped a node with score: 0.24896489941801214 at depth: 3
+2022-02-23 23:15:57.487829 > 	Popped a node with score: 0.2532557712387179 at depth: 3
+2022-02-23 23:15:57.687116 > 	New best! score: 0.15912743730441703 at depth: 4
+2022-02-23 23:15:57.744929 > 	New best! score: 0.09193442784346262 at depth: 4
+2022-02-23 23:15:58.351203 > 	Layer completed after 0.8631119057536125 seconds
+2022-02-23 23:15:58.358921 > 	Popped a node with score: 0.09193442784346262 at depth: 4
+2022-02-23 23:15:58.359140 > 	Popped a node with score: 0.10122034521064627 at depth: 4
+2022-02-23 23:15:58.359309 > 	Popped a node with score: 0.14709950981725917 at depth: 4
+2022-02-23 23:15:58.359475 > 	Popped a node with score: 0.15912743730441703 at depth: 4
+2022-02-23 23:15:58.359965 > 	Popped a node with score: 0.1658263974760028 at depth: 4
+2022-02-23 23:15:58.360064 > 	Popped a node with score: 0.16893512832925384 at depth: 4
+2022-02-23 23:15:58.360149 > 	Popped a node with score: 0.17689615794026936 at depth: 4
+2022-02-23 23:15:58.360229 > 	Popped a node with score: 0.18668076724150162 at depth: 4
+2022-02-23 23:15:58.360309 > 	Popped a node with score: 0.21402563472528302 at depth: 4
+2022-02-23 23:15:58.360388 > 	Popped a node with score: 0.22346917290119617 at depth: 4
+2022-02-23 23:15:58.360467 > 	Popped a node with score: 0.2249303283346512 at depth: 4
+2022-02-23 23:15:58.360542 > 	Popped a node with score: 0.23330901742180898 at depth: 4
+2022-02-23 23:15:58.360616 > 	Popped a node with score: 0.23330902398838382 at depth: 4
+2022-02-23 23:15:58.360690 > 	Popped a node with score: 0.239413777666717 at depth: 4
+2022-02-23 23:15:58.360764 > 	Popped a node with score: 0.2421131060562266 at depth: 4
+2022-02-23 23:15:58.360837 > 	Popped a node with score: 0.2489648978211666 at depth: 4
+2022-02-23 23:15:58.635595 > 	New best! score: 0.09193288871287608 at depth: 5
+2022-02-23 23:15:58.707620 > 	New best! score: 0.08419656578954104 at depth: 5
+2022-02-23 23:15:59.045001 > 	New best! score: 0.08389725819515081 at depth: 5
+2022-02-23 23:15:59.750180 > 	Layer completed after 1.3892163895070553 seconds
+2022-02-23 23:15:59.765568 > 	Popped a node with score: 0.08389725819515081 at depth: 5
+2022-02-23 23:15:59.765831 > 	Popped a node with score: 0.08419656578954104 at depth: 5
+2022-02-23 23:15:59.765979 > 	Popped a node with score: 0.08560386867126346 at depth: 5
+2022-02-23 23:15:59.766198 > 	Popped a node with score: 0.09193288871287608 at depth: 5
+2022-02-23 23:15:59.766347 > 	Popped a node with score: 0.09193288918086351 at depth: 5
+2022-02-23 23:15:59.766785 > 	Popped a node with score: 0.09208953244497564 at depth: 5
+2022-02-23 23:15:59.766864 > 	Popped a node with score: 0.09450664281668819 at depth: 5
+2022-02-23 23:15:59.766936 > 	Popped a node with score: 0.10117689721613288 at depth: 5
+2022-02-23 23:15:59.767023 > 	Popped a node with score: 0.10117689742836944 at depth: 5
+2022-02-23 23:15:59.767093 > 	Popped a node with score: 0.13562966934414444 at depth: 5
+2022-02-23 23:15:59.767181 > 	Popped a node with score: 0.1417416260187594 at depth: 5
+2022-02-23 23:15:59.767260 > 	Popped a node with score: 0.14325544212689545 at depth: 5
+2022-02-23 23:15:59.767330 > 	Popped a node with score: 0.14709951126378606 at depth: 5
+2022-02-23 23:15:59.767397 > 	Popped a node with score: 0.15605672357168643 at depth: 5
+2022-02-23 23:15:59.767464 > 	Popped a node with score: 0.15664267337876092 at depth: 5
+2022-02-23 23:15:59.767532 > 	Popped a node with score: 0.1591179796679436 at depth: 5
+2022-02-23 23:15:59.767602 > 	Popped a node with score: 0.15912743799242623 at depth: 5
+2022-02-23 23:15:59.767669 > 	Popped a node with score: 0.1595793605092316 at depth: 5
+2022-02-23 23:15:59.767737 > 	Popped a node with score: 0.16456819248115107 at depth: 5
+2022-02-23 23:15:59.767872 > 	Popped a node with score: 0.1676446341529989 at depth: 5
+2022-02-23 23:15:59.767967 > 	Popped a node with score: 0.16893512918641707 at depth: 5
+2022-02-23 23:15:59.768042 > 	Popped a node with score: 0.17577521340453528 at depth: 5
+2022-02-23 23:15:59.768110 > 	Popped a node with score: 0.18631444853791768 at depth: 5
+2022-02-23 23:15:59.768195 > 	Popped a node with score: 0.21402563168097477 at depth: 5
+2022-02-23 23:15:59.768271 > 	Popped a node with score: 0.22346917236546193 at depth: 5
+2022-02-23 23:15:59.768343 > 	Popped a node with score: 0.22493033219899428 at depth: 5
+2022-02-23 23:15:59.768410 > 	Popped a node with score: 0.23330901943734372 at depth: 5
+2022-02-23 23:15:59.768547 > 	Popped a node with score: 0.23330902975616952 at depth: 5
+2022-02-23 23:16:00.390632 > 	New best! score: 0.06113125924229457 at depth: 6
+2022-02-23 23:16:00.485007 > 	New best! score: 0.05462530983422076 at depth: 6
+2022-02-23 23:16:02.310282 > 	Layer completed after 2.5415993817150593 seconds
+2022-02-23 23:16:02.326654 > 	Popped a node with score: 0.05462530983422076 at depth: 6
+2022-02-23 23:16:02.327113 > 	Popped a node with score: 0.055076219447262265 at depth: 6
+2022-02-23 23:16:02.327318 > 	Popped a node with score: 0.06113125924229457 at depth: 6
+2022-02-23 23:16:02.327402 > 	Popped a node with score: 0.06941095723726054 at depth: 6
+2022-02-23 23:16:02.327490 > 	Popped a node with score: 0.08189762815125357 at depth: 6
+2022-02-23 23:16:02.327622 > 	Popped a node with score: 0.08300329945734586 at depth: 6
+2022-02-23 23:16:02.327713 > 	Popped a node with score: 0.08300430951334115 at depth: 6
+2022-02-23 23:16:02.327795 > 	Popped a node with score: 0.0831319762490309 at depth: 6
+2022-02-23 23:16:02.327877 > 	Popped a node with score: 0.08340329768962063 at depth: 6
+2022-02-23 23:16:02.327956 > 	Popped a node with score: 0.08343998062550029 at depth: 6
+2022-02-23 23:16:02.328044 > 	Popped a node with score: 0.08470813129751709 at depth: 6
+2022-02-23 23:16:02.328118 > 	Popped a node with score: 0.08475790553014606 at depth: 6
+2022-02-23 23:16:02.328205 > 	Popped a node with score: 0.08560379735510726 at depth: 6
+2022-02-23 23:16:02.328288 > 	Popped a node with score: 0.08560379753521752 at depth: 6
+2022-02-23 23:16:02.328669 > 	Popped a node with score: 0.08565202140426653 at depth: 6
+2022-02-23 23:16:02.328714 > 	Popped a node with score: 0.08856837797046158 at depth: 6
+2022-02-23 23:16:02.328755 > 	Popped a node with score: 0.08856837818105434 at depth: 6
+2022-02-23 23:16:02.328796 > 	Popped a node with score: 0.08856837919731697 at depth: 6
+2022-02-23 23:16:02.328835 > 	Popped a node with score: 0.09193288865501392 at depth: 6
+2022-02-23 23:16:02.328873 > 	Popped a node with score: 0.09193288890282014 at depth: 6
+2022-02-23 23:16:02.328913 > 	Popped a node with score: 0.09420332745709858 at depth: 6
+2022-02-23 23:16:02.328958 > 	Popped a node with score: 0.09420332792631747 at depth: 6
+2022-02-23 23:16:02.329000 > 	Popped a node with score: 0.09420332825056998 at depth: 6
+2022-02-23 23:16:02.329039 > 	Popped a node with score: 0.10117689715927403 at depth: 6
+2022-02-23 23:16:02.329079 > 	Popped a node with score: 0.10117689726685919 at depth: 6
+2022-02-23 23:16:02.329118 > 	Popped a node with score: 0.10117689753911485 at depth: 6
+2022-02-23 23:16:02.329156 > 	Popped a node with score: 0.10593679782620125 at depth: 6
+2022-02-23 23:16:02.329195 > 	Popped a node with score: 0.10976166906158469 at depth: 6
+2022-02-23 23:16:03.272324 > 	New best! score: 0.05311707483923955 at depth: 7
+2022-02-23 23:16:03.281372 > 	New best! score: 0.035620485694415005 at depth: 7
+2022-02-23 23:16:04.362353 > 	Layer completed after 2.033050201833248 seconds
+2022-02-23 23:16:04.732839 > 	Popped a node with score: 0.23330903093116884 at depth: 5
+2022-02-23 23:16:04.732966 > 	Popped a node with score: 0.13474540932092705 at depth: 6
+2022-02-23 23:16:04.733069 > 	Popped a node with score: 0.1351938892567669 at depth: 6
+2022-02-23 23:16:04.733153 > 	Popped a node with score: 0.13519389005007232 at depth: 6
+2022-02-23 23:16:04.733231 > 	Popped a node with score: 0.035620485694415005 at depth: 7
+2022-02-23 23:16:04.733329 > 	Popped a node with score: 0.1356296734417114 at depth: 6
+2022-02-23 23:16:04.733403 > 	Popped a node with score: 0.036412972694394474 at depth: 7
+2022-02-23 23:16:04.733475 > 	Popped a node with score: 0.038698624790236114 at depth: 7
+2022-02-23 23:16:04.733559 > 	Popped a node with score: 0.2394137856364269 at depth: 5
+2022-02-23 23:16:04.733628 > 	Popped a node with score: 0.040787824508342396 at depth: 7
+2022-02-23 23:16:04.733691 > 	Popped a node with score: 0.04098272266094771 at depth: 7
+2022-02-23 23:16:04.733788 > 	Popped a node with score: 0.14174162472807073 at depth: 6
+2022-02-23 23:16:04.733860 > 	Popped a node with score: 0.14174162675706836 at depth: 6
+2022-02-23 23:16:04.733957 > 	Popped a node with score: 0.24211310529232533 at depth: 5
+2022-02-23 23:16:04.734057 > 	Popped a node with score: 0.14298757924061223 at depth: 6
+2022-02-23 23:16:04.734128 > 	Popped a node with score: 0.14325543924397044 at depth: 6
+2022-02-23 23:16:04.734208 > 	Popped a node with score: 0.045739954276293404 at depth: 7
+2022-02-23 23:16:04.734288 > 	Popped a node with score: 0.04609285669645047 at depth: 7
+2022-02-23 23:16:04.734727 > 	Popped a node with score: 0.24896490186943965 at depth: 5
+2022-02-23 23:16:04.734770 > 	Popped a node with score: 0.05158528551974639 at depth: 7
+2022-02-23 23:16:04.734808 > 	Popped a node with score: 0.051585285664085934 at depth: 7
+2022-02-23 23:16:04.734846 > 	Popped a node with score: 0.05158528651982519 at depth: 7
+2022-02-23 23:16:04.734885 > 	Popped a node with score: 0.05311707483923955 at depth: 7
+2022-02-23 23:16:04.734924 > 	Popped a node with score: 0.054623486391324416 at depth: 7
+2022-02-23 23:16:04.734970 > 	Popped a node with score: 0.05485306918010302 at depth: 7
+2022-02-23 23:16:04.735010 > 	Popped a node with score: 0.05485306984863492 at depth: 7
+2022-02-23 23:16:04.735047 > 	Popped a node with score: 0.054853070631133316 at depth: 7
+2022-02-23 23:16:04.735085 > 	Popped a node with score: 0.15511538786408674 at depth: 6
+2022-02-23 23:16:05.382762 > 	New best! score: 4.440892098500626e-16 at depth: 8
+2022-02-23 23:16:05.454729 > 	New best! score: 2.220446049250313e-16 at depth: 8
+2022-02-23 23:16:05.461248 > 	New best! score: 0.0 at depth: 8
+2022-02-23 23:16:07.744657 > 	Layer completed after 3.0091403611004353 seconds
+2022-02-23 23:16:07.832946 > 	Finished compilation at depth 8 with score 0.0 after 12.56040695682168 seconds.
+2022-02-23 23:16:07.835056 > 	Finished compilation of LCUcircZbasis
+2022-02-23 23:16:07.835950 > 	Recorded results from compilation.
+2022-02-23 23:16:07.836273 > 	Deleted checkpoint file.

@@ -1,0 +1,25 @@
+[-1, 0.1, 0, 2, False]
+Adding vector for parameter set [-1, 0.1, 0, 2, False]
+[-1, 0.1, 1.3, 2, False]
+Adding vector for parameter set [-1, 0.1, 1.3, 2, False]
+
+overlap_matrix:  [[ 1.        +0.j -0.28699796+0.j]
+ [-0.28699796-0.j  1.        +0.j]]
+Hamiltonian [[-2.0198039 +0.j  0.80938206+0.j]
+ [ 0.80938206-0.j -3.39318209+0.j]]
+Eigen values:  [[-3.41401654+0.j -1.97856248+0.j]]
+Overlap matrix mimic:
+ [[1.        +0.j 0.28706706+0.j]
+ [0.28706706-0.j 1.        +0.j]]
+Hamiltonian mimic:
+ [[-2.0198592 -0.j -0.80944132+0.j]
+ [-0.80944132-0.j -3.39313686-0.j]]
+Evals circuit mimic:  [-3.41401528 -1.97864885]
+Traceback (most recent call last):
+  File "main.py", line 184, in <module>
+    qasm_circuit_evals_bundle,backend_name,layout = get_evals_targetlist_qasmcirc(training_paramlist=training_paramlist_qc,target_paramlist=target_paramlist_qc)
+  File "/home/akhil/Dropbox/Kemper_Lab/Project_12_EigenVector_Continuation/gitcode/EigenvectorContinuation_version1/quantum_circuit_qasm.py", line 708, in get_evals_targetlist_qasmcirc
+    results = job.result()
+  File "/home/akhil/anaconda3/envs/eig_cont/lib/python3.7/site-packages/qiskit/providers/ibmq/job/ibmqjob.py", line 280, in result
+    'Job was cancelled.'.format(self.job_id()))
+qiskit.providers.ibmq.job.exceptions.IBMQJobInvalidStateError: 'Unable to retrieve result for job 6191f6464633b717de222c95. Job was cancelled.'
