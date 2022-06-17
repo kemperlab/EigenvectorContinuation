@@ -109,21 +109,45 @@ class HamiltonianInitializer:
         return evals, evecs
 
 class HermitianSpaceInterface(ABC):
-    """ defines behavior for objects to have a hamiltonian, inner product, 
+    """ defines behavior for objects to have a hamiltonian, inner product,
         and expectation value
     """
-
-    basis_vecs = None
-    """ set of vectors that span the curent space """
-
-    ham = None
-    """ representation of hamiltonian of the current space """
 
     def __init__(self, basis_vecs, ham):
         """ initializes an instance of a HermitianSpace and sets state variables """
 
         self.basis_vecs = basis_vecs
         self.ham = ham
+
+    @property
+    def ham(self):
+        """ I'm the current space's hamiltonian """
+        return self._ham
+
+    @ham.setter
+    def ham(self,value):
+        """ Set the current space's hamiltonian """
+        self.check_ham_type(value)
+        self._ham = value
+
+    @property
+    def basis_vecs(self):
+        """ I'm the current space's basis vectors """
+        return self._basis_vecs
+
+    @basis_vecs.setter
+    def basis_vecs(self,value):
+        """ Set the current space's basis vectors """
+        self.check_basis_vecs_type(value)
+        self._basis_vecs = value
+
+    @abstractmethod
+    def check_ham_type(self, ham):
+        """ checks the type of the hamiltonian according to concrete class implementation """
+
+    @abstractmethod
+    def check_basis_vecs_type(self, basis_vecs):
+        """ checks the type of the basis vectors according to concrete class implementation """
 
     @abstractmethod
     def inner_product(self, vec1, vec2):
@@ -140,17 +164,69 @@ class HermitianSpaceInterface(ABC):
 class NumpyArraySpace(HermitianSpaceInterface):
     """ defines Hermitian Space behavior for numpy arrays """
 
+    @property
+    def implementation_type(self):
+        """ I'm the current space's implementation type """
+        return np.ndarray
+
+    def check_type_generic(self, value):
+        """ helper method to verify all data in this implementation is in an np.ndarray """
+        if not isinstance(value, self.implementation_type):
+            raise ValueError("data should be of type np.ndarray")
+
+    def check_basis_vecs_type(self, basis_vecs):
+        """ checks the type of each basis vector (should be np.ndarray) """
+        for basis_vec in basis_vecs:
+            self.check_type_generic(basis_vec)
+
+    def check_ham_type(self, ham):
+        """ checks the type of the hamiltonian (should be np.ndarray) """
+        self.check_type_generic(ham)
+
     def inner_product(self, vec1, vec2):
         """ defines inner product for numpy array space
+
+            :param vec1:    the left vector of the inner product
+            :param vec2:    the right vector of the inner product
+            :returns:       inner product of vec1 & vec2
         """
-        print(self.basis_vecs, self.ham, vec1, vec2)
+
+        # Raises error if argument argument types are not np.ndarray (np.matrix is allowed)
+        if (not isinstance(vec1, np.ndarray) or not isinstance(vec2, np.ndarray)):
+            raise ValueError("both vec1 and vec2 should be of type np.ndarray")
+
+        # takes the conjugate transpose of vec2, and returns the inner product
+        vec2_dagger = vec2.conj().T
+        return vec1 @ vec2_dagger
 
     def expectation_value(self, vec1, ham, vec2):
         """ defines expectation value calculation for numpy array space
+
+            :param vec1:    the left vector of the expectation value calculation
+            :param ham:     retrieve the expectation value w.r.t. this hamiltonian
+            :param vec2:    the right vector of the expectation value calculation
+            :returns:       the expectation value of the system
         """
 
-test = NumpyArraySpace(1,2)
-test.inner_product(3,4)
+        # Raises error if argument types are not np.ndarray (np.matrix is allowed)
+        if (not isinstance(vec1, np.ndarray) or
+            not isinstance(ham, np.ndarray) or
+            not isinstance(vec2, np.ndarray)):
+            raise ValueError("both vec1 and vec2 should be of type np.ndarray")
+
+        # takes the conjugate transpose of vec2, and returns the expectation value
+        vec2_dagger = vec2.conj().T # TODO Ask Kemper if this should have conj().
+                                    # it means input is kinda funky
+        return vec1 @ ham @ vec2_dagger
+
+# Test Code: expects 4.j
+vector1 = np.array([-1.j,3])
+hamiltonian = np.array([[1,1.j],[-1.j,-1]])
+vector2 = np.array([-3,-4.j])
+evecs = np.array([[1,2],[7,6]])
+hamiltonian = np.array([[1,0],[0,1]])
+arrSpace = NumpyArraySpace(evecs, hamiltonian)
+print(arrSpace.expectation_value(vector1, hamiltonian, vector2))
 
 # FINISHED (Thurs):
 #   abstract class mumbo jumbo
