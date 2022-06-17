@@ -1,0 +1,134 @@
+[-1, 0.1, 0, 2, False]
+Adding vector for parameter set [-1, 0.1, 0, 2, False]
+[-1, 0.1, 1.3, 2, False]
+Adding vector for parameter set [-1, 0.1, 1.3, 2, False]
+
+basis continuer:
+[ 0.06967662+0.j -0.70366552+0.j -0.70366552+0.j  0.06967662+0.j]
+[-0.00593814+0.j  0.15533724+0.j  0.15533724+0.j -0.97555391+0.j]
+overlap_matrix_continuer:
+  [[ 1.        +0.j -0.28699796+0.j]
+ [-0.28699796-0.j  1.        +0.j]]
+Hamiltonian_continuer:
+  [[-2.0198039 +0.j  0.78235825+0.j]
+ [ 0.78235825-0.j -3.01251402+0.j]]
+fullvec
+[-6.71108942e-05+0.j  9.80767641e-02+0.j  9.80767641e-02+0.j
+ -9.90334233e-01+0.j]
+overlap_matrix_continuer:
+  [[ 1.        +0.j -0.28699796+0.j]
+ [-0.28699796-0.j  1.        +0.j]]
+Hamiltonian_continuer:
+  [[-2.0198039 +0.j  0.80938206+0.j]
+ [ 0.80938206-0.j -3.39318209+0.j]]
+fullvec
+[ 0.0026537 +0.j  0.07131568+0.j  0.07131568+0.j -0.99489754+0.j]
+overlap_matrix_continuer:
+  [[ 1.        +0.j -0.28699796+0.j]
+ [-0.28699796-0.j  1.        +0.j]]
+Hamiltonian_continuer:
+  [[-2.0198039 +0.j  0.83640588+0.j]
+ [ 0.83640588-0.j -3.77385015+0.j]]
+fullvec
+[ 0.00420333+0.j  0.05601029+0.j  0.05601029+0.j -0.99684905+0.j]
+Successfully loaded project Zmeas_2siteBx=0.1Bztrain[0, 1.3]Bztarg1.5
+LCUcircZbasis	Complete!
+Started running project Zmeas_2siteBx=0.1Bztrain[0, 1.3]Bztarg1.5
+LCUcircZbasis	Complete!
+Finished running project Zmeas_2siteBx=0.1Bztrain[0, 1.3]Bztarg1.5
+Successfully loaded project Xmeas_2siteBx=0.1Bztrain[0, 1.3]Bztarg1.5
+LCUcircZbasis	Complete!
+Started running project Xmeas_2siteBx=0.1Bztrain[0, 1.3]Bztarg1.5
+LCUcircZbasis	Complete!
+Finished running project Xmeas_2siteBx=0.1Bztrain[0, 1.3]Bztarg1.5
+Successfully loaded project Ymeas_2siteBx=0.1Bztrain[0, 1.3]Bztarg1.5
+LCUcircZbasis	Complete!
+Started running project Ymeas_2siteBx=0.1Bztrain[0, 1.3]Bztarg1.5
+LCUcircZbasis	Complete!
+Finished running project Ymeas_2siteBx=0.1Bztrain[0, 1.3]Bztarg1.5
+Successfully loaded project Zmeas_2siteBx=0.1Bztrain[0, 1.3]Bztarg1.7
+LCUcircZbasis	Complete!
+Started running project Zmeas_2siteBx=0.1Bztrain[0, 1.3]Bztarg1.7
+LCUcircZbasis	Complete!
+Finished running project Zmeas_2siteBx=0.1Bztrain[0, 1.3]Bztarg1.7
+Successfully loaded project Xmeas_2siteBx=0.1Bztrain[0, 1.3]Bztarg1.7
+LCUcircZbasis	Complete!
+Started running project Xmeas_2siteBx=0.1Bztrain[0, 1.3]Bztarg1.7
+LCUcircZbasis	Complete!
+Finished running project Xmeas_2siteBx=0.1Bztrain[0, 1.3]Bztarg1.7
+Successfully loaded project Ymeas_2siteBx=0.1Bztrain[0, 1.3]Bztarg1.7
+LCUcircZbasis	Complete!
+Started running project Ymeas_2siteBx=0.1Bztrain[0, 1.3]Bztarg1.7
+LCUcircZbasis	Complete!
+Finished running project Ymeas_2siteBx=0.1Bztrain[0, 1.3]Bztarg1.7
+Successfully loaded project Zmeas_2siteBx=0.1Bztrain[0, 1.3]Bztarg1.9
+LCUcircZbasis	Complete!
+Started running project Zmeas_2siteBx=0.1Bztrain[0, 1.3]Bztarg1.9
+LCUcircZbasis	Complete!
+Finished running project Zmeas_2siteBx=0.1Bztrain[0, 1.3]Bztarg1.9
+Successfully loaded project Xmeas_2siteBx=0.1Bztrain[0, 1.3]Bztarg1.9
+LCUcircZbasis	Complete!
+Started running project Xmeas_2siteBx=0.1Bztrain[0, 1.3]Bztarg1.9
+LCUcircZbasis	Complete!
+Finished running project Xmeas_2siteBx=0.1Bztrain[0, 1.3]Bztarg1.9
+Successfully loaded project Ymeas_2siteBx=0.1Bztrain[0, 1.3]Bztarg1.9
+LCUcircZbasis	Complete!
+Started running project Ymeas_2siteBx=0.1Bztrain[0, 1.3]Bztarg1.9
+LCUcircZbasis	Complete!
+Finished running project Ymeas_2siteBx=0.1Bztrain[0, 1.3]Bztarg1.9
+[<qiskit.circuit.quantumcircuit.QuantumCircuit object at 0x7fc1bd70c208>, <qiskit.circuit.quantumcircuit.QuantumCircuit object at 0x7fc1bc561dd8>, <qiskit.circuit.quantumcircuit.QuantumCircuit object at 0x7fc1bd70c978>, <qiskit.circuit.quantumcircuit.QuantumCircuit object at 0x7fc1bc5649b0>, <qiskit.circuit.quantumcircuit.QuantumCircuit object at 0x7fc1bc5612e8>, <qiskit.circuit.quantumcircuit.QuantumCircuit object at 0x7fc1bd70ca90>, <qiskit.circuit.quantumcircuit.QuantumCircuit object at 0x7fc1bd70c2b0>, <qiskit.circuit.quantumcircuit.QuantumCircuit object at 0x7fc1bd710be0>, <qiskit.circuit.quantumcircuit.QuantumCircuit object at 0x7fc1bd70cb70>]
+global phase: 5.4057
+            ┌────────────────────────┐          ┌─────────────────────┐    »
+q0_0 -> 0 ──┤ U3(0.56509,-2.6183,-π) ├────■─────┤ U3(π,1.8654,1.0668) ├────»
+          ┌─┴────────────────────────┴┐ ┌─┴─┐┌──┴─────────────────────┴───┐»
+q0_1 -> 1 ┤ U3(1.1754,0.71505,3.0214) ├─┤ X ├┤ U3(0.31439,2.9792,0.71532) ├»
+          ├───────────────────────────┴┐└───┘└────────────────────────────┘»
+q0_2 -> 2 ┤ U3(0.73354,2.1325,-1.6281) ├───────────────────────────────────»
+          └────────────────────────────┘                                   »
+    c0: 3/═════════════════════════════════════════════════════════════════»
+                                                                           »
+«                                                   »
+«q0_0 -> 0 ──────────────────────────────────────■──»
+«                   ┌─────────────────────┐    ┌─┴─┐»
+«q0_1 -> 1 ──■──────┤ U3(1.1575,2.0209,0) ├────┤ X ├»
+«          ┌─┴─┐┌───┴─────────────────────┴───┐└───┘»
+«q0_2 -> 2 ┤ X ├┤ U3(0.57303,0.44377,0.12466) ├─────»
+«          └───┘└─────────────────────────────┘     »
+«    c0: 3/═════════════════════════════════════════»
+«                                                   »
+«              ┌──────────────────────┐                                      »
+«q0_0 -> 0 ────┤ U3(π,0.55667,1.0668) ├──────────────────────────────────────»
+«          ┌───┴──────────────────────┴──┐       ┌────────────────────────┐  »
+«q0_1 -> 1 ┤ U3(1.9701,-1.0745,-0.87384) ├──■────┤ U3(1.6256,-0.91884,-π) ├──»
+«          └─────────────────────────────┘┌─┴─┐┌─┴────────────────────────┴─┐»
+«q0_2 -> 2 ───────────────────────────────┤ X ├┤ U3(2.2927,0.35283,-1.9257) ├»
+«                                         └───┘└────────────────────────────┘»
+«    c0: 3/══════════════════════════════════════════════════════════════════»
+«                                                                            »
+«                                                   »
+«q0_0 -> 0 ──────────────────────────────────────■──»
+«                  ┌────────────────────────┐  ┌─┴─┐»
+«q0_1 -> 1 ──■─────┤ U3(0.93749,0.89632,-π) ├──┤ X ├»
+«          ┌─┴─┐┌──┴────────────────────────┴─┐└───┘»
+«q0_2 -> 2 ┤ X ├┤ U3(2.3592,-1.7656,-0.17201) ├─────»
+«          └───┘└─────────────────────────────┘     »
+«    c0: 3/═════════════════════════════════════════»
+«                                                   »
+«              ┌──────────────────┐         ┌─┐                               »
+«q0_0 -> 0 ────┤ U3(0.56509,-π,0) ├─────────┤M├───────────────────────────────»
+«          ┌───┴──────────────────┴───┐     └╥┘   ┌────────────────────────┐  »
+«q0_1 -> 1 ┤ U3(1.1929,0.9455,1.9651) ├──■───╫────┤ U3(0.77723,-1.6574,-π) ├──»
+«          └──────────────────────────┘┌─┴─┐ ║ ┌──┴────────────────────────┴─┐»
+«q0_2 -> 2 ────────────────────────────┤ X ├─╫─┤ U3(0.87652,-0.551,-0.90083) ├»
+«                                      └───┘ ║ └─────────────────────────────┘»
+«    c0: 3/══════════════════════════════════╩════════════════════════════════»
+«                                            0                                »
+«                                                  
+«q0_0 -> 0 ────────────────────────────────────────
+«                    ┌──────────────────┐    ┌─┐   
+«q0_1 -> 1 ──■───────┤ U3(0.11558,0,-π) ├────┤M├───
+«          ┌─┴─┐┌────┴──────────────────┴───┐└╥┘┌─┐
+«q0_2 -> 2 ┤ X ├┤ U3(1.2347,1.7151,0.32642) ├─╫─┤M├
+«          └───┘└───────────────────────────┘ ║ └╥┘
+«    c0: 3/═══════════════════════════════════╩══╩═
+«                                             1  2 

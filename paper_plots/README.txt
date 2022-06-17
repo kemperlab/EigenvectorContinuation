@@ -18,7 +18,7 @@ Folders used:
 
 9. summary -> This is the folder where some computed results like eigen values are saved after the machine run. This is also like the log folder to see if these values were needed incase.
  
-10. XYTntraExtraFig -> This is the folder that contains the data and the notebook that makes the Interpolation Extrapolation Figure for the 2 site XY model.
+10. XYIntraExtraFig -> This is the folder that contains the data and the notebook that makes the Interpolation Extrapolation Figure for the 2 site XY model.
 
 Jupyter notebooks used:
 =======================
