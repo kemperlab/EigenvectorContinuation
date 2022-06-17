@@ -235,6 +235,8 @@ print(arrSpace.expectation_value(vector1, hamiltonian, vector2))
 #   implement the methods for NumpyArraySpace
 #   figure out ham in expectation value method (see note from Wednesday below)
 
+# FINISHED Friday
+
 
 def main():
     """ generates the image, hamiltonian, and overlap matrix """
