@@ -46,7 +46,6 @@ class unitary_methods():
         self.reference_vector = refvec
         self.backend = qk.Aer.get_backend('unitary_simulator')
 
-
     def generate_training_state(self,params):
         ham = self.hamiltonian_function(*params)
         evals, evecs = np.linalg.eigh(ham)
@@ -124,7 +123,6 @@ class vector_continuer:
     def __init__(self,
                  vectorspace=None,
                  hamiltonian_function=None,
-                 Mag_op = None,
                  training_paramsets=[],
                  target_paramsets=[],
                  Nsites=1):
@@ -137,11 +135,6 @@ class vector_continuer:
         self.training_paramsets = training_paramsets
         self.target_paramsets = target_paramsets
         self.base_vecs = []
-        self.Mag_op = Mag_op(N=Nsites)
-        self.target_evals = []
-        self.target_magnetization = []
-        self.LCU_coeffs_list = []
-        self.target_full_evecs = []
 
     def get_base_eigenvectors(self):
 
@@ -155,7 +148,7 @@ class vector_continuer:
             print("Adding vector for parameter set",params)
 
         print("")
-        # return self.base_vecs
+
     def form_orthogonal_basis(self):
         print("Orthogonalizing basis")
         if len(self.base_vecs) == 0:
@@ -217,18 +210,15 @@ class vector_continuer:
 
                     if not i == j:
                         overlap_matrix[j,i] = np.conjugate(overlap_matrix[i,j])
-        # # uncomment
-        # print("overlap_matrix_continuer:\n ", overlap_matrix)
-        # print("Hamiltonian_continuer:\n ", smaller_ham)
+
+
         if ortho:   # Solve the straight up eigenvalue problem
             evals, evecs = np.linalg.eigh(smaller_ham)
         else:       # Solve the generalized eigenvalue problem
             evals, evecs = scipy.linalg.eigh(smaller_ham,overlap_matrix)
-        
-        # print("overlap_matrix_continuer:\n ",overlap_matrix)
-        # print("Hamiltonian_continuer:\n ",smaller_ham)
-        # return evecs
-        return evals,evecs
+
+
+        return evecs
 
     def get_target_eigenvectors(self,ortho):
 
@@ -241,38 +231,23 @@ class vector_continuer:
             nvec = len(self.base_vecs)
             basis = self.base_vecs
 
-# # uncomment
-#         print("basis continuer:")
-#         for i in range(len(basis)):
-#             print(basis[i])
+
 
         new_evals = np.zeros([len(self.target_paramsets),nvec],dtype=complex)
-        mag_evals =  np.zeros([len(self.target_paramsets),nvec],dtype=complex)
-        LCU_coeff_list = []
+
         for ip,param in enumerate(self.target_paramsets):
             ham = self.hamiltonian_function(*param)
-            # evecs = self.do_continuation(ham,ortho=ortho)
-            evals,evecs = self.do_continuation(ham,ortho=ortho)
-            LCU_coeff_list.append(evecs[:,0])
+
+            evecs = self.do_continuation(ham,ortho=ortho)
+
             for k in range(nvec):
                 fullvec = np.zeros_like(basis[0])
                 for l in range(nvec):
                     fullvec += evecs[l,k] * basis[l]
-                self.target_full_evecs.append(fullvec)
-                # # uncomment
-                # if(k==0):
-                #     print("fullvec")
-                #     print(fullvec)
                 energy = self.operator_evaluator(fullvec,ham,fullvec)
-                # new_evals[ip,k] = energy
-                new_evals[ip, k] = evals[k]
-                mag = self.operator_evaluator(fullvec, self.Mag_op, fullvec)
-                mag_evals[ip,k] = mag
-        self.target_evals = new_evals
-        self.target_magnetization = mag_evals
-        self.LCU_coeffs_list = LCU_coeff_list
+                new_evals[ip,k] = energy
 
-        # return new_evals,basis,mag_evals
+        return new_evals
 
 
 
