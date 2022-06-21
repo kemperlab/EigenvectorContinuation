@@ -3,7 +3,7 @@
 """creates a plot and matrix that correspond to a simplified model of a hamiltonian
     found from eigenvector continuation.
 
-    @author Lex Kemper, Akhil Francis, & Jack Howard
+    @author Jack Howard
     North Carolina State University -- Kemper Lab
 """
 # import random
@@ -11,6 +11,7 @@
 from collections import namedtuple
 # import abc
 from abc import ABC, abstractmethod
+from typing import Type
 import numpy as np
 # from numpy import ndarray
 # from matplotlib import pyplot as plt
@@ -195,9 +196,13 @@ class NumpyArraySpace(HermitianSpaceInterface):
         if (not isinstance(vec1, np.ndarray) or not isinstance(vec2, np.ndarray)):
             raise ValueError("both vec1 and vec2 should be of type np.ndarray")
 
+        # TODO ask Kemper about error checking
         # takes the conjugate transpose of vec2, and returns the inner product
         vec2_dagger = vec2.conj().T
+        # try:
         return vec1 @ vec2_dagger
+        # except TypeError:
+            # print("Input should be in form (bra, bra)")
 
     def expectation_value(self, vec1, ham, vec2):
         """ defines expectation value calculation for numpy array space
@@ -218,25 +223,9 @@ class NumpyArraySpace(HermitianSpaceInterface):
         vec2_dagger = vec2.conj().T # TODO Ask Kemper if this should have conj().
                                     # it means input is kinda funky
         return vec1 @ ham @ vec2_dagger
+# NEXT:
+# s_inv and sub_ham for abs and concrete
 
-# Test Code: expects 4.j
-vector1 = np.array([-1.j,3])
-hamiltonian = np.array([[1,1.j],[-1.j,-1]])
-vector2 = np.array([-3,-4.j])
-evecs = np.array([[1,2],[7,6]])
-hamiltonian = np.array([[1,0],[0,1]])
-arrSpace = NumpyArraySpace(evecs, hamiltonian)
-print(arrSpace.expectation_value(vector1, hamiltonian, vector2))
-
-# FINISHED (Thurs):
-#   abstract class mumbo jumbo
-#   everything polymorphs, throws errors, and saves values as expected
-# NEXT (Fri):
-#   implement the methods for NumpyArraySpace
-#   figure out ham in expectation value method (see note from Wednesday below)
-
-# FINISHED Friday
-# TODO: finish NumpyArraySpace 
 
 
 def main():
@@ -271,6 +260,7 @@ def main():
         evec_sets[idx] = hamiltonian_initializer.get_eigenpairs(ham)[1]
 # END Hamiltonian & Eigenvector Initialization
 
+# These instructions are for what main() should do next
 # Finished: getting eigenvectors given a few training point b_z values
 # Next:     make interface that deals with inner product and expectation value,
 #           using the evecs given above
@@ -278,7 +268,6 @@ def main():
 #           unsure: do I take some new Bz values, calculate the ham, then do the sandwich to get
 #           the subspace ham?
 
-# START Interface
 
 
 
@@ -290,6 +279,8 @@ if __name__ == "__main__":
 # shouldn't need n, evals, 
 #  input: evecs, some ham of some osrt
 
+
+# GARBAGIO BELOWIO
 # class TrainingPointUtil:
 #     DATA_POINTS = 100
 #     """ determines fineness of curves """
@@ -492,4 +483,4 @@ if __name__ == "__main__":
 
 #         self.plot_xxz_spectrum(bzlist, evals, points, phats, n)
 
-# %%
+#%%
