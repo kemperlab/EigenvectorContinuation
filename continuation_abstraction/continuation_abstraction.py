@@ -200,9 +200,7 @@ class NumpyArraySpace(HermitianSpaceInterface):
         # takes the conjugate transpose of vec2, and returns the inner product
         vec2_dagger = vec2.conj().T
         # try:
-        return vec1 @ vec2_dagger
-        # except TypeError:
-            # print("Input should be in form (bra, bra)")
+        return vec1 @ vec2_dagger # except TypeError: # print("Input should be in form (bra, bra)")
 
     def expectation_value(self, vec1, ham, vec2):
         """ defines expectation value calculation for numpy array space
@@ -225,7 +223,43 @@ class NumpyArraySpace(HermitianSpaceInterface):
         return vec1 @ ham @ vec2_dagger
 # NEXT:
 # s_inv and sub_ham for abs and concrete
+    def interaction_matrix(self):
+        """ defines the interaction matrix for a NumpyArraySpace
 
+            For an interaction matrix S:
+            S[i,j] = inner_product(basis_vec_i, basis_vec_j)
+        """
+
+        # dimensions of square matrix will be numbner of basis vectors
+        dim = len(self.basis_vecs)
+        intrct = np.array([dim, dim])
+
+        # S[i,j] = inner_product(basis_vec_i, basis_vec_j)
+        for idx_i, vec_i in enumerate(self.basis_vecs):
+            for idx_j, vec_j in enumerate(self.basis_vecs):
+                intrct[idx_i, idx_j] = self.inner_product(vec_i, vec_j)
+
+        return intrct
+
+    def subsp_ham(self, ham):
+        """ defines a subspace hamiltonian for space given a hamiltonian in the space and
+            a set of spanning vectors (basis_vecs)
+
+            NB: ham cannot be constructed using the same points used to get basis_vecs
+
+            Subspace Ham[i,j] = expectation_value(basis_vec_i, ham, basis_vec_j)
+        """
+
+        # dimensions of square matrix will be number of basis vectors
+        dim = len(self.basis_vecs)
+        subsp_ham = np.array([dim, dim])
+
+        # SubspaceHam[i,j] = expectation_value(basis_vec_i, ham, basis_vec_j)
+        for idx_i, vec_i in enumerate(self.basis_vecs):
+            for idx_j, vec_j in enumerate(self.basis_vecs):
+                subsp_ham[idx_i, idx_j] = self.expectation_value(vec_i, ham, vec_j)
+
+        return subsp_ham
 
 
 def main():
