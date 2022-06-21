@@ -162,6 +162,23 @@ class HermitianSpaceInterface(ABC):
             should be implemented by concrete class
         """
 
+    @abstractmethod
+    def interaction_matrix(self):
+        """ defines the interaction matrix for space given some set of spanning vecs (basis_vecs)
+            should be implemented by concrete class
+        """
+
+    @abstractmethod
+    def subsp_ham(self, ham):
+        """ defines a subspace hamiltonian for space given a hamiltonian in the space and
+            a set of spanning vectors (basis_vecs)
+
+            NB: ham cannot be constructed using the same points used to get basis_vecs
+
+            should be implemented by concrete class
+        """
+        # TODO check about the "for a space given a hamiltonian in the space" bit
+
 class NumpyArraySpace(HermitianSpaceInterface):
     """ defines Hermitian Space behavior for numpy arrays """
 
