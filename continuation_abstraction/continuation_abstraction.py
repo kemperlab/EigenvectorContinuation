@@ -236,6 +236,7 @@ print(arrSpace.expectation_value(vector1, hamiltonian, vector2))
 #   figure out ham in expectation value method (see note from Wednesday below)
 
 # FINISHED Friday
+# TODO: finish NumpyArraySpace
 
 
 def main():
