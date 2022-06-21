@@ -73,17 +73,17 @@ class TestNumpyArraySpace(unittest.TestCase):
         #     pass
 
 
-    # def test_check_basis_vecs_type(self, basis_vecs):
-    """ tests the named method """
+    # # def test_check_basis_vecs_type(self, basis_vecs):
+    # """ tests the named method """
 
-    # def test_check_ham_type(self, ham):
-    """ tests the named method """
+    # # def test_check_ham_type(self, ham):
+    # """ tests the named method """
 
-    # def test_inner_product(self, vec1, vec2):
-    """ tests the named method """
+    # # def test_inner_product(self, vec1, vec2):
+    # """ tests the named method """
 
-    # def test_expectation_value(self, vec1, ham, vec2):
-    """ tests the named method """
+    # # def test_expectation_value(self, vec1, ham, vec2):
+    # """ tests the named method """
 
     # def test_test(self):
     #     aaa = True

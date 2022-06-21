@@ -11,7 +11,7 @@
 from collections import namedtuple
 # import abc
 from abc import ABC, abstractmethod
-from typing import Type
+# from typing import Type
 import numpy as np
 # from numpy import ndarray
 # from matplotlib import pyplot as plt
@@ -169,7 +169,7 @@ class HermitianSpaceInterface(ABC):
         """
 
     @abstractmethod
-    def subsp_ham(self, ham):
+    def sub_ham(self, ham): # TODO check about the "for a space given a hamiltonian in the space" bit
         """ defines a subspace hamiltonian for space given a hamiltonian in the space and
             a set of spanning vectors (basis_vecs)
 
@@ -177,7 +177,6 @@ class HermitianSpaceInterface(ABC):
 
             should be implemented by concrete class
         """
-        # TODO check about the "for a space given a hamiltonian in the space" bit
 
 class NumpyArraySpace(HermitianSpaceInterface):
     """ defines Hermitian Space behavior for numpy arrays """
@@ -238,8 +237,7 @@ class NumpyArraySpace(HermitianSpaceInterface):
         vec2_dagger = vec2.conj().T # TODO Ask Kemper if this should have conj().
                                     # it means input is kinda funky
         return vec1 @ ham @ vec2_dagger
-# NEXT:
-# s_inv and sub_ham for abs and concrete
+
     def interaction_matrix(self):
         """ defines the interaction matrix for a NumpyArraySpace
 
@@ -258,7 +256,7 @@ class NumpyArraySpace(HermitianSpaceInterface):
 
         return intrct
 
-    def subsp_ham(self, ham):
+    def sub_ham(self, ham):
         """ defines a subspace hamiltonian for space given a hamiltonian in the space and
             a set of spanning vectors (basis_vecs)
 
@@ -269,15 +267,22 @@ class NumpyArraySpace(HermitianSpaceInterface):
 
         # dimensions of square matrix will be number of basis vectors
         dim = len(self.basis_vecs)
-        subsp_ham = np.array([dim, dim])
+        sub_ham = np.array([dim, dim])
 
         # SubspaceHam[i,j] = expectation_value(basis_vec_i, ham, basis_vec_j)
         for idx_i, vec_i in enumerate(self.basis_vecs):
             for idx_j, vec_j in enumerate(self.basis_vecs):
-                subsp_ham[idx_i, idx_j] = self.expectation_value(vec_i, ham, vec_j)
+                sub_ham[idx_i, idx_j] = self.expectation_value(vec_i, ham, vec_j)
 
-        return subsp_ham
+        return sub_ham
 
+
+# FINISHED  (Tues):     Abstract class
+#                       sub_ham and interaction_matrix methods (both abs and concr)
+#
+# NEXT (Wed):           implementation in main()
+#                       test cases for sub_ham and interaction_matrix
+#                       ask about TODOs above
 
 def main():
     """ generates the image, hamiltonian, and overlap matrix """
@@ -326,12 +331,15 @@ def main():
 
 if __name__ == "__main__":
     main()
-    
-# shouldn't need n, evals, 
-#  input: evecs, some ham of some osrt
+
+# Random Notes
+# shouldn't need n, evals,
+# input: evecs, some ham of some osrt
 
 
 # GARBAGIO BELOWIO
+def ignore_this():
+
 # class TrainingPointUtil:
 #     DATA_POINTS = 100
 #     """ determines fineness of curves """
@@ -533,5 +541,6 @@ if __name__ == "__main__":
 #             print(np.linalg.inv(s) @ new_ham_k)
 
 #         self.plot_xxz_spectrum(bzlist, evals, points, phats, n)
+    pass
 
 #%%
