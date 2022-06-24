@@ -213,10 +213,10 @@ class NumpyArraySpace(HermitianSpaceInterface):
             raise ValueError("both vec1 and vec2 should be of type np.ndarray")
 
         # TODO ask Kemper about error checking
-        # takes the conjugate transpose of vec2, and returns the inner product
-        vec2_dagger = vec2.conj().T
+        # takes the conjugate transpose of vec2, and returns the inner product # TODO vec1 gets the conjugate
+        # vec2_dagger = vec2.conj().T
         # try:
-        return vec1 @ vec2_dagger # except TypeError: # print("Input should be in form (bra, bra)")
+        return vec1.conj() @ vec2 # except TypeError: # print("Input should be in form (bra, bra)")
 
     def expectation_value(self, vec1, ham, vec2):
         """ defines expectation value calculation for numpy array space
@@ -233,10 +233,10 @@ class NumpyArraySpace(HermitianSpaceInterface):
             not isinstance(vec2, np.ndarray)):
             raise ValueError("both vec1 and vec2 should be of type np.ndarray")
 
-        # takes the conjugate transpose of vec2, and returns the expectation value
-        vec2_dagger = vec2.conj().T # TODO Ask Kemper if this should have conj().
-                                    # it means input is kinda funky
-        return vec1 @ ham @ vec2_dagger
+        # # takes the conjugate transpose of vec2, and returns the expectation value
+        # vec2_dagger = vec2.conj().T # TODO Ask Kemper if this should have conj().
+        #                             # it means input is kinda funky
+        return vec1.conj() @ ham @ vec2
 
     def interaction_matrix(self):
         """ defines the interaction matrix for a NumpyArraySpace

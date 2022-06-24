@@ -50,9 +50,9 @@ class TestNumpyArraySpace(unittest.TestCase):
         arr_space = ca.NumpyArraySpace(evecs, hamiltonian)
 
 
-        self.assertEqual(4j, arr_space.expectation_value(vector1, hamiltonian, vector2))
-        self.assertEqual(4j, arr_space.inner_product(
-                    arr_space.inner_product(vector1, hamiltonian), vector2))
+        self.assertEqual(22j, arr_space.expectation_value(vector1, hamiltonian, vector2))
+        # self.assertEqual(22j, arr_space.inner_product(
+        #             arr_space.inner_product(vector1, hamiltonian), vector2))
 
     def test_inner_product1(self):
         """ tests NumpyArraySpace """
@@ -65,12 +65,25 @@ class TestNumpyArraySpace(unittest.TestCase):
         arr_space = ca.NumpyArraySpace(evecs, hamiltonian)
 
 
-        self.assertEqual(13j, arr_space.inner_product(vector1, vector2))
+        self.assertEqual(-13j, arr_space.inner_product(vector1, vector2))
         # try:
         #     arr_space.inner_product(vector2, vector3)
         #     self.assertEqual("Unexpected Exception", "")
         # except TypeError:
         #     pass
+
+    def test_inner_product2(self):
+        """ tests NumpyArraySpace """
+
+        vector1 = np.array([2.j,3,1])
+        vector2 = np.array([1,-1,1.j])
+        # vector3 = np.array([[9],[0]])
+        evecs = np.array([[1,2],[7,6]])             # unused in calculation
+        hamiltonian = np.array([[1,-3.j],[-1.j,1]]) # unused in calculation
+        arr_space = ca.NumpyArraySpace(evecs, hamiltonian)
+
+
+        self.assertEqual(-3-1j, arr_space.inner_product(vector1, vector2))
 
 
     # # def test_check_basis_vecs_type(self, basis_vecs):
