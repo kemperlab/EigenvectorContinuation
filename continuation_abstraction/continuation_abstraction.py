@@ -6,8 +6,10 @@
     @author Jack Howard
     North Carolina State University -- Kemper Lab
 """
+
 # import random
 # import math
+from code import interact
 from collections import namedtuple
 # import abc
 from abc import ABC, abstractmethod
@@ -121,8 +123,9 @@ class HilbertSpaceInterface(ABC):
             :param num_qubits:  the number of qubits in the space
         """
 
-        self.training_points(training_points)
-        self.num_qubits(num_qubits)
+        self._training_points = training_points
+        self._num_qubits = num_qubits
+        self._basis_vecs = None
 
     @property
     def training_points(self):
@@ -192,9 +195,11 @@ class HilbertSpaceInterface(ABC):
         """
 
     @abstractmethod
-    def get_interaction_matrix(self):
+    def get_interaction_matrix(self, points=None):
         """ defines the interaction matrix for space given some set of spanning vecs (basis_vecs)
             should be implemented by concrete class
+
+            :param points:  points to use as training points (optional depending on implementation)
         """
 
     @abstractmethod
@@ -287,16 +292,25 @@ class NumpyArraySpace(HilbertSpaceInterface):
 
         return vec1.conj() @ ham @ vec2
 
-    def get_interaction_matrix(self):
+    def get_interaction_matrix(self, points=None):
         """ defines the interaction matrix for a NumpyArraySpace
+
+            if points are passed in, these become the new training points of the space
+            otherwise, the existing training points are used
 
             For an interaction matrix S:
             S[i,j] = inner_product(basis_vec_i, basis_vec_j)
+
+            :param points:  points to use as training points (optional)
         """
+
+        if points is not None:
+            self.basis_vecs = points
+            self.calc_basis_vecs()
 
         # dimensions of square matrix will be numbner of basis vectors
         dim = len(self.basis_vecs)
-        intrct = np.array([dim, dim])
+        intrct = np.zeros([dim, dim], dtype=complex)
 
         # S[i,j] = inner_product(basis_vec_i, basis_vec_j)
         for idx_i, vec_i in enumerate(self.basis_vecs):
@@ -316,7 +330,7 @@ class NumpyArraySpace(HilbertSpaceInterface):
 
         # dimensions of square matrix will be number of basis vectors
         dim = len(self.basis_vecs)
-        sub_ham = np.array([dim, dim])
+        sub_ham = np.zeros([dim, dim], dtype=complex)
 
         # SubspaceHam[i,j] = expectation_value(basis_vec_i, ham, basis_vec_j)
         for idx_i, vec_i in enumerate(self.basis_vecs):
@@ -332,18 +346,55 @@ def main():
     # useful tuple when dealing with param_sets in this space
     ParamSet = namedtuple("ParamSet", "j_x j_z b_x b_z")
 
-    # user input
-    n_qubits = 2
+# USER INPUT
+    # data for Hilbert Space
+    num_qubits = 2
     b_x = 0
     j_x = 1
     j_z = 1
     b_zs = np.array([0,2,3])  # put your custom input here
-    pbc = False
+    pbc = False                 # TODO Ask Kemper when this is relevant
 
+    # data for target hamiltonian
+    # construct a target hamiltonian for the space to operate on
+    target_b_x = 0
+    target_j_x = 1
+    target_j_z = 1
+    target_b_z = 7  # put your custom input here
+    target_param_set = ParamSet(target_j_x,target_j_z,target_b_x,target_b_z)
+    init = HamiltonianInitializer()
+    input_ham = init.xxztype_hamiltonian(target_param_set, num_qubits, pbc)
+
+# HILBERT SPACE SETUP
+
+    # setting up hilbert space training points
     # create a param_set for each b_z value
     param_sets = [None] * len(b_zs)
     for idx, b_z in enumerate(b_zs):
         param_sets[idx] = ParamSet(j_x,j_z,b_x,b_z)
+    # the above set of parameters are used as training points to construct the space
+    training_points = param_sets
+
+# HILBERT SPACE CREATION & USE
+    # create new space of a type that implements HilbertSpaceInterface (chosen by user)
+    hilbert_space = NumpyArraySpace(training_points, num_qubits)
+
+    if not isinstance(hilbert_space, HilbertSpaceInterface):
+        print("hilbert_space has incorrect type")
+
+    # initialize the basis vectors (eigenvectors in this case) on the subspace
+    hilbert_space.calc_basis_vecs()
+
+    # get the interaction matrix of the space
+    intrct = hilbert_space.get_interaction_matrix()
+
+    print(intrct)
+
+    # calculate the subspace hamitonian for the given target hamiltonian
+    target_ham = hilbert_space.get_sub_ham(input_ham)
+
+    print(target_ham)
+
 
 
 # END Hamiltonian & Eigenvector Initialization
