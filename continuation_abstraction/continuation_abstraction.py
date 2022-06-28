@@ -9,12 +9,12 @@
 
 # import random
 # import math
-from code import interact
 from collections import namedtuple
 # import abc
 from abc import ABC, abstractmethod
 # from typing import Type
 import numpy as np
+from scipy.linalg import eigh
 # from numpy import ndarray
 # from matplotlib import pyplot as plt
 
@@ -25,14 +25,8 @@ class HamiltonianInitializer:
     PAULIS = {}
     """ defines dict of Paulis to use below """
 
-    DATA_POINTS = 100
-    """ determines fineness of curves """
-
     ParamSet = namedtuple("ParamSet", "j_x j_z b_x b_z")
     """" useful tuple when dealing with param sets in this space """
-
-    COMP_TOLERANCE = 1e-9
-    """ tolernace when comparing two floats """
 
     def __init__(self):
         """ initializes class instance and Paulis dict """
@@ -111,7 +105,7 @@ class HamiltonianInitializer:
 
         return evals, evecs
 
-class HilbertSpaceInterface(ABC):
+class HilbertSpaceAbstract(ABC):
     """ defines behavior for objects to have a hamiltonian, inner product,
         and expectation value
     """
@@ -221,21 +215,13 @@ class HilbertSpaceInterface(ABC):
             should be implemented by concrete clas
         """
 
-class NumpyArraySpace(HilbertSpaceInterface):
+class NumpyArraySpace(HilbertSpaceAbstract):
     """ defines Hermitian Space behavior for numpy arrays """
 
     @property
     def implementation_type(self):
         """ I'm the current space's implementation type """
         return np.ndarray
-
-    def select_vec(self, evecs):
-        """ returns the lowest engergy evec """
-
-        if len(evecs) == 0:
-            pass
-
-        return evecs[0]
 
     def calc_basis_vecs(self):
         """ calculates the basis vectors for the given space
@@ -339,6 +325,18 @@ class NumpyArraySpace(HilbertSpaceInterface):
 
         return sub_ham
 
+    def select_vec(self, evecs):
+        """ returns the lowest engergy evec """
+
+        if len(evecs) == 0:
+            pass
+
+        return evecs[0]
+
+class EigenvectorContinuer():
+    def __init__(self):
+        pass
+
 def main():
     """ generates the image, hamiltonian, and overlap matrix """
 
@@ -357,8 +355,8 @@ def main():
 
     # data for target hamiltonian
     # construct a target hamiltonian for the space to operate on
-    target_b_x = 0
-    target_j_x = 1
+    target_b_x = 2
+    target_j_x = 2
     target_j_z = 1
     target_b_z = 7  # put your custom input here
     target_param_set = ParamSet(target_j_x,target_j_z,target_b_x,target_b_z)
@@ -376,10 +374,10 @@ def main():
     training_points = param_sets
 
 # HILBERT SPACE CREATION & USE
-    # create new space of a type that implements HilbertSpaceInterface (chosen by user)
+    # create new space of a type that implements HilbertSpaceAbstract (chosen by user)
     hilbert_space = NumpyArraySpace(training_points, num_qubits)
 
-    if not isinstance(hilbert_space, HilbertSpaceInterface):
+    if not isinstance(hilbert_space, HilbertSpaceAbstract):
         print("hilbert_space has incorrect type")
 
     # initialize the basis vectors (eigenvectors in this case) on the subspace
@@ -395,17 +393,19 @@ def main():
 
     print(target_ham)
 
+# GENERALIZED EIGNEVALUE PROBLEM
+    # Form of GEP: target_ham @ evec = eval @ intrct @ evec
+    # use above interaction matrix (intrct) and subspace hamiltonian (target_ham) to do GEP
+    # evals, evecs = eigh(target_ham, intrct) # TODO Why broken? I tried np.linalg.eigh too
+
+    # FINISHED Tuesday  almost all of main method, and some flexibility stuff with the training pts
+    #                   UML Diagram (on iPad) (still have some design questions)
+    #
+    # NEXT Wednesday    Ask Kemper about the weird eigh error (are my training points not good?)
+    #                   Ask Kemper about the Questions on the UML Digram (design stuff mostly)
 
 
-# END Hamiltonian & Eigenvector Initialization
-
-# These instructions are for what main() should do next
-# Finished: getting eigenvectors given a few training point b_z values
-# Next:     make interface that deals with inner product and expectation value,
-#           using the evecs given above
-#           and new Bz values
-#           unsure: do I take some new Bz values, calculate the ham, then do the sandwich to get
-#           the subspace ham?
+    # print(evals, "\n", evecs, "\n\n")
 
 
 if __name__ == "__main__":
