@@ -3,15 +3,18 @@
 """creates a plot and matrix that correspond to a simplified model of a hamiltonian
     found from eigenvector continuation.
 
-    @author Lex Kemper, Akhil Francis, & Jack Howard
+    @author Jack Howard
     North Carolina State University -- Kemper Lab
 """
+
 # import random
 # import math
 from collections import namedtuple
 # import abc
 from abc import ABC, abstractmethod
+# from typing import Type
 import numpy as np
+from scipy.linalg import eigh
 # from numpy import ndarray
 # from matplotlib import pyplot as plt
 
@@ -22,14 +25,8 @@ class HamiltonianInitializer:
     PAULIS = {}
     """ defines dict of Paulis to use below """
 
-    DATA_POINTS = 100
-    """ determines fineness of curves """
-
     ParamSet = namedtuple("ParamSet", "j_x j_z b_x b_z")
     """" useful tuple when dealing with param sets in this space """
-
-    COMP_TOLERANCE = 1e-9
-    """ tolernace when comparing two floats """
 
     def __init__(self):
         """ initializes class instance and Paulis dict """
@@ -108,27 +105,41 @@ class HamiltonianInitializer:
 
         return evals, evecs
 
-class HermitianSpaceInterface(ABC):
+class HilbertSpaceAbstract(ABC):
     """ defines behavior for objects to have a hamiltonian, inner product,
         and expectation value
     """
 
-    def __init__(self, basis_vecs, ham):
-        """ initializes an instance of a HermitianSpace and sets state variables """
+    def __init__(self, training_points, num_qubits):
+        """ initializes an instance of a HermitianSpace and sets state variables
 
-        self.basis_vecs = basis_vecs
-        self.ham = ham
+            :param points:      the sets of points to use to construct the Hilbert Space
+            :param num_qubits:  the number of qubits in the space
+        """
+
+        self._training_points = training_points
+        self._num_qubits = num_qubits
+        self._basis_vecs = None
 
     @property
-    def ham(self):
-        """ I'm the current space's hamiltonian """
-        return self._ham
+    def training_points(self):
+        """ I'm the current space's set of training points """
+        return self._training_points
 
-    @ham.setter
-    def ham(self,value):
-        """ Set the current space's hamiltonian """
-        self.check_ham_type(value)
-        self._ham = value
+    @training_points.setter
+    def training_points(self, value):
+        """ Set the current space's set of training points """
+        self._training_points = value
+
+    @property
+    def num_qubits(self):
+        """ I'm the current space's number of qubits """
+        return self._num_qubits
+
+    @num_qubits.setter
+    def num_qubits(self, value):
+        """ Set the current space's number of qubits """
+        self._num_qubits = value
 
     @property
     def basis_vecs(self):
@@ -138,16 +149,32 @@ class HermitianSpaceInterface(ABC):
     @basis_vecs.setter
     def basis_vecs(self,value):
         """ Set the current space's basis vectors """
-        self.check_basis_vecs_type(value)
         self._basis_vecs = value
 
-    @abstractmethod
-    def check_ham_type(self, ham):
-        """ checks the type of the hamiltonian according to concrete class implementation """
+    # @property
+    # def ham(self):
+    #     """ I'm the current space's hamiltonian """
+    #     return self._ham
+
+    # @ham.setter
+    # def ham(self,value):
+    #     """ Set the current space's hamiltonian """
+    #     self.check_ham_type(value)
+    #     self._ham = value
+
+    # @abstractmethod
+    # def check_ham_type(self, ham):
+    #     """ checks the type of the hamiltonian according to concrete class implementation """
+
+    # @abstractmethod
+    # def check_basis_vecs_type(self, basis_vecs):
+    #     """ checks the type of the basis vectors according to concrete class implementation """
 
     @abstractmethod
-    def check_basis_vecs_type(self, basis_vecs):
-        """ checks the type of the basis vectors according to concrete class implementation """
+    def calc_basis_vecs(self):
+        """ calculates the basis vectors to span the space
+            should be implemented by concrete class
+        """
 
     @abstractmethod
     def inner_product(self, vec1, vec2):
@@ -161,7 +188,34 @@ class HermitianSpaceInterface(ABC):
             should be implemented by concrete class
         """
 
-class NumpyArraySpace(HermitianSpaceInterface):
+    @abstractmethod
+    def get_interaction_matrix(self, points=None):
+        """ defines the interaction matrix for space given some set of spanning vecs (basis_vecs)
+            should be implemented by concrete class
+
+            :param points:  points to use as training points (optional depending on implementation)
+        """
+
+    @abstractmethod
+    def get_sub_ham(self, ham): # TODO check about the "for a space given a hamiltonian in the space" bit. Is that a fine way of describing it?
+        """ defines a subspace hamiltonian for space given a hamiltonian in the space and
+            a set of spanning vectors (basis_vecs)
+
+            NB: ham cannot be constructed using the same points used to get basis_vecs
+
+            should be implemented by concrete class
+        """
+
+    @abstractmethod
+    def select_vec(self, evecs):
+        """ defines which vector to select when chooosing from a set of evecs
+
+            :param evecs:   the set of evecs
+
+            should be implemented by concrete clas
+        """
+
+class NumpyArraySpace(HilbertSpaceAbstract):
     """ defines Hermitian Space behavior for numpy arrays """
 
     @property
@@ -169,19 +223,29 @@ class NumpyArraySpace(HermitianSpaceInterface):
         """ I'm the current space's implementation type """
         return np.ndarray
 
-    def check_type_generic(self, value):
-        """ helper method to verify all data in this implementation is in an np.ndarray """
-        if not isinstance(value, self.implementation_type):
-            raise ValueError("data should be of type np.ndarray")
+    def calc_basis_vecs(self):
+        """ calculates the basis vectors for the given space
+            creates a hamiltonian for each point, and determines eigenvecs for each hamiltonian
+        """
 
-    def check_basis_vecs_type(self, basis_vecs):
-        """ checks the type of each basis vector (should be np.ndarray) """
-        for basis_vec in basis_vecs:
-            self.check_type_generic(basis_vec)
+        # number of points used to construct the Hilbert Space
+        num_points = len(self.training_points)
+        pbc = False                 # TODO Ask Kemper about pbc
 
-    def check_ham_type(self, ham):
-        """ checks the type of the hamiltonian (should be np.ndarray) """
-        self.check_type_generic(ham)
+        # initialize hamiltonians
+        hamiltonian_initializer = HamiltonianInitializer()
+        hams = [None] * num_points
+        for idx, training_points in enumerate(self.training_points):
+            hams[idx] = hamiltonian_initializer.xxztype_hamiltonian(training_points,
+                                                                    self.num_qubits,pbc)
+
+        # calculate evecs for each ham; selects lowest energy evec to go in evec_set
+        evec_set = [None] * num_points
+        for idx, ham in enumerate(hams):
+            current_evecs = hamiltonian_initializer.get_eigenpairs(ham)[1]
+            evec_set[idx] = self.select_vec(current_evecs)
+
+        self.basis_vecs = evec_set
 
     def inner_product(self, vec1, vec2):
         """ defines inner product for numpy array space
@@ -195,9 +259,7 @@ class NumpyArraySpace(HermitianSpaceInterface):
         if (not isinstance(vec1, np.ndarray) or not isinstance(vec2, np.ndarray)):
             raise ValueError("both vec1 and vec2 should be of type np.ndarray")
 
-        # takes the conjugate transpose of vec2, and returns the inner product
-        vec2_dagger = vec2.conj().T
-        return vec1 @ vec2_dagger
+        return vec1.conj() @ vec2
 
     def expectation_value(self, vec1, ham, vec2):
         """ defines expectation value calculation for numpy array space
@@ -214,30 +276,66 @@ class NumpyArraySpace(HermitianSpaceInterface):
             not isinstance(vec2, np.ndarray)):
             raise ValueError("both vec1 and vec2 should be of type np.ndarray")
 
-        # takes the conjugate transpose of vec2, and returns the expectation value
-        vec2_dagger = vec2.conj().T # TODO Ask Kemper if this should have conj().
-                                    # it means input is kinda funky
-        return vec1 @ ham @ vec2_dagger
+        return vec1.conj() @ ham @ vec2
 
-# Test Code: expects 4.j
-vector1 = np.array([-1.j,3])
-hamiltonian = np.array([[1,1.j],[-1.j,-1]])
-vector2 = np.array([-3,-4.j])
-evecs = np.array([[1,2],[7,6]])
-hamiltonian = np.array([[1,0],[0,1]])
-arrSpace = NumpyArraySpace(evecs, hamiltonian)
-print(arrSpace.expectation_value(vector1, hamiltonian, vector2))
+    def get_interaction_matrix(self, points=None):
+        """ defines the interaction matrix for a NumpyArraySpace
 
-# FINISHED (Thurs):
-#   abstract class mumbo jumbo
-#   everything polymorphs, throws errors, and saves values as expected
-# NEXT (Fri):
-#   implement the methods for NumpyArraySpace
-#   figure out ham in expectation value method (see note from Wednesday below)
+            if points are passed in, these become the new training points of the space
+            otherwise, the existing training points are used
 
-# FINISHED Friday
-# TODO: finish NumpyArraySpace
+            For an interaction matrix S:
+            S[i,j] = inner_product(basis_vec_i, basis_vec_j)
 
+            :param points:  points to use as training points (optional)
+        """
+
+        if points is not None:
+            self.basis_vecs = points
+            self.calc_basis_vecs()
+
+        # dimensions of square matrix will be numbner of basis vectors
+        dim = len(self.basis_vecs)
+        intrct = np.zeros([dim, dim], dtype=complex)
+
+        # S[i,j] = inner_product(basis_vec_i, basis_vec_j)
+        for idx_i, vec_i in enumerate(self.basis_vecs):
+            for idx_j, vec_j in enumerate(self.basis_vecs):
+                intrct[idx_i, idx_j] = self.inner_product(vec_i, vec_j)
+
+        return intrct
+
+    def get_sub_ham(self, ham):
+        """ defines a subspace hamiltonian for space given a hamiltonian in the space and
+            a set of spanning vectors (basis_vecs)
+
+            NB: ham cannot be constructed using the same points used to get basis_vecs
+
+            Subspace Ham[i,j] = expectation_value(basis_vec_i, ham, basis_vec_j)
+        """
+
+        # dimensions of square matrix will be number of basis vectors
+        dim = len(self.basis_vecs)
+        sub_ham = np.zeros([dim, dim], dtype=complex)
+
+        # SubspaceHam[i,j] = expectation_value(basis_vec_i, ham, basis_vec_j)
+        for idx_i, vec_i in enumerate(self.basis_vecs):
+            for idx_j, vec_j in enumerate(self.basis_vecs):
+                sub_ham[idx_i, idx_j] = self.expectation_value(vec_i, ham, vec_j)
+
+        return sub_ham
+
+    def select_vec(self, evecs):
+        """ returns the lowest engergy evec """
+
+        if len(evecs) == 0:
+            pass
+
+        return evecs[0]
+
+class EigenvectorContinuer():
+    def __init__(self):
+        pass
 
 def main():
     """ generates the image, hamiltonian, and overlap matrix """
@@ -246,49 +344,80 @@ def main():
     # useful tuple when dealing with param_sets in this space
     ParamSet = namedtuple("ParamSet", "j_x j_z b_x b_z")
 
-    # user input
-    n_qubits = 2
+# USER INPUT
+    # data for Hilbert Space
+    num_qubits = 2
     b_x = 0
     j_x = 1
     j_z = 1
     b_zs = np.array([0,2,3])  # put your custom input here
-    pbc = False
+    pbc = False                 # TODO Ask Kemper when this is relevant
 
+    # data for target hamiltonian
+    # construct a target hamiltonian for the space to operate on
+    target_b_x = 2
+    target_j_x = 2
+    target_j_z = 1
+    target_b_z = 7  # put your custom input here
+    target_param_set = ParamSet(target_j_x,target_j_z,target_b_x,target_b_z)
+    init = HamiltonianInitializer()
+    input_ham = init.xxztype_hamiltonian(target_param_set, num_qubits, pbc)
+
+# HILBERT SPACE SETUP
+
+    # setting up hilbert space training points
     # create a param_set for each b_z value
     param_sets = [None] * len(b_zs)
     for idx, b_z in enumerate(b_zs):
         param_sets[idx] = ParamSet(j_x,j_z,b_x,b_z)
+    # the above set of parameters are used as training points to construct the space
+    training_points = param_sets
 
-    # initialize hamiltonians
-    hamiltonian_initializer = HamiltonianInitializer()
-    hams = [None] * len(b_zs)
-    for idx, param_set in enumerate(param_sets):
-        hams[idx] = hamiltonian_initializer.xxztype_hamiltonian(param_set,n_qubits,pbc)
+# HILBERT SPACE CREATION & USE
+    # create new space of a type that implements HilbertSpaceAbstract (chosen by user)
+    hilbert_space = NumpyArraySpace(training_points, num_qubits)
 
-    # calculate evecs for each ham
-    evec_sets = [None] * len(b_zs)
-    for idx, ham in enumerate(hams):
-        evec_sets[idx] = hamiltonian_initializer.get_eigenpairs(ham)[1]
-# END Hamiltonian & Eigenvector Initialization
+    if not isinstance(hilbert_space, HilbertSpaceAbstract):
+        print("hilbert_space has incorrect type")
 
-# Finished: getting eigenvectors given a few training point b_z values
-# Next:     make interface that deals with inner product and expectation value,
-#           using the evecs given above
-#           and new Bz values
-#           unsure: do I take some new Bz values, calculate the ham, then do the sandwich to get
-#           the subspace ham?
+    # initialize the basis vectors (eigenvectors in this case) on the subspace
+    hilbert_space.calc_basis_vecs()
 
-# START Interface
+    # get the interaction matrix of the space
+    intrct = hilbert_space.get_interaction_matrix()
+
+    print(intrct)
+
+    # calculate the subspace hamitonian for the given target hamiltonian
+    target_ham = hilbert_space.get_sub_ham(input_ham)
+
+    print(target_ham)
+
+# GENERALIZED EIGNEVALUE PROBLEM
+    # Form of GEP: target_ham @ evec = eval @ intrct @ evec
+    # use above interaction matrix (intrct) and subspace hamiltonian (target_ham) to do GEP
+    # evals, evecs = eigh(target_ham, intrct) # TODO Why broken? I tried np.linalg.eigh too
+
+    # FINISHED Tuesday  almost all of main method, and some flexibility stuff with the training pts
+    #                   UML Diagram (on iPad) (still have some design questions)
+    #
+    # NEXT Wednesday    Ask Kemper about the weird eigh error (are my training points not good?)
+    #                   Ask Kemper about the Questions on the UML Digram (design stuff mostly)
 
 
-
+    # print(evals, "\n", evecs, "\n\n")
 
 
 if __name__ == "__main__":
     main()
-    
-# shouldn't need n, evals, 
-#  input: evecs, some ham of some osrt
+
+# Random Notes
+# shouldn't need n, evals,
+# input: evecs, some ham of some osrt
+
+
+# GARBAGIO BELOWIO
+def ignore_this():
 
 # class TrainingPointUtil:
 #     DATA_POINTS = 100
@@ -492,4 +621,39 @@ if __name__ == "__main__":
 
 #         self.plot_xxz_spectrum(bzlist, evals, points, phats, n)
 
-# %%
+    # type checking code for NumpyArray
+    # def check_type_generic(self, value):
+    #     """ helper method to verify all data in this implementation is in an np.ndarray """
+    #     if not isinstance(value, self.implementation_type):
+    #         raise ValueError("data should be of type np.ndarray")
+
+    # def check_basis_vecs_type(self, basis_vecs):
+    #     """ checks the type of each basis vector (should be np.ndarray) """
+    #     for basis_vec in basis_vecs:
+    #         self.check_type_generic(basis_vec)
+
+    # def check_ham_type(self, ham):
+    #     """ checks the type of the hamiltonian (should be np.ndarray) """
+    #     self.check_type_generic(ham)
+
+
+# class temp(): GET EVECS FOR SET OF TRAINING POINTS CODE
+    
+#         # number of points used to construct the Hilbert Space
+#         num_points = len(training_points)
+#         pbc = False                 # TODO Ask Kemper about pbc
+
+#         # initialize hamiltonians
+#         hamiltonian_initializer = HamiltonianInitializer()
+#         hams = [None] * len(training_points)
+#         for idx, training_points in enumerate(training_points):
+#             hams[idx] = hamiltonian_initializer.xxztype_hamiltonian(training_points,num_qubits,pbc)
+
+#         # calculate evecs for each ham
+#         evec_sets = [None] * len(training_points)
+#         for idx, ham in enumerate(hams):
+#             evec_sets[idx] = hamiltonian_initializer.get_eigenpairs(ham)[1]
+
+    pass
+
+#%%
