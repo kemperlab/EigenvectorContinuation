@@ -334,6 +334,22 @@ class NumpyArraySpace(HilbertSpaceAbstract):
         return evecs[0]
 
 class EigenvectorContinuer():
+    """ Houses the functionality to create a Hilbert Space of specified type and perform
+        Eigenvector Continuation for a given set of training points and target points
+
+        USE CASE:
+        1.  Specify a type for your space; must inherit from HilbertSpaceAbstract
+        2.  Choose:
+                number of qubits
+                b_z points to use           # TODO make this more generalized
+                periodic boundary condition as either True or False
+                target points to use
+
+        OUTPUT:
+            Eigenvalues and Eigenvectors from the Generalized Eigenvalue Problem
+
+    """
+
     def __init__(self):
         pass
 
