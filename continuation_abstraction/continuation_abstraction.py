@@ -120,6 +120,7 @@ class HilbertSpaceAbstract(ABC):
         self._training_points = training_points
         self._num_qubits = num_qubits
         self._basis_vecs = None
+        self.calc_basis_vecs()
 
     @property
     def training_points(self):
@@ -348,10 +349,93 @@ class EigenvectorContinuer():
         OUTPUT:
             Eigenvalues and Eigenvectors from the Generalized Eigenvalue Problem
 
+        TODO in this class: fix properties. implement solve_gep(). write comments
+
     """
 
-    def __init__(self):
-        pass
+    # @property
+    # def training_points(self):
+    #     return self._training_points
+
+    @property
+    def hilbert_space(self):
+        return self._hilbert_space
+
+    @property
+    def interaction_matrix(self):
+        return self._interaction_matrix
+
+    @property
+    def sub_ham(self):
+        return self._sub_ham
+
+    @property
+    def current_target_points(self):
+        return self._current_target_points
+
+    # TODO fix properties in such a way that the user always goes through the complicated one
+
+    # @property
+    # def num_qubits(self):
+    #     return self._num_qubits
+
+    # @interaction_matrix.setter
+    # def interaction_matrix(self, value):
+    #     self._interaction_matrix = value
+
+    # @hilbert_space.setter
+    # def hilbert_space(self, value):
+    #     self._hilbert_space = value
+
+    # @sub_ham.setter
+    # def sub_ham(self, value):
+    #     self._sub_ham = value
+
+    # @num_qubits.setter
+    # def num_qubits(self, value):
+    #     self._num_qubits = value
+
+    def __init__(self, hilbert_type, training_points, target_points, num_qubits):
+
+        # Initialize Hamiltonian for training points
+        temp_space = hilbert_type(training_points, num_qubits)
+        pbc = False             # TODO
+
+        # Validate type of hilbert space
+        if not isinstance(temp_space, HilbertSpaceAbstract):
+            raise ValueError("concrete_type must be a subclass of HilbertSpaceAbstract")
+
+        # Setting properties
+        self._hilbert_space = temp_space
+        self._interaction_matrix = self.hilbert_space.get_interaction_matrix()
+        self._current_target_points = target_points
+        self.refresh_sub_ham()
+
+    def get_interaction_matrix(self, input_training_points=None):
+        """  """
+
+        if input_training_points is not None:
+            self.hilbert_space.training_points = input_training_points
+            self.refresh_interaction_matrix()
+
+        return self.interaction_matrix
+
+    def get_sub_ham(self, input_target_points=None):
+
+        if input_target_points is not None:
+            self.current_target_points = input_target_points
+            self.refresh_sub_ham()
+
+        return self.sub_ham
+
+    def refresh_interaction_matrix(self):
+        self._interaction_matrix = self.hilbert_space.get_interaction_matrix()
+
+    def refresh_sub_ham(self):
+        ham_init = HamiltonianInitializer()
+        target_ham = ham_init.xxztype_hamiltonian(self.current_target_points, self.hilbert_space.num_qubits, pbc=False) # TODO pbc
+        self._sub_ham = self.hilbert_space.get_sub_ham(target_ham)
+
 
 def main():
     """ generates the image, hamiltonian, and overlap matrix """
