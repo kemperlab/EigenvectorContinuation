@@ -19,111 +19,13 @@ from scipy.linalg import eigh
 # from matplotlib import pyplot as plt
 
 
-class HamiltonianInitializer:
-    """ initializes the hamiltonian """
-
-    PAULIS = {}
-    """ defines dict of Paulis to use below """
-
-    ParamSet = namedtuple("ParamSet", "j_x j_z b_x b_z")
-    """" useful tuple when dealing with param sets in this space """
-
-    def __init__(self):
-        """ initializes class instance and Paulis dict """
-        self.PAULIS['X'] = np.array([[0,1],[1,0]], dtype=complex)
-        self.PAULIS['Y'] = np.array([[0,-1.j],[1.j,0]], dtype=complex)
-        self.PAULIS['Z'] = np.array([[1,0],[0,-1]], dtype=complex)
-        self.PAULIS['I'] = np.array([[1,0], [0,1]], dtype=complex)
-
-    def many_kron(self, ops):
-        """ produces Kronecker (Tensor) product from list of Pauli charaters """
-        result = self.PAULIS[ops[0]]    # set result equal to the first pauli given by the parameter
-        if len(ops) == 1:
-            return result
-
-        for opj in ops[1:]:             # for all the operations in the parameter
-            result = np.kron(result, self.PAULIS[opj])  # tensor product the current matrix with
-                                                        # the next pauli in the parameter list
-        return result
-
-    def xxztype_hamiltonian(self, param_set, n_qubits, pbc):
-        """ produces the hamiltonian for a system where j_x = j_y and b_x = b_y
-            :param param_set:   the set of parameters: j_x, j_z, b_x, b_z
-            :param n_qubits:    the number of quibits
-            :param pbc:         whether or not to include periodic boundary condition wrap around logic
-            :returns:           hamiltonian of the system
-        """
-
-        j_x = param_set.j_x
-        j_z = param_set.j_z
-        b_x = param_set.b_x
-        b_z = param_set.b_z
-
-        ham = np.zeros([2**n_qubits, 2**n_qubits], dtype=complex) # initializes the hamiltonian
-
-        # build hamiltonian matrix
-        for isite in range(n_qubits):
-
-            # Apply the Bz information to the hamiltonian matrix
-            oplist = ['I']*n_qubits         # makes list of operators (default = identity matrix)
-            oplist[isite] = 'Z'             # sets the isite-th entry to Z
-            ham += b_z * self.many_kron(oplist)  # applies the operations specified to the ham
-
-            # Apply the Bx information to the hamiltonian matrix
-            oplist = ['I']*n_qubits         # makes list of operators (default = identity matrix)
-            oplist[isite] = 'X'             # sets the isite-th entry to X
-            ham += b_x * self.many_kron(oplist)  # applies the operations specified to the ham
-
-            # checks whether to apply wrap-around rules
-            jsite = (isite + 1) % n_qubits
-            if (jsite != isite + 1 ) and not pbc:
-                continue                            # skips the XX, YY, ZZ
-
-            # Apply the XX information to the hamiltonian
-            oplist = ['I']*n_qubits         # makes list of operators (default = identity matrix)
-            oplist[isite] = 'X'             # sets the isite-th entry to X
-            oplist[jsite] = 'X'             # sets the jsite-th entry to X
-            ham += j_x * self.many_kron(oplist)  # applies the operations specified to ham
-
-            # Apply the YY information to the hamiltonian
-            oplist = ['I']*n_qubits         # makes list of operators (default = identity matrix)
-            oplist[isite] = 'Y'             # sets the isite-th entry to Y
-            oplist[jsite] = 'Y'             # sets the jsite-th entry to Y
-            ham += j_x * self.many_kron(oplist)  # applies the operations specified to ham
-
-            # Apply the Z information to the hamiltonian
-            oplist = ['I']*n_qubits         # makes list of operators (default = identity matrix)
-            oplist[isite] = 'Z'             # sets the isite-th entry to Z
-            oplist[jsite] = 'Z'             # sets the jsite-th entry to Z
-            ham += j_z * self.many_kron(oplist)  # applies the operations specified to ham
-
-        return ham
-
-    def get_eigenpairs(self, ham):
-        """ gets the eigenpairs for a given param_setinate in a system"""
-        evals, evecs = np.linalg.eigh(ham)
-
-        return evals, evecs
-
 class HilbertSpaceAbstract(ABC):
     """ defines behavior for objects to have a hamiltonian, inner product,
         and expectation value
     """
 
-    def __init__(self, training_points, num_qubits):
-        """ initializes an instance of a HermitianSpace and sets state variables
-
-            :param points:      the sets of points to use to construct the Hilbert Space
-            :param num_qubits:  the number of qubits in the space
-        """
-
-        self._training_points = training_points
-        self._num_qubits = num_qubits
-        self._basis_vecs = None
-        self.calc_basis_vecs()
-
-    @property
-    def training_points(self):
+    @property 
+    def training_points(self): # TODO make private
         """ I'm the current space's set of training points """
         return self._training_points
 
@@ -152,24 +54,17 @@ class HilbertSpaceAbstract(ABC):
         """ Set the current space's basis vectors """
         self._basis_vecs = value
 
-    # @property
-    # def ham(self):
-    #     """ I'm the current space's hamiltonian """
-    #     return self._ham
+    def __init__(self, training_points, num_qubits):
+        """ initializes an instance of a HermitianSpace and sets state variables
 
-    # @ham.setter
-    # def ham(self,value):
-    #     """ Set the current space's hamiltonian """
-    #     self.check_ham_type(value)
-    #     self._ham = value
+            :param points:      the sets of points to use to construct the Hilbert Space
+            :param num_qubits:  the number of qubits in the space
+        """
 
-    # @abstractmethod
-    # def check_ham_type(self, ham):
-    #     """ checks the type of the hamiltonian according to concrete class implementation """
-
-    # @abstractmethod
-    # def check_basis_vecs_type(self, basis_vecs):
-    #     """ checks the type of the basis vectors according to concrete class implementation """
+        self._training_points = training_points
+        self._num_qubits = num_qubits
+        self._basis_vecs = None
+        self.calc_basis_vecs()
 
     @abstractmethod
     def calc_basis_vecs(self):
@@ -190,15 +85,15 @@ class HilbertSpaceAbstract(ABC):
         """
 
     @abstractmethod
-    def get_interaction_matrix(self, points=None):
-        """ defines the interaction matrix for space given some set of spanning vecs (basis_vecs)
+    def get_overlap_matrix(self, points=None):
+        """ defines the overlap matrix for space given some set of spanning vecs (basis_vecs)
             should be implemented by concrete class
 
             :param points:  points to use as training points (optional depending on implementation)
         """
 
     @abstractmethod
-    def get_sub_ham(self, ham): # TODO check about the "for a space given a hamiltonian in the space" bit. Is that a fine way of describing it?
+    def get_sub_ham(self, ham):
         """ defines a subspace hamiltonian for space given a hamiltonian in the space and
             a set of spanning vectors (basis_vecs)
 
@@ -217,7 +112,10 @@ class HilbertSpaceAbstract(ABC):
         """
 
 class NumpyArraySpace(HilbertSpaceAbstract):
-    """ defines Hermitian Space behavior for numpy arrays """
+    """ defines Hermitian Space behavior for numpy arrays
+
+        contains inner class to help construct hamiltonian
+    """
 
     @property
     def implementation_type(self):
@@ -231,14 +129,14 @@ class NumpyArraySpace(HilbertSpaceAbstract):
 
         # number of points used to construct the Hilbert Space
         num_points = len(self.training_points)
-        pbc = False                 # TODO Ask Kemper about pbc
+
 
         # initialize hamiltonians
-        hamiltonian_initializer = HamiltonianInitializer()
+        hamiltonian_initializer = self.HamiltonianInitializer()
         hams = [None] * num_points
         for idx, training_points in enumerate(self.training_points):
             hams[idx] = hamiltonian_initializer.xxztype_hamiltonian(training_points,
-                                                                    self.num_qubits,pbc)
+                                                                    self.num_qubits)
 
         # calculate evecs for each ham; selects lowest energy evec to go in evec_set
         evec_set = [None] * num_points
@@ -279,13 +177,13 @@ class NumpyArraySpace(HilbertSpaceAbstract):
 
         return vec1.conj() @ ham @ vec2
 
-    def get_interaction_matrix(self, points=None):
-        """ defines the interaction matrix for a NumpyArraySpace
+    def get_overlap_matrix(self, points=None):
+        """ defines the overlap matrix for a NumpyArraySpace
 
             if points are passed in, these become the new training points of the space
             otherwise, the existing training points are used
 
-            For an interaction matrix S:
+            For an overlap matrix S:
             S[i,j] = inner_product(basis_vec_i, basis_vec_j)
 
             :param points:  points to use as training points (optional)
@@ -297,14 +195,14 @@ class NumpyArraySpace(HilbertSpaceAbstract):
 
         # dimensions of square matrix will be numbner of basis vectors
         dim = len(self.basis_vecs)
-        intrct = np.zeros([dim, dim], dtype=complex)
+        overlap_s = np.zeros([dim, dim], dtype=complex)
 
         # S[i,j] = inner_product(basis_vec_i, basis_vec_j)
         for idx_i, vec_i in enumerate(self.basis_vecs):
             for idx_j, vec_j in enumerate(self.basis_vecs):
-                intrct[idx_i, idx_j] = self.inner_product(vec_i, vec_j)
+                overlap_s[idx_i, idx_j] = self.inner_product(vec_i, vec_j)
 
-        return intrct
+        return overlap_s
 
     def get_sub_ham(self, ham):
         """ defines a subspace hamiltonian for space given a hamiltonian in the space and
@@ -334,6 +232,92 @@ class NumpyArraySpace(HilbertSpaceAbstract):
 
         return evecs[0]
 
+    class HamiltonianInitializer:
+        """ initializes the hamiltonian """
+
+        PAULIS = {}
+        """ defines dict of Paulis to use below """
+
+        ParamSet = namedtuple("ParamSet", "j_x j_z b_x b_z")
+        """" useful tuple when dealing with param sets in this space """
+
+        def __init__(self):
+            """ initializes class instance and Paulis dict """
+            self.PAULIS['X'] = np.array([[0,1],[1,0]], dtype=complex)
+            self.PAULIS['Y'] = np.array([[0,-1.j],[1.j,0]], dtype=complex)
+            self.PAULIS['Z'] = np.array([[1,0],[0,-1]], dtype=complex)
+            self.PAULIS['I'] = np.array([[1,0], [0,1]], dtype=complex)
+
+        def many_kron(self, ops):
+            """ produces Kronecker (Tensor) product from list of Pauli charaters """
+            result = self.PAULIS[ops[0]]    # set result equal to first pauli given by the param
+            if len(ops) == 1:
+                return result
+
+            for opj in ops[1:]:             # for all the operations in the parameter
+                result = np.kron(result, self.PAULIS[opj])  # tensor product the current matrix with
+                                                            # the next pauli in the parameter list
+            return result
+
+        def xxztype_hamiltonian(self, param_set, n_qubits, pbc=False):
+            """ produces the hamiltonian for a system where j_x = j_y and b_x = b_y
+                :param param_set:   the set of parameters: j_x, j_z, b_x, b_z
+                :param n_qubits:    the number of quibits
+                :param pbc:         periodic boundary condition wrap around logic boolean
+                :returns:           hamiltonian of the system
+            """
+
+            j_x = param_set.j_x
+            j_z = param_set.j_z
+            b_x = param_set.b_x
+            b_z = param_set.b_z
+
+            ham = np.zeros([2**n_qubits, 2**n_qubits], dtype=complex) # initializes the hamiltonian
+
+            # build hamiltonian matrix
+            for isite in range(n_qubits):
+
+                # Apply the Bz information to the hamiltonian matrix
+                oplist = ['I']*n_qubits     # makes list of operators (default = identity matrix)
+                oplist[isite] = 'Z'         # sets the isite-th entry to Z
+                ham += b_z * self.many_kron(oplist)  # applies the operations specified to the ham
+
+                # Apply the Bx information to the hamiltonian matrix
+                oplist = ['I']*n_qubits     # makes list of operators (default = identity matrix)
+                oplist[isite] = 'X'         # sets the isite-th entry to X
+                ham += b_x * self.many_kron(oplist)  # applies the operations specified to the ham
+
+                # checks whether to apply wrap-around rules
+                jsite = (isite + 1) % n_qubits
+                if (jsite != isite + 1 ) and not pbc:
+                    continue                            # skips the XX, YY, ZZ
+
+                # Apply the XX information to the hamiltonian
+                oplist = ['I']*n_qubits     # makes list of operators (default = identity matrix)
+                oplist[isite] = 'X'         # sets the isite-th entry to X
+                oplist[jsite] = 'X'         # sets the jsite-th entry to X
+                ham += j_x * self.many_kron(oplist)  # applies the operations specified to ham
+
+                # Apply the YY information to the hamiltonian
+                oplist = ['I']*n_qubits     # makes list of operators (default = identity matrix)
+                oplist[isite] = 'Y'         # sets the isite-th entry to Y
+                oplist[jsite] = 'Y'         # sets the jsite-th entry to Y
+                ham += j_x * self.many_kron(oplist)  # applies the operations specified to ham
+
+                # Apply the Z information to the hamiltonian
+                oplist = ['I']*n_qubits     # makes list of operators (default = identity matrix)
+                oplist[isite] = 'Z'         # sets the isite-th entry to Z
+                oplist[jsite] = 'Z'         # sets the jsite-th entry to Z
+                ham += j_z * self.many_kron(oplist)  # applies the operations specified to ham
+
+            return ham
+
+        def get_eigenpairs(self, ham):
+            """ gets the eigenpairs for a given param_setinate in a system"""
+            evals, evecs = np.linalg.eigh(ham)
+
+            return evals, evecs
+
 class EigenvectorContinuer():
     """ Houses the functionality to create a Hilbert Space of specified type and perform
         Eigenvector Continuation for a given set of training points and target points
@@ -349,7 +333,19 @@ class EigenvectorContinuer():
         OUTPUT:
             Eigenvalues and Eigenvectors from the Generalized Eigenvalue Problem
 
-        TODO in this class: fix properties. implement solve_gep(). write comments
+        TODO in this class:
+        - talked to Kemper about design stuff
+        - need to make HamInit inside HilbertSpace (b/c generalized vectors need init)      √ HamInit is now an inner class
+        - overlap matrix, not interaction matrix                                            √ variables named correctly
+        - pretty good picture of IO (treat like python library)                             √ understood
+        - main() works, as long as vectors aren't lin dep (b_x must not = 0)                √ ok, don't make vectors linearly dependent
+        - hard code pbc                                                                     √ pbc is no longer a required parameter
+        - soon, do solve_gep                                                (2)
+        - make hilbert space the argument for EC __init__                                   √ easy money. Use case: create hilbert_space with training points and num_qubits; create EC with that hilbert_space and some target points
+        - plot just in the module, no need for object                       (3)
+        - at some point, update UML to have all edits                       (1)             √
+        - fix properties so that they have to go through the fancy "gets"   (4)
+        - update comments                                                   (during ^)
 
     """
 
@@ -362,8 +358,8 @@ class EigenvectorContinuer():
         return self._hilbert_space
 
     @property
-    def interaction_matrix(self):
-        return self._interaction_matrix
+    def overlap_matrix(self):
+        return self._overlap_matrix
 
     @property
     def sub_ham(self):
@@ -373,15 +369,15 @@ class EigenvectorContinuer():
     def current_target_points(self):
         return self._current_target_points
 
-    # TODO fix properties in such a way that the user always goes through the complicated one
+
 
     # @property
     # def num_qubits(self):
     #     return self._num_qubits
 
-    # @interaction_matrix.setter
-    # def interaction_matrix(self, value):
-    #     self._interaction_matrix = value
+    # @overlap_matrix.setter
+    # def overlap_matrix(self, value):
+    #     self._overlap_matrix = value
 
     # @hilbert_space.setter
     # def hilbert_space(self, value):
@@ -395,30 +391,27 @@ class EigenvectorContinuer():
     # def num_qubits(self, value):
     #     self._num_qubits = value
 
-    def __init__(self, hilbert_type, training_points, target_points, num_qubits):
 
-        # Initialize Hamiltonian for training points
-        temp_space = hilbert_type(training_points, num_qubits)
-        pbc = False             # TODO
+    def __init__(self, hilbert_space, target_points):
 
         # Validate type of hilbert space
-        if not isinstance(temp_space, HilbertSpaceAbstract):
+        if not isinstance(hilbert_space, HilbertSpaceAbstract):
             raise ValueError("concrete_type must be a subclass of HilbertSpaceAbstract")
 
         # Setting properties
-        self._hilbert_space = temp_space
-        self._interaction_matrix = self.hilbert_space.get_interaction_matrix()
+        self._hilbert_space = hilbert_space
+        self._overlap_matrix = self.hilbert_space.get_overlap_matrix()
         self._current_target_points = target_points
         self.refresh_sub_ham()
 
-    def get_interaction_matrix(self, input_training_points=None):
+    def get_overlap_matrix(self, input_training_points=None):
         """  """
 
         if input_training_points is not None:
             self.hilbert_space.training_points = input_training_points
-            self.refresh_interaction_matrix()
+            self.refresh_overlap_matrix()
 
-        return self.interaction_matrix
+        return self.overlap_matrix
 
     def get_sub_ham(self, input_target_points=None):
 
@@ -428,12 +421,12 @@ class EigenvectorContinuer():
 
         return self.sub_ham
 
-    def refresh_interaction_matrix(self):
-        self._interaction_matrix = self.hilbert_space.get_interaction_matrix()
+    def refresh_overlap_matrix(self):
+        self._overlap_matrix = self.hilbert_space.get_overlap_matrix()
 
     def refresh_sub_ham(self):
-        ham_init = HamiltonianInitializer()
-        target_ham = ham_init.xxztype_hamiltonian(self.current_target_points, self.hilbert_space.num_qubits, pbc=False) # TODO pbc
+        ham_init = self.hilbert_space.HamiltonianInitializer()
+        target_ham = ham_init.xxztype_hamiltonian(self.current_target_points, self.hilbert_space.num_qubits)
         self._sub_ham = self.hilbert_space.get_sub_ham(target_ham)
 
 
@@ -447,21 +440,18 @@ def main():
 # USER INPUT
     # data for Hilbert Space
     num_qubits = 2
-    b_x = 0
+    b_x = .2
     j_x = 1
     j_z = 1
     b_zs = np.array([0,2,3])  # put your custom input here
-    pbc = False                 # TODO Ask Kemper when this is relevant
 
     # data for target hamiltonian
-    # construct a target hamiltonian for the space to operate on
-    target_b_x = 2
+    target_b_x = .3
     target_j_x = 2
     target_j_z = 1
-    target_b_z = 7  # put your custom input here
+    target_b_z = 2  # put your custom input here
     target_param_set = ParamSet(target_j_x,target_j_z,target_b_x,target_b_z)
-    init = HamiltonianInitializer()
-    input_ham = init.xxztype_hamiltonian(target_param_set, num_qubits, pbc)
+
 
 # HILBERT SPACE SETUP
 
@@ -477,16 +467,20 @@ def main():
     # create new space of a type that implements HilbertSpaceAbstract (chosen by user)
     hilbert_space = NumpyArraySpace(training_points, num_qubits)
 
+    # construct a target hamiltonian for the space to operate on
+    init = hilbert_space.HamiltonianInitializer()
+    input_ham = init.xxztype_hamiltonian(target_param_set, num_qubits)
+
     if not isinstance(hilbert_space, HilbertSpaceAbstract):
         print("hilbert_space has incorrect type")
 
     # initialize the basis vectors (eigenvectors in this case) on the subspace
     hilbert_space.calc_basis_vecs()
 
-    # get the interaction matrix of the space
-    intrct = hilbert_space.get_interaction_matrix()
+    # get the overlap matrix of the space
+    overlap_s = hilbert_space.get_overlap_matrix()
 
-    print(intrct)
+    print(overlap_s)
 
     # calculate the subspace hamitonian for the given target hamiltonian
     target_ham = hilbert_space.get_sub_ham(input_ham)
@@ -494,9 +488,9 @@ def main():
     print(target_ham)
 
 # GENERALIZED EIGNEVALUE PROBLEM
-    # Form of GEP: target_ham @ evec = eval @ intrct @ evec
-    # use above interaction matrix (intrct) and subspace hamiltonian (target_ham) to do GEP
-    # evals, evecs = eigh(target_ham, intrct) # TODO Why broken? I tried np.linalg.eigh too
+    # Form of GEP: target_ham @ evec = eval @ overlap_s @ evec
+    # use above overlap matrix (overlap_s) and subspace hamiltonian (target_ham) to do GEP
+    evals, evecs = eigh(target_ham, overlap_s) # uses scipy.linalg.eigh
 
     # FINISHED Tuesday  almost all of main method, and some flexibility stuff with the training pts
     #                   UML Diagram (on iPad) (still have some design questions)
@@ -505,7 +499,9 @@ def main():
     #                   Ask Kemper about the Questions on the UML Digram (design stuff mostly)
 
 
-    # print(evals, "\n", evecs, "\n\n")
+    print(evals, "\n", evecs, "\n\n")
+    
+
 
 
 if __name__ == "__main__":
@@ -532,11 +528,9 @@ def ignore_this():
 #     def get_random_training_points(self, bzlist, evals, num_points):
 #         """ returns random training points for the system
 
-#             NOTE: This is a simplified case of "get training points".
 #             It only accounts for Bz, but later updates will be more robust by exploring more
 #             degrees of freedom
 #         """
-#             # TODO This is a simplified case of "get training points".
 #             # It only accounts for Bz, but later updates will be more robust by exploring more
 #             # degrees of freedom
 
@@ -569,15 +563,12 @@ def ignore_this():
 
 
 # class HermitianSpace:
-#     def get_interaction_matrix(self, evecs, num_points):
-#         """ gets the interaction matrix for a given system """
+#     def get_overlap_matrix(self, evecs, num_points):
+#         """ gets the overlap matrix for a given system """
 
-#         # set up interaction matrix
+#         # set up overlap matrix
 #         s = np.zeros([num_points, num_points], dtype=complex)
 #         # simple case: 2 qubits
-
-#         # TODO Ask Kemper how to make this work for more qubits
-#         # TODO also, is this even right? 
 #         #       this iterates over all evecs but don't I only want the ground state?
 #         for i in range(num_points):
 #             for j in range(num_points):
@@ -590,7 +581,7 @@ def ignore_this():
 
 #         return s
 
-#     def calc_subspace_ham(self, hams, evecs, num_points): #call evecs basis vectors TODO
+#     def calc_subspace_ham(self, hams, evecs, num_points): #call evecs basis vector
 #         """ calculates the hamiltonian for the subspace of the system """
 
 #         new_hams = [None] * len(hams)
@@ -617,7 +608,7 @@ def ignore_this():
 #             future abstractions of this funtion will be less simple, but still follow this template
 #         """
         
-#         return np.linalg.eigvalsh(ham) # TODO output evecs as well
+#         return np.linalg.eigvalsh(ham) 
 
 # class SpectrumPlotter:
 #     DATA_POINTS = 100
@@ -639,7 +630,7 @@ def ignore_this():
 #         for idx in range(2**n):                       # prepares plot
 #             ax.plot(bzlist, evals[:,idx], 'k-')
 
-#         ax.axvline(1.0, ls = "--", color="blue")    # shows vertical line that represents [unsure] TODO
+#         ax.axvline(1.0, ls = "--", color="blue")    # shows vertical line that represents [unsure] TODO <--
 
 #         # plot training points. i[1][0] corresponds to the lowest energy 
 #         for point in points:
@@ -649,12 +640,12 @@ def ignore_this():
 #         for phat in phats:
 #             plt.plot(phat.b_z, phat.energies[0], marker="o", color="orange")
 #             plt.plot(phat.b_z, phat.energies[1], marker="o", color="orange")
-#             # TODO only does lowest 2 energy states. can make this more flexible later          
+     
 
 #         plt.show()
 
-#     def generate_xxz_type_spectrum(self, param_set, n=2, pbc=False):
-#         """ calculates the different hamiltonians, eigenvalues, and interaction matrix for the system
+#     def generate_xxz_type_spectrum(self, param_set, n=2):
+#         """ calculates the different hamiltonians, eigenvalues, and overlap matrix for the system
 #             and plots the spectrum on a plot"""
 
 #         # j_x = param_set.j_x
@@ -666,7 +657,7 @@ def ignore_this():
 #         # Initialize:
 #         # plotting tool: array of evenly spaced numbers between bzmin and bzmax
 #         bzlist = np.linspace(param_set.bzmin, param_set.bzmax, self.DATA_POINTS)
-#         evals, evecs = self.get_eigenpairs(param_set, bzlist, n, pbc)
+#         evals, evecs = self.get_eigenpairs(param_set, bzlist, n)
 
 #         # Training Points:
 #         # getting n random training points
@@ -691,11 +682,11 @@ def ignore_this():
 #         # find the hamiltonian for each phat_k
 #         for idx_k, phat_k in enumerate(phats):
 #             b_zparam_set = self.ParamSet(j_x=param_set.j_x, j_z=param_set.j_z, b_x=param_set.b_x, b_z=phat_k.b_z)
-#             hams[idx_k] = self.xxztype_hamiltonian(param_set=b_zparam_set, n=n, pbc=pbc)
+#             hams[idx_k] = self.xxztype_hamiltonian(param_set=b_zparam_set, n=n)
 
-#         # Interaction Matrix:
-#         # get the S interaction matrix
-#         s = self.get_interaction_matrix(evecs=evecs, num_points=num_points)
+#         # overlap Matrix:
+#         # get the S overlap matrix
+#         s = self.get_overlap_matrix(evecs=evecs, num_points=num_points)
 
 #         # Subspace Hams:
 #         # get the subspace hamiltonian for each phat_k value
@@ -711,11 +702,11 @@ def ignore_this():
 #             print("New ham:")
 #             print(new_ham_k)
 #             print("Diagonalized:")
-#             print(energy_lists[idx_k]) # TODO ask Dr. Kemper what to do with this info
+#             print(energy_lists[idx_k]) 
 #             print()
 
 #             # Check:
-#             # checks to see if Inverse_Interaction • New_Ham = Eigenvals
+#             # checks to see if Inverse_overlap • New_Ham = Eigenvals
 #             print("S_inv • New ham (should correspond to Diagonalized value")
 #             print(np.linalg.inv(s) @ new_ham_k)
 
@@ -741,13 +732,12 @@ def ignore_this():
     
 #         # number of points used to construct the Hilbert Space
 #         num_points = len(training_points)
-#         pbc = False                 # TODO Ask Kemper about pbc
 
 #         # initialize hamiltonians
 #         hamiltonian_initializer = HamiltonianInitializer()
 #         hams = [None] * len(training_points)
 #         for idx, training_points in enumerate(training_points):
-#             hams[idx] = hamiltonian_initializer.xxztype_hamiltonian(training_points,num_qubits,pbc)
+#             hams[idx] = hamiltonian_initializer.xxztype_hamiltonian(training_points,num_qubits)
 
 #         # calculate evecs for each ham
 #         evec_sets = [None] * len(training_points)
