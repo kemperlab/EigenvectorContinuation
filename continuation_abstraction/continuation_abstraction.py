@@ -1,103 +1,128 @@
 #%%
+"""
+    Provides tools to showcase the creation and testing of Eigenvector Continuation.
+    -----------------------------------------------------------------------------------------------
+    INCLUDES:
+        HilbertSpaceAbstract:   Abstract class used to outline how concrete Hilbert Spaces should
+                                behave. Hilbert Spaces are used to create EigenvectorContinuer
+                                objects. (abbr: HSA)
 
-"""creates a plot and matrix that correspond to a simplified model of a hamiltonian
-    found from eigenvector continuation.
+        NumpyArraySpace:        An example concrete implementation of HilbertSpaceAbstract in which
+                                data is represented in the form of type np.ndarray
 
-    @author Jack Howard
-    North Carolina State University -- Kemper Lab
+        EigenvectorContinuer:   A class used to take in any type of HSA and perform eigenvector
+                                continuation operations using the HSA and some representation of
+                                a target point. (abbr: EC)
+
+        sample code used to showcase the EigenvectorContinuation process
+
+    -----------------------------------------------------------------------------------------------
+    SOON TO INCLUDE:
+        plotting tools:         currently in development. Multiple target points are used to
+                                produce a plot. Details may vary depending on implementation
+                                specifics
+    -----------------------------------------------------------------------------------------------
 """
 
 # import random
 # import math
 from collections import namedtuple
-# import abc
 from abc import ABC, abstractmethod
-# from typing import Type
 import numpy as np
 from scipy.linalg import eigh
-# from numpy import ndarray
 # from matplotlib import pyplot as plt
 
+__author__ = "Jack Howard"
+__copyright__ = "TODO 2022, Kemper Lab -- North Carolina State University"
+__credits__ = "Jack Howard, Akhil Francis, Lex Kemper"
 
 class HilbertSpaceAbstract(ABC):
     """ defines behavior for objects to have a hamiltonian, inner product,
         and expectation value
     """
 
-    @property 
-    def training_points(self): # TODO make private
+    @property
+    def training_points(self):
         """ I'm the current space's set of training points """
         return self._training_points
-
-    @training_points.setter
-    def training_points(self, value):
-        """ Set the current space's set of training points """
-        self._training_points = value
-
-    @property
-    def num_qubits(self):
-        """ I'm the current space's number of qubits """
-        return self._num_qubits
-
-    @num_qubits.setter
-    def num_qubits(self, value):
-        """ Set the current space's number of qubits """
-        self._num_qubits = value
 
     @property
     def basis_vecs(self):
         """ I'm the current space's basis vectors """
         return self._basis_vecs
 
-    @basis_vecs.setter
-    def basis_vecs(self,value):
-        """ Set the current space's basis vectors """
-        self._basis_vecs = value
+    @training_points.setter
+    def training_points(self, value):
+        """ defines behavior of getting training_points """
 
-    def __init__(self, training_points, num_qubits):
-        """ initializes an instance of a HermitianSpace and sets state variables
+        self._training_points = value
 
-            :param points:      the sets of points to use to construct the Hilbert Space
-            :param num_qubits:  the number of qubits in the space
+    def __init__(self, training_points):
+        """ initializes an instance of a Hilbert Space and sets state variables
+
+            :param training_points: the sets of points to use to construct the Hilbert Space
         """
 
         self._training_points = training_points
-        self._num_qubits = num_qubits
+
         self._basis_vecs = None
         self.calc_basis_vecs()
 
     @abstractmethod
     def calc_basis_vecs(self):
         """ calculates the basis vectors to span the space
+
+            :returns:   the calculated basis vecs
+
             should be implemented by concrete class
         """
 
     @abstractmethod
     def inner_product(self, vec1, vec2):
         """ defines inner product for space
+
+            :param vec1:    the first vector in the calculation
+            :param vec2:    the second vector in the calculation
+
+            :returns:       the result of the inner product
+
             should be implemented by concrete class
         """
 
     @abstractmethod
     def expectation_value(self, vec1, ham, vec2):
         """ defines expectation value calculation for space
+
+            :param vec1:    the first vector in the calculation
+            :param ham:     the hamiltonian in the calculation
+            :param vec2:    the second vector in the calculation
+
+            :returns:       the expectation value
+
             should be implemented by concrete class
         """
 
     @abstractmethod
-    def get_overlap_matrix(self, points=None):
+    def calc_overlap_matrix(self, points=None):
         """ defines the overlap matrix for space given some set of spanning vecs (basis_vecs)
-            should be implemented by concrete class
 
             :param points:  points to use as training points (optional depending on implementation)
+
+            :returns:       the overlap matrix
+
+            should be implemented by concrete class
         """
 
     @abstractmethod
-    def get_sub_ham(self, ham):
+    def calc_sub_ham(self, ham):
         """ defines a subspace hamiltonian for space given a hamiltonian in the space and
             a set of spanning vectors (basis_vecs)
 
-            NB: ham cannot be constructed using the same points used to get basis_vecs
+            NB: ham cannot be constructed using the same points used to calc basis_vecs
+
+            :param ham:     the hamiltonian used to find the subspace of
+
+            :returns:       the subspace hamiltonian
 
             should be implemented by concrete class
         """
@@ -108,11 +133,27 @@ class HilbertSpaceAbstract(ABC):
 
             :param evecs:   the set of evecs
 
-            should be implemented by concrete clas
+            :returns:       the selected vector
+
+            should be implemented by concrete class
+        """
+
+    @abstractmethod
+    def solve_gep(self, a_matrix, b_matrix):
+        """ defines behavior to solve a generalized eignevalue problem of the form:
+            Ax = rBx
+            where A and B are linear transformations, x is an eigenvector, and r is an eigenvalue
+
+            :param a_matrix:    the A matrix
+            :param b_matrix:    the B matrix
+
+            :returns:           the eigenvalues, eigenvectors calculated
+
+            should be implemented by concrete class
         """
 
 class NumpyArraySpace(HilbertSpaceAbstract):
-    """ defines Hermitian Space behavior for numpy arrays
+    """ defines Hilbert Space behavior for numpy arrays
 
         contains inner class to help construct hamiltonian
     """
@@ -122,14 +163,31 @@ class NumpyArraySpace(HilbertSpaceAbstract):
         """ I'm the current space's implementation type """
         return np.ndarray
 
+    @property
+    def num_qubits(self):
+        """ I'm the current space's number of qubits """
+        return self._num_qubits
+
+    def __init__(self, training_points, num_qubits):
+        """ initializes an instance of a NumpyArraySpace and sets state variables
+
+            :param points:      the sets of points to use to construct the Hilbert Space
+            :param num_qubits:  the number of qubits in the space
+        """
+
+        self._num_qubits = num_qubits
+
+        super().__init__(training_points)
+
     def calc_basis_vecs(self):
         """ calculates the basis vectors for the given space
             creates a hamiltonian for each point, and determines eigenvecs for each hamiltonian
+
+            :returns:   the calculated basis vecs
         """
 
         # number of points used to construct the Hilbert Space
         num_points = len(self.training_points)
-
 
         # initialize hamiltonians
         hamiltonian_initializer = self.HamiltonianInitializer()
@@ -141,16 +199,17 @@ class NumpyArraySpace(HilbertSpaceAbstract):
         # calculate evecs for each ham; selects lowest energy evec to go in evec_set
         evec_set = [None] * num_points
         for idx, ham in enumerate(hams):
-            current_evecs = hamiltonian_initializer.get_eigenpairs(ham)[1]
+            current_evecs = hamiltonian_initializer.calc_eigenpairs(ham)[1]
             evec_set[idx] = self.select_vec(current_evecs)
 
-        self.basis_vecs = evec_set
+        self._basis_vecs = evec_set
 
     def inner_product(self, vec1, vec2):
         """ defines inner product for numpy array space
 
             :param vec1:    the left vector of the inner product
             :param vec2:    the right vector of the inner product
+
             :returns:       inner product of vec1 & vec2
         """
 
@@ -166,6 +225,7 @@ class NumpyArraySpace(HilbertSpaceAbstract):
             :param vec1:    the left vector of the expectation value calculation
             :param ham:     retrieve the expectation value w.r.t. this hamiltonian
             :param vec2:    the right vector of the expectation value calculation
+
             :returns:       the expectation value of the system
         """
 
@@ -177,7 +237,7 @@ class NumpyArraySpace(HilbertSpaceAbstract):
 
         return vec1.conj() @ ham @ vec2
 
-    def get_overlap_matrix(self, points=None):
+    def calc_overlap_matrix(self, points=None):
         """ defines the overlap matrix for a NumpyArraySpace
 
             if points are passed in, these become the new training points of the space
@@ -187,13 +247,15 @@ class NumpyArraySpace(HilbertSpaceAbstract):
             S[i,j] = inner_product(basis_vec_i, basis_vec_j)
 
             :param points:  points to use as training points (optional)
+
+            :returns:       the calculated overlap matrix
         """
 
         if points is not None:
-            self.basis_vecs = points
+            self._basis_vecs = points
             self.calc_basis_vecs()
 
-        # dimensions of square matrix will be numbner of basis vectors
+        # dimensions of square matrix will be number of basis vectors
         dim = len(self.basis_vecs)
         overlap_s = np.zeros([dim, dim], dtype=complex)
 
@@ -204,13 +266,17 @@ class NumpyArraySpace(HilbertSpaceAbstract):
 
         return overlap_s
 
-    def get_sub_ham(self, ham):
+    def calc_sub_ham(self, ham):
         """ defines a subspace hamiltonian for space given a hamiltonian in the space and
             a set of spanning vectors (basis_vecs)
 
-            NB: ham cannot be constructed using the same points used to get basis_vecs
+            NB: ham cannot be constructed using the same points used to calc basis_vecs
 
             Subspace Ham[i,j] = expectation_value(basis_vec_i, ham, basis_vec_j)
+
+            :param ham:     the hamiltonian used to find the subspace of
+
+            :returns:       the subspace hamiltonian
         """
 
         # dimensions of square matrix will be number of basis vectors
@@ -225,17 +291,34 @@ class NumpyArraySpace(HilbertSpaceAbstract):
         return sub_ham
 
     def select_vec(self, evecs):
-        """ returns the lowest engergy evec """
+        """ returns the lowest energy evec
+
+            :param evecs:   the set of evecs
+
+            :returns:       the selected vector
+        """
 
         if len(evecs) == 0:
             pass
 
         return evecs[0]
 
+    def solve_gep(self, a_matrix, b_matrix):
+        """ Uses scipy.linalg eigh to solve the generalized eigenvalue problem of the form:
+            Ax = rBx
+            where A and B are linear transformations, x is an eigenvector, and r is an eigenvalue
+
+            :param a_matrix:    the A matrix
+            :param b_matrix:    the B matrix
+            :returns:           the eigenvalues, eigenvectors calculated
+        """
+
+        return eigh(a_matrix, b_matrix)
+
     class HamiltonianInitializer:
         """ initializes the hamiltonian """
 
-        PAULIS = {}
+        _PAULIS = {}
         """ defines dict of Paulis to use below """
 
         ParamSet = namedtuple("ParamSet", "j_x j_z b_x b_z")
@@ -243,24 +326,29 @@ class NumpyArraySpace(HilbertSpaceAbstract):
 
         def __init__(self):
             """ initializes class instance and Paulis dict """
-            self.PAULIS['X'] = np.array([[0,1],[1,0]], dtype=complex)
-            self.PAULIS['Y'] = np.array([[0,-1.j],[1.j,0]], dtype=complex)
-            self.PAULIS['Z'] = np.array([[1,0],[0,-1]], dtype=complex)
-            self.PAULIS['I'] = np.array([[1,0], [0,1]], dtype=complex)
+            self._PAULIS['X'] = np.array([[0,1],[1,0]], dtype=complex)
+            self._PAULIS['Y'] = np.array([[0,-1.j],[1.j,0]], dtype=complex)
+            self._PAULIS['Z'] = np.array([[1,0],[0,-1]], dtype=complex)
+            self._PAULIS['I'] = np.array([[1,0], [0,1]], dtype=complex)
 
         def many_kron(self, ops):
-            """ produces Kronecker (Tensor) product from list of Pauli charaters """
-            result = self.PAULIS[ops[0]]    # set result equal to first pauli given by the param
+            """ produces Kronecker (Tensor) product from list of Pauli charaters
+
+                :param ops: the operations [as characters] to apply to a matrix
+            """
+
+            result = self._PAULIS[ops[0]]    # set result equal to first pauli given by the param
             if len(ops) == 1:
                 return result
 
             for opj in ops[1:]:             # for all the operations in the parameter
-                result = np.kron(result, self.PAULIS[opj])  # tensor product the current matrix with
-                                                            # the next pauli in the parameter list
+                result = np.kron(result, self._PAULIS[opj])  # tensor product the current matrix w/
+                                                             # the next pauli in the parameter list
             return result
 
         def xxztype_hamiltonian(self, param_set, n_qubits, pbc=False):
             """ produces the hamiltonian for a system where j_x = j_y and b_x = b_y
+
                 :param param_set:   the set of parameters: j_x, j_z, b_x, b_z
                 :param n_qubits:    the number of quibits
                 :param pbc:         periodic boundary condition wrap around logic boolean
@@ -312,8 +400,14 @@ class NumpyArraySpace(HilbertSpaceAbstract):
 
             return ham
 
-        def get_eigenpairs(self, ham):
-            """ gets the eigenpairs for a given param_setinate in a system"""
+        def calc_eigenpairs(self, ham):
+            """ calcs the eigenpairs for a given param_setinate in a system
+
+                :param ham: the hamiltonian to get the eigenpairs from
+
+                :returns:   the eigenpairs as: evals, evecs
+            """
+
             evals, evecs = np.linalg.eigh(ham)
 
             return evals, evecs
@@ -323,15 +417,21 @@ class EigenvectorContinuer():
         Eigenvector Continuation for a given set of training points and target points
 
         USE CASE:
-        1.  Specify a type for your space; must inherit from HilbertSpaceAbstract
-        2.  Choose:
-                number of qubits
-                b_z points to use           # TODO make this more generalized
-                periodic boundary condition as either True or False
-                target points to use
+        1.  Create an instance of a HilbertSpaceAbstract concrete class/subclass
+                - Will need training points (and/or other input depending on implementation)
+        2.  Input:
+                a target point to use and calculate the subspace hamiltonian
 
         OUTPUT:
-            Eigenvalues and Eigenvectors from the Generalized Eigenvalue Problem
+            Eigenvalues and Eigenvectors from the Generalized Eigenvalue Problem constructed from
+            the subspace hamiltonian and overlap matrix calculated by the training and target
+            points
+
+        USEFUL METHODS (documentation given below):
+            __init__(...)
+            calc_overlap_matrix(...)
+            calc_sub_ham(...)
+            solve_gep(...)
 
         TODO in this class:
         - talked to Kemper about design stuff
@@ -340,59 +440,56 @@ class EigenvectorContinuer():
         - pretty good picture of IO (treat like python library)                             √ understood
         - main() works, as long as vectors aren't lin dep (b_x must not = 0)                √ ok, don't make vectors linearly dependent
         - hard code pbc                                                                     √ pbc is no longer a required parameter
-        - soon, do solve_gep                                                (2)
+        - soon, do solve_gep                                                (2)             √ check with Kemper that it works. 
         - make hilbert space the argument for EC __init__                                   √ easy money. Use case: create hilbert_space with training points and num_qubits; create EC with that hilbert_space and some target points
         - plot just in the module, no need for object                       (3)
         - at some point, update UML to have all edits                       (1)             √
-        - fix properties so that they have to go through the fancy "gets"   (4)
-        - update comments                                                   (during ^)
+        - fix properties so that they have to go through the fancy "gets"   (4)             √
+        - update comments                                                   (during ^)      √
+        - make num_qubits not in abstract                                                   √
 
     """
 
-    # @property
-    # def training_points(self):
-    #     return self._training_points
-
     @property
     def hilbert_space(self):
+        """ I'm this EC's hilbert space """
         return self._hilbert_space
 
     @property
     def overlap_matrix(self):
+        """ I'm this EC's last calculated overlap matrix """
         return self._overlap_matrix
 
     @property
     def sub_ham(self):
+        """ I'm this EC's last calculated subspace hamiltonian """
         return self._sub_ham
 
     @property
-    def current_target_points(self):
-        return self._current_target_points
+    def current_target_point(self):
+        """ I'm this EC's current target point. I'm used to create the sub_ham"""
+        return self._current_target_point
 
+    @property
+    def evals(self):
+        """ I'm this EC's last calculated set of eigenvalues for the diagonalized subspace ham """
+        return self._evals
 
+    @property
+    def evecs(self):
+        """ I'm this EC's last calculated set of eigenvectors for the diagonalized subspace ham """
+        return self._evecs
 
-    # @property
-    # def num_qubits(self):
-    #     return self._num_qubits
+    def __init__(self, hilbert_space, target_point):
+        """ initializes the EC
 
-    # @overlap_matrix.setter
-    # def overlap_matrix(self, value):
-    #     self._overlap_matrix = value
-
-    # @hilbert_space.setter
-    # def hilbert_space(self, value):
-    #     self._hilbert_space = value
-
-    # @sub_ham.setter
-    # def sub_ham(self, value):
-    #     self._sub_ham = value
-
-    # @num_qubits.setter
-    # def num_qubits(self, value):
-    #     self._num_qubits = value
-
-
-    def __init__(self, hilbert_space, target_points):
+            :param hilbert_space:   the Hilbert Space used for Eigenvector Continuation in
+                                    conjunction with a target point
+            :param target_point:    the point in the Hilbert Space to compare the existing
+                                    Hilbert Space. Used to create a subspace hamiltonian to
+                                    then solve the GEP and obtain the final eigenvectors and
+                                    eigenvalues
+        """
 
         # Validate type of hilbert space
         if not isinstance(hilbert_space, HilbertSpaceAbstract):
@@ -400,12 +497,20 @@ class EigenvectorContinuer():
 
         # Setting properties
         self._hilbert_space = hilbert_space
-        self._overlap_matrix = self.hilbert_space.get_overlap_matrix()
-        self._current_target_points = target_points
+        self._overlap_matrix = self.hilbert_space.calc_overlap_matrix()
+        self._current_target_point = target_point
         self.refresh_sub_ham()
+        self._evals = None
+        self._evecs = None
 
-    def get_overlap_matrix(self, input_training_points=None):
-        """  """
+    def calc_overlap_matrix(self, input_training_points=None):
+        """ caclulates the overlap matrix based on the Hilbert Space's current training points
+
+            :param input_training_points:   [OPTIONAL] can be used to update the hilbert
+                                            space's training points as needed
+
+            :returns:                       the overlap matrix
+        """
 
         if input_training_points is not None:
             self.hilbert_space.training_points = input_training_points
@@ -413,94 +518,223 @@ class EigenvectorContinuer():
 
         return self.overlap_matrix
 
-    def get_sub_ham(self, input_target_points=None):
+    def calc_sub_ham(self, input_target_point=None):
+        """ calculates the subspace hamiltonian based on the EC's current Hilbert Space and
+            target point
 
-        if input_target_points is not None:
-            self.current_target_points = input_target_points
+            :param input_target_point:  [OPTIONAL] can be used to update the current target
+                                        point of the EC as needed
+
+            :returns:                   the subspace hamiltonian
+        """
+        if input_target_point is not None:
+            self.current_target_point = input_target_point
             self.refresh_sub_ham()
 
         return self.sub_ham
 
     def refresh_overlap_matrix(self):
-        self._overlap_matrix = self.hilbert_space.get_overlap_matrix()
+        """ refreshes the current overlap matrix property based on current properties """
+        self._overlap_matrix = self.hilbert_space.calc_overlap_matrix()
 
     def refresh_sub_ham(self):
+        """ rereshed the current subspace hamiltonian based on current properties """
         ham_init = self.hilbert_space.HamiltonianInitializer()
-        target_ham = ham_init.xxztype_hamiltonian(self.current_target_points, self.hilbert_space.num_qubits)
-        self._sub_ham = self.hilbert_space.get_sub_ham(target_ham)
+        target_ham = ham_init.xxztype_hamiltonian(self.current_target_point,
+                                                  self.hilbert_space.num_qubits)
+        self._sub_ham = self.hilbert_space.calc_sub_ham(target_ham)
+
+    def solve_gep(self, input_training_points=None, input_target_point=None):
+        """ solves the generalized eigencvalue problem for this EC
+
+            :param input_training_points:   used to calculate the current hilbert space's
+                                            overlap matrix. If None is passed, will default
+                                            to current training_points in the hilbert space
+            :param input_target_point:     used to calculate the current hilbert space's
+                                            subspace hamiltonian. If None is passed, will default
+                                            to current_target_point in this EC
+            :returns:                       the evals, evecs calculated
+        """
+
+        # calls the hilbert_space's method to solve the gep (which may differ depending on space)
+
+        overlap = self.calc_overlap_matrix(input_training_points)
+        subspace = self.calc_sub_ham(input_target_point)
+
+
+        self._evals, self._evecs = self.hilbert_space.solve_gep(subspace, overlap)
+
+        return self.evals, self.evecs
 
 
 def main():
     """ generates the image, hamiltonian, and overlap matrix """
 
-# START Hamiltonian & Eigenvector Initialization
+
+## SCRATCH CODE. WILL DELETE SOON
+
+# # OLD
+# # START Hamiltonian & Eigenvector Initialization
+#     # useful tuple when dealing with param_sets in this space
+#     ParamSet = namedtuple("ParamSet", "j_x j_z b_x b_z")
+
+# # USER INPUT
+#     # data for Hilbert Space
+#     num_qubits = 2
+#     b_x = .2
+#     j_x = 1
+#     j_z = 1
+#     b_zs = np.array([0,2,3])  # put your custom input here
+
+#     # data for target hamiltonian
+#     target_b_x = .3
+#     target_j_x = 2
+#     target_j_z = 1
+#     target_b_z = 2  # put your custom input here
+#     target_param_set = ParamSet(target_j_x,target_j_z,target_b_x,target_b_z)
+
+
+# # HILBERT SPACE SETUP
+
+#     # setting up hilbert space training points
+#     # create a param_set for each b_z value
+#     param_sets = [None] * len(b_zs)
+#     for idx, b_z in enumerate(b_zs):
+#         param_sets[idx] = ParamSet(j_x,j_z,b_x,b_z)
+#     # the above set of parameters are used as training points to construct the space
+#     training_points = param_sets
+
+# # HILBERT SPACE CREATION & USE
+#     # create new space of a type that implements HilbertSpaceAbstract (chosen by user)
+#     hilbert_space = NumpyArraySpace(training_points, num_qubits)
+
+#     # construct a target hamiltonian for the space to operate on
+#     init = hilbert_space.HamiltonianInitializer()
+#     input_ham = init.xxztype_hamiltonian(target_param_set, num_qubits)
+
+#     if not isinstance(hilbert_space, HilbertSpaceAbstract):
+#         print("hilbert_space has incorrect type")
+
+#     # initialize the basis vectors (eigenvectors in this case) on the subspace
+#     hilbert_space.calc_basis_vecs()
+
+#     # get the overlap matrix of the space
+#     overlap_s = hilbert_space.get_overlap_matrix()
+
+#     print(overlap_s)
+
+#     # calculate the subspace hamitonian for the given target hamiltonian
+#     target_ham = hilbert_space.get_sub_ham(input_ham)
+
+#     print(target_ham)
+
+# # GENERALIZED EIGNEVALUE PROBLEM
+#     # Form of GEP: target_ham @ evec = eval @ overlap_s @ evec
+#     # use above overlap matrix (overlap_s) and subspace hamiltonian (target_ham) to do GEP
+#     evals, evecs = eigh(target_ham, overlap_s) # uses scipy.linalg.eigh
+
+#     # FINISHED Tuesday  almost all of main method, and some flexibility stuff with the training pts
+#     #                   UML Diagram (on iPad) (still have some design questions)
+#     #
+#     # NEXT Wednesday    Ask Kemper about the weird eigh error (are my training points not good?)
+#     #                   Ask Kemper about the Questions on the UML Digram (design stuff mostly)
+
+
+#     print(evals, "\n", evecs, "\n\n")
+
+# NEW
+    # START Hamiltonian & Eigenvector Initialization
+
     # useful tuple when dealing with param_sets in this space
     ParamSet = namedtuple("ParamSet", "j_x j_z b_x b_z")
 
-# USER INPUT
-    # data for Hilbert Space
+    # TRAINING POINTS
     num_qubits = 2
     b_x = .2
     j_x = 1
     j_z = 1
     b_zs = np.array([0,2,3])  # put your custom input here
 
-    # data for target hamiltonian
+    # TARGET POINT
     target_b_x = .3
     target_j_x = 2
     target_j_z = 1
     target_b_z = 2  # put your custom input here
     target_param_set = ParamSet(target_j_x,target_j_z,target_b_x,target_b_z)
 
-
-# HILBERT SPACE SETUP
-
-    # setting up hilbert space training points
-    # create a param_set for each b_z value
     param_sets = [None] * len(b_zs)
     for idx, b_z in enumerate(b_zs):
         param_sets[idx] = ParamSet(j_x,j_z,b_x,b_z)
+
     # the above set of parameters are used as training points to construct the space
     training_points = param_sets
 
-# HILBERT SPACE CREATION & USE
-    # create new space of a type that implements HilbertSpaceAbstract (chosen by user)
+    # CREATES THE HILBERT SPACE
     hilbert_space = NumpyArraySpace(training_points, num_qubits)
 
-    # construct a target hamiltonian for the space to operate on
-    init = hilbert_space.HamiltonianInitializer()
-    input_ham = init.xxztype_hamiltonian(target_param_set, num_qubits)
+    eigenvector_continuer = EigenvectorContinuer(hilbert_space,target_param_set)
 
-    if not isinstance(hilbert_space, HilbertSpaceAbstract):
-        print("hilbert_space has incorrect type")
+    evals,evecs = eigenvector_continuer.solve_gep()
 
-    # initialize the basis vectors (eigenvectors in this case) on the subspace
-    hilbert_space.calc_basis_vecs()
-
-    # get the overlap matrix of the space
-    overlap_s = hilbert_space.get_overlap_matrix()
-
-    print(overlap_s)
-
-    # calculate the subspace hamitonian for the given target hamiltonian
-    target_ham = hilbert_space.get_sub_ham(input_ham)
-
-    print(target_ham)
-
-# GENERALIZED EIGNEVALUE PROBLEM
-    # Form of GEP: target_ham @ evec = eval @ overlap_s @ evec
-    # use above overlap matrix (overlap_s) and subspace hamiltonian (target_ham) to do GEP
-    evals, evecs = eigh(target_ham, overlap_s) # uses scipy.linalg.eigh
-
-    # FINISHED Tuesday  almost all of main method, and some flexibility stuff with the training pts
-    #                   UML Diagram (on iPad) (still have some design questions)
-    #
-    # NEXT Wednesday    Ask Kemper about the weird eigh error (are my training points not good?)
-    #                   Ask Kemper about the Questions on the UML Digram (design stuff mostly)
+    print(evals, "\n", evecs)
 
 
-    print(evals, "\n", evecs, "\n\n")
-    
+
+
+
+
+
+
+
+# # in python command line:
+# from collections import namedtuple
+# from abc import ABC, abstractmethod
+# import numpy as np
+# from scipy.linalg import eigh
+# import continuation_abstraction as ca
+
+# num_qubits = 2
+# b_x = .2
+# j_x = 1
+# j_z = 1
+# b_zs = np.array([0,2,3])
+
+# tbx = .3
+# tjx = 2
+# tjz = 1
+# tbz = 2
+# ParamSet = namedtuple("ParamSet", "j_x j_z b_x b_z")
+# tps = ParamSet(tjx, tjz, tbx, tbz)
+
+# ps = [None] * len(b_zs)
+# for idx, b_z in enumerate (b_zs):
+#     ps[idx] = ParamSet(j_x,j_z,b_x,b_z)
+
+# tnp = ps
+
+# hilbert_space = ca.NumpyArraySpace(tnp, num_qubits)
+
+# ec = ca.EigenvectorContinuer(hilbert_space,tps)
+
+# evals,evecs = ec.solve_gep()
+
+# print(evals, "\n", evecs)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
