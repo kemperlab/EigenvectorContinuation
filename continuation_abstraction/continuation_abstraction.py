@@ -674,15 +674,15 @@ def main():
 
     # TRAINING POINTS
     num_qubits = 2
-    b_x = .2
-    j_x = 2
-    j_z = 1
-    b_zs = np.array([0,3])  # put your custom input here
+    b_x = 0
+    j_x = -1
+    j_z = 0
+    b_zs = np.array([0,2])  # put your custom input here
 
     # TARGET POINT
-    target_b_x = .2
-    target_j_x = 2
-    target_j_z = 1
+    target_b_x = 0
+    target_j_x = -1
+    target_j_z = 0
     target_b_z = 1.5  # put your custom input here
     target_param_set = ParamSet(target_j_x,target_j_z,target_b_x,target_b_z)
 
