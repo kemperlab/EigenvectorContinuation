@@ -1,5 +1,6 @@
 #%%
 """ Tests continuation_abstraction interface methods.
+    OUTDATED
 
     Supported:      NumpyArraySpace implementation
     Unsupported:    Other concrete implementations

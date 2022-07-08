@@ -30,7 +30,7 @@ from collections import namedtuple
 from abc import ABC, abstractmethod
 import numpy as np
 from scipy.linalg import eigh
-# from matplotlib import pyplot as plt
+from matplotlib import pyplot as plt
 
 __author__ = "Jack Howard"
 __copyright__ = "TODO 2022, Kemper Lab -- North Carolina State University"
@@ -447,6 +447,7 @@ class EigenvectorContinuer():
         - fix properties so that they have to go through the fancy "gets"   (4)             √
         - update comments                                                   (during ^)      √
         - make num_qubits not in abstract                                                   √
+        - fix solve_gep
 
     """
 
@@ -565,6 +566,100 @@ class EigenvectorContinuer():
         self._evals, self._evecs = self.hilbert_space.solve_gep(subspace, overlap)
 
         return self.evals, self.evecs
+# vector not numpy
+
+
+
+
+# Plotting tools
+
+def plot_xxz_spectrum(bzmin, bzmax, evec_cont: EigenvectorContinuer):
+    DATA_POINTS = 100
+    """ determines fineness of curves """
+
+    # initializes plot and axes
+    fig, ax = plt.subplots()
+    ax.set_xlabel("$B_Z$")
+    ax.set_ylabel("Energy")
+
+    # PLOT POINTS FROM INPUT EC
+    # sets up hamiltonian initializer to reduce overhead in for loop
+    ham_init = evec_cont.hilbert_space.HamiltonianInitializer()
+
+    # "for every training point in the EC, ..."
+    for training_point in evec_cont.hilbert_space.training_points:
+        # "... calculate its hamiltonian, ..."
+        ham = ham_init.xxztype_hamiltonian(param_set=training_point,
+                                           n_qubits=evec_cont.hilbert_space.num_qubits)
+        # "... get the eigenvalues of that hamiltonian, ..."
+        evals = ham_init.calc_eigenpairs(ham)[0]
+
+        # " ... and plot each eigenvalue"
+        for current_eval in evals:
+            plt.plot(training_point.b_z, current_eval, marker="o", color="blue")
+
+
+    # gets the evals of the ec to reduce overhead of the for loop
+    ec_evals = evec_cont.evals
+
+    # plot each target point
+    for ec_eval in ec_evals:
+        plt.plot(evec_cont.current_target_point.b_z, ec_eval, marker="o", color="red")
+
+    # PLOT EXPECTED ENERGY CURVES
+    # get parameters for expected curves
+    j_x = evec_cont.hilbert_space.training_points[0].j_x
+    j_z = evec_cont.hilbert_space.training_points[0].j_z
+    b_x = evec_cont.hilbert_space.training_points[0].b_x
+
+    # get list of spaced out points
+    bzlist = np.linspace(bzmin, bzmax, DATA_POINTS)
+
+    # plot the lines
+    
+    all_evals = np.zeros([len(bzlist), 2**evec_cont.hilbert_space.num_qubits])
+    for idx, b_z in enumerate(bzlist):
+        param_set = ham_init.ParamSet(j_x, j_z, b_x, b_z)
+
+        ham = ham_init.xxztype_hamiltonian(param_set=param_set,
+                                           n_qubits=evec_cont.hilbert_space.num_qubits)
+        # if idx == 50:
+        # print(ham_init.calc_eigenpairs(ham)[0])
+        # print(idx)
+        all_evals[idx,:] = ham_init.calc_eigenpairs(ham)[0]
+
+
+    for idx in range(2**evec_cont.hilbert_space.num_qubits): 
+        ax.plot(bzlist, all_evals[:,idx], 'k-')
+        
+        # print(all_evals[:,idx])
+
+
+
+
+
+    ax.axvline(1.0, ls = "--", color="blue")    # shows vertical line that represents [unsure] TODO <--
+
+
+
+    
+    # for b_z in range(bzlist):
+    #     # make a new point of some kind with that b_z value
+    #     # make a hilbert space (?) with that point (/points?) 
+    #     # make an EC with that Hilbert Space
+    #     # do gep
+    #     # ask Kemper: should solve_gep be in concrete class?
+        
+    #     # result should be evals of some sort
+    #     ax.plot(bzlist, evals, 'k-')
+        
+    #     # also plot each training point (either at lowest energy value or all points)
+    #     # also plot each target point (either at lowest energy value or all points)
+    plt.show()
+    
+
+
+
 
 
 def main():
@@ -580,15 +675,15 @@ def main():
     # TRAINING POINTS
     num_qubits = 2
     b_x = .2
-    j_x = 1
+    j_x = 2
     j_z = 1
-    b_zs = np.array([0,2,3])  # put your custom input here
+    b_zs = np.array([0,3])  # put your custom input here
 
     # TARGET POINT
-    target_b_x = .3
+    target_b_x = .2
     target_j_x = 2
     target_j_z = 1
-    target_b_z = 2  # put your custom input here
+    target_b_z = 1.5  # put your custom input here
     target_param_set = ParamSet(target_j_x,target_j_z,target_b_x,target_b_z)
 
     param_sets = [None] * len(b_zs)
@@ -607,60 +702,7 @@ def main():
 
     print(evals, "\n", evecs)
 
-
-
-
-
-
-
-
-
-# # in python command line:
-# from collections import namedtuple
-# from abc import ABC, abstractmethod
-# import numpy as np
-# from scipy.linalg import eigh
-# import continuation_abstraction as ca
-
-# num_qubits = 2
-# b_x = .2
-# j_x = 1
-# j_z = 1
-# b_zs = np.array([0,2,3])
-
-# tbx = .3
-# tjx = 2
-# tjz = 1
-# tbz = 2
-# ParamSet = namedtuple("ParamSet", "j_x j_z b_x b_z")
-# tps = ParamSet(tjx, tjz, tbx, tbz)
-
-# ps = [None] * len(b_zs)
-# for idx, b_z in enumerate (b_zs):
-#     ps[idx] = ParamSet(j_x,j_z,b_x,b_z)
-
-# tnp = ps
-
-# hilbert_space = ca.NumpyArraySpace(tnp, num_qubits)
-
-# ec = ca.EigenvectorContinuer(hilbert_space,tps)
-
-# evals,evecs = ec.solve_gep()
-
-# print(evals, "\n", evecs)
-
-
-
-
-
-
-
-
-
-
-
-
-
+    plot_xxz_spectrum(0, 3, eigenvector_continuer)
 
 
 
@@ -772,108 +814,6 @@ def ignore_this():
 #         """
         
 #         return np.linalg.eigvalsh(ham) 
-
-# class SpectrumPlotter:
-#     DATA_POINTS = 100
-#     """ determines fineness of curves """
-
-#     ParamSet = namedtuple("ParamSet", "j_x j_z b_x b_z")
-#     """" useful tuple when dealing with param sets in this space """
-
-#     COMP_TOLERANCE = 1e-9
-#     """ tolernace when comparing two floats """
-    
-#     def plot_xxz_spectrum(self, bzlist, evals, points, phats, n):
-#         """ plots the spectrum along with training points and phats """
-
-#         ax = plt.subplots()[1]    # initializes axes
-#         ax.set_xlabel("$B_Z$")
-#         ax.set_ylabel("Energy")
-
-#         for idx in range(2**n):                       # prepares plot
-#             ax.plot(bzlist, evals[:,idx], 'k-')
-
-#         ax.axvline(1.0, ls = "--", color="blue")    # shows vertical line that represents [unsure] TODO <--
-
-#         # plot training points. i[1][0] corresponds to the lowest energy 
-#         for point in points:
-#             plt.plot(point.b_z, point.energies[0], marker="o", color="blue")
-
-#         # plot phats
-#         for phat in phats:
-#             plt.plot(phat.b_z, phat.energies[0], marker="o", color="orange")
-#             plt.plot(phat.b_z, phat.energies[1], marker="o", color="orange")
-     
-
-#         plt.show()
-
-#     def generate_xxz_type_spectrum(self, param_set, n=2):
-#         """ calculates the different hamiltonians, eigenvalues, and overlap matrix for the system
-#             and plots the spectrum on a plot"""
-
-#         # j_x = param_set.j_x
-#         # j_z = param_set.j_z
-#         # b_x = param_set.b_x
-#         # bzmin = param_set.bzmin
-#         # bzmax = param_set.bzmax
-
-#         # Initialize:
-#         # plotting tool: array of evenly spaced numbers between bzmin and bzmax
-#         bzlist = np.linspace(param_set.bzmin, param_set.bzmax, self.DATA_POINTS)
-#         evals, evecs = self.get_eigenpairs(param_set, bzlist, n)
-
-#         # Training Points:
-#         # getting n random training points
-#         num_points = n
-#         points = self.get_random_training_points(bzlist=bzlist, evals=evals, num_points=num_points)
-
-#         # Phats:
-#         # set up new points to diagonalize from: denoted phat
-#         # num_phats = n # Instead, make all point selection done in main
-#         while True:
-#             phats = self.get_random_training_points(bzlist=bzlist, evals=evals, num_points=n)
-
-#             if not self.compare_sets_of_points(points, phats):
-#                 break
-#         # sort phats in ascending order
-#         phats.sort()
-
-#         # Calculate Hams:
-#         # list of hamiltonians, one for each phat_k in phats
-#         hams = [None] * len(phats)
-
-#         # find the hamiltonian for each phat_k
-#         for idx_k, phat_k in enumerate(phats):
-#             b_zparam_set = self.ParamSet(j_x=param_set.j_x, j_z=param_set.j_z, b_x=param_set.b_x, b_z=phat_k.b_z)
-#             hams[idx_k] = self.xxztype_hamiltonian(param_set=b_zparam_set, n=n)
-
-#         # overlap Matrix:
-#         # get the S overlap matrix
-#         s = self.get_overlap_matrix(evecs=evecs, num_points=num_points)
-
-#         # Subspace Hams:
-#         # get the subspace hamiltonian for each phat_k value
-#         new_hams = self.calc_subspace_ham(hams=hams, evecs=evecs, num_points=num_points)
-#         # print(new_hams)
-
-#         # Diagonalization:
-#         energy_lists = [None] * len(hams) # use np.array
-#         # get eigenvals corresponding to each energy level for every hamiltonian
-#         for idx_k, new_ham_k in enumerate(new_hams):
-#             energy_lists[idx_k] = self.diagonalize_ham(new_ham_k)
-#             print("Iteraction",idx_k)
-#             print("New ham:")
-#             print(new_ham_k)
-#             print("Diagonalized:")
-#             print(energy_lists[idx_k]) 
-#             print()
-
-#             # Check:
-#             # checks to see if Inverse_overlap • New_Ham = Eigenvals
-#             print("S_inv • New ham (should correspond to Diagonalized value")
-#             print(np.linalg.inv(s) @ new_ham_k)
-
-#         self.plot_xxz_spectrum(bzlist, evals, points, phats, n)
 
     # type checking code for NumpyArray
     # def check_type_generic(self, value):
