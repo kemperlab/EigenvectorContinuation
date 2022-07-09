@@ -1,0 +1,34 @@
+# in python command line:
+
+from collections import namedtuple
+from abc import ABC, abstractmethod
+import numpy as np
+from scipy.linalg import eigh
+import continuation_abstraction as ca
+
+num_qubits = 2
+b_x = .2
+j_x = 1
+j_z = 1
+b_zs = np.array([0,2,3])
+
+tbx = .3
+tjx = 2
+tjz = 1
+tbz = 2
+ParamSet = namedtuple("ParamSet", "j_x j_z b_x b_z")
+tps = ParamSet(tjx, tjz, tbx, tbz)
+
+ps = [None] * len(b_zs)
+for idx, b_z in enumerate (b_zs):
+    ps[idx] = ParamSet(j_x,j_z,b_x,b_z)
+
+tnp = ps
+
+hilbert_space = ca.NumpyArraySpace(tnp, num_qubits)
+
+ec = ca.EigenvectorContinuer(hilbert_space,tps)
+
+evals,evecs = ec.solve_gep()
+
+print(evals, "\n", evecs)

@@ -434,22 +434,10 @@ class EigenvectorContinuer():
             solve_gep(...)
 
         TODO in this class:
-        - talked to Kemper about design stuff
-        - need to make HamInit inside HilbertSpace (b/c generalized vectors need init)      √ HamInit is now an inner class
-        - overlap matrix, not interaction matrix                                            √ variables named correctly
-        - pretty good picture of IO (treat like python library)                             √ understood
-        - main() works, as long as vectors aren't lin dep (b_x must not = 0)                √ ok, don't make vectors linearly dependent
-        - hard code pbc                                                                     √ pbc is no longer a required parameter
-        - soon, do solve_gep                                                (2)             √ check with Kemper that it works. 
-        - make hilbert space the argument for EC __init__                                   √ easy money. Use case: create hilbert_space with training points and num_qubits; create EC with that hilbert_space and some target points
-        - plot just in the module, no need for object                       (3)
-        - at some point, update UML to have all edits                       (1)             √
-        - fix properties so that they have to go through the fancy "gets"   (4)             √
-        - update comments                                                   (during ^)      √
-        - make num_qubits not in abstract                                                   √
-        - fix solve_gep
+        - fix solve_gep to be abstract
 
     """
+        # TODO see above comment
 
     @property
     def hilbert_space(self):
@@ -566,21 +554,28 @@ class EigenvectorContinuer():
         self._evals, self._evecs = self.hilbert_space.solve_gep(subspace, overlap)
 
         return self.evals, self.evecs
-# vector not numpy
-
-
+# TODO vector not numpy
 
 
 # Plotting tools
 
 def plot_xxz_spectrum(bzmin, bzmax, evec_cont: EigenvectorContinuer):
-    DATA_POINTS = 100
-    """ determines fineness of curves """
+    """ plots the spectrum of eigenvalues for a given EC
+
+        :param bzmin:       the minimum b_z value to plot
+        :param bzmax:       the maximum b_z value to plot
+        :param evec_cont:   the EC to plot (plots training and target points, and expected energies)
+
+    """
+
+    # determines fine-ness of curves
+    data_points = 100
+
 
     # initializes plot and axes
-    fig, ax = plt.subplots()
-    ax.set_xlabel("$B_Z$")
-    ax.set_ylabel("Energy")
+    fig, axes = plt.subplots()
+    axes.set_xlabel("$B_Z$")
+    axes.set_ylabel("Energy")
 
     # PLOT POINTS FROM INPUT EC
     # sets up hamiltonian initializer to reduce overhead in for loop
@@ -613,10 +608,9 @@ def plot_xxz_spectrum(bzmin, bzmax, evec_cont: EigenvectorContinuer):
     b_x = evec_cont.hilbert_space.training_points[0].b_x
 
     # get list of spaced out points
-    bzlist = np.linspace(bzmin, bzmax, DATA_POINTS)
+    bzlist = np.linspace(bzmin, bzmax, data_points)
 
     # plot the lines
-    
     all_evals = np.zeros([len(bzlist), 2**evec_cont.hilbert_space.num_qubits])
     for idx, b_z in enumerate(bzlist):
         param_set = ham_init.ParamSet(j_x, j_z, b_x, b_z)
@@ -628,45 +622,17 @@ def plot_xxz_spectrum(bzmin, bzmax, evec_cont: EigenvectorContinuer):
         # print(idx)
         all_evals[idx,:] = ham_init.calc_eigenpairs(ham)[0]
 
-
-    for idx in range(2**evec_cont.hilbert_space.num_qubits): 
-        ax.plot(bzlist, all_evals[:,idx], 'k-')
-        
+    for idx in range(2**evec_cont.hilbert_space.num_qubits):
+        axes.plot(bzlist, all_evals[:,idx], 'k-')
         # print(all_evals[:,idx])
 
+    axes.axvline(1.0, ls = "--", color="blue")    # shows vertical line that represents [unsure] TODO <--
 
-
-
-
-    ax.axvline(1.0, ls = "--", color="blue")    # shows vertical line that represents [unsure] TODO <--
-
-
-
-    
-    # for b_z in range(bzlist):
-    #     # make a new point of some kind with that b_z value
-    #     # make a hilbert space (?) with that point (/points?) 
-    #     # make an EC with that Hilbert Space
-    #     # do gep
-    #     # ask Kemper: should solve_gep be in concrete class?
-        
-    #     # result should be evals of some sort
-    #     ax.plot(bzlist, evals, 'k-')
-        
-    #     # also plot each training point (either at lowest energy value or all points)
-    #     # also plot each target point (either at lowest energy value or all points)
     plt.show()
-    
-
-
-
-
 
 def main():
-    """ generates the image, hamiltonian, and overlap matrix """
+    """ generates the plot for user-input values """
 
-
-# NEW
     # START Hamiltonian & Eigenvector Initialization
 
     # useful tuple when dealing with param_sets in this space
@@ -674,15 +640,16 @@ def main():
 
     # TRAINING POINTS
     num_qubits = 2
-    b_x = 0
+    b_x = .05
     j_x = -1
     j_z = 0
     b_zs = np.array([0,2])  # put your custom input here
 
     # TARGET POINT
-    target_b_x = 0
-    target_j_x = -1
-    target_j_z = 0
+    target_b_x = b_x
+    target_j_x = j_x
+    target_j_z = j_z
+
     target_b_z = 1.5  # put your custom input here
     target_param_set = ParamSet(target_j_x,target_j_z,target_b_x,target_b_z)
 
@@ -704,149 +671,7 @@ def main():
 
     plot_xxz_spectrum(0, 3, eigenvector_continuer)
 
-
-
-
-
-
 if __name__ == "__main__":
     main()
-
-# Random Notes
-# shouldn't need n, evals,
-# input: evecs, some ham of some osrt
-
-
-# GARBAGIO BELOWIO
-def ignore_this():
-
-# class TrainingPointUtil:
-#     DATA_POINTS = 100
-#     """ determines fineness of curves """
-
-#     ParamSet = namedtuple("ParamSet", "j_x j_z b_x b_z")
-#     """" useful tuple when dealing with param sets in this space """
-
-#     COMP_TOLERANCE = 1e-9
-#     """ tolernace when comparing two floats """
-    
-#     def get_random_training_points(self, bzlist, evals, num_points):
-#         """ returns random training points for the system
-
-#             It only accounts for Bz, but later updates will be more robust by exploring more
-#             degrees of freedom
-#         """
-#             # It only accounts for Bz, but later updates will be more robust by exploring more
-#             # degrees of freedom
-
-#         # initialize keys to keep track of randomness
-#         keys = [0] * len(evals)
-
-#         # named tuple used to organize points
-#         Point = namedtuple("Point", "b_z energies")
-
-#         points = [None] * num_points
-#         for i in range(num_points):
-
-#             keys[i] = random.randrange(0, len(bzlist) - 1)
-
-#             point = Point(b_z=bzlist[keys[i]], energies=evals[keys[i]])
-
-#             points[i] = point
-#             # first index is Bz values; second index is energy values of different states 
-
-#         return points
-
-#     def compare_sets_of_points(self, set_a, set_b):
-#         """ return true if any overlap in b_z values"""
-#         # test for redundancy
-#         for val_a in set_a:
-#             for val_b in set_b:
-#                 if math.isclose(val_a.b_z,val_b.b_z,rel_tol=self.COMP_TOLERANCE):
-#                     return True
-#         return False
-
-
-# class HermitianSpace:
-#     def get_overlap_matrix(self, evecs, num_points):
-#         """ gets the overlap matrix for a given system """
-
-#         # set up overlap matrix
-#         s = np.zeros([num_points, num_points], dtype=complex)
-#         # simple case: 2 qubits
-#         #       this iterates over all evecs but don't I only want the ground state?
-#         for i in range(num_points):
-#             for j in range(num_points):
-#                 vector1 = np.matrix(evecs[:,i])
-#                 vector2 = np.matrix(evecs[:,j])
-
-#                 vector2 = vector2.conj().T
-#                 s[i,j] = vector1 @ vector2
-#                 # print(s)
-
-#         return s
-
-#     def calc_subspace_ham(self, hams, evecs, num_points): #call evecs basis vector
-#         """ calculates the hamiltonian for the subspace of the system """
-
-#         new_hams = [None] * len(hams)
-#         # print(num_points)
-
-#         for idx_k, ham_k in enumerate(hams):
-#             new_ham = np.zeros([num_points, num_points], dtype=complex)
-#             for i in range(num_points):
-#                 for j in range(num_points):
-#                     vector1 = np.matrix(evecs[:,i])
-#                     vector2 = np.matrix(evecs[:,j])
-
-#                     vector2 = vector2.conj().T
-#                     new_ham[i,j] = vector1 @ ham_k @ vector2
-#             new_hams[idx_k] = new_ham
-#             # print(new_ham)
-
-#         return new_hams
-
-#     def diagonalize_ham(self, ham):
-#         """ returns the eigenvalues of the diagonalized hamoltonian 
-            
-#             this is its own function because while this is a very simple return statement here,
-#             future abstractions of this funtion will be less simple, but still follow this template
-#         """
-        
-#         return np.linalg.eigvalsh(ham) 
-
-    # type checking code for NumpyArray
-    # def check_type_generic(self, value):
-    #     """ helper method to verify all data in this implementation is in an np.ndarray """
-    #     if not isinstance(value, self.implementation_type):
-    #         raise ValueError("data should be of type np.ndarray")
-
-    # def check_basis_vecs_type(self, basis_vecs):
-    #     """ checks the type of each basis vector (should be np.ndarray) """
-    #     for basis_vec in basis_vecs:
-    #         self.check_type_generic(basis_vec)
-
-    # def check_ham_type(self, ham):
-    #     """ checks the type of the hamiltonian (should be np.ndarray) """
-    #     self.check_type_generic(ham)
-
-
-# class temp(): GET EVECS FOR SET OF TRAINING POINTS CODE
-    
-#         # number of points used to construct the Hilbert Space
-#         num_points = len(training_points)
-
-#         # initialize hamiltonians
-#         hamiltonian_initializer = HamiltonianInitializer()
-#         hams = [None] * len(training_points)
-#         for idx, training_points in enumerate(training_points):
-#             hams[idx] = hamiltonian_initializer.xxztype_hamiltonian(training_points,num_qubits)
-
-#         # calculate evecs for each ham
-#         evec_sets = [None] * len(training_points)
-#         for idx, ham in enumerate(hams):
-#             evec_sets[idx] = hamiltonian_initializer.get_eigenpairs(ham)[1]
-
-    pass
 
 #%%
