@@ -7,7 +7,7 @@
                                 behave. Hilbert Spaces are used to create EigenvectorContinuer
                                 objects. (abbr: HSA)
 
-        NumpyArraySpace:        An example concrete implementation of HilbertSpaceAbstract in which
+        VectorSpace:            An example concrete implementation of HilbertSpaceAbstract in which
                                 data is represented in the form of type np.ndarray
 
         EigenvectorContinuer:   A class used to take in any type of HSA and perform eigenvector
@@ -138,21 +138,7 @@ class HilbertSpaceAbstract(ABC):
             should be implemented by concrete class
         """
 
-    @abstractmethod
-    def solve_gep(self, a_matrix, b_matrix):
-        """ defines behavior to solve a generalized eignevalue problem of the form:
-            Ax = rBx
-            where A and B are linear transformations, x is an eigenvector, and r is an eigenvalue
-
-            :param a_matrix:    the A matrix
-            :param b_matrix:    the B matrix
-
-            :returns:           the eigenvalues, eigenvectors calculated
-
-            should be implemented by concrete class
-        """
-
-class NumpyArraySpace(HilbertSpaceAbstract):
+class VectorSpace(HilbertSpaceAbstract):
     """ defines Hilbert Space behavior for numpy arrays
 
         contains inner class to help construct hamiltonian
@@ -169,7 +155,7 @@ class NumpyArraySpace(HilbertSpaceAbstract):
         return self._num_qubits
 
     def __init__(self, training_points, num_qubits):
-        """ initializes an instance of a NumpyArraySpace and sets state variables
+        """ initializes an instance of a VectorSpace and sets state variables
 
             :param points:      the sets of points to use to construct the Hilbert Space
             :param num_qubits:  the number of qubits in the space
@@ -238,7 +224,7 @@ class NumpyArraySpace(HilbertSpaceAbstract):
         return vec1.conj() @ ham @ vec2
 
     def calc_overlap_matrix(self, points=None):
-        """ defines the overlap matrix for a NumpyArraySpace
+        """ defines the overlap matrix for a VectorSpace
 
             if points are passed in, these become the new training points of the space
             otherwise, the existing training points are used
@@ -303,21 +289,259 @@ class NumpyArraySpace(HilbertSpaceAbstract):
 
         return evecs[0]
 
-    def solve_gep(self, a_matrix, b_matrix):
-        """ Uses scipy.linalg eigh to solve the generalized eigenvalue problem of the form:
-            Ax = rBx
-            where A and B are linear transformations, x is an eigenvector, and r is an eigenvalue
-
-            :param a_matrix:    the A matrix
-            :param b_matrix:    the B matrix
-            :returns:           the eigenvalues, eigenvectors calculated
-        """
-
-        return eigh(a_matrix, b_matrix)
-
     class HamiltonianInitializer:
         """ initializes the hamiltonian """
 
+        _PAULIS = {}
+        """ defines dict of Paulis to use below """
+
+        ParamSet = namedtuple("ParamSet", "j_x j_z b_x b_z")
+        """" useful tuple when dealing with param sets in this space """
+
+        def __init__(self):
+            """ initializes class instance and Paulis dict """
+            self._PAULIS['X'] = np.array([[0,1],[1,0]], dtype=complex)
+            self._PAULIS['Y'] = np.array([[0,-1.j],[1.j,0]], dtype=complex)
+            self._PAULIS['Z'] = np.array([[1,0],[0,-1]], dtype=complex)
+            self._PAULIS['I'] = np.array([[1,0], [0,1]], dtype=complex)
+
+        def many_kron(self, ops):
+            """ produces Kronecker (Tensor) product from list of Pauli charaters
+
+                :param ops: the operations [as characters] to apply to a matrix
+            """
+
+            result = self._PAULIS[ops[0]]    # set result equal to first pauli given by the param
+            if len(ops) == 1:
+                return result
+
+            for opj in ops[1:]:             # for all the operations in the parameter
+                result = np.kron(result, self._PAULIS[opj])  # tensor product the current matrix w/
+                                                             # the next pauli in the parameter list
+            return result
+
+        def xxztype_hamiltonian(self, param_set, n_qubits, pbc=False):
+            """ produces the hamiltonian for a system where j_x = j_y and b_x = b_y
+
+                :param param_set:   the set of parameters: j_x, j_z, b_x, b_z
+                :param n_qubits:    the number of quibits
+                :param pbc:         periodic boundary condition wrap around logic boolean
+                :returns:           hamiltonian of the system
+            """
+
+            j_x = param_set.j_x
+            j_z = param_set.j_z
+            b_x = param_set.b_x
+            b_z = param_set.b_z
+
+            ham = np.zeros([2**n_qubits, 2**n_qubits], dtype=complex) # initializes the hamiltonian
+
+            # build hamiltonian matrix
+            for isite in range(n_qubits):
+
+                # Apply the Bz information to the hamiltonian matrix
+                oplist = ['I']*n_qubits     # makes list of operators (default = identity matrix)
+                oplist[isite] = 'Z'         # sets the isite-th entry to Z
+                ham += b_z * self.many_kron(oplist)  # applies the operations specified to the ham
+
+                # Apply the Bx information to the hamiltonian matrix
+                oplist = ['I']*n_qubits     # makes list of operators (default = identity matrix)
+                oplist[isite] = 'X'         # sets the isite-th entry to X
+                ham += b_x * self.many_kron(oplist)  # applies the operations specified to the ham
+
+                # checks whether to apply wrap-around rules
+                jsite = (isite + 1) % n_qubits
+                if (jsite != isite + 1 ) and not pbc:
+                    continue                            # skips the XX, YY, ZZ
+
+                # Apply the XX information to the hamiltonian
+                oplist = ['I']*n_qubits     # makes list of operators (default = identity matrix)
+                oplist[isite] = 'X'         # sets the isite-th entry to X
+                oplist[jsite] = 'X'         # sets the jsite-th entry to X
+                ham += j_x * self.many_kron(oplist)  # applies the operations specified to ham
+
+                # Apply the YY information to the hamiltonian
+                oplist = ['I']*n_qubits     # makes list of operators (default = identity matrix)
+                oplist[isite] = 'Y'         # sets the isite-th entry to Y
+                oplist[jsite] = 'Y'         # sets the jsite-th entry to Y
+                ham += j_x * self.many_kron(oplist)  # applies the operations specified to ham
+
+                # Apply the Z information to the hamiltonian
+                oplist = ['I']*n_qubits     # makes list of operators (default = identity matrix)
+                oplist[isite] = 'Z'         # sets the isite-th entry to Z
+                oplist[jsite] = 'Z'         # sets the jsite-th entry to Z
+                ham += j_z * self.many_kron(oplist)  # applies the operations specified to ham
+
+            return ham
+
+        def calc_eigenpairs(self, ham):
+            """ calcs the eigenpairs for a given param_setinate in a system
+
+                :param ham: the hamiltonian to get the eigenpairs from
+
+                :returns:   the eigenpairs as: evals, evecs
+            """
+
+            evals, evecs = np.linalg.eigh(ham)
+
+            return evals, evecs
+
+class UnitarySpace(HilbertSpaceAbstract):
+    """ defines Hilbert Space behavior for unitary matrices stored as numpy arrays
+
+        contains inner class to help construct hamiltonian
+    """
+
+    @property
+    def implementation_type(self):
+        """ I'm the current space's implementation type """
+        return np.ndarray
+
+    @property
+    def num_qubits(self):
+        """ I'm the current space's number of qubits """
+        return self._num_qubits
+
+    def __init__(self, training_points, num_qubits):
+        """ initializes an instance of a VectorSpace and sets state variables
+
+            :param points:      the sets of points to use to construct the Hilbert Space
+            :param num_qubits:  the number of qubits in the space
+        """
+# TODO initialization of UnitarySpace
+        self._num_qubits = num_qubits
+
+        super().__init__(training_points)
+
+    def calc_basis_vecs(self):
+        """ calculates the basis vectors for the given space
+            creates a hamiltonian for each point, and determines eigenvecs for each hamiltonian
+
+            :returns:   the calculated basis vecs
+        """
+# TODO unsure how relevant this is
+        # number of points used to construct the Hilbert Space
+        num_points = len(self.training_points)
+
+        # initialize hamiltonians
+        hamiltonian_initializer = self.HamiltonianInitializer()
+        hams = [None] * num_points
+        for idx, training_points in enumerate(self.training_points):
+            hams[idx] = hamiltonian_initializer.xxztype_hamiltonian(training_points,
+                                                                    self.num_qubits)
+
+        # calculate evecs for each ham; selects lowest energy evec to go in evec_set
+        evec_set = [None] * num_points
+        for idx, ham in enumerate(hams):
+            current_evecs = hamiltonian_initializer.calc_eigenpairs(ham)[1]
+            evec_set[idx] = self.select_vec(current_evecs)
+
+        self._basis_vecs = evec_set
+
+    def inner_product(self, vec1, vec2):
+        """ defines inner product for numpy array space
+
+            :param vec1:    the left vector of the inner product
+            :param vec2:    the right vector of the inner product
+
+            :returns:       inner product of vec1 & vec2
+        """
+# TODO inner products for unitaries are: <0| U_2_dagger U_1 |0>. store 0 as property?
+# TODO how to get unitary from training points?
+
+        # Raises error if argument argument types are not np.ndarray (np.matrix is allowed)
+        if (not isinstance(vec1, np.ndarray) or not isinstance(vec2, np.ndarray)):
+            raise ValueError("both vec1 and vec2 should be of type np.ndarray")
+
+        return vec1.conj() @ vec2
+
+    def expectation_value(self, vec1, ham, vec2):
+        """ defines expectation value calculation for numpy array space
+
+            :param vec1:    the left vector of the expectation value calculation
+            :param ham:     retrieve the expectation value w.r.t. this hamiltonian
+            :param vec2:    the right vector of the expectation value calculation
+
+            :returns:       the expectation value of the system
+        """
+# TODO unsure what expectation values for unitaries are. maybe: <0| U_2_dagger  ham  U_1 |0>
+        # Raises error if argument types are not np.ndarray (np.matrix is allowed)
+        if (not isinstance(vec1, np.ndarray) or
+            not isinstance(ham, np.ndarray) or
+            not isinstance(vec2, np.ndarray)):
+            raise ValueError("both vec1 and vec2 should be of type np.ndarray")
+
+        return vec1.conj() @ ham @ vec2
+
+    def calc_overlap_matrix(self, points=None):
+        """ defines the overlap matrix for a VectorSpace
+
+            if points are passed in, these become the new training points of the space
+            otherwise, the existing training points are used
+
+            For an overlap matrix S:
+            S[i,j] = inner_product(basis_vec_i, basis_vec_j)
+
+            :param points:  points to use as training points (optional)
+
+            :returns:       the calculated overlap matrix
+        """
+
+        if points is not None:
+            self._basis_vecs = points
+            self.calc_basis_vecs()
+
+        # dimensions of square matrix will be number of basis vectors
+        dim = len(self.basis_vecs)
+        overlap_s = np.zeros([dim, dim], dtype=complex)
+
+        # S[i,j] = inner_product(basis_vec_i, basis_vec_j)
+        for idx_i, vec_i in enumerate(self.basis_vecs):
+            for idx_j, vec_j in enumerate(self.basis_vecs):
+                overlap_s[idx_i, idx_j] = self.inner_product(vec_i, vec_j)
+
+        return overlap_s
+
+    def calc_sub_ham(self, ham):
+        """ defines a subspace hamiltonian for space given a hamiltonian in the space and
+            a set of spanning vectors (basis_vecs)
+
+            NB: ham cannot be constructed using the same points used to calc basis_vecs
+
+            Subspace Ham[i,j] = expectation_value(basis_vec_i, ham, basis_vec_j)
+
+            :param ham:     the hamiltonian used to find the subspace of
+
+            :returns:       the subspace hamiltonian
+        """
+# TODO I'm assuming this can stay the same?
+        # dimensions of square matrix will be number of basis vectors
+        dim = len(self.basis_vecs)
+        sub_ham = np.zeros([dim, dim], dtype=complex)
+
+        # SubspaceHam[i,j] = expectation_value(basis_vec_i, ham, basis_vec_j)
+        for idx_i, vec_i in enumerate(self.basis_vecs):
+            for idx_j, vec_j in enumerate(self.basis_vecs):
+                sub_ham[idx_i, idx_j] = self.expectation_value(vec_i, ham, vec_j)
+
+        return sub_ham
+
+    def select_vec(self, evecs):
+        """ returns the lowest energy evec
+
+            :param evecs:   the set of evecs
+
+            :returns:       the selected vector
+        """
+# TODO same?
+        if len(evecs) == 0:
+            pass
+
+        return evecs[0]
+
+    class HamiltonianInitializer:
+        """ initializes the hamiltonian """
+# TODO unsure what to do with this class in the unitary thing. Should a UnitarySpace have a VS?
         _PAULIS = {}
         """ defines dict of Paulis to use below """
 
@@ -433,11 +657,7 @@ class EigenvectorContinuer():
             calc_sub_ham(...)
             solve_gep(...)
 
-        TODO in this class:
-        - fix solve_gep to be abstract
-
     """
-        # TODO see above comment
 
     @property
     def hilbert_space(self):
@@ -539,22 +759,19 @@ class EigenvectorContinuer():
             :param input_training_points:   used to calculate the current hilbert space's
                                             overlap matrix. If None is passed, will default
                                             to current training_points in the hilbert space
-            :param input_target_point:     used to calculate the current hilbert space's
+            :param input_target_point:      used to calculate the current hilbert space's
                                             subspace hamiltonian. If None is passed, will default
                                             to current_target_point in this EC
             :returns:                       the evals, evecs calculated
         """
 
-        # calls the hilbert_space's method to solve the gep (which may differ depending on space)
-
         overlap = self.calc_overlap_matrix(input_training_points)
         subspace = self.calc_sub_ham(input_target_point)
 
 
-        self._evals, self._evecs = self.hilbert_space.solve_gep(subspace, overlap)
+        self._evals, self._evecs = eigh(subspace, overlap)
 
         return self.evals, self.evecs
-# TODO vector not numpy
 
 
 # Plotting tools
@@ -661,7 +878,7 @@ def main():
     training_points = param_sets
 
     # CREATES THE HILBERT SPACE
-    hilbert_space = NumpyArraySpace(training_points, num_qubits)
+    hilbert_space = VectorSpace(training_points, num_qubits)
 
     eigenvector_continuer = EigenvectorContinuer(hilbert_space,target_param_set)
 
