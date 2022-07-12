@@ -886,7 +886,8 @@ def main():
 
     evals,evecs = eigenvector_continuer.solve_gep()
 
-    print(evals, "\n", evecs)
+    condition_number = np.linalg.cond(eigenvector_continuer.overlap_matrix)
+    print("evals:\n", evals, "\nevecs:\n", evecs, "\ncondition number:\n", condition_number)
 
     plot_xxz_spectrum(0, 3, eigenvector_continuer)
 
