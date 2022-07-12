@@ -938,17 +938,17 @@ def main():
     # Print conditioning number
     # TRAINING POINTS
     num_qubits = 3
-    b_x = .05
+    b_x = 0.1
     j_x = -1
     j_z = 0
-    b_zs = np.array([0, 3])  # put your custom input here
+    b_zs = np.array([-.1,0.1, 3])  # put your custom input here
 
     # TARGET POINT
     target_b_x = b_x
     target_j_x = j_x
     target_j_z = j_z
 
-    target_b_z = 1.5  # put your custom input here
+    target_b_z = 2  # put your custom input here
     target_param_set = ParamSet(target_j_x,target_j_z,target_b_x,target_b_z)
 
     param_sets = [None] * len(b_zs)
@@ -968,7 +968,7 @@ def main():
     condition_number = np.linalg.cond(eigenvector_continuer.overlap_matrix)
     print("evals:\n", evals, "\nevecs:\n", evecs, "\ncondition number:\n", condition_number)
 
-    plot_xxz_spectrum(0, 3, eigenvector_continuer)
+    plot_xxz_spectrum(-1, 3, eigenvector_continuer)
 
 if __name__ == "__main__":
     main()
