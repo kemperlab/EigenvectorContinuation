@@ -30,6 +30,7 @@ from collections import namedtuple
 from abc import ABC, abstractmethod
 import numpy as np
 from scipy.linalg import eigh
+from scipy.linalg import null_space
 from matplotlib import pyplot as plt
 
 # TODO copyright
@@ -239,7 +240,7 @@ class NumPyVectorSpace(HilbertSpaceAbstract):
         """
 
         if points is not None:
-            self._basis_vecs = points
+            self._training_points = points
             self.calc_basis_vecs()
 
         # dimensions of square matrix will be number of basis vectors
@@ -403,16 +404,86 @@ class UnitarySpace(HilbertSpaceAbstract):
         """ I'm the current space's number of qubits """
         return self._num_qubits
 
+    @property
+    def unitaries(self):
+        """ I'm this space's list of unitaries. Each unitary is calculated from a basis vector
+            (all basis vectors are calculated from the input training points)
+        """
+        return self._unitaries
+
+    @property
+    def zero_bra(self):
+        """ I'm this space's zero_bra, to be used in many calculations. zero_bra is often
+            denoted as <0| and is defined as the row vector: (1 0 0 ... 0)  with length
+            2**num_qubits
+        """
+        return self._zero_bra
+
+    @property
+    def zero_ket(self):
+        """ I'm this space's zero_ket, to be used in many calculations. zero_ket is often
+            denoted as |0> and is defined as the column vector: (1 0 0 ... 0).T  with length
+            2**num_qubits
+        """
+        return self._zero_ket
+
     def __init__(self, training_points, num_qubits):
-        """ initializes an instance of a NumPyVectorSpace and sets state variables
+        """ initializes an instance of a UnitarySpace and sets state variables
 
             :param points:      the sets of points to use to construct the Hilbert Space
             :param num_qubits:  the number of qubits in the space
         """
-# TODO initialization of UnitarySpace
         self._num_qubits = num_qubits
 
         super().__init__(training_points)
+
+        # construct |0> for calculations
+        zero_ket = np.zeros([2**self._num_qubits], dtype="complex")
+        zero_ket[0] = 1.0
+        zero_ket = np.reshape(zero_ket, [2**self._num_qubits, 1])
+        self._zero_ket = zero_ket
+
+        self._zero_bra = np.reshape(self.zero_ket, [1, 2**self.num_qubits])
+
+        self._unitaries = self.calc_unitaries()
+
+    def calc_unitaries(self):
+        """ calculates the unitary for each vector in this instance's basis_vecs
+
+            :param vecs:    the vectors from which to calculate the unitaries
+            :returns:       the unitary matrix, one for each vector.
+        """
+
+        unitaries = [None] * len(self._basis_vecs)
+        for idx, vec in enumerate(self._basis_vecs):
+            unitaries[idx] = self.calc_unitary(vec)
+
+        return unitaries
+
+    def calc_unitary(self, input_vec):
+        """ calculates the unitary for a given vector
+
+            :param input_vec: the vector from which to calculate the unitary
+            :returns:   the unitary matrix for the vector
+        """
+        length = len(input_vec)
+        assert length == 2**self.num_qubits
+
+        # get from class property
+        zero_ket = self._zero_ket
+
+        # construct an orthonormal basis for the unitary
+        input_bra = np.reshape(input_vec, (1, length))
+        input_as_matrix = zero_ket @ input_bra
+        orthonormal_basis = null_space(input_as_matrix)
+
+        # construct the unitary
+        unitary = np.zeros([length, length], dtype="complex")
+        unitary[:,0] = input_vec
+        for idx in range(length - 1):
+            unitary[:, idx + 1] = orthonormal_basis[:, idx]
+
+        return unitary
 
     def calc_basis_vecs(self):
         """ calculates the basis vectors for the given space
@@ -420,7 +491,7 @@ class UnitarySpace(HilbertSpaceAbstract):
 
             :returns:   the calculated basis vecs
         """
-# TODO unsure how relevant this is
+
         # number of points used to construct the Hilbert Space
         num_points = len(self.training_points)
 
@@ -440,21 +511,24 @@ class UnitarySpace(HilbertSpaceAbstract):
         self._basis_vecs = evec_set
 
     def inner_product(self, vec1, vec2):
-        """ defines inner product for numpy array space
+        """ defines inner product for numpy array space. The vectors used as input are
+            assumed to be unitary matrices for this class
 
             :param vec1:    the left vector of the inner product
             :param vec2:    the right vector of the inner product
 
             :returns:       inner product of vec1 & vec2
         """
-# TODO inner products for unitaries are: <0| U_2_dagger U_1 |0>. store 0 as property?
-# TODO how to get unitary from training points?
+
+        # renaming of variables to match this class's use case
+        uni1 = vec1
+        uni2 = vec2
 
         # Raises error if argument argument types are not np.ndarray (np.matrix is allowed)
-        if (not isinstance(vec1, np.ndarray) or not isinstance(vec2, np.ndarray)):
+        if (not isinstance(uni1, np.ndarray) or not isinstance(uni2, np.ndarray)):
             raise ValueError("both vec1 and vec2 should be of type np.ndarray")
 
-        return vec1.conj() @ vec2
+        return self._zero_bra @ uni1.conj().T @ uni2 @ self._zero_ket
 
     def expectation_value(self, vec1, ham, vec2):
         """ defines expectation value calculation for numpy array space
@@ -465,23 +539,27 @@ class UnitarySpace(HilbertSpaceAbstract):
 
             :returns:       the expectation value of the system
         """
-# TODO unsure what expectation values for unitaries are. maybe: <0| U_2_dagger  ham  U_1 |0>
+
         # Raises error if argument types are not np.ndarray (np.matrix is allowed)
         if (not isinstance(vec1, np.ndarray) or
             not isinstance(ham, np.ndarray) or
             not isinstance(vec2, np.ndarray)):
             raise ValueError("both vec1 and vec2 should be of type np.ndarray")
 
-        return vec1.conj() @ ham @ vec2
+        # renaming of variables to match this class's use case
+        uni1 = vec1
+        uni2 = vec2
+
+        return self.zero_bra @ uni1.conj().T @ ham @ uni2 @ self.zero_ket
 
     def calc_overlap_matrix(self, points=None):
-        """ defines the overlap matrix for a NumPyVectorSpace
+        """ defines the overlap matrix for a UnitarySpace
 
             if points are passed in, these become the new training points of the space
             otherwise, the existing training points are used
 
             For an overlap matrix S:
-            S[i,j] = inner_product(basis_vec_i, basis_vec_j)
+            S[i,j] = inner_product(unitary_i, unitary_j)
 
             :param points:  points to use as training points (optional)
 
@@ -489,16 +567,17 @@ class UnitarySpace(HilbertSpaceAbstract):
         """
 
         if points is not None:
-            self._basis_vecs = points
+            self._training_points = points
             self.calc_basis_vecs()
+            self.calc_unitaries()
 
-        # dimensions of square matrix will be number of basis vectors
-        dim = len(self.basis_vecs)
+        # dimensions of square matrix will be number of unitaries
+        dim = len(self.unitaries)
         overlap_s = np.zeros([dim, dim], dtype=complex)
 
-        # S[i,j] = inner_product(basis_vec_i, basis_vec_j)
-        for idx_i, vec_i in enumerate(self.basis_vecs):
-            for idx_j, vec_j in enumerate(self.basis_vecs):
+        # S[i,j] = inner_product(unitary_i, unitary_j)
+        for idx_i, vec_i in enumerate(self.unitaries):
+            for idx_j, vec_j in enumerate(self.unitaries):
                 overlap_s[idx_i, idx_j] = self.inner_product(vec_i, vec_j)
 
         return overlap_s
@@ -509,20 +588,20 @@ class UnitarySpace(HilbertSpaceAbstract):
 
             NB: ham cannot be constructed using the same points used to calc basis_vecs
 
-            Subspace Ham[i,j] = expectation_value(basis_vec_i, ham, basis_vec_j)
+            Subspace Ham[i,j] = expectation_value(unitary_i, ham, unitary_j)
 
             :param ham:     the hamiltonian used to find the subspace of
 
             :returns:       the subspace hamiltonian
         """
-# TODO I'm assuming this can stay the same?
+
         # dimensions of square matrix will be number of basis vectors
-        dim = len(self.basis_vecs)
+        dim = len(self.unitaries)
         sub_ham = np.zeros([dim, dim], dtype=complex)
 
-        # SubspaceHam[i,j] = expectation_value(basis_vec_i, ham, basis_vec_j)
-        for idx_i, vec_i in enumerate(self.basis_vecs):
-            for idx_j, vec_j in enumerate(self.basis_vecs):
+        # SubspaceHam[i,j] = expectation_value(unitary_i, ham, unitary_j)
+        for idx_i, vec_i in enumerate(self.unitaries):
+            for idx_j, vec_j in enumerate(self.unitaries):
                 sub_ham[idx_i, idx_j] = self.expectation_value(vec_i, ham, vec_j)
 
         return sub_ham
@@ -534,15 +613,15 @@ class UnitarySpace(HilbertSpaceAbstract):
 
             :returns:       the selected vector
         """
-# TODO same?
+
         if len(evecs) == 0:
             pass
 
-        return evecs[0]
+        return evecs[:,0]
 
     class HamiltonianInitializer:
         """ initializes the hamiltonian """
-# TODO unsure what to do with this class in the unitary thing. Should a UnitarySpace have a VS?
+
         _PAULIS = {}
         """ defines dict of Paulis to use below """
 
@@ -791,7 +870,7 @@ def plot_xxz_spectrum(bzmin, bzmax, evec_cont: EigenvectorContinuer):
 
 
     # initializes plot and axes
-    fig, axes = plt.subplots()
+    axes = plt.subplots()[1]
     axes.set_xlabel("$B_Z$")
     axes.set_ylabel("Energy")
 
@@ -844,7 +923,7 @@ def plot_xxz_spectrum(bzmin, bzmax, evec_cont: EigenvectorContinuer):
         axes.plot(bzlist, all_evals[:,idx], 'k-')
         # print(all_evals[:,idx])
 
-    axes.axvline(1.0, ls = "--", color="blue")    # shows vertical line that represents crossing point
+    axes.axvline(1.0, ls = "--", color="blue")  # shows vertical line that represents crossing point
 
     plt.show()
 
@@ -858,7 +937,7 @@ def main():
 
     # Print conditioning number
     # TRAINING POINTS
-    num_qubits = 2
+    num_qubits = 3
     b_x = .05
     j_x = -1
     j_z = 0
@@ -880,7 +959,7 @@ def main():
     training_points = param_sets
 
     # CREATES THE HILBERT SPACE
-    hilbert_space = NumPyVectorSpace(training_points, num_qubits)
+    hilbert_space = UnitarySpace(training_points, num_qubits)
 
     eigenvector_continuer = EigenvectorContinuer(hilbert_space,target_param_set)
 
