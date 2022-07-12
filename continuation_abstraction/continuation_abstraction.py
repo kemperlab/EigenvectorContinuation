@@ -7,7 +7,7 @@
                                 behave. Hilbert Spaces are used to create EigenvectorContinuer
                                 objects. (abbr: HSA)
 
-        VectorSpace:            An example concrete implementation of HilbertSpaceAbstract in which
+        NumPyVectorSpace:       An example concrete implementation of HilbertSpaceAbstract in which
                                 data is represented in the form of type np.ndarray
 
         EigenvectorContinuer:   A class used to take in any type of HSA and perform eigenvector
@@ -32,6 +32,7 @@ import numpy as np
 from scipy.linalg import eigh
 from matplotlib import pyplot as plt
 
+# TODO copyright
 __author__ = "Jack Howard"
 __copyright__ = "TODO 2022, Kemper Lab -- North Carolina State University"
 __credits__ = "Jack Howard, Akhil Francis, Lex Kemper"
@@ -138,7 +139,7 @@ class HilbertSpaceAbstract(ABC):
             should be implemented by concrete class
         """
 
-class VectorSpace(HilbertSpaceAbstract):
+class NumPyVectorSpace(HilbertSpaceAbstract):
     """ defines Hilbert Space behavior for numpy arrays
 
         contains inner class to help construct hamiltonian
@@ -155,7 +156,7 @@ class VectorSpace(HilbertSpaceAbstract):
         return self._num_qubits
 
     def __init__(self, training_points, num_qubits):
-        """ initializes an instance of a VectorSpace and sets state variables
+        """ initializes an instance of a NumPyVectorSpace and sets state variables
 
             :param points:      the sets of points to use to construct the Hilbert Space
             :param num_qubits:  the number of qubits in the space
@@ -224,7 +225,7 @@ class VectorSpace(HilbertSpaceAbstract):
         return vec1.conj() @ ham @ vec2
 
     def calc_overlap_matrix(self, points=None):
-        """ defines the overlap matrix for a VectorSpace
+        """ defines the overlap matrix for a NumPyVectorSpace
 
             if points are passed in, these become the new training points of the space
             otherwise, the existing training points are used
@@ -287,7 +288,7 @@ class VectorSpace(HilbertSpaceAbstract):
         if len(evecs) == 0:
             pass
 
-        return evecs[0]
+        return evecs[:,0]
 
     class HamiltonianInitializer:
         """ initializes the hamiltonian """
@@ -403,7 +404,7 @@ class UnitarySpace(HilbertSpaceAbstract):
         return self._num_qubits
 
     def __init__(self, training_points, num_qubits):
-        """ initializes an instance of a VectorSpace and sets state variables
+        """ initializes an instance of a NumPyVectorSpace and sets state variables
 
             :param points:      the sets of points to use to construct the Hilbert Space
             :param num_qubits:  the number of qubits in the space
@@ -474,7 +475,7 @@ class UnitarySpace(HilbertSpaceAbstract):
         return vec1.conj() @ ham @ vec2
 
     def calc_overlap_matrix(self, points=None):
-        """ defines the overlap matrix for a VectorSpace
+        """ defines the overlap matrix for a NumPyVectorSpace
 
             if points are passed in, these become the new training points of the space
             otherwise, the existing training points are used
@@ -843,7 +844,7 @@ def plot_xxz_spectrum(bzmin, bzmax, evec_cont: EigenvectorContinuer):
         axes.plot(bzlist, all_evals[:,idx], 'k-')
         # print(all_evals[:,idx])
 
-    axes.axvline(1.0, ls = "--", color="blue")    # shows vertical line that represents [unsure] TODO <--
+    axes.axvline(1.0, ls = "--", color="blue")    # shows vertical line that represents crossing point
 
     plt.show()
 
@@ -855,12 +856,13 @@ def main():
     # useful tuple when dealing with param_sets in this space
     ParamSet = namedtuple("ParamSet", "j_x j_z b_x b_z")
 
+    # Print conditioning number
     # TRAINING POINTS
     num_qubits = 2
     b_x = .05
     j_x = -1
     j_z = 0
-    b_zs = np.array([0,2])  # put your custom input here
+    b_zs = np.array([0, 3])  # put your custom input here
 
     # TARGET POINT
     target_b_x = b_x
@@ -878,7 +880,7 @@ def main():
     training_points = param_sets
 
     # CREATES THE HILBERT SPACE
-    hilbert_space = VectorSpace(training_points, num_qubits)
+    hilbert_space = NumPyVectorSpace(training_points, num_qubits)
 
     eigenvector_continuer = EigenvectorContinuer(hilbert_space,target_param_set)
 

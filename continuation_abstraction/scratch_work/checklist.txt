@@ -1,17 +1,17 @@
-        - talked to Kemper about design stuff
-        - need to make HamInit inside HilbertSpace (b/c generalized vectors need init)      √ HamInit is now an inner class
-        - overlap matrix, not interaction matrix                                            √ variables named correctly
-        - pretty good picture of IO (treat like python library)                             √ understood
-        - main() works, as long as vectors aren't lin dep (b_x must not = 0)                √ ok, don't make vectors linearly dependent
-        - hard code pbc                                                                     √ pbc is no longer a required parameter
-        - soon, do solve_gep                                                (2)             √ check with Kemper that it works. 
-        - make hilbert space the argument for EC __init__                                   √ easy money. Use case: create hilbert_space with training points and num_qubits; create EC with that hilbert_space and some target points
-        - plot just in the module, no need for object                       (3)             √
-        - at some point, update UML to have all edits                       (1)             √
-        - fix properties so that they have to go through the fancy "gets"   (4)             √
-        - update comments                                                   (during ^)      √
-        - make num_qubits not in abstract                                                   √
-        - fix gep in abstract
-        - fix name of NumpyArraySpace
-        - copyright?
-        - vertical line
+        - talked to Kemper about design                                                 √
+        - need to make HamInit inside HilbertSpace (b/c generalized vectors need init)  √ HamInit is now an inner class
+        - overlap matrix, not interaction matrix                                        √ variables named correctly
+        - pretty good picture of IO (treat like python library)                         √ understood
+        - main() works, as long as vectors aren't lin dep (b_x must not = 0)            √ ok, don't make vectors linearly dependent
+        - hard code pbc                                                                 √ pbc is no longer a required parameter
+        - soon, do solve_gep                                                (2)         √ check with Kemper that it works. 
+        - make hilbert space the argument for EC __init__                               √ easy money. Use case: create hilbert_space with training points and num_qubits; create EC with that hilbert_space and some target points
+        - plot just in the module, no need for object                       (3)         √
+        - at some point, update UML to have all edits                       (1)         √
+        - fix properties so that they have to go through the fancy "gets"   (4)         √
+        - update comments                                                   (during ^)  √
+        - make num_qubits not in abstract                                               √
+        - fix gep in abstract                                                           √
+        - fix name of NumpyArraySpace                                                   √
+        - copyright?                                                                    
+        - vertical line                                                                 √
