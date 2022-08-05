@@ -41,9 +41,8 @@ from scipy.linalg import eigh
 from scipy.linalg import null_space
 from matplotlib import pyplot as plt
 
-# TODO copyright
 __author__ = "Jack Howard"
-__copyright__ = "Copyright (c) 2022 kemper-lab -- North Carolina State University"
+__copyright__ = "Copyright (c) 2022 Kemper Lab"
 __credits__ = "Jack Howard, Akhil Francis, Lex Kemper"
 
 class HilbertSpaceAbstract(ABC):
