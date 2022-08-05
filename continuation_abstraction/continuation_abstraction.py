@@ -10,22 +10,30 @@
         NumPyVectorSpace:       An example concrete implementation of HilbertSpaceAbstract in which
                                 data is represented in the form of type np.ndarray
 
+        UnitarySpace:           An example concrete implementation of HSA in which vectors are
+                                defined as their corresponding unitary matrices
+
         EigenvectorContinuer:   A class used to take in any type of HSA and perform eigenvector
                                 continuation operations using the HSA and some representation of
                                 a target point. (abbr: EC)
 
+        plotting tools          Multiple target points are used to produce a simple plot. Details
+                                may vary depending on implementation specifics
+
         sample code used to showcase the EigenvectorContinuation process
+
 
     -----------------------------------------------------------------------------------------------
     SOON TO INCLUDE:
-        plotting tools:         currently in development. Multiple target points are used to
-                                produce a plot. Details may vary depending on implementation
-                                specifics
+        CircuitSpace:           A concrete implementation of HSA that stores and calculates data
+                                using the Qiskit library
+
+        CircuitMimicSpace:      A concrete implementation of HSA that stores and calculates data
+                                as a simplified linear algebra representation used in quantum
+                                circuits. Does not use Qiskit
     -----------------------------------------------------------------------------------------------
 """
 
-# import random
-# import math
 from collections import namedtuple
 from abc import ABC, abstractmethod
 import numpy as np
@@ -35,7 +43,7 @@ from matplotlib import pyplot as plt
 
 # TODO copyright
 __author__ = "Jack Howard"
-__copyright__ = "TODO 2022, Kemper Lab -- North Carolina State University"
+__copyright__ = "Copyright (c) 2022 kemper-lab -- North Carolina State University"
 __credits__ = "Jack Howard, Akhil Francis, Lex Kemper"
 
 class HilbertSpaceAbstract(ABC):
@@ -937,11 +945,11 @@ def main():
 
     # Print conditioning number
     # TRAINING POINTS
-    num_qubits = 3
-    b_x = 0.1
+    num_qubits = 2
+    b_x = 0.2
     j_x = -1
     j_z = 0
-    b_zs = np.array([-.1,0.1, 3])  # put your custom input here
+    b_zs = np.array([-.5,0.1, 3])  # put your custom training point input here
 
     # TARGET POINT
     target_b_x = b_x
