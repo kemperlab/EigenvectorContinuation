@@ -1,0 +1,1395 @@
+[-1, 0.1, 0.1, 2, False]
+Adding vector for parameter set [-1, 0.1, 0.1, 2, False]
+[-1, 0.1, 1.3, 2, False]
+Adding vector for parameter set [-1, 0.1, 1.3, 2, False]
+
+basis continuer:
+[ 0.06338421+0.j -0.70356409+0.j -0.70356409+0.j  0.07731482+0.j]
+[-0.00593814+0.j  0.15533724+0.j  0.15533724+0.j -0.97555391+0.j]
+overlap_matrix_continuer:
+  [[ 1.        +0.j -0.29438056+0.j]
+ [-0.29438056-0.j  1.        +0.j]]
+Hamiltonian_continuer:
+  [[-2.02078205+0.j  0.62466751+0.j]
+ [ 0.62466751-0.j -0.72850563+0.j]]
+fullvec
+[-0.06308015+0.j  0.70222138+0.j  0.70222138+0.j -0.09895023+0.j]
+overlap_matrix_continuer:
+  [[ 1.        +0.j -0.29438056+0.j]
+ [-0.29438056-0.j  1.        +0.j]]
+Hamiltonian_continuer:
+  [[-2.02156606+0.j  0.65468687+0.j]
+ [ 0.65468687-0.j -1.1091737 +0.j]]
+fullvec
+[-0.06247528+0.j  0.69906782+0.j  0.69906782+0.j -0.13676699+0.j]
+overlap_matrix_continuer:
+  [[ 1.        +0.j -0.29438056+0.j]
+ [-0.29438056-0.j  1.        +0.j]]
+Hamiltonian_continuer:
+  [[-2.02235007+0.j  0.68470622+0.j]
+ [ 0.68470622-0.j -1.48984176+0.j]]
+fullvec
+[-0.06086212+0.j  0.68881268+0.j  0.68881268+0.j -0.21764648+0.j]
+overlap_matrix_continuer:
+  [[ 1.        +0.j -0.29438056+0.j]
+ [-0.29438056-0.j  1.        +0.j]]
+Hamiltonian_continuer:
+  [[-2.02391809+0.j  0.74474493+0.j]
+ [ 0.74474493-0.j -2.25117789+0.j]]
+fullvec
+[-0.02223849+0.j  0.32624945+0.j  0.32624945+0.j -0.88692054+0.j]
+overlap_matrix_continuer:
+  [[ 1.        +0.j -0.29438056+0.j]
+ [-0.29438056-0.j  1.        +0.j]]
+Hamiltonian_continuer:
+  [[-2.02548611+0.j  0.80478365+0.j]
+ [ 0.80478365-0.j -3.01251402+0.j]]
+fullvec
+[-5.86367980e-04+0.j  9.79035724e-02+0.j  9.79035724e-02+0.j
+ -9.90368334e-01+0.j]
+overlap_matrix_continuer:
+  [[ 1.        +0.j -0.29438056+0.j]
+ [-0.29438056-0.j  1.        +0.j]]
+Hamiltonian_continuer:
+  [[-2.02627011+0.j  0.834803  +0.j]
+ [ 0.834803  -0.j -3.39318209+0.j]]
+fullvec
+[ 0.00189162+0.j  0.07109834+0.j  0.07109834+0.j -0.99493039+0.j]
+overlap_matrix_continuer:
+  [[ 1.        +0.j -0.29438056+0.j]
+ [-0.29438056-0.j  1.        +0.j]]
+Hamiltonian_continuer:
+  [[-2.02705412+0.j  0.86482236+0.j]
+ [ 0.86482236-0.j -3.77385015+0.j]]
+fullvec
+[ 0.00330228+0.j  0.05577882+0.j  0.05577882+0.j -0.9968784 +0.j]
+(8, 8)
+[[ 0.70710678+0.j  0.        +0.j  0.        +0.j  0.        +0.j
+   0.70710678+0.j  0.        +0.j  0.        +0.j  0.        +0.j]
+ [ 0.        +0.j  0.70710678+0.j  0.        +0.j  0.        +0.j
+   0.        +0.j  0.70710678+0.j  0.        +0.j  0.        +0.j]
+ [ 0.        +0.j  0.        +0.j  0.70710678+0.j  0.        +0.j
+   0.        +0.j  0.        +0.j  0.70710678+0.j  0.        +0.j]
+ [ 0.        +0.j  0.        +0.j  0.        +0.j  0.70710678+0.j
+   0.        +0.j  0.        +0.j  0.        +0.j  0.70710678+0.j]
+ [ 0.70710678+0.j  0.        +0.j  0.        +0.j  0.        +0.j
+  -0.70710678+0.j -0.        +0.j -0.        +0.j -0.        +0.j]
+ [ 0.        +0.j  0.70710678+0.j  0.        +0.j  0.        +0.j
+  -0.        +0.j -0.70710678+0.j -0.        +0.j -0.        +0.j]
+ [ 0.        +0.j  0.        +0.j  0.70710678+0.j  0.        +0.j
+  -0.        +0.j -0.        +0.j -0.70710678+0.j -0.        +0.j]
+ [ 0.        +0.j  0.        +0.j  0.        +0.j  0.70710678+0.j
+  -0.        +0.j -0.        +0.j -0.        +0.j -0.70710678+0.j]]
+(8, 8)
+Successfully loaded project Z_meas2siteBx=0.1Bztrain[0.1, 1.3]
+Phi01	Complete!
+PauliZ000	Complete!
+PauliX000	Complete!
+PauliX0X100	Complete!
+PauliY0Y100	Complete!
+PauliZ100	Complete!
+PauliX100	Complete!
+PauliZ001	Complete!
+PauliX001	Complete!
+PauliX0X101	Complete!
+PauliY0Y101	Complete!
+PauliZ101	Complete!
+PauliX101	Complete!
+PauliZ011	Complete!
+PauliX011	Complete!
+PauliX0X111	Complete!
+PauliY0Y111	Complete!
+PauliZ111	Complete!
+PauliX111	Complete!
+Started running project Z_meas2siteBx=0.1Bztrain[0.1, 1.3]
+Phi01	Complete!
+PauliZ000	Complete!
+PauliX000	Complete!
+PauliX0X100	Complete!
+PauliY0Y100	Complete!
+PauliZ100	Complete!
+PauliX100	Complete!
+PauliZ001	Complete!
+PauliX001	Complete!
+PauliX0X101	Complete!
+PauliY0Y101	Complete!
+PauliZ101	Complete!
+PauliX101	Complete!
+PauliZ011	Complete!
+PauliX011	Complete!
+PauliX0X111	Complete!
+PauliY0Y111	Complete!
+PauliZ111	Complete!
+PauliX111	Complete!
+Finished running project Z_meas2siteBx=0.1Bztrain[0.1, 1.3]
+Successfully loaded project Z_meas2siteBx=0.1Bztrain[0.1, 1.3]
+Phi01	Complete!
+PauliZ000	Complete!
+PauliX000	Complete!
+PauliX0X100	Complete!
+PauliY0Y100	Complete!
+PauliZ100	Complete!
+PauliX100	Complete!
+PauliZ001	Complete!
+PauliX001	Complete!
+PauliX0X101	Complete!
+PauliY0Y101	Complete!
+PauliZ101	Complete!
+PauliX101	Complete!
+PauliZ011	Complete!
+PauliX011	Complete!
+PauliX0X111	Complete!
+PauliY0Y111	Complete!
+PauliZ111	Complete!
+PauliX111	Complete!
+Started running project Z_meas2siteBx=0.1Bztrain[0.1, 1.3]
+Phi01	Complete!
+PauliZ000	Complete!
+PauliX000	Complete!
+PauliX0X100	Complete!
+PauliY0Y100	Complete!
+PauliZ100	Complete!
+PauliX100	Complete!
+PauliZ001	Complete!
+PauliX001	Complete!
+PauliX0X101	Complete!
+PauliY0Y101	Complete!
+PauliZ101	Complete!
+PauliX101	Complete!
+PauliZ011	Complete!
+PauliX011	Complete!
+PauliX0X111	Complete!
+PauliY0Y111	Complete!
+PauliZ111	Complete!
+PauliX111	Complete!
+Finished running project Z_meas2siteBx=0.1Bztrain[0.1, 1.3]
+Successfully loaded project Z_meas2siteBx=0.1Bztrain[0.1, 1.3]
+Phi01	Complete!
+PauliZ000	Complete!
+PauliX000	Complete!
+PauliX0X100	Complete!
+PauliY0Y100	Complete!
+PauliZ100	Complete!
+PauliX100	Complete!
+PauliZ001	Complete!
+PauliX001	Complete!
+PauliX0X101	Complete!
+PauliY0Y101	Complete!
+PauliZ101	Complete!
+PauliX101	Complete!
+PauliZ011	Complete!
+PauliX011	Complete!
+PauliX0X111	Complete!
+PauliY0Y111	Complete!
+PauliZ111	Complete!
+PauliX111	Complete!
+Started running project Z_meas2siteBx=0.1Bztrain[0.1, 1.3]
+Phi01	Complete!
+PauliZ000	Complete!
+PauliX000	Complete!
+PauliX0X100	Complete!
+PauliY0Y100	Complete!
+PauliZ100	Complete!
+PauliX100	Complete!
+PauliZ001	Complete!
+PauliX001	Complete!
+PauliX0X101	Complete!
+PauliY0Y101	Complete!
+PauliZ101	Complete!
+PauliX101	Complete!
+PauliZ011	Complete!
+PauliX011	Complete!
+PauliX0X111	Complete!
+PauliY0Y111	Complete!
+PauliZ111	Complete!
+PauliX111	Complete!
+Finished running project Z_meas2siteBx=0.1Bztrain[0.1, 1.3]
+Successfully loaded project Z_meas2siteBx=0.1Bztrain[0.1, 1.3]
+Phi01	Complete!
+PauliZ000	Complete!
+PauliX000	Complete!
+PauliX0X100	Complete!
+PauliY0Y100	Complete!
+PauliZ100	Complete!
+PauliX100	Complete!
+PauliZ001	Complete!
+PauliX001	Complete!
+PauliX0X101	Complete!
+PauliY0Y101	Complete!
+PauliZ101	Complete!
+PauliX101	Complete!
+PauliZ011	Complete!
+PauliX011	Complete!
+PauliX0X111	Complete!
+PauliY0Y111	Complete!
+PauliZ111	Complete!
+PauliX111	Complete!
+Started running project Z_meas2siteBx=0.1Bztrain[0.1, 1.3]
+Phi01	Complete!
+PauliZ000	Complete!
+PauliX000	Complete!
+PauliX0X100	Complete!
+PauliY0Y100	Complete!
+PauliZ100	Complete!
+PauliX100	Complete!
+PauliZ001	Complete!
+PauliX001	Complete!
+PauliX0X101	Complete!
+PauliY0Y101	Complete!
+PauliZ101	Complete!
+PauliX101	Complete!
+PauliZ011	Complete!
+PauliX011	Complete!
+PauliX0X111	Complete!
+PauliY0Y111	Complete!
+PauliZ111	Complete!
+PauliX111	Complete!
+Finished running project Z_meas2siteBx=0.1Bztrain[0.1, 1.3]
+Successfully loaded project Z_meas2siteBx=0.1Bztrain[0.1, 1.3]
+Phi01	Complete!
+PauliZ000	Complete!
+PauliX000	Complete!
+PauliX0X100	Complete!
+PauliY0Y100	Complete!
+PauliZ100	Complete!
+PauliX100	Complete!
+PauliZ001	Complete!
+PauliX001	Complete!
+PauliX0X101	Complete!
+PauliY0Y101	Complete!
+PauliZ101	Complete!
+PauliX101	Complete!
+PauliZ011	Complete!
+PauliX011	Complete!
+PauliX0X111	Complete!
+PauliY0Y111	Complete!
+PauliZ111	Complete!
+PauliX111	Complete!
+Started running project Z_meas2siteBx=0.1Bztrain[0.1, 1.3]
+Phi01	Complete!
+PauliZ000	Complete!
+PauliX000	Complete!
+PauliX0X100	Complete!
+PauliY0Y100	Complete!
+PauliZ100	Complete!
+PauliX100	Complete!
+PauliZ001	Complete!
+PauliX001	Complete!
+PauliX0X101	Complete!
+PauliY0Y101	Complete!
+PauliZ101	Complete!
+PauliX101	Complete!
+PauliZ011	Complete!
+PauliX011	Complete!
+PauliX0X111	Complete!
+PauliY0Y111	Complete!
+PauliZ111	Complete!
+PauliX111	Complete!
+Finished running project Z_meas2siteBx=0.1Bztrain[0.1, 1.3]
+Successfully loaded project Z_meas2siteBx=0.1Bztrain[0.1, 1.3]
+Phi01	Complete!
+PauliZ000	Complete!
+PauliX000	Complete!
+PauliX0X100	Complete!
+PauliY0Y100	Complete!
+PauliZ100	Complete!
+PauliX100	Complete!
+PauliZ001	Complete!
+PauliX001	Complete!
+PauliX0X101	Complete!
+PauliY0Y101	Complete!
+PauliZ101	Complete!
+PauliX101	Complete!
+PauliZ011	Complete!
+PauliX011	Complete!
+PauliX0X111	Complete!
+PauliY0Y111	Complete!
+PauliZ111	Complete!
+PauliX111	Complete!
+Started running project Z_meas2siteBx=0.1Bztrain[0.1, 1.3]
+Phi01	Complete!
+PauliZ000	Complete!
+PauliX000	Complete!
+PauliX0X100	Complete!
+PauliY0Y100	Complete!
+PauliZ100	Complete!
+PauliX100	Complete!
+PauliZ001	Complete!
+PauliX001	Complete!
+PauliX0X101	Complete!
+PauliY0Y101	Complete!
+PauliZ101	Complete!
+PauliX101	Complete!
+PauliZ011	Complete!
+PauliX011	Complete!
+PauliX0X111	Complete!
+PauliY0Y111	Complete!
+PauliZ111	Complete!
+PauliX111	Complete!
+Finished running project Z_meas2siteBx=0.1Bztrain[0.1, 1.3]
+Successfully loaded project Z_meas2siteBx=0.1Bztrain[0.1, 1.3]
+Phi01	Complete!
+PauliZ000	Complete!
+PauliX000	Complete!
+PauliX0X100	Complete!
+PauliY0Y100	Complete!
+PauliZ100	Complete!
+PauliX100	Complete!
+PauliZ001	Complete!
+PauliX001	Complete!
+PauliX0X101	Complete!
+PauliY0Y101	Complete!
+PauliZ101	Complete!
+PauliX101	Complete!
+PauliZ011	Complete!
+PauliX011	Complete!
+PauliX0X111	Complete!
+PauliY0Y111	Complete!
+PauliZ111	Complete!
+PauliX111	Complete!
+Started running project Z_meas2siteBx=0.1Bztrain[0.1, 1.3]
+Phi01	Complete!
+PauliZ000	Complete!
+PauliX000	Complete!
+PauliX0X100	Complete!
+PauliY0Y100	Complete!
+PauliZ100	Complete!
+PauliX100	Complete!
+PauliZ001	Complete!
+PauliX001	Complete!
+PauliX0X101	Complete!
+PauliY0Y101	Complete!
+PauliZ101	Complete!
+PauliX101	Complete!
+PauliZ011	Complete!
+PauliX011	Complete!
+PauliX0X111	Complete!
+PauliY0Y111	Complete!
+PauliZ111	Complete!
+PauliX111	Complete!
+Finished running project Z_meas2siteBx=0.1Bztrain[0.1, 1.3]
+Successfully loaded project Z_meas2siteBx=0.1Bztrain[0.1, 1.3]
+Phi01	Complete!
+PauliZ000	Complete!
+PauliX000	Complete!
+PauliX0X100	Complete!
+PauliY0Y100	Complete!
+PauliZ100	Complete!
+PauliX100	Complete!
+PauliZ001	Complete!
+PauliX001	Complete!
+PauliX0X101	Complete!
+PauliY0Y101	Complete!
+PauliZ101	Complete!
+PauliX101	Complete!
+PauliZ011	Complete!
+PauliX011	Complete!
+PauliX0X111	Complete!
+PauliY0Y111	Complete!
+PauliZ111	Complete!
+PauliX111	Complete!
+Started running project Z_meas2siteBx=0.1Bztrain[0.1, 1.3]
+Phi01	Complete!
+PauliZ000	Complete!
+PauliX000	Complete!
+PauliX0X100	Complete!
+PauliY0Y100	Complete!
+PauliZ100	Complete!
+PauliX100	Complete!
+PauliZ001	Complete!
+PauliX001	Complete!
+PauliX0X101	Complete!
+PauliY0Y101	Complete!
+PauliZ101	Complete!
+PauliX101	Complete!
+PauliZ011	Complete!
+PauliX011	Complete!
+PauliX0X111	Complete!
+PauliY0Y111	Complete!
+PauliZ111	Complete!
+PauliX111	Complete!
+Finished running project Z_meas2siteBx=0.1Bztrain[0.1, 1.3]
+Successfully loaded project Z_meas2siteBx=0.1Bztrain[0.1, 1.3]
+Phi01	Complete!
+PauliZ000	Complete!
+PauliX000	Complete!
+PauliX0X100	Complete!
+PauliY0Y100	Complete!
+PauliZ100	Complete!
+PauliX100	Complete!
+PauliZ001	Complete!
+PauliX001	Complete!
+PauliX0X101	Complete!
+PauliY0Y101	Complete!
+PauliZ101	Complete!
+PauliX101	Complete!
+PauliZ011	Complete!
+PauliX011	Complete!
+PauliX0X111	Complete!
+PauliY0Y111	Complete!
+PauliZ111	Complete!
+PauliX111	Complete!
+Started running project Z_meas2siteBx=0.1Bztrain[0.1, 1.3]
+Phi01	Complete!
+PauliZ000	Complete!
+PauliX000	Complete!
+PauliX0X100	Complete!
+PauliY0Y100	Complete!
+PauliZ100	Complete!
+PauliX100	Complete!
+PauliZ001	Complete!
+PauliX001	Complete!
+PauliX0X101	Complete!
+PauliY0Y101	Complete!
+PauliZ101	Complete!
+PauliX101	Complete!
+PauliZ011	Complete!
+PauliX011	Complete!
+PauliX0X111	Complete!
+PauliY0Y111	Complete!
+PauliZ111	Complete!
+PauliX111	Complete!
+Finished running project Z_meas2siteBx=0.1Bztrain[0.1, 1.3]
+Successfully loaded project Z_meas2siteBx=0.1Bztrain[0.1, 1.3]
+Phi01	Complete!
+PauliZ000	Complete!
+PauliX000	Complete!
+PauliX0X100	Complete!
+PauliY0Y100	Complete!
+PauliZ100	Complete!
+PauliX100	Complete!
+PauliZ001	Complete!
+PauliX001	Complete!
+PauliX0X101	Complete!
+PauliY0Y101	Complete!
+PauliZ101	Complete!
+PauliX101	Complete!
+PauliZ011	Complete!
+PauliX011	Complete!
+PauliX0X111	Complete!
+PauliY0Y111	Complete!
+PauliZ111	Complete!
+PauliX111	Complete!
+Started running project Z_meas2siteBx=0.1Bztrain[0.1, 1.3]
+Phi01	Complete!
+PauliZ000	Complete!
+PauliX000	Complete!
+PauliX0X100	Complete!
+PauliY0Y100	Complete!
+PauliZ100	Complete!
+PauliX100	Complete!
+PauliZ001	Complete!
+PauliX001	Complete!
+PauliX0X101	Complete!
+PauliY0Y101	Complete!
+PauliZ101	Complete!
+PauliX101	Complete!
+PauliZ011	Complete!
+PauliX011	Complete!
+PauliX0X111	Complete!
+PauliY0Y111	Complete!
+PauliZ111	Complete!
+PauliX111	Complete!
+Finished running project Z_meas2siteBx=0.1Bztrain[0.1, 1.3]
+Successfully loaded project Z_meas2siteBx=0.1Bztrain[0.1, 1.3]
+Phi01	Complete!
+PauliZ000	Complete!
+PauliX000	Complete!
+PauliX0X100	Complete!
+PauliY0Y100	Complete!
+PauliZ100	Complete!
+PauliX100	Complete!
+PauliZ001	Complete!
+PauliX001	Complete!
+PauliX0X101	Complete!
+PauliY0Y101	Complete!
+PauliZ101	Complete!
+PauliX101	Complete!
+PauliZ011	Complete!
+PauliX011	Complete!
+PauliX0X111	Complete!
+PauliY0Y111	Complete!
+PauliZ111	Complete!
+PauliX111	Complete!
+Started running project Z_meas2siteBx=0.1Bztrain[0.1, 1.3]
+Phi01	Complete!
+PauliZ000	Complete!
+PauliX000	Complete!
+PauliX0X100	Complete!
+PauliY0Y100	Complete!
+PauliZ100	Complete!
+PauliX100	Complete!
+PauliZ001	Complete!
+PauliX001	Complete!
+PauliX0X101	Complete!
+PauliY0Y101	Complete!
+PauliZ101	Complete!
+PauliX101	Complete!
+PauliZ011	Complete!
+PauliX011	Complete!
+PauliX0X111	Complete!
+PauliY0Y111	Complete!
+PauliZ111	Complete!
+PauliX111	Complete!
+Finished running project Z_meas2siteBx=0.1Bztrain[0.1, 1.3]
+Successfully loaded project Z_meas2siteBx=0.1Bztrain[0.1, 1.3]
+Phi01	Complete!
+PauliZ000	Complete!
+PauliX000	Complete!
+PauliX0X100	Complete!
+PauliY0Y100	Complete!
+PauliZ100	Complete!
+PauliX100	Complete!
+PauliZ001	Complete!
+PauliX001	Complete!
+PauliX0X101	Complete!
+PauliY0Y101	Complete!
+PauliZ101	Complete!
+PauliX101	Complete!
+PauliZ011	Complete!
+PauliX011	Complete!
+PauliX0X111	Complete!
+PauliY0Y111	Complete!
+PauliZ111	Complete!
+PauliX111	Complete!
+Started running project Z_meas2siteBx=0.1Bztrain[0.1, 1.3]
+Phi01	Complete!
+PauliZ000	Complete!
+PauliX000	Complete!
+PauliX0X100	Complete!
+PauliY0Y100	Complete!
+PauliZ100	Complete!
+PauliX100	Complete!
+PauliZ001	Complete!
+PauliX001	Complete!
+PauliX0X101	Complete!
+PauliY0Y101	Complete!
+PauliZ101	Complete!
+PauliX101	Complete!
+PauliZ011	Complete!
+PauliX011	Complete!
+PauliX0X111	Complete!
+PauliY0Y111	Complete!
+PauliZ111	Complete!
+PauliX111	Complete!
+Finished running project Z_meas2siteBx=0.1Bztrain[0.1, 1.3]
+Successfully loaded project Z_meas2siteBx=0.1Bztrain[0.1, 1.3]
+Phi01	Complete!
+PauliZ000	Complete!
+PauliX000	Complete!
+PauliX0X100	Complete!
+PauliY0Y100	Complete!
+PauliZ100	Complete!
+PauliX100	Complete!
+PauliZ001	Complete!
+PauliX001	Complete!
+PauliX0X101	Complete!
+PauliY0Y101	Complete!
+PauliZ101	Complete!
+PauliX101	Complete!
+PauliZ011	Complete!
+PauliX011	Complete!
+PauliX0X111	Complete!
+PauliY0Y111	Complete!
+PauliZ111	Complete!
+PauliX111	Complete!
+Started running project Z_meas2siteBx=0.1Bztrain[0.1, 1.3]
+Phi01	Complete!
+PauliZ000	Complete!
+PauliX000	Complete!
+PauliX0X100	Complete!
+PauliY0Y100	Complete!
+PauliZ100	Complete!
+PauliX100	Complete!
+PauliZ001	Complete!
+PauliX001	Complete!
+PauliX0X101	Complete!
+PauliY0Y101	Complete!
+PauliZ101	Complete!
+PauliX101	Complete!
+PauliZ011	Complete!
+PauliX011	Complete!
+PauliX0X111	Complete!
+PauliY0Y111	Complete!
+PauliZ111	Complete!
+PauliX111	Complete!
+Finished running project Z_meas2siteBx=0.1Bztrain[0.1, 1.3]
+Successfully loaded project Z_meas2siteBx=0.1Bztrain[0.1, 1.3]
+Phi01	Complete!
+PauliZ000	Complete!
+PauliX000	Complete!
+PauliX0X100	Complete!
+PauliY0Y100	Complete!
+PauliZ100	Complete!
+PauliX100	Complete!
+PauliZ001	Complete!
+PauliX001	Complete!
+PauliX0X101	Complete!
+PauliY0Y101	Complete!
+PauliZ101	Complete!
+PauliX101	Complete!
+PauliZ011	Complete!
+PauliX011	Complete!
+PauliX0X111	Complete!
+PauliY0Y111	Complete!
+PauliZ111	Complete!
+PauliX111	Complete!
+Started running project Z_meas2siteBx=0.1Bztrain[0.1, 1.3]
+Phi01	Complete!
+PauliZ000	Complete!
+PauliX000	Complete!
+PauliX0X100	Complete!
+PauliY0Y100	Complete!
+PauliZ100	Complete!
+PauliX100	Complete!
+PauliZ001	Complete!
+PauliX001	Complete!
+PauliX0X101	Complete!
+PauliY0Y101	Complete!
+PauliZ101	Complete!
+PauliX101	Complete!
+PauliZ011	Complete!
+PauliX011	Complete!
+PauliX0X111	Complete!
+PauliY0Y111	Complete!
+PauliZ111	Complete!
+PauliX111	Complete!
+Finished running project Z_meas2siteBx=0.1Bztrain[0.1, 1.3]
+Successfully loaded project Z_meas2siteBx=0.1Bztrain[0.1, 1.3]
+Phi01	Complete!
+PauliZ000	Complete!
+PauliX000	Complete!
+PauliX0X100	Complete!
+PauliY0Y100	Complete!
+PauliZ100	Complete!
+PauliX100	Complete!
+PauliZ001	Complete!
+PauliX001	Complete!
+PauliX0X101	Complete!
+PauliY0Y101	Complete!
+PauliZ101	Complete!
+PauliX101	Complete!
+PauliZ011	Complete!
+PauliX011	Complete!
+PauliX0X111	Complete!
+PauliY0Y111	Complete!
+PauliZ111	Complete!
+PauliX111	Complete!
+Started running project Z_meas2siteBx=0.1Bztrain[0.1, 1.3]
+Phi01	Complete!
+PauliZ000	Complete!
+PauliX000	Complete!
+PauliX0X100	Complete!
+PauliY0Y100	Complete!
+PauliZ100	Complete!
+PauliX100	Complete!
+PauliZ001	Complete!
+PauliX001	Complete!
+PauliX0X101	Complete!
+PauliY0Y101	Complete!
+PauliZ101	Complete!
+PauliX101	Complete!
+PauliZ011	Complete!
+PauliX011	Complete!
+PauliX0X111	Complete!
+PauliY0Y111	Complete!
+PauliZ111	Complete!
+PauliX111	Complete!
+Finished running project Z_meas2siteBx=0.1Bztrain[0.1, 1.3]
+Successfully loaded project Z_meas2siteBx=0.1Bztrain[0.1, 1.3]
+Phi01	Complete!
+PauliZ000	Complete!
+PauliX000	Complete!
+PauliX0X100	Complete!
+PauliY0Y100	Complete!
+PauliZ100	Complete!
+PauliX100	Complete!
+PauliZ001	Complete!
+PauliX001	Complete!
+PauliX0X101	Complete!
+PauliY0Y101	Complete!
+PauliZ101	Complete!
+PauliX101	Complete!
+PauliZ011	Complete!
+PauliX011	Complete!
+PauliX0X111	Complete!
+PauliY0Y111	Complete!
+PauliZ111	Complete!
+PauliX111	Complete!
+Started running project Z_meas2siteBx=0.1Bztrain[0.1, 1.3]
+Phi01	Complete!
+PauliZ000	Complete!
+PauliX000	Complete!
+PauliX0X100	Complete!
+PauliY0Y100	Complete!
+PauliZ100	Complete!
+PauliX100	Complete!
+PauliZ001	Complete!
+PauliX001	Complete!
+PauliX0X101	Complete!
+PauliY0Y101	Complete!
+PauliZ101	Complete!
+PauliX101	Complete!
+PauliZ011	Complete!
+PauliX011	Complete!
+PauliX0X111	Complete!
+PauliY0Y111	Complete!
+PauliZ111	Complete!
+PauliX111	Complete!
+Finished running project Z_meas2siteBx=0.1Bztrain[0.1, 1.3]
+Successfully loaded project Z_meas2siteBx=0.1Bztrain[0.1, 1.3]
+Phi01	Complete!
+PauliZ000	Complete!
+PauliX000	Complete!
+PauliX0X100	Complete!
+PauliY0Y100	Complete!
+PauliZ100	Complete!
+PauliX100	Complete!
+PauliZ001	Complete!
+PauliX001	Complete!
+PauliX0X101	Complete!
+PauliY0Y101	Complete!
+PauliZ101	Complete!
+PauliX101	Complete!
+PauliZ011	Complete!
+PauliX011	Complete!
+PauliX0X111	Complete!
+PauliY0Y111	Complete!
+PauliZ111	Complete!
+PauliX111	Complete!
+Started running project Z_meas2siteBx=0.1Bztrain[0.1, 1.3]
+Phi01	Complete!
+PauliZ000	Complete!
+PauliX000	Complete!
+PauliX0X100	Complete!
+PauliY0Y100	Complete!
+PauliZ100	Complete!
+PauliX100	Complete!
+PauliZ001	Complete!
+PauliX001	Complete!
+PauliX0X101	Complete!
+PauliY0Y101	Complete!
+PauliZ101	Complete!
+PauliX101	Complete!
+PauliZ011	Complete!
+PauliX011	Complete!
+PauliX0X111	Complete!
+PauliY0Y111	Complete!
+PauliZ111	Complete!
+PauliX111	Complete!
+Finished running project Z_meas2siteBx=0.1Bztrain[0.1, 1.3]
+Successfully loaded project Z_meas2siteBx=0.1Bztrain[0.1, 1.3]
+Phi01	Complete!
+PauliZ000	Complete!
+PauliX000	Complete!
+PauliX0X100	Complete!
+PauliY0Y100	Complete!
+PauliZ100	Complete!
+PauliX100	Complete!
+PauliZ001	Complete!
+PauliX001	Complete!
+PauliX0X101	Complete!
+PauliY0Y101	Complete!
+PauliZ101	Complete!
+PauliX101	Complete!
+PauliZ011	Complete!
+PauliX011	Complete!
+PauliX0X111	Complete!
+PauliY0Y111	Complete!
+PauliZ111	Complete!
+PauliX111	Complete!
+Started running project Z_meas2siteBx=0.1Bztrain[0.1, 1.3]
+Phi01	Complete!
+PauliZ000	Complete!
+PauliX000	Complete!
+PauliX0X100	Complete!
+PauliY0Y100	Complete!
+PauliZ100	Complete!
+PauliX100	Complete!
+PauliZ001	Complete!
+PauliX001	Complete!
+PauliX0X101	Complete!
+PauliY0Y101	Complete!
+PauliZ101	Complete!
+PauliX101	Complete!
+PauliZ011	Complete!
+PauliX011	Complete!
+PauliX0X111	Complete!
+PauliY0Y111	Complete!
+PauliZ111	Complete!
+PauliX111	Complete!
+Finished running project Z_meas2siteBx=0.1Bztrain[0.1, 1.3]
+Successfully loaded project Z_meas2siteBx=0.1Bztrain[0.1, 1.3]
+Phi01	Complete!
+PauliZ000	Complete!
+PauliX000	Complete!
+PauliX0X100	Complete!
+PauliY0Y100	Complete!
+PauliZ100	Complete!
+PauliX100	Complete!
+PauliZ001	Complete!
+PauliX001	Complete!
+PauliX0X101	Complete!
+PauliY0Y101	Complete!
+PauliZ101	Complete!
+PauliX101	Complete!
+PauliZ011	Complete!
+PauliX011	Complete!
+PauliX0X111	Complete!
+PauliY0Y111	Complete!
+PauliZ111	Complete!
+PauliX111	Complete!
+Started running project Z_meas2siteBx=0.1Bztrain[0.1, 1.3]
+Phi01	Complete!
+PauliZ000	Complete!
+PauliX000	Complete!
+PauliX0X100	Complete!
+PauliY0Y100	Complete!
+PauliZ100	Complete!
+PauliX100	Complete!
+PauliZ001	Complete!
+PauliX001	Complete!
+PauliX0X101	Complete!
+PauliY0Y101	Complete!
+PauliZ101	Complete!
+PauliX101	Complete!
+PauliZ011	Complete!
+PauliX011	Complete!
+PauliX0X111	Complete!
+PauliY0Y111	Complete!
+PauliZ111	Complete!
+PauliX111	Complete!
+Finished running project Z_meas2siteBx=0.1Bztrain[0.1, 1.3]
+Transpiling  ibmq_qasm_simulator
+Transpiled
+jobid evc:  6219913647f373784737838a
+jobid evc calibs:  6219914ba1648754a6e6eff5
+calibration matrix : 
+[[1. 0.]
+ [0. 1.]]
+Overlap matrix_bundle qsearch:
+ [[ 1.        +0.j         -0.29785156+0.00878906j]
+ [-0.29785156-0.00878906j  1.        +0.j        ]]
+Bzmatrix_bundle qsearch:
+ [[-0.015625  -0.00048828j  0.17114257+0.00854492j]
+ [ 0.        +0.j         -1.90478516+0.00854492j]]
+Bxmatrix_bundle qsearch:
+ [[-0.39038086-0.01245117j  1.42553706-0.00488281j]
+ [ 0.        +0.j         -0.61279297+0.01318359j]]
+Jmatrix_bundle qsearch:
+ [[ 1.97973632+0.01416016j -0.4248047 -0.01782227j]
+ [ 0.        +0.j          0.09106445-0.02709961j]]
+Hamiltonian qsearch:
+ [[-2.02346191-0.01555176j  0.61870118+0.01989746j]
+ [ 0.61870118-0.01989746j -0.7237793 +0.03098145j]]
+Evals qsearch:  [-2.02474175 -0.58611201]
+Hamiltonian qsearch:
+ [[-2.02658691-0.01564941j  0.65292969+0.02160645j]
+ [ 0.65292969-0.02160645j -1.10473633+0.03269043j]]
+Evals qsearch:  [-2.03076263 -0.97925615]
+Hamiltonian qsearch:
+ [[-2.02971191-0.01574707j  0.68715821+0.02331543j]
+ [ 0.68715821-0.02331543j -1.48569336+0.03439941j]]
+Evals qsearch:  [-2.04378263 -1.36540117]
+Hamiltonian qsearch:
+ [[-2.03596191-0.01594238j  0.75561524+0.0267334j ]
+ [ 0.75561524-0.0267334j  -2.24760742+0.03781738j]]
+Evals qsearch:  [-2.28042597 -1.92708786]
+Hamiltonian qsearch:
+ [[-2.04221191-0.0161377j   0.82407227+0.03015137j]
+ [ 0.82407227-0.03015137j -3.00952148+0.04123535j]]
+Evals qsearch:  [-3.0185756  -1.98726828]
+Hamiltonian qsearch:
+ [[-2.04533691-0.01623535j  0.85830078+0.03186035j]
+ [ 0.85830078-0.03186035j -3.39047851+0.04294434j]]
+Evals qsearch:  [-3.41151008 -1.99349881]
+Hamiltonian qsearch:
+ [[-2.04846191-0.01633301j  0.89252929+0.03356934j]
+ [ 0.89252929-0.03356934j -3.77143555+0.04465332j]]
+Evals qsearch:  [-3.80713423 -1.99703968]
+results/LCU/Basis/basis_uniatrismeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.3]
+Started running project Zmeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.3]Bztarg0.3
+LCUcircZbasis	Not started.
+Starting compilation of LCUcircZbasis
+There are 8 processors available to Pool.
+The branching factor is 2.
+The beam factor is 4.
+Creating a pool of 8 workers
+New best! 0.2896539702044556 at depth 0
+New best! score: 0.28148372315332626 at depth: 1
+New best! score: 0.2235024943720767 at depth: 2
+New best! score: 0.22346917289851853 at depth: 3
+New best! score: 0.214078870958456 at depth: 3
+New best! score: 0.19684532246862585 at depth: 3
+New best! score: 0.10122034523476231 at depth: 4
+New best! score: 0.0919344279556934 at depth: 4
+New best! score: 0.08389725821199912 at depth: 5
+New best! score: 0.08105245137452366 at depth: 6
+New best! score: 0.05507621929458362 at depth: 6
+New best! score: 0.046508310860529534 at depth: 6
+New best! score: 0.03641297270956767 at depth: 7
+New best! score: 0.035768531742573884 at depth: 7
+New best! score: 0.03562048563813702 at depth: 7
+New best! score: -4.440892098500626e-16 at depth: 8
+Finished compilation at depth 8 with score -4.440892098500626e-16 after 21.97916988700308 seconds.
+Finished compilation of LCUcircZbasis
+LCUcircZbasis	Complete!
+Finished running project Zmeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.3]Bztarg0.3
+results/LCU/Basis/basis_uniatrismeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.3]
+Started running project Xmeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.3]Bztarg0.3
+LCUcircXbasis	Not started.
+Starting compilation of LCUcircXbasis
+There are 8 processors available to Pool.
+The branching factor is 2.
+The beam factor is 4.
+Creating a pool of 8 workers
+New best! 0.2896539686934013 at depth 0
+New best! score: 0.28148372347105444 at depth: 1
+New best! score: 0.22350249547283574 at depth: 2
+New best! score: 0.22346917461694893 at depth: 3
+New best! score: 0.19684531976986797 at depth: 3
+New best! score: 0.10122034567232463 at depth: 4
+New best! score: 0.10117689820265474 at depth: 5
+New best! score: 0.10117689737043445 at depth: 5
+New best! score: 0.08560386847487889 at depth: 5
+New best! score: 0.08419656561199562 at depth: 5
+New best! score: 0.08340329784711498 at depth: 6
+New best! score: 0.08189762841366277 at depth: 6
+New best! score: 0.05178368275669354 at depth: 6
+New best! score: 0.03641297257434983 at depth: 7
+New best! score: 0.03576853180699935 at depth: 7
+New best! score: 0.03562048563665976 at depth: 7
+New best! score: -4.440892098500626e-16 at depth: 8
+Finished compilation at depth 8 with score -4.440892098500626e-16 after 24.778146151998953 seconds.
+Finished compilation of LCUcircXbasis
+LCUcircXbasis	Complete!
+Finished running project Xmeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.3]Bztarg0.3
+results/LCU/Basis/basis_uniatrismeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.3]
+Started running project Ymeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.3]Bztarg0.3
+LCUcircYbasis	Not started.
+Starting compilation of LCUcircYbasis
+There are 8 processors available to Pool.
+The branching factor is 2.
+The beam factor is 4.
+Creating a pool of 8 workers
+New best! 0.2896539683017755 at depth 0
+New best! score: 0.28148372287053947 at depth: 1
+New best! score: 0.22350249420537083 at depth: 2
+New best! score: 0.2234691730860604 at depth: 3
+New best! score: 0.21407887206106935 at depth: 3
+New best! score: 0.19684531716937304 at depth: 3
+New best! score: 0.10122034515999201 at depth: 4
+New best! score: 0.10117689720644907 at depth: 5
+New best! score: 0.08389725831408612 at depth: 5
+New best! score: 0.05507621934765672 at depth: 6
+New best! score: 0.05462530993099701 at depth: 6
+New best! score: 0.05178368307776626 at depth: 6
+New best! score: 0.036412972568861446 at depth: 7
+New best! score: 0.03576853165465288 at depth: 7
+New best! score: 1.1102230246251565e-16 at depth: 8
+Finished compilation at depth 8 with score 1.1102230246251565e-16 after 24.879655994998757 seconds.
+Finished compilation of LCUcircYbasis
+LCUcircYbasis	Complete!
+Finished running project Ymeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.3]Bztarg0.3
+results/LCU/Basis/basis_uniatrismeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.3]
+Started running project Zmeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.3]Bztarg0.5
+LCUcircZbasis	Not started.
+Starting compilation of LCUcircZbasis
+There are 8 processors available to Pool.
+The branching factor is 2.
+The beam factor is 4.
+Creating a pool of 8 workers
+New best! 0.28965433146167263 at depth 0
+New best! score: 0.28148372516025166 at depth: 1
+New best! score: 0.24896490034386665 at depth: 2
+New best! score: 0.22350249500228592 at depth: 2
+New best! score: 0.22346917509112363 at depth: 3
+New best! score: 0.21407886877901638 at depth: 3
+New best! score: 0.19684531785357773 at depth: 3
+New best! score: 0.1689351287445211 at depth: 4
+New best! score: 0.10122034516824685 at depth: 4
+New best! score: 0.10117689729626023 at depth: 5
+New best! score: 0.08389725830247907 at depth: 5
+New best! score: 0.06941095672073982 at depth: 6
+New best! score: 0.05178368272468714 at depth: 6
+New best! score: 0.03641297294640378 at depth: 7
+New best! score: 0.0364129728454875 at depth: 7
+New best! score: 0.0 at depth: 8
+Finished compilation at depth 8 with score 0.0 after 27.179714435995265 seconds.
+Finished compilation of LCUcircZbasis
+LCUcircZbasis	Complete!
+Finished running project Zmeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.3]Bztarg0.5
+results/LCU/Basis/basis_uniatrismeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.3]
+Started running project Xmeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.3]Bztarg0.5
+LCUcircXbasis	Not started.
+Starting compilation of LCUcircXbasis
+There are 8 processors available to Pool.
+The branching factor is 2.
+The beam factor is 4.
+Creating a pool of 8 workers
+New best! 0.28965433181882616 at depth 0
+New best! score: 0.2814837243088598 at depth: 1
+New best! score: 0.24896489891737783 at depth: 2
+New best! score: 0.22350249482832518 at depth: 2
+New best! score: 0.2140788695783764 at depth: 3
+New best! score: 0.19684531653492798 at depth: 3
+New best! score: 0.10122034512313127 at depth: 4
+New best! score: 0.10117689735174407 at depth: 5
+New best! score: 0.08389725808311799 at depth: 5
+New best! score: 0.08169487617155002 at depth: 6
+New best! score: 0.05507621984443134 at depth: 6
+New best! score: 0.051783683547079074 at depth: 6
+New best! score: 0.03641297286160494 at depth: 7
+New best! score: 0.03641297277869793 at depth: 7
+New best! score: -2.220446049250313e-16 at depth: 8
+Finished compilation at depth 8 with score -2.220446049250313e-16 after 24.834472274997097 seconds.
+Finished compilation of LCUcircXbasis
+LCUcircXbasis	Complete!
+Finished running project Xmeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.3]Bztarg0.5
+results/LCU/Basis/basis_uniatrismeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.3]
+Started running project Ymeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.3]Bztarg0.5
+LCUcircYbasis	Not started.
+Starting compilation of LCUcircYbasis
+There are 8 processors available to Pool.
+The branching factor is 2.
+The beam factor is 4.
+Creating a pool of 8 workers
+New best! 0.28965447272970046 at depth 0
+New best! score: 0.28148372346859496 at depth: 1
+New best! score: 0.24896489852220827 at depth: 2
+New best! score: 0.22350249441267023 at depth: 2
+New best! score: 0.22346917377105568 at depth: 3
+New best! score: 0.21407887146200089 at depth: 3
+New best! score: 0.19684532240823516 at depth: 3
+New best! score: 0.10122034553739723 at depth: 4
+New best! score: 0.1011768973029229 at depth: 5
+New best! score: 0.08389725809818338 at depth: 5
+New best! score: 0.051783682866082925 at depth: 6
+New best! score: 0.036412972635401775 at depth: 7
+New best! score: 0.03576853207889963 at depth: 7
+New best! score: 0.0 at depth: 8
+Finished compilation at depth 8 with score 0.0 after 25.543615968999802 seconds.
+Finished compilation of LCUcircYbasis
+LCUcircYbasis	Complete!
+Finished running project Ymeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.3]Bztarg0.5
+results/LCU/Basis/basis_uniatrismeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.3]
+Started running project Zmeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.3]Bztarg0.7
+LCUcircZbasis	Not started.
+Starting compilation of LCUcircZbasis
+There are 8 processors available to Pool.
+The branching factor is 2.
+The beam factor is 4.
+Creating a pool of 8 workers
+New best! 0.28965532494205193 at depth 0
+New best! score: 0.2814837241548883 at depth: 1
+New best! score: 0.2489649008893049 at depth: 2
+New best! score: 0.2235024952075565 at depth: 2
+New best! score: 0.22346917293737434 at depth: 3
+New best! score: 0.21407887361568845 at depth: 3
+New best! score: 0.19684531787023363 at depth: 3
+New best! score: 0.16893512830936364 at depth: 4
+New best! score: 0.10122034539582725 at depth: 4
+New best! score: 0.10117689740242375 at depth: 5
+New best! score: 0.0847802616888732 at depth: 5
+New best! score: 0.06941095603377134 at depth: 6
+New best! score: 0.05178368348442375 at depth: 6
+New best! score: 0.03641297247191855 at depth: 7
+New best! score: 0.035620485625381226 at depth: 7
+New best! score: 2.220446049250313e-16 at depth: 8
+Finished compilation at depth 8 with score 2.220446049250313e-16 after 27.747999752995383 seconds.
+Finished compilation of LCUcircZbasis
+LCUcircZbasis	Complete!
+Finished running project Zmeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.3]Bztarg0.7
+results/LCU/Basis/basis_uniatrismeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.3]
+Started running project Xmeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.3]Bztarg0.7
+LCUcircXbasis	Not started.
+Starting compilation of LCUcircXbasis
+There are 8 processors available to Pool.
+The branching factor is 2.
+The beam factor is 4.
+Creating a pool of 8 workers
+New best! 0.28965532478802425 at depth 0
+New best! score: 0.28148372536491195 at depth: 1
+New best! score: 0.22350249589035842 at depth: 2
+New best! score: 0.21407886926867303 at depth: 3
+New best! score: 0.1968453171085337 at depth: 3
+New best! score: 0.168935128169316 at depth: 4
+New best! score: 0.10122034541174896 at depth: 4
+New best! score: 0.09193442788305062 at depth: 4
+New best! score: 0.08389725800462378 at depth: 5
+New best! score: 0.05507622084226105 at depth: 6
+New best! score: 0.04650831084263096 at depth: 6
+New best! score: 0.03641297252180142 at depth: 7
+New best! score: 0.03576853171843719 at depth: 7
+New best! score: 5.551115123125783e-16 at depth: 8
+Finished compilation at depth 8 with score 5.551115123125783e-16 after 26.839808316006383 seconds.
+Finished compilation of LCUcircXbasis
+LCUcircXbasis	Complete!
+Finished running project Xmeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.3]Bztarg0.7
+results/LCU/Basis/basis_uniatrismeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.3]
+Started running project Ymeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.3]Bztarg0.7
+LCUcircYbasis	Not started.
+Starting compilation of LCUcircYbasis
+There are 8 processors available to Pool.
+The branching factor is 2.
+The beam factor is 4.
+Creating a pool of 8 workers
+New best! 0.2896553241113551 at depth 0
+New best! score: 0.2814837244791759 at depth: 1
+New best! score: 0.2489648976755846 at depth: 2
+New best! score: 0.2235024958845162 at depth: 2
+New best! score: 0.22346917457699633 at depth: 3
+New best! score: 0.2140788684441891 at depth: 3
+New best! score: 0.19684532074420724 at depth: 3
+New best! score: 0.16893512842736835 at depth: 4
+New best! score: 0.1012203454395263 at depth: 4
+New best! score: 0.10117689724383483 at depth: 5
+New best! score: 0.0838972581832097 at depth: 5
+New best! score: 0.05507621923673045 at depth: 6
+New best! score: 0.05462531007243987 at depth: 6
+New best! score: 0.035620485910430655 at depth: 7
+New best! score: 2.220446049250313e-16 at depth: 8
+Finished compilation at depth 8 with score 2.220446049250313e-16 after 24.791295920003904 seconds.
+Finished compilation of LCUcircYbasis
+LCUcircYbasis	Complete!
+Finished running project Ymeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.3]Bztarg0.7
+results/LCU/Basis/basis_uniatrismeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.3]
+Started running project Zmeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.3]Bztarg1.1
+LCUcircZbasis	Not started.
+Starting compilation of LCUcircZbasis
+There are 8 processors available to Pool.
+The branching factor is 2.
+The beam factor is 4.
+Creating a pool of 8 workers
+New best! 0.2896587104752928 at depth 0
+New best! score: 0.2814837236956478 at depth: 1
+New best! score: 0.2489649021680137 at depth: 2
+New best! score: 0.22350249765894492 at depth: 2
+New best! score: 0.22346917413277056 at depth: 3
+New best! score: 0.21407886872582993 at depth: 3
+New best! score: 0.19684531870977817 at depth: 3
+New best! score: 0.16938186494154395 at depth: 4
+New best! score: 0.1689351282301873 at depth: 4
+New best! score: 0.16582639738157057 at depth: 4
+New best! score: 0.14709950945347106 at depth: 4
+New best! score: 0.0919344278679114 at depth: 4
+New best! score: 0.08478026182794285 at depth: 5
+New best! score: 0.08389725856317543 at depth: 5
+New best! score: 0.05507621965040399 at depth: 6
+New best! score: 0.05178368323899407 at depth: 6
+New best! score: 0.0465083108683918 at depth: 6
+New best! score: 0.03641297254260778 at depth: 7
+New best! score: 0.035768531633242895 at depth: 7
+New best! score: 0.0352942453965307 at depth: 8
+New best! score: 2.220446049250313e-16 at depth: 8
+New best! score: -2.220446049250313e-16 at depth: 8
+Finished compilation at depth 8 with score -2.220446049250313e-16 after 24.44061884000257 seconds.
+Finished compilation of LCUcircZbasis
+LCUcircZbasis	Complete!
+Finished running project Zmeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.3]Bztarg1.1
+results/LCU/Basis/basis_uniatrismeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.3]
+Started running project Xmeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.3]Bztarg1.1
+LCUcircXbasis	Not started.
+Starting compilation of LCUcircXbasis
+There are 8 processors available to Pool.
+The branching factor is 2.
+The beam factor is 4.
+Creating a pool of 8 workers
+New best! 0.28965870836356444 at depth 0
+New best! score: 0.2814837227789718 at depth: 1
+New best! score: 0.22350249381923237 at depth: 2
+New best! score: 0.22346917612846262 at depth: 3
+New best! score: 0.2140788684143322 at depth: 3
+New best! score: 0.1968453239284359 at depth: 3
+New best! score: 0.1012203452259336 at depth: 4
+New best! score: 0.10117689728449164 at depth: 5
+New best! score: 0.08389725934139547 at depth: 5
+New best! score: 0.08105245087406243 at depth: 6
+New best! score: 0.055076220451489744 at depth: 6
+New best! score: 0.03562048562249809 at depth: 7
+New best! score: 4.440892098500626e-16 at depth: 8
+Finished compilation at depth 8 with score 4.440892098500626e-16 after 25.82132577399898 seconds.
+Finished compilation of LCUcircXbasis
+LCUcircXbasis	Complete!
+Finished running project Xmeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.3]Bztarg1.1
+results/LCU/Basis/basis_uniatrismeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.3]
+Started running project Ymeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.3]Bztarg1.1
+LCUcircYbasis	Not started.
+Starting compilation of LCUcircYbasis
+There are 8 processors available to Pool.
+The branching factor is 2.
+The beam factor is 4.
+Creating a pool of 8 workers
+New best! 0.2896587081213099 at depth 0
+New best! score: 0.2814837246341394 at depth: 1
+New best! score: 0.22350249423066926 at depth: 2
+New best! score: 0.19684531822944962 at depth: 3
+New best! score: 0.10122034566507543 at depth: 4
+New best! score: 0.10117689747862868 at depth: 5
+New best! score: 0.08389725817139071 at depth: 5
+New best! score: 0.06941095613059567 at depth: 6
+New best! score: 0.051783682942476594 at depth: 6
+New best! score: 0.03641297260130627 at depth: 7
+New best! score: 0.03576853180806805 at depth: 7
+New best! score: 0.03529424539770343 at depth: 8
+New best! score: 3.3306690738754696e-16 at depth: 8
+Finished compilation at depth 8 with score 3.3306690738754696e-16 after 29.04450147800526 seconds.
+Finished compilation of LCUcircYbasis
+LCUcircYbasis	Complete!
+Finished running project Ymeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.3]Bztarg1.1
+results/LCU/Basis/basis_uniatrismeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.3]
+Successfully loaded project Zmeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.3]Bztarg1.5
+LCUcircZbasis	Complete!
+Started running project Zmeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.3]Bztarg1.5
+LCUcircZbasis	Complete!
+Finished running project Zmeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.3]Bztarg1.5
+results/LCU/Basis/basis_uniatrismeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.3]
+Successfully loaded project Xmeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.3]Bztarg1.5
+LCUcircXbasis	Complete!
+Started running project Xmeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.3]Bztarg1.5
+LCUcircXbasis	Complete!
+Finished running project Xmeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.3]Bztarg1.5
+results/LCU/Basis/basis_uniatrismeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.3]
+Successfully loaded project Ymeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.3]Bztarg1.5
+LCUcircYbasis	Complete!
+Started running project Ymeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.3]Bztarg1.5
+LCUcircYbasis	Complete!
+Finished running project Ymeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.3]Bztarg1.5
+results/LCU/Basis/basis_uniatrismeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.3]
+Successfully loaded project Zmeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.3]Bztarg1.7
+LCUcircZbasis	Complete!
+Started running project Zmeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.3]Bztarg1.7
+LCUcircZbasis	Complete!
+Finished running project Zmeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.3]Bztarg1.7
+results/LCU/Basis/basis_uniatrismeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.3]
+Successfully loaded project Xmeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.3]Bztarg1.7
+LCUcircXbasis	Complete!
+Started running project Xmeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.3]Bztarg1.7
+LCUcircXbasis	Complete!
+Finished running project Xmeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.3]Bztarg1.7
+results/LCU/Basis/basis_uniatrismeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.3]
+Successfully loaded project Ymeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.3]Bztarg1.7
+LCUcircYbasis	Complete!
+Started running project Ymeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.3]Bztarg1.7
+LCUcircYbasis	Complete!
+Finished running project Ymeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.3]Bztarg1.7
+results/LCU/Basis/basis_uniatrismeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.3]
+Successfully loaded project Zmeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.3]Bztarg1.9
+LCUcircZbasis	Complete!
+Started running project Zmeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.3]Bztarg1.9
+LCUcircZbasis	Complete!
+Finished running project Zmeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.3]Bztarg1.9
+results/LCU/Basis/basis_uniatrismeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.3]
+Successfully loaded project Xmeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.3]Bztarg1.9
+LCUcircXbasis	Complete!
+Started running project Xmeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.3]Bztarg1.9
+LCUcircXbasis	Complete!
+Finished running project Xmeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.3]Bztarg1.9
+results/LCU/Basis/basis_uniatrismeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.3]
+Successfully loaded project Ymeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.3]Bztarg1.9
+LCUcircYbasis	Complete!
+Started running project Ymeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.3]Bztarg1.9
+LCUcircYbasis	Complete!
+Finished running project Ymeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.3]Bztarg1.9
+Transpiling  ibmq_qasm_simulator
+Transpiledlcu
+global phase: 5.2309
+                                                   »
+ancilla_0 -> 0 ────────────────────────────────────»
+                  ┌───────────────────────┐        »
+    q39_0 -> 1 ───┤ U3(2.8413,-2.9383,-π) ├────────»
+                ┌─┴───────────────────────┴─┐      »
+    q39_1 -> 2 ─┤ U3(1.3201,1.7905,-2.7074) ├───■──»
+               ┌┴───────────────────────────┴┐┌─┴─┐»
+    q39_2 -> 3 ┤ U3(0.26844,-0.69019,1.7378) ├┤ X ├»
+               └─────────────────────────────┘└───┘»
+        c39: 3/════════════════════════════════════»
+                                                   »
+«                                                 »
+«ancilla_0 -> 0 ──────────────────────────────────»
+«                                                 »
+«    q39_0 -> 1 ───────────────────────────────■──»
+«                  ┌──────────────────────┐  ┌─┴─┐»
+«    q39_1 -> 2 ───┤ U3(1.5178,-1.9316,0) ├──┤ X ├»
+«               ┌──┴──────────────────────┴─┐└───┘»
+«    q39_2 -> 3 ┤ U3(0.73534,2.1328,-2.676) ├─────»
+«               └───────────────────────────┘     »
+«        c39: 3/══════════════════════════════════»
+«                                                 »
+«                                                  »
+«ancilla_0 -> 0 ───────────────────────────────────»
+«                      ┌─────────────┐             »
+«    q39_0 -> 1 ───────┤ U1(-1.8007) ├─────────────»
+«               ┌──────┴─────────────┴───────┐     »
+«    q39_1 -> 2 ┤ U3(1.8236,-0.53607,-2.239) ├──■──»
+«               └────────────────────────────┘┌─┴─┐»
+«    q39_2 -> 3 ──────────────────────────────┤ X ├»
+«                                             └───┘»
+«        c39: 3/═══════════════════════════════════»
+«                                                  »
+«                                                 »
+«ancilla_0 -> 0 ──────────────────────────────────»
+«                                                 »
+«    q39_0 -> 1 ───────────────────────────────■──»
+«                  ┌──────────────────────┐  ┌─┴─┐»
+«    q39_1 -> 2 ───┤ U3(0.98416,-1.938,0) ├──┤ X ├»
+«               ┌──┴──────────────────────┴─┐└───┘»
+«    q39_2 -> 3 ┤ U3(1.7924,0.25346,2.0671) ├─────»
+«               └───────────────────────────┘     »
+«        c39: 3/══════════════════════════════════»
+«                                                 »
+«                                                  »
+«ancilla_0 -> 0 ───────────────────────────────────»
+«                  ┌──────────────────────┐        »
+«    q39_0 -> 1 ───┤ U3(π,-2.8868,1.0668) ├────────»
+«               ┌──┴──────────────────────┴──┐     »
+«    q39_1 -> 2 ┤ U3(1.8694,-1.212,-0.65462) ├──■──»
+«               └────────────────────────────┘┌─┴─┐»
+«    q39_2 -> 3 ──────────────────────────────┤ X ├»
+«                                             └───┘»
+«        c39: 3/═══════════════════════════════════»
+«                                                  »
+«                                                    »
+«ancilla_0 -> 0 ─────────────────────────────────────»
+«                                                    »
+«    q39_0 -> 1 ─────────────────────────────────────»
+«                   ┌──────────────────────┐         »
+«    q39_1 -> 2 ────┤ U3(0.70842,1.704,-π) ├──────■──»
+«               ┌───┴──────────────────────┴───┐┌─┴─┐»
+«    q39_2 -> 3 ┤ U3(1.0209,-0.037447,-2.2177) ├┤ X ├»
+«               └──────────────────────────────┘└───┘»
+«        c39: 3/═════════════════════════════════════»
+«                                                    »
+«                                                                             »
+«ancilla_0 -> 0 ──────────────────────────────────────────────────────────────»
+«                                                     ┌──────────────────┐    »
+«    q39_0 -> 1 ───────────────────────────────■──────┤ U3(0.30028,-π,0) ├────»
+«                  ┌──────────────────────┐  ┌─┴─┐┌───┴──────────────────┴───┐»
+«    q39_1 -> 2 ───┤ U3(2.6511,1.6077,-π) ├──┤ X ├┤ U3(0.22385,2.9197,1.671) ├»
+«               ┌──┴──────────────────────┴─┐└───┘└──────────────────────────┘»
+«    q39_2 -> 3 ┤ U3(3.0998,0.37498,1.9093) ├─────────────────────────────────»
+«               └───────────────────────────┘                                 »
+«        c39: 3/══════════════════════════════════════════════════════════════»
+«                                                                             »
+«                                                            
+«ancilla_0 -> 0 ─────────────────────────────────────────────
+«                    ┌─┐                                     
+«    q39_0 -> 1 ─────┤M├─────────────────────────────────────
+«                    └╥┘      ┌─────────────────┐      ┌─┐   
+«    q39_1 -> 2 ──■───╫───────┤ U3(2.1074,-π,0) ├──────┤M├───
+«               ┌─┴─┐ ║ ┌─────┴─────────────────┴─────┐└╥┘┌─┐
+«    q39_2 -> 3 ┤ X ├─╫─┤ U3(0.53779,-1.6653,-2.7803) ├─╫─┤M├
+«               └───┘ ║ └─────────────────────────────┘ ║ └╥┘
+«        c39: 3/══════╩═════════════════════════════════╩══╩═
+«                     0                                 1  2 
+jobid lcu:  621992935ac21f561447352a
+jobid lcu calib:  62199298a164875d55e6efff
+calibration matrix : 
+[[1. 0. 0. 0. 0. 0. 0. 0.]
+ [0. 1. 0. 0. 0. 0. 0. 0.]
+ [0. 0. 1. 0. 0. 0. 0. 0.]
+ [0. 0. 0. 1. 0. 0. 0. 0.]
+ [0. 0. 0. 0. 1. 0. 0. 0.]
+ [0. 0. 0. 0. 0. 1. 0. 0.]
+ [0. 0. 0. 0. 0. 0. 1. 0.]
+ [0. 0. 0. 0. 0. 0. 0. 1.]]

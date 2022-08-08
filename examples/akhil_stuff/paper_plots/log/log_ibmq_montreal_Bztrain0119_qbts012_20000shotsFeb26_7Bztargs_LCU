@@ -1,0 +1,838 @@
+[-1, 0.1, 0.1, 2, False]
+Adding vector for parameter set [-1, 0.1, 0.1, 2, False]
+[-1, 0.1, 1.9, 2, False]
+Adding vector for parameter set [-1, 0.1, 1.9, 2, False]
+
+basis continuer:
+[ 0.06338421+0.j -0.70356409+0.j -0.70356409+0.j  0.07731482+0.j]
+[-0.00144863+0.j  0.05512817+0.j  0.05512817+0.j -0.9969552 +0.j]
+overlap_matrix_continuer:
+  [[ 1.        +0.j -0.15474363+0.j]
+ [-0.15474363-0.j  1.        +0.j]]
+Hamiltonian_continuer:
+  [[-2.02078205+0.j  0.34337687+0.j]
+ [ 0.34337687-0.j -0.63052307+0.j]]
+fullvec
+[-0.06318631+0.j  0.70222252+0.j  0.70222252+0.j -0.09886635+0.j]
+overlap_matrix_continuer:
+  [[ 1.        +0.j -0.15474363+0.j]
+ [-0.15474363-0.j  1.        +0.j]]
+Hamiltonian_continuer:
+  [[-2.02156606+0.j  0.3741719 +0.j]
+ [ 0.3741719 -0.j -1.0280901 +0.j]]
+fullvec
+[-0.06276791+0.j  0.69907664+0.j  0.69907664+0.j -0.13654267+0.j]
+overlap_matrix_continuer:
+  [[ 1.        +0.j -0.15474363+0.j]
+ [-0.15474363-0.j  1.        +0.j]]
+Hamiltonian_continuer:
+  [[-2.02235007+0.j  0.40496694+0.j]
+ [ 0.40496694-0.j -1.42565713+0.j]]
+fullvec
+[-0.06155711+0.j  0.68885806+0.j  0.68885806+0.j -0.21716325+0.j]
+overlap_matrix_continuer:
+  [[ 1.        +0.j -0.15474363+0.j]
+ [-0.15474363-0.j  1.        +0.j]]
+Hamiltonian_continuer:
+  [[-2.02391809+0.j  0.46655701+0.j]
+ [ 0.46655701-0.j -2.22079119+0.j]]
+fullvec
+[-0.02628838+0.j  0.32536403+0.j  0.32536403+0.j -0.88746009+0.j]
+overlap_matrix_continuer:
+  [[ 1.        +0.j -0.15474363+0.j]
+ [-0.15474363-0.j  1.        +0.j]]
+Hamiltonian_continuer:
+  [[-2.0247021 +0.j  0.49735205+0.j]
+ [ 0.49735205-0.j -2.61835822+0.j]]
+fullvec
+[-0.0105062 +0.j  0.15440392+0.j  0.15440392+0.j -0.9758117 +0.j]
+overlap_matrix_continuer:
+  [[ 1.        +0.j -0.15474363+0.j]
+ [-0.15474363-0.j  1.        +0.j]]
+Hamiltonian_continuer:
+  [[-2.02548611+0.j  0.52814708+0.j]
+ [ 0.52814708-0.j -3.01592525+0.j]]
+fullvec
+[-0.00527031+0.j  0.09711293+0.j  0.09711293+0.j -0.99051016+0.j]
+overlap_matrix_continuer:
+  [[ 1.        +0.j -0.15474363+0.j]
+ [-0.15474363-0.j  1.        +0.j]]
+Hamiltonian_continuer:
+  [[-2.02627011+0.j  0.55894212+0.j]
+ [ 0.55894212-0.j -3.41349228+0.j]]
+fullvec
+[-0.00283673+0.j  0.070394  +0.j  0.070394  +0.j -0.9950283 +0.j]
+results/LCU/Basis/basis_uniatrismeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.9]
+Successfully loaded project Zmeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.9]Bztarg0.3
+LCUcircZbasis	Complete!
+Started running project Zmeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.9]Bztarg0.3
+LCUcircZbasis	Complete!
+Finished running project Zmeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.9]Bztarg0.3
+results/LCU/Basis/basis_uniatrismeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.9]
+Successfully loaded project Xmeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.9]Bztarg0.3
+LCUcircXbasis	Complete!
+Started running project Xmeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.9]Bztarg0.3
+LCUcircXbasis	Complete!
+Finished running project Xmeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.9]Bztarg0.3
+results/LCU/Basis/basis_uniatrismeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.9]
+Successfully loaded project Ymeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.9]Bztarg0.3
+LCUcircYbasis	Complete!
+Started running project Ymeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.9]Bztarg0.3
+LCUcircYbasis	Complete!
+Finished running project Ymeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.9]Bztarg0.3
+results/LCU/Basis/basis_uniatrismeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.9]
+Successfully loaded project Zmeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.9]Bztarg0.5
+LCUcircZbasis	Complete!
+Started running project Zmeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.9]Bztarg0.5
+LCUcircZbasis	Complete!
+Finished running project Zmeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.9]Bztarg0.5
+results/LCU/Basis/basis_uniatrismeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.9]
+Successfully loaded project Xmeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.9]Bztarg0.5
+LCUcircXbasis	Complete!
+Started running project Xmeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.9]Bztarg0.5
+LCUcircXbasis	Complete!
+Finished running project Xmeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.9]Bztarg0.5
+results/LCU/Basis/basis_uniatrismeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.9]
+Successfully loaded project Ymeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.9]Bztarg0.5
+LCUcircYbasis	Complete!
+Started running project Ymeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.9]Bztarg0.5
+LCUcircYbasis	Complete!
+Finished running project Ymeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.9]Bztarg0.5
+results/LCU/Basis/basis_uniatrismeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.9]
+Successfully loaded project Zmeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.9]Bztarg0.7
+LCUcircZbasis	Complete!
+Started running project Zmeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.9]Bztarg0.7
+LCUcircZbasis	Complete!
+Finished running project Zmeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.9]Bztarg0.7
+results/LCU/Basis/basis_uniatrismeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.9]
+Successfully loaded project Xmeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.9]Bztarg0.7
+LCUcircXbasis	Complete!
+Started running project Xmeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.9]Bztarg0.7
+LCUcircXbasis	Complete!
+Finished running project Xmeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.9]Bztarg0.7
+results/LCU/Basis/basis_uniatrismeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.9]
+Successfully loaded project Ymeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.9]Bztarg0.7
+LCUcircYbasis	Complete!
+Started running project Ymeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.9]Bztarg0.7
+LCUcircYbasis	Complete!
+Finished running project Ymeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.9]Bztarg0.7
+results/LCU/Basis/basis_uniatrismeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.9]
+Successfully loaded project Zmeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.9]Bztarg1.1
+LCUcircZbasis	Complete!
+Started running project Zmeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.9]Bztarg1.1
+LCUcircZbasis	Complete!
+Finished running project Zmeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.9]Bztarg1.1
+results/LCU/Basis/basis_uniatrismeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.9]
+Successfully loaded project Xmeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.9]Bztarg1.1
+LCUcircXbasis	Complete!
+Started running project Xmeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.9]Bztarg1.1
+LCUcircXbasis	Complete!
+Finished running project Xmeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.9]Bztarg1.1
+results/LCU/Basis/basis_uniatrismeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.9]
+Successfully loaded project Ymeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.9]Bztarg1.1
+LCUcircYbasis	Complete!
+Started running project Ymeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.9]Bztarg1.1
+LCUcircYbasis	Complete!
+Finished running project Ymeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.9]Bztarg1.1
+results/LCU/Basis/basis_uniatrismeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.9]
+Successfully loaded project Zmeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.9]Bztarg1.3
+LCUcircZbasis	Complete!
+Started running project Zmeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.9]Bztarg1.3
+LCUcircZbasis	Complete!
+Finished running project Zmeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.9]Bztarg1.3
+results/LCU/Basis/basis_uniatrismeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.9]
+Successfully loaded project Xmeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.9]Bztarg1.3
+LCUcircXbasis	Complete!
+Started running project Xmeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.9]Bztarg1.3
+LCUcircXbasis	Complete!
+Finished running project Xmeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.9]Bztarg1.3
+results/LCU/Basis/basis_uniatrismeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.9]
+Successfully loaded project Ymeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.9]Bztarg1.3
+LCUcircYbasis	Complete!
+Started running project Ymeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.9]Bztarg1.3
+LCUcircYbasis	Complete!
+Finished running project Ymeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.9]Bztarg1.3
+results/LCU/Basis/basis_uniatrismeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.9]
+Successfully loaded project Zmeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.9]Bztarg1.5
+LCUcircZbasis	Complete!
+Started running project Zmeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.9]Bztarg1.5
+LCUcircZbasis	Complete!
+Finished running project Zmeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.9]Bztarg1.5
+results/LCU/Basis/basis_uniatrismeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.9]
+Successfully loaded project Xmeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.9]Bztarg1.5
+LCUcircXbasis	Complete!
+Started running project Xmeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.9]Bztarg1.5
+LCUcircXbasis	Complete!
+Finished running project Xmeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.9]Bztarg1.5
+results/LCU/Basis/basis_uniatrismeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.9]
+Successfully loaded project Ymeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.9]Bztarg1.5
+LCUcircYbasis	Complete!
+Started running project Ymeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.9]Bztarg1.5
+LCUcircYbasis	Complete!
+Finished running project Ymeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.9]Bztarg1.5
+results/LCU/Basis/basis_uniatrismeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.9]
+Successfully loaded project Zmeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.9]Bztarg1.7
+LCUcircZbasis	Complete!
+Started running project Zmeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.9]Bztarg1.7
+LCUcircZbasis	Complete!
+Finished running project Zmeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.9]Bztarg1.7
+results/LCU/Basis/basis_uniatrismeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.9]
+Successfully loaded project Xmeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.9]Bztarg1.7
+LCUcircXbasis	Complete!
+Started running project Xmeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.9]Bztarg1.7
+LCUcircXbasis	Complete!
+Finished running project Xmeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.9]Bztarg1.7
+results/LCU/Basis/basis_uniatrismeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.9]
+Successfully loaded project Ymeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.9]Bztarg1.7
+LCUcircYbasis	Complete!
+Started running project Ymeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.9]Bztarg1.7
+LCUcircYbasis	Complete!
+Finished running project Ymeas_2siteBx=0.1J=-1pbc=FalseBztrain[0.1, 1.9]Bztarg1.7
+Transpiling  ibmq_montreal
+Transpiledlcu
+                      ┌────┐     ┌─────────────┐     ┌────┐          »
+       q0_0 -> 0 ─────┤ √X ├─────┤ Rz(0.29436) ├─────┤ √X ├──────────»
+                 ┌────┴────┴────┐└────┬────┬───┘┌────┴────┴───┐┌────┐»
+       q0_1 -> 1 ┤ Rz(-0.58964) ├─────┤ √X ├────┤ Rz(-2.1606) ├┤ √X ├»
+                 ├─────────────┬┘     ├────┤    ├─────────────┤├────┤»
+       q0_2 -> 2 ┤ Rz(-1.0051) ├──────┤ √X ├────┤ Rz(-1.8922) ├┤ √X ├»
+                 └─────────────┘      └────┘    └─────────────┘└────┘»
+  ancilla_0 -> 3 ────────────────────────────────────────────────────»
+                                                                     »
+  ancilla_1 -> 4 ────────────────────────────────────────────────────»
+                                                                     »
+  ancilla_2 -> 5 ────────────────────────────────────────────────────»
+                                                                     »
+  ancilla_3 -> 6 ────────────────────────────────────────────────────»
+                                                                     »
+  ancilla_4 -> 7 ────────────────────────────────────────────────────»
+                                                                     »
+  ancilla_5 -> 8 ────────────────────────────────────────────────────»
+                                                                     »
+  ancilla_6 -> 9 ────────────────────────────────────────────────────»
+                                                                     »
+ ancilla_7 -> 10 ────────────────────────────────────────────────────»
+                                                                     »
+ ancilla_8 -> 11 ────────────────────────────────────────────────────»
+                                                                     »
+ ancilla_9 -> 12 ────────────────────────────────────────────────────»
+                                                                     »
+ancilla_10 -> 13 ────────────────────────────────────────────────────»
+                                                                     »
+ancilla_11 -> 14 ────────────────────────────────────────────────────»
+                                                                     »
+ancilla_12 -> 15 ────────────────────────────────────────────────────»
+                                                                     »
+ancilla_13 -> 16 ────────────────────────────────────────────────────»
+                                                                     »
+ancilla_14 -> 17 ────────────────────────────────────────────────────»
+                                                                     »
+ancilla_15 -> 18 ────────────────────────────────────────────────────»
+                                                                     »
+ancilla_16 -> 19 ────────────────────────────────────────────────────»
+                                                                     »
+ancilla_17 -> 20 ────────────────────────────────────────────────────»
+                                                                     »
+ancilla_18 -> 21 ────────────────────────────────────────────────────»
+                                                                     »
+ancilla_19 -> 22 ────────────────────────────────────────────────────»
+                                                                     »
+ancilla_20 -> 23 ────────────────────────────────────────────────────»
+                                                                     »
+ancilla_21 -> 24 ────────────────────────────────────────────────────»
+                                                                     »
+ancilla_22 -> 25 ────────────────────────────────────────────────────»
+                                                                     »
+ancilla_23 -> 26 ────────────────────────────────────────────────────»
+                                                                     »
+           c0: 3/════════════════════════════════════════════════════»
+                                                                     »
+«                                                                  »
+«       q0_0 -> 0 ─────────────────────────────────────────────────»
+«                  ┌────────────┐┌───┐┌────────────┐     ┌────┐    »
+«       q0_1 -> 1 ─┤ Rz(2.4712) ├┤ X ├┤ Rz(1.0326) ├─────┤ √X ├────»
+«                 ┌┴────────────┤└─┬─┘└───┬────┬───┘┌────┴────┴───┐»
+«       q0_2 -> 2 ┤ Rz(-3.8879) ├──■──────┤ √X ├────┤ Rz(-1.9085) ├»
+«                 └─────────────┘         └────┘    └─────────────┘»
+«  ancilla_0 -> 3 ─────────────────────────────────────────────────»
+«                                                                  »
+«  ancilla_1 -> 4 ─────────────────────────────────────────────────»
+«                                                                  »
+«  ancilla_2 -> 5 ─────────────────────────────────────────────────»
+«                                                                  »
+«  ancilla_3 -> 6 ─────────────────────────────────────────────────»
+«                                                                  »
+«  ancilla_4 -> 7 ─────────────────────────────────────────────────»
+«                                                                  »
+«  ancilla_5 -> 8 ─────────────────────────────────────────────────»
+«                                                                  »
+«  ancilla_6 -> 9 ─────────────────────────────────────────────────»
+«                                                                  »
+« ancilla_7 -> 10 ─────────────────────────────────────────────────»
+«                                                                  »
+« ancilla_8 -> 11 ─────────────────────────────────────────────────»
+«                                                                  »
+« ancilla_9 -> 12 ─────────────────────────────────────────────────»
+«                                                                  »
+«ancilla_10 -> 13 ─────────────────────────────────────────────────»
+«                                                                  »
+«ancilla_11 -> 14 ─────────────────────────────────────────────────»
+«                                                                  »
+«ancilla_12 -> 15 ─────────────────────────────────────────────────»
+«                                                                  »
+«ancilla_13 -> 16 ─────────────────────────────────────────────────»
+«                                                                  »
+«ancilla_14 -> 17 ─────────────────────────────────────────────────»
+«                                                                  »
+«ancilla_15 -> 18 ─────────────────────────────────────────────────»
+«                                                                  »
+«ancilla_16 -> 19 ─────────────────────────────────────────────────»
+«                                                                  »
+«ancilla_17 -> 20 ─────────────────────────────────────────────────»
+«                                                                  »
+«ancilla_18 -> 21 ─────────────────────────────────────────────────»
+«                                                                  »
+«ancilla_19 -> 22 ─────────────────────────────────────────────────»
+«                                                                  »
+«ancilla_20 -> 23 ─────────────────────────────────────────────────»
+«                                                                  »
+«ancilla_21 -> 24 ─────────────────────────────────────────────────»
+«                                                                  »
+«ancilla_22 -> 25 ─────────────────────────────────────────────────»
+«                                                                  »
+«ancilla_23 -> 26 ─────────────────────────────────────────────────»
+«                                                                  »
+«           c0: 3/═════════════════════════════════════════════════»
+«                                                                  »
+«                                                                   »
+«       q0_0 -> 0 ───────────────────────────────────────────────■──»
+«                 ┌─────────────┐     ┌────┐    ┌─────────────┐┌─┴─┐»
+«       q0_1 -> 1 ┤ Rz(-2.0333) ├─────┤ √X ├────┤ Rz(0.55881) ├┤ X ├»
+«                 └────┬────┬───┘┌────┴────┴───┐└─────────────┘└───┘»
+«       q0_2 -> 2 ─────┤ √X ├────┤ Rz(0.11444) ├────────────────────»
+«                      └────┘    └─────────────┘                    »
+«  ancilla_0 -> 3 ──────────────────────────────────────────────────»
+«                                                                   »
+«  ancilla_1 -> 4 ──────────────────────────────────────────────────»
+«                                                                   »
+«  ancilla_2 -> 5 ──────────────────────────────────────────────────»
+«                                                                   »
+«  ancilla_3 -> 6 ──────────────────────────────────────────────────»
+«                                                                   »
+«  ancilla_4 -> 7 ──────────────────────────────────────────────────»
+«                                                                   »
+«  ancilla_5 -> 8 ──────────────────────────────────────────────────»
+«                                                                   »
+«  ancilla_6 -> 9 ──────────────────────────────────────────────────»
+«                                                                   »
+« ancilla_7 -> 10 ──────────────────────────────────────────────────»
+«                                                                   »
+« ancilla_8 -> 11 ──────────────────────────────────────────────────»
+«                                                                   »
+« ancilla_9 -> 12 ──────────────────────────────────────────────────»
+«                                                                   »
+«ancilla_10 -> 13 ──────────────────────────────────────────────────»
+«                                                                   »
+«ancilla_11 -> 14 ──────────────────────────────────────────────────»
+«                                                                   »
+«ancilla_12 -> 15 ──────────────────────────────────────────────────»
+«                                                                   »
+«ancilla_13 -> 16 ──────────────────────────────────────────────────»
+«                                                                   »
+«ancilla_14 -> 17 ──────────────────────────────────────────────────»
+«                                                                   »
+«ancilla_15 -> 18 ──────────────────────────────────────────────────»
+«                                                                   »
+«ancilla_16 -> 19 ──────────────────────────────────────────────────»
+«                                                                   »
+«ancilla_17 -> 20 ──────────────────────────────────────────────────»
+«                                                                   »
+«ancilla_18 -> 21 ──────────────────────────────────────────────────»
+«                                                                   »
+«ancilla_19 -> 22 ──────────────────────────────────────────────────»
+«                                                                   »
+«ancilla_20 -> 23 ──────────────────────────────────────────────────»
+«                                                                   »
+«ancilla_21 -> 24 ──────────────────────────────────────────────────»
+«                                                                   »
+«ancilla_22 -> 25 ──────────────────────────────────────────────────»
+«                                                                   »
+«ancilla_23 -> 26 ──────────────────────────────────────────────────»
+«                                                                   »
+«           c0: 3/══════════════════════════════════════════════════»
+«                                                                   »
+«                     ┌───┐     ┌──────────┐                     »
+«       q0_0 -> 0 ────┤ X ├─────┤ Rz(5π/4) ├─────────────────────»
+«                 ┌───┴───┴────┐└──┬────┬──┘┌─────────────┐┌────┐»
+«       q0_1 -> 1 ┤ Rz(2.0123) ├───┤ √X ├───┤ Rz(-1.0813) ├┤ √X ├»
+«                 └────────────┘   └────┘   └─────────────┘└────┘»
+«       q0_2 -> 2 ───────────────────────────────────────────────»
+«                                                                »
+«  ancilla_0 -> 3 ───────────────────────────────────────────────»
+«                                                                »
+«  ancilla_1 -> 4 ───────────────────────────────────────────────»
+«                                                                »
+«  ancilla_2 -> 5 ───────────────────────────────────────────────»
+«                                                                »
+«  ancilla_3 -> 6 ───────────────────────────────────────────────»
+«                                                                »
+«  ancilla_4 -> 7 ───────────────────────────────────────────────»
+«                                                                »
+«  ancilla_5 -> 8 ───────────────────────────────────────────────»
+«                                                                »
+«  ancilla_6 -> 9 ───────────────────────────────────────────────»
+«                                                                »
+« ancilla_7 -> 10 ───────────────────────────────────────────────»
+«                                                                »
+« ancilla_8 -> 11 ───────────────────────────────────────────────»
+«                                                                »
+« ancilla_9 -> 12 ───────────────────────────────────────────────»
+«                                                                »
+«ancilla_10 -> 13 ───────────────────────────────────────────────»
+«                                                                »
+«ancilla_11 -> 14 ───────────────────────────────────────────────»
+«                                                                »
+«ancilla_12 -> 15 ───────────────────────────────────────────────»
+«                                                                »
+«ancilla_13 -> 16 ───────────────────────────────────────────────»
+«                                                                »
+«ancilla_14 -> 17 ───────────────────────────────────────────────»
+«                                                                »
+«ancilla_15 -> 18 ───────────────────────────────────────────────»
+«                                                                »
+«ancilla_16 -> 19 ───────────────────────────────────────────────»
+«                                                                »
+«ancilla_17 -> 20 ───────────────────────────────────────────────»
+«                                                                »
+«ancilla_18 -> 21 ───────────────────────────────────────────────»
+«                                                                »
+«ancilla_19 -> 22 ───────────────────────────────────────────────»
+«                                                                »
+«ancilla_20 -> 23 ───────────────────────────────────────────────»
+«                                                                »
+«ancilla_21 -> 24 ───────────────────────────────────────────────»
+«                                                                »
+«ancilla_22 -> 25 ───────────────────────────────────────────────»
+«                                                                »
+«ancilla_23 -> 26 ───────────────────────────────────────────────»
+«                                                                »
+«           c0: 3/═══════════════════════════════════════════════»
+«                                                                »
+«                                                                              »
+«       q0_0 -> 0 ─────────────────────────────────────────────────────────────»
+«                 ┌─────────────┐┌───┐┌────────────┐                      ┌───┐»
+«       q0_1 -> 1 ┤ Rz(-2.4981) ├┤ X ├┤ Rz(1.4561) ├──────────────────────┤ X ├»
+«                 └─────────────┘└─┬─┘└───┬────┬───┘┌──────────────┐┌────┐└─┬─┘»
+«       q0_2 -> 2 ─────────────────■──────┤ √X ├────┤ Rz(-0.67925) ├┤ √X ├──■──»
+«                                         └────┘    └──────────────┘└────┘     »
+«  ancilla_0 -> 3 ─────────────────────────────────────────────────────────────»
+«                                                                              »
+«  ancilla_1 -> 4 ─────────────────────────────────────────────────────────────»
+«                                                                              »
+«  ancilla_2 -> 5 ─────────────────────────────────────────────────────────────»
+«                                                                              »
+«  ancilla_3 -> 6 ─────────────────────────────────────────────────────────────»
+«                                                                              »
+«  ancilla_4 -> 7 ─────────────────────────────────────────────────────────────»
+«                                                                              »
+«  ancilla_5 -> 8 ─────────────────────────────────────────────────────────────»
+«                                                                              »
+«  ancilla_6 -> 9 ─────────────────────────────────────────────────────────────»
+«                                                                              »
+« ancilla_7 -> 10 ─────────────────────────────────────────────────────────────»
+«                                                                              »
+« ancilla_8 -> 11 ─────────────────────────────────────────────────────────────»
+«                                                                              »
+« ancilla_9 -> 12 ─────────────────────────────────────────────────────────────»
+«                                                                              »
+«ancilla_10 -> 13 ─────────────────────────────────────────────────────────────»
+«                                                                              »
+«ancilla_11 -> 14 ─────────────────────────────────────────────────────────────»
+«                                                                              »
+«ancilla_12 -> 15 ─────────────────────────────────────────────────────────────»
+«                                                                              »
+«ancilla_13 -> 16 ─────────────────────────────────────────────────────────────»
+«                                                                              »
+«ancilla_14 -> 17 ─────────────────────────────────────────────────────────────»
+«                                                                              »
+«ancilla_15 -> 18 ─────────────────────────────────────────────────────────────»
+«                                                                              »
+«ancilla_16 -> 19 ─────────────────────────────────────────────────────────────»
+«                                                                              »
+«ancilla_17 -> 20 ─────────────────────────────────────────────────────────────»
+«                                                                              »
+«ancilla_18 -> 21 ─────────────────────────────────────────────────────────────»
+«                                                                              »
+«ancilla_19 -> 22 ─────────────────────────────────────────────────────────────»
+«                                                                              »
+«ancilla_20 -> 23 ─────────────────────────────────────────────────────────────»
+«                                                                              »
+«ancilla_21 -> 24 ─────────────────────────────────────────────────────────────»
+«                                                                              »
+«ancilla_22 -> 25 ─────────────────────────────────────────────────────────────»
+«                                                                              »
+«ancilla_23 -> 26 ─────────────────────────────────────────────────────────────»
+«                                                                              »
+«           c0: 3/═════════════════════════════════════════════════════════════»
+«                                                                              »
+«                                                                          »
+«       q0_0 -> 0 ─────────────────────────────────────────────────────────»
+«                 ┌─────────────┐┌────┐ ┌────────────┐┌────┐┌─────────────┐»
+«       q0_1 -> 1 ┤ Rz(0.65607) ├┤ √X ├─┤ Rz(-2.362) ├┤ √X ├┤ Rz(0.52958) ├»
+«                 └┬────────────┤├────┤┌┴────────────┤├────┤├─────────────┤»
+«       q0_2 -> 2 ─┤ Rz(3.1119) ├┤ √X ├┤ Rz(-2.1246) ├┤ √X ├┤ Rz(-1.2291) ├»
+«                  └────────────┘└────┘└─────────────┘└────┘└─────────────┘»
+«  ancilla_0 -> 3 ─────────────────────────────────────────────────────────»
+«                                                                          »
+«  ancilla_1 -> 4 ─────────────────────────────────────────────────────────»
+«                                                                          »
+«  ancilla_2 -> 5 ─────────────────────────────────────────────────────────»
+«                                                                          »
+«  ancilla_3 -> 6 ─────────────────────────────────────────────────────────»
+«                                                                          »
+«  ancilla_4 -> 7 ─────────────────────────────────────────────────────────»
+«                                                                          »
+«  ancilla_5 -> 8 ─────────────────────────────────────────────────────────»
+«                                                                          »
+«  ancilla_6 -> 9 ─────────────────────────────────────────────────────────»
+«                                                                          »
+« ancilla_7 -> 10 ─────────────────────────────────────────────────────────»
+«                                                                          »
+« ancilla_8 -> 11 ─────────────────────────────────────────────────────────»
+«                                                                          »
+« ancilla_9 -> 12 ─────────────────────────────────────────────────────────»
+«                                                                          »
+«ancilla_10 -> 13 ─────────────────────────────────────────────────────────»
+«                                                                          »
+«ancilla_11 -> 14 ─────────────────────────────────────────────────────────»
+«                                                                          »
+«ancilla_12 -> 15 ─────────────────────────────────────────────────────────»
+«                                                                          »
+«ancilla_13 -> 16 ─────────────────────────────────────────────────────────»
+«                                                                          »
+«ancilla_14 -> 17 ─────────────────────────────────────────────────────────»
+«                                                                          »
+«ancilla_15 -> 18 ─────────────────────────────────────────────────────────»
+«                                                                          »
+«ancilla_16 -> 19 ─────────────────────────────────────────────────────────»
+«                                                                          »
+«ancilla_17 -> 20 ─────────────────────────────────────────────────────────»
+«                                                                          »
+«ancilla_18 -> 21 ─────────────────────────────────────────────────────────»
+«                                                                          »
+«ancilla_19 -> 22 ─────────────────────────────────────────────────────────»
+«                                                                          »
+«ancilla_20 -> 23 ─────────────────────────────────────────────────────────»
+«                                                                          »
+«ancilla_21 -> 24 ─────────────────────────────────────────────────────────»
+«                                                                          »
+«ancilla_22 -> 25 ─────────────────────────────────────────────────────────»
+«                                                                          »
+«ancilla_23 -> 26 ─────────────────────────────────────────────────────────»
+«                                                                          »
+«           c0: 3/═════════════════════════════════════════════════════════»
+«                                                                          »
+«                                                                 »
+«       q0_0 -> 0 ──■─────────────────────────────────────────────»
+«                 ┌─┴─┐┌─────────────┐┌────┐┌──────────────┐┌────┐»
+«       q0_1 -> 1 ┤ X ├┤ Rz(-0.9377) ├┤ √X ├┤ Rz(-0.52604) ├┤ √X ├»
+«                 └───┘└─────────────┘└────┘└──────────────┘└────┘»
+«       q0_2 -> 2 ────────────────────────────────────────────────»
+«                                                                 »
+«  ancilla_0 -> 3 ────────────────────────────────────────────────»
+«                                                                 »
+«  ancilla_1 -> 4 ────────────────────────────────────────────────»
+«                                                                 »
+«  ancilla_2 -> 5 ────────────────────────────────────────────────»
+«                                                                 »
+«  ancilla_3 -> 6 ────────────────────────────────────────────────»
+«                                                                 »
+«  ancilla_4 -> 7 ────────────────────────────────────────────────»
+«                                                                 »
+«  ancilla_5 -> 8 ────────────────────────────────────────────────»
+«                                                                 »
+«  ancilla_6 -> 9 ────────────────────────────────────────────────»
+«                                                                 »
+« ancilla_7 -> 10 ────────────────────────────────────────────────»
+«                                                                 »
+« ancilla_8 -> 11 ────────────────────────────────────────────────»
+«                                                                 »
+« ancilla_9 -> 12 ────────────────────────────────────────────────»
+«                                                                 »
+«ancilla_10 -> 13 ────────────────────────────────────────────────»
+«                                                                 »
+«ancilla_11 -> 14 ────────────────────────────────────────────────»
+«                                                                 »
+«ancilla_12 -> 15 ────────────────────────────────────────────────»
+«                                                                 »
+«ancilla_13 -> 16 ────────────────────────────────────────────────»
+«                                                                 »
+«ancilla_14 -> 17 ────────────────────────────────────────────────»
+«                                                                 »
+«ancilla_15 -> 18 ────────────────────────────────────────────────»
+«                                                                 »
+«ancilla_16 -> 19 ────────────────────────────────────────────────»
+«                                                                 »
+«ancilla_17 -> 20 ────────────────────────────────────────────────»
+«                                                                 »
+«ancilla_18 -> 21 ────────────────────────────────────────────────»
+«                                                                 »
+«ancilla_19 -> 22 ────────────────────────────────────────────────»
+«                                                                 »
+«ancilla_20 -> 23 ────────────────────────────────────────────────»
+«                                                                 »
+«ancilla_21 -> 24 ────────────────────────────────────────────────»
+«                                                                 »
+«ancilla_22 -> 25 ────────────────────────────────────────────────»
+«                                                                 »
+«ancilla_23 -> 26 ────────────────────────────────────────────────»
+«                                                                 »
+«           c0: 3/════════════════════════════════════════════════»
+«                                                                 »
+«                                                                           »
+«       q0_0 -> 0 ──────────────────────────────────────────────────────────»
+«                 ┌────────────┐┌───┐┌───────────┐                     ┌───┐»
+«       q0_1 -> 1 ┤ Rz(1.1847) ├┤ X ├┤ Rz(1.206) ├─────────────────────┤ X ├»
+«                 └────────────┘└─┬─┘└───┬────┬──┘┌─────────────┐┌────┐└─┬─┘»
+«       q0_2 -> 2 ────────────────■──────┤ √X ├───┤ Rz(-1.2055) ├┤ √X ├──■──»
+«                                        └────┘   └─────────────┘└────┘     »
+«  ancilla_0 -> 3 ──────────────────────────────────────────────────────────»
+«                                                                           »
+«  ancilla_1 -> 4 ──────────────────────────────────────────────────────────»
+«                                                                           »
+«  ancilla_2 -> 5 ──────────────────────────────────────────────────────────»
+«                                                                           »
+«  ancilla_3 -> 6 ──────────────────────────────────────────────────────────»
+«                                                                           »
+«  ancilla_4 -> 7 ──────────────────────────────────────────────────────────»
+«                                                                           »
+«  ancilla_5 -> 8 ──────────────────────────────────────────────────────────»
+«                                                                           »
+«  ancilla_6 -> 9 ──────────────────────────────────────────────────────────»
+«                                                                           »
+« ancilla_7 -> 10 ──────────────────────────────────────────────────────────»
+«                                                                           »
+« ancilla_8 -> 11 ──────────────────────────────────────────────────────────»
+«                                                                           »
+« ancilla_9 -> 12 ──────────────────────────────────────────────────────────»
+«                                                                           »
+«ancilla_10 -> 13 ──────────────────────────────────────────────────────────»
+«                                                                           »
+«ancilla_11 -> 14 ──────────────────────────────────────────────────────────»
+«                                                                           »
+«ancilla_12 -> 15 ──────────────────────────────────────────────────────────»
+«                                                                           »
+«ancilla_13 -> 16 ──────────────────────────────────────────────────────────»
+«                                                                           »
+«ancilla_14 -> 17 ──────────────────────────────────────────────────────────»
+«                                                                           »
+«ancilla_15 -> 18 ──────────────────────────────────────────────────────────»
+«                                                                           »
+«ancilla_16 -> 19 ──────────────────────────────────────────────────────────»
+«                                                                           »
+«ancilla_17 -> 20 ──────────────────────────────────────────────────────────»
+«                                                                           »
+«ancilla_18 -> 21 ──────────────────────────────────────────────────────────»
+«                                                                           »
+«ancilla_19 -> 22 ──────────────────────────────────────────────────────────»
+«                                                                           »
+«ancilla_20 -> 23 ──────────────────────────────────────────────────────────»
+«                                                                           »
+«ancilla_21 -> 24 ──────────────────────────────────────────────────────────»
+«                                                                           »
+«ancilla_22 -> 25 ──────────────────────────────────────────────────────────»
+«                                                                           »
+«ancilla_23 -> 26 ──────────────────────────────────────────────────────────»
+«                                                                           »
+«           c0: 3/══════════════════════════════════════════════════════════»
+«                                                                           »
+«                                                                            »
+«       q0_0 -> 0 ───────────────────────────────────────────────────────────»
+«                 ┌──────────────┐┌────┐┌─────────────┐┌────┐┌──────────────┐»
+«       q0_1 -> 1 ┤ Rz(-0.55562) ├┤ √X ├┤ Rz(-1.8841) ├┤ √X ├┤ Rz(0.027221) ├»
+«                 ├─────────────┬┘├────┤├─────────────┤├────┤└┬────────────┬┘»
+«       q0_2 -> 2 ┤ Rz(-1.8626) ├─┤ √X ├┤ Rz(-1.3964) ├┤ √X ├─┤ Rz(3.0627) ├─»
+«                 └─────────────┘ └────┘└─────────────┘└────┘ └────────────┘ »
+«  ancilla_0 -> 3 ───────────────────────────────────────────────────────────»
+«                                                                            »
+«  ancilla_1 -> 4 ───────────────────────────────────────────────────────────»
+«                                                                            »
+«  ancilla_2 -> 5 ───────────────────────────────────────────────────────────»
+«                                                                            »
+«  ancilla_3 -> 6 ───────────────────────────────────────────────────────────»
+«                                                                            »
+«  ancilla_4 -> 7 ───────────────────────────────────────────────────────────»
+«                                                                            »
+«  ancilla_5 -> 8 ───────────────────────────────────────────────────────────»
+«                                                                            »
+«  ancilla_6 -> 9 ───────────────────────────────────────────────────────────»
+«                                                                            »
+« ancilla_7 -> 10 ───────────────────────────────────────────────────────────»
+«                                                                            »
+« ancilla_8 -> 11 ───────────────────────────────────────────────────────────»
+«                                                                            »
+« ancilla_9 -> 12 ───────────────────────────────────────────────────────────»
+«                                                                            »
+«ancilla_10 -> 13 ───────────────────────────────────────────────────────────»
+«                                                                            »
+«ancilla_11 -> 14 ───────────────────────────────────────────────────────────»
+«                                                                            »
+«ancilla_12 -> 15 ───────────────────────────────────────────────────────────»
+«                                                                            »
+«ancilla_13 -> 16 ───────────────────────────────────────────────────────────»
+«                                                                            »
+«ancilla_14 -> 17 ───────────────────────────────────────────────────────────»
+«                                                                            »
+«ancilla_15 -> 18 ───────────────────────────────────────────────────────────»
+«                                                                            »
+«ancilla_16 -> 19 ───────────────────────────────────────────────────────────»
+«                                                                            »
+«ancilla_17 -> 20 ───────────────────────────────────────────────────────────»
+«                                                                            »
+«ancilla_18 -> 21 ───────────────────────────────────────────────────────────»
+«                                                                            »
+«ancilla_19 -> 22 ───────────────────────────────────────────────────────────»
+«                                                                            »
+«ancilla_20 -> 23 ───────────────────────────────────────────────────────────»
+«                                                                            »
+«ancilla_21 -> 24 ───────────────────────────────────────────────────────────»
+«                                                                            »
+«ancilla_22 -> 25 ───────────────────────────────────────────────────────────»
+«                                                                            »
+«ancilla_23 -> 26 ───────────────────────────────────────────────────────────»
+«                                                                            »
+«           c0: 3/═══════════════════════════════════════════════════════════»
+«                                                                            »
+«                               ┌────┐         ┌────────────┐»
+«       q0_0 -> 0 ──■───────────┤ √X ├─────────┤ Rz(2.8472) ├»
+«                 ┌─┴─┐┌────────┴────┴────────┐└───┬────┬───┘»
+«       q0_1 -> 1 ┤ X ├┤ Rz(5.26287366698684) ├────┤ √X ├────»
+«                 └┬─┬┘└──────────────────────┘    └────┘    »
+«       q0_2 -> 2 ─┤M├───────────────────────────────────────»
+«                  └╥┘                                       »
+«  ancilla_0 -> 3 ──╫────────────────────────────────────────»
+«                   ║                                        »
+«  ancilla_1 -> 4 ──╫────────────────────────────────────────»
+«                   ║                                        »
+«  ancilla_2 -> 5 ──╫────────────────────────────────────────»
+«                   ║                                        »
+«  ancilla_3 -> 6 ──╫────────────────────────────────────────»
+«                   ║                                        »
+«  ancilla_4 -> 7 ──╫────────────────────────────────────────»
+«                   ║                                        »
+«  ancilla_5 -> 8 ──╫────────────────────────────────────────»
+«                   ║                                        »
+«  ancilla_6 -> 9 ──╫────────────────────────────────────────»
+«                   ║                                        »
+« ancilla_7 -> 10 ──╫────────────────────────────────────────»
+«                   ║                                        »
+« ancilla_8 -> 11 ──╫────────────────────────────────────────»
+«                   ║                                        »
+« ancilla_9 -> 12 ──╫────────────────────────────────────────»
+«                   ║                                        »
+«ancilla_10 -> 13 ──╫────────────────────────────────────────»
+«                   ║                                        »
+«ancilla_11 -> 14 ──╫────────────────────────────────────────»
+«                   ║                                        »
+«ancilla_12 -> 15 ──╫────────────────────────────────────────»
+«                   ║                                        »
+«ancilla_13 -> 16 ──╫────────────────────────────────────────»
+«                   ║                                        »
+«ancilla_14 -> 17 ──╫────────────────────────────────────────»
+«                   ║                                        »
+«ancilla_15 -> 18 ──╫────────────────────────────────────────»
+«                   ║                                        »
+«ancilla_16 -> 19 ──╫────────────────────────────────────────»
+«                   ║                                        »
+«ancilla_17 -> 20 ──╫────────────────────────────────────────»
+«                   ║                                        »
+«ancilla_18 -> 21 ──╫────────────────────────────────────────»
+«                   ║                                        »
+«ancilla_19 -> 22 ──╫────────────────────────────────────────»
+«                   ║                                        »
+«ancilla_20 -> 23 ──╫────────────────────────────────────────»
+«                   ║                                        »
+«ancilla_21 -> 24 ──╫────────────────────────────────────────»
+«                   ║                                        »
+«ancilla_22 -> 25 ──╫────────────────────────────────────────»
+«                   ║                                        »
+«ancilla_23 -> 26 ──╫────────────────────────────────────────»
+«                   ║                                        »
+«           c0: 3/══╩════════════════════════════════════════»
+«                   2                                        »
+«                          ┌────┐               ┌─┐                           
+«       q0_0 -> 0 ─────────┤ √X ├───────────────┤M├───────────────────────────
+«                 ┌────────┴────┴────────┐┌────┐└╥┘┌──────────────────────┐┌─┐
+«       q0_1 -> 1 ┤ Rz(6.45094690795837) ├┤ √X ├─╫─┤ Rz(12.9197715853492) ├┤M├
+«                 └──────────────────────┘└────┘ ║ └──────────────────────┘└╥┘
+«       q0_2 -> 2 ───────────────────────────────╫──────────────────────────╫─
+«                                                ║                          ║ 
+«  ancilla_0 -> 3 ───────────────────────────────╫──────────────────────────╫─
+«                                                ║                          ║ 
+«  ancilla_1 -> 4 ───────────────────────────────╫──────────────────────────╫─
+«                                                ║                          ║ 
+«  ancilla_2 -> 5 ───────────────────────────────╫──────────────────────────╫─
+«                                                ║                          ║ 
+«  ancilla_3 -> 6 ───────────────────────────────╫──────────────────────────╫─
+«                                                ║                          ║ 
+«  ancilla_4 -> 7 ───────────────────────────────╫──────────────────────────╫─
+«                                                ║                          ║ 
+«  ancilla_5 -> 8 ───────────────────────────────╫──────────────────────────╫─
+«                                                ║                          ║ 
+«  ancilla_6 -> 9 ───────────────────────────────╫──────────────────────────╫─
+«                                                ║                          ║ 
+« ancilla_7 -> 10 ───────────────────────────────╫──────────────────────────╫─
+«                                                ║                          ║ 
+« ancilla_8 -> 11 ───────────────────────────────╫──────────────────────────╫─
+«                                                ║                          ║ 
+« ancilla_9 -> 12 ───────────────────────────────╫──────────────────────────╫─
+«                                                ║                          ║ 
+«ancilla_10 -> 13 ───────────────────────────────╫──────────────────────────╫─
+«                                                ║                          ║ 
+«ancilla_11 -> 14 ───────────────────────────────╫──────────────────────────╫─
+«                                                ║                          ║ 
+«ancilla_12 -> 15 ───────────────────────────────╫──────────────────────────╫─
+«                                                ║                          ║ 
+«ancilla_13 -> 16 ───────────────────────────────╫──────────────────────────╫─
+«                                                ║                          ║ 
+«ancilla_14 -> 17 ───────────────────────────────╫──────────────────────────╫─
+«                                                ║                          ║ 
+«ancilla_15 -> 18 ───────────────────────────────╫──────────────────────────╫─
+«                                                ║                          ║ 
+«ancilla_16 -> 19 ───────────────────────────────╫──────────────────────────╫─
+«                                                ║                          ║ 
+«ancilla_17 -> 20 ───────────────────────────────╫──────────────────────────╫─
+«                                                ║                          ║ 
+«ancilla_18 -> 21 ───────────────────────────────╫──────────────────────────╫─
+«                                                ║                          ║ 
+«ancilla_19 -> 22 ───────────────────────────────╫──────────────────────────╫─
+«                                                ║                          ║ 
+«ancilla_20 -> 23 ───────────────────────────────╫──────────────────────────╫─
+«                                                ║                          ║ 
+«ancilla_21 -> 24 ───────────────────────────────╫──────────────────────────╫─
+«                                                ║                          ║ 
+«ancilla_22 -> 25 ───────────────────────────────╫──────────────────────────╫─
+«                                                ║                          ║ 
+«ancilla_23 -> 26 ───────────────────────────────╫──────────────────────────╫─
+«                                                ║                          ║ 
+«           c0: 3/═══════════════════════════════╩══════════════════════════╩═
+«                                                0                          1 
+jobid lcu:  621a8b7d5ac21f810d47389c
+jobid lcu calib:  621a9443c799db4baaefc561
+calibration matrix : 
+[[9.4130e-01 1.8650e-02 2.2700e-02 8.5000e-04 1.6400e-02 6.0000e-04
+  6.0000e-04 0.0000e+00]
+ [9.2500e-03 9.5810e-01 4.0000e-04 2.1100e-02 5.0000e-05 1.9250e-02
+  1.0000e-04 4.5000e-04]
+ [1.3200e-02 5.5000e-04 9.5715e-01 1.8950e-02 3.0000e-04 0.0000e+00
+  2.1300e-02 3.0000e-04]
+ [3.5000e-04 8.2000e-03 9.6500e-03 9.5135e-01 0.0000e+00 3.0000e-04
+  1.5000e-04 2.1850e-02]
+ [3.4700e-02 2.5000e-04 3.0000e-04 0.0000e+00 9.6050e-01 1.7300e-02
+  2.4500e-02 4.0000e-04]
+ [5.0000e-04 1.4050e-02 0.0000e+00 2.0000e-04 8.5500e-03 9.5235e-01
+  1.5000e-04 2.2400e-02]
+ [6.5000e-04 0.0000e+00 9.7500e-03 1.0000e-04 1.3950e-02 2.0000e-04
+  9.4335e-01 1.7200e-02]
+ [5.0000e-05 2.0000e-04 5.0000e-05 7.4500e-03 2.5000e-04 1.0000e-02
+  9.8500e-03 9.3740e-01]]

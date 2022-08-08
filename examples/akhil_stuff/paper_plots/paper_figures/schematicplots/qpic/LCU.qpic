@@ -1,0 +1,19 @@
+a W A
+b W Sys|\psi\rangle breadth=20
+
+a G:length=20 $V_k$ height=15
+
+b / n
+
+
+#b G:width=15 $U_{\psi}$ height=20
+
+b G:width=20 $U_{0}$ -a height=20 
+
+b G:width=20 $U_{1}$ a height=20
+
+a G:width=20 $V_k^\dagger$ height=15
+
+
+a M 
+#b M $\sigma^k$ height=10 width=20

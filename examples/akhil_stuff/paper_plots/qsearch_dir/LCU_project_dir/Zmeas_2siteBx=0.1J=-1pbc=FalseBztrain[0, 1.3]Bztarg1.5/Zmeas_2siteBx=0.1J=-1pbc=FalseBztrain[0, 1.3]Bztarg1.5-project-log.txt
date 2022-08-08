@@ -1,0 +1,66 @@
+2022-02-23 09:37:15.451871 > 	Started running project Zmeas_2siteBx=0.1J=-1pbc=FalseBztrain[0, 1.3]Bztarg1.5
+2022-02-23 09:37:15.452001 > 	LCUcircZbasis	Not started.
+2022-02-23 09:37:15.452071 > 	Starting compilation of LCUcircZbasis
+2022-02-23 09:37:42.894526 > 	Finished compilation of LCUcircZbasis
+2022-02-23 09:37:42.895518 > 	LCUcircZbasis	Complete!
+2022-02-23 09:37:42.895606 > 	Finished running project Zmeas_2siteBx=0.1J=-1pbc=FalseBztrain[0, 1.3]Bztarg1.5
+2022-02-23 10:02:17.408626 > 	Successfully loaded project Zmeas_2siteBx=0.1J=-1pbc=FalseBztrain[0, 1.3]Bztarg1.5
+2022-02-23 10:02:17.408712 > 	LCUcircZbasis	Complete!
+2022-02-23 10:02:17.408810 > 	Started running project Zmeas_2siteBx=0.1J=-1pbc=FalseBztrain[0, 1.3]Bztarg1.5
+2022-02-23 10:02:17.408928 > 	LCUcircZbasis	Complete!
+2022-02-23 10:02:17.408986 > 	Finished running project Zmeas_2siteBx=0.1J=-1pbc=FalseBztrain[0, 1.3]Bztarg1.5
+2022-02-23 10:32:26.621869 > 	Successfully loaded project Zmeas_2siteBx=0.1J=-1pbc=FalseBztrain[0, 1.3]Bztarg1.5
+2022-02-23 10:32:26.621949 > 	LCUcircZbasis	Complete!
+2022-02-23 10:32:26.622023 > 	Started running project Zmeas_2siteBx=0.1J=-1pbc=FalseBztrain[0, 1.3]Bztarg1.5
+2022-02-23 10:32:26.622140 > 	LCUcircZbasis	Complete!
+2022-02-23 10:32:26.622189 > 	Finished running project Zmeas_2siteBx=0.1J=-1pbc=FalseBztrain[0, 1.3]Bztarg1.5
+2022-02-23 10:32:58.484520 > 	Successfully loaded project Zmeas_2siteBx=0.1J=-1pbc=FalseBztrain[0, 1.3]Bztarg1.5
+2022-02-23 10:32:58.484599 > 	LCUcircZbasis	Complete!
+2022-02-23 10:32:58.484671 > 	Started running project Zmeas_2siteBx=0.1J=-1pbc=FalseBztrain[0, 1.3]Bztarg1.5
+2022-02-23 10:32:58.484780 > 	LCUcircZbasis	Complete!
+2022-02-23 10:32:58.484827 > 	Finished running project Zmeas_2siteBx=0.1J=-1pbc=FalseBztrain[0, 1.3]Bztarg1.5
+2022-02-23 10:34:44.001874 > 	Successfully loaded project Zmeas_2siteBx=0.1J=-1pbc=FalseBztrain[0, 1.3]Bztarg1.5
+2022-02-23 10:34:44.001961 > 	LCUcircZbasis	Complete!
+2022-02-23 10:34:44.002037 > 	Started running project Zmeas_2siteBx=0.1J=-1pbc=FalseBztrain[0, 1.3]Bztarg1.5
+2022-02-23 10:34:44.002159 > 	LCUcircZbasis	Complete!
+2022-02-23 10:34:44.002207 > 	Finished running project Zmeas_2siteBx=0.1J=-1pbc=FalseBztrain[0, 1.3]Bztarg1.5
+2022-02-23 10:45:46.749931 > 	Successfully loaded project Zmeas_2siteBx=0.1J=-1pbc=FalseBztrain[0, 1.3]Bztarg1.5
+2022-02-23 10:45:46.750012 > 	LCUcircZbasis	Complete!
+2022-02-23 10:45:46.750101 > 	Started running project Zmeas_2siteBx=0.1J=-1pbc=FalseBztrain[0, 1.3]Bztarg1.5
+2022-02-23 10:45:46.750219 > 	LCUcircZbasis	Complete!
+2022-02-23 10:45:46.750267 > 	Finished running project Zmeas_2siteBx=0.1J=-1pbc=FalseBztrain[0, 1.3]Bztarg1.5
+2022-02-23 10:46:43.746788 > 	Successfully loaded project Zmeas_2siteBx=0.1J=-1pbc=FalseBztrain[0, 1.3]Bztarg1.5
+2022-02-23 10:46:43.746865 > 	LCUcircZbasis	Complete!
+2022-02-23 10:46:43.746941 > 	Started running project Zmeas_2siteBx=0.1J=-1pbc=FalseBztrain[0, 1.3]Bztarg1.5
+2022-02-23 10:46:43.747049 > 	LCUcircZbasis	Complete!
+2022-02-23 10:46:43.747096 > 	Finished running project Zmeas_2siteBx=0.1J=-1pbc=FalseBztrain[0, 1.3]Bztarg1.5
+2022-02-23 10:47:31.486142 > 	Successfully loaded project Zmeas_2siteBx=0.1J=-1pbc=FalseBztrain[0, 1.3]Bztarg1.5
+2022-02-23 10:47:31.486220 > 	LCUcircZbasis	Complete!
+2022-02-23 10:47:31.486293 > 	Started running project Zmeas_2siteBx=0.1J=-1pbc=FalseBztrain[0, 1.3]Bztarg1.5
+2022-02-23 10:47:31.486401 > 	LCUcircZbasis	Complete!
+2022-02-23 10:47:31.486447 > 	Finished running project Zmeas_2siteBx=0.1J=-1pbc=FalseBztrain[0, 1.3]Bztarg1.5
+2022-02-23 10:55:30.603825 > 	Successfully loaded project Zmeas_2siteBx=0.1J=-1pbc=FalseBztrain[0, 1.3]Bztarg1.5
+2022-02-23 10:55:30.603936 > 	LCUcircZbasis	Complete!
+2022-02-23 10:55:30.604031 > 	Started running project Zmeas_2siteBx=0.1J=-1pbc=FalseBztrain[0, 1.3]Bztarg1.5
+2022-02-23 10:55:30.604145 > 	LCUcircZbasis	Complete!
+2022-02-23 10:55:30.604194 > 	Finished running project Zmeas_2siteBx=0.1J=-1pbc=FalseBztrain[0, 1.3]Bztarg1.5
+2022-02-23 10:59:46.001905 > 	Successfully loaded project Zmeas_2siteBx=0.1J=-1pbc=FalseBztrain[0, 1.3]Bztarg1.5
+2022-02-23 10:59:46.002130 > 	LCUcircZbasis	Complete!
+2022-02-23 10:59:46.002299 > 	Started running project Zmeas_2siteBx=0.1J=-1pbc=FalseBztrain[0, 1.3]Bztarg1.5
+2022-02-23 10:59:46.002611 > 	LCUcircZbasis	Complete!
+2022-02-23 10:59:46.002725 > 	Finished running project Zmeas_2siteBx=0.1J=-1pbc=FalseBztrain[0, 1.3]Bztarg1.5
+2022-02-23 11:24:18.244101 > 	Successfully loaded project Zmeas_2siteBx=0.1J=-1pbc=FalseBztrain[0, 1.3]Bztarg1.5
+2022-02-23 11:24:18.244215 > 	LCUcircZbasis	Complete!
+2022-02-23 11:24:18.244312 > 	Started running project Zmeas_2siteBx=0.1J=-1pbc=FalseBztrain[0, 1.3]Bztarg1.5
+2022-02-23 11:24:18.244456 > 	LCUcircZbasis	Complete!
+2022-02-23 11:24:18.244556 > 	Finished running project Zmeas_2siteBx=0.1J=-1pbc=FalseBztrain[0, 1.3]Bztarg1.5
+2022-02-23 11:25:39.973811 > 	Successfully loaded project Zmeas_2siteBx=0.1J=-1pbc=FalseBztrain[0, 1.3]Bztarg1.5
+2022-02-23 11:25:39.973995 > 	LCUcircZbasis	Complete!
+2022-02-23 11:25:39.974160 > 	Started running project Zmeas_2siteBx=0.1J=-1pbc=FalseBztrain[0, 1.3]Bztarg1.5
+2022-02-23 11:25:39.974435 > 	LCUcircZbasis	Complete!
+2022-02-23 11:25:39.974526 > 	Finished running project Zmeas_2siteBx=0.1J=-1pbc=FalseBztrain[0, 1.3]Bztarg1.5
+2022-02-23 13:33:32.480557 > 	Successfully loaded project Zmeas_2siteBx=0.1J=-1pbc=FalseBztrain[0, 1.3]Bztarg1.5
+2022-02-23 13:33:32.480645 > 	LCUcircZbasis	Complete!
+2022-02-23 13:33:32.480729 > 	Started running project Zmeas_2siteBx=0.1J=-1pbc=FalseBztrain[0, 1.3]Bztarg1.5
+2022-02-23 13:33:32.480844 > 	LCUcircZbasis	Complete!
+2022-02-23 13:33:32.480894 > 	Finished running project Zmeas_2siteBx=0.1J=-1pbc=FalseBztrain[0, 1.3]Bztarg1.5
