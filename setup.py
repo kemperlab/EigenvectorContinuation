@@ -1,3 +1,4 @@
+""" Sets up the Eigenvector Continuation library """
 from setuptools import setup
 
 setup(
@@ -7,10 +8,10 @@ setup(
     author_email='jhhoward@ncsu.edu, afranci2@ncsu.edu',
     packages=['src.util', 'src'],
     project_urls={
-        "Documentation": "TODO",
+        "Documentation": "TODO https://github.com/kemperlab/EigenvectorContinuation",
     },
     install_requires=['numpy','scipy'],
     version='0.1',
     license='BSD-2-Clause Plus Patent License',
-    description='Implementation of the Cartan Decomposition for generating time evolution circuits on lattice spin models',
+    description='Abstract class implementation of Eigenvector Continuation subspace diagonalization',
 )
