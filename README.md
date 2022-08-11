@@ -11,6 +11,7 @@ Authors:
 
 - Jack Howard
 - Akhil Francis
+- Alexander F. Kemper
 
 # Documentation
 [how to generate Sphinx docs]

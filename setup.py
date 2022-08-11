@@ -6,7 +6,7 @@ setup(
     url='https://github.com/kemperlab/EigenvectorContinuation',
     author='Jack Howard, Akhil Francis',
     author_email='jhhoward@ncsu.edu, afranci2@ncsu.edu',
-    packages=['src.util', 'src'],
+    packages=['src.classes','src.util', 'src'],
     project_urls={
         "Documentation": "TODO https://github.com/kemperlab/EigenvectorContinuation",
     },

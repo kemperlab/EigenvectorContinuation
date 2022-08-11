@@ -15,15 +15,13 @@
 
         EigenvectorContinuer:   A class used to take in any type of HSA and perform eigenvector
                                 continuation operations using the HSA and some representation of
-                                a target point. (abbr: EC)
+                                a target point. (abbr: EVC)
 
         plotting tools          Multiple target points are used to produce a simple plot. Details
                                 may vary depending on implementation specifics
 
         sample code used to showcase the EigenvectorContinuation process
 
-
-    -----------------------------------------------------------------------------------------------
     SOON TO INCLUDE:
         CircuitSpace:           A concrete implementation of HSA that stores and calculates data
                                 using the Qiskit library
@@ -31,15 +29,20 @@
         CircuitMimicSpace:      A concrete implementation of HSA that stores and calculates data
                                 as a simplified linear algebra representation used in quantum
                                 circuits. Does not use Qiskit
+
     -----------------------------------------------------------------------------------------------
 """
 
+# General Imports
 from collections import namedtuple
 from abc import ABC, abstractmethod
 import numpy as np
 from scipy.linalg import eigh
 from scipy.linalg import null_space
 from matplotlib import pyplot as plt
+
+# Local Imports
+import src.util.param_set
 
 __author__ = "Jack Howard"
 __copyright__ = "Copyright (c) 2022 Kemper Lab"
@@ -304,8 +307,8 @@ class NumPyVectorSpace(HilbertSpaceAbstract):
         _PAULIS = {}
         """ defines dict of Paulis to use below """
 
-        ParamSet = namedtuple("ParamSet", "j_x j_z b_x b_z")
-        """" useful tuple when dealing with param sets in this space """
+        # ParamSet = namedtuple("ParamSet", "j_x j_z b_x b_z")
+        # """" useful tuple when dealing with param sets in this space """
 
         def __init__(self):
             """ initializes class instance and Paulis dict """
@@ -632,8 +635,8 @@ class UnitarySpace(HilbertSpaceAbstract):
         _PAULIS = {}
         """ defines dict of Paulis to use below """
 
-        ParamSet = namedtuple("ParamSet", "j_x j_z b_x b_z")
-        """" useful tuple when dealing with param sets in this space """
+        # ParamSet = namedtuple("ParamSet", "j_x j_z b_x b_z")
+        # """" useful tuple when dealing with param sets in this space """
 
         def __init__(self):
             """ initializes class instance and Paulis dict """
@@ -728,10 +731,9 @@ class EigenvectorContinuer():
         Eigenvector Continuation for a given set of training points and target points
 
         USE CASE:
-        1.  Create an instance of a HilbertSpaceAbstract concrete class/subclass
-                - Will need training points (and/or other input depending on implementation)
-        2.  Input:
-                a target point to use and calculate the subspace hamiltonian
+        1.  Create an instance of a HilbertSpaceAbstract concrete class/subclass. Requires training points
+        (and/or other input depending on implementation)
+        2.  Input: a target point to use and calculate the subspace hamiltonian
 
         OUTPUT:
             Eigenvalues and Eigenvectors from the Generalized Eigenvalue Problem constructed from
@@ -748,36 +750,36 @@ class EigenvectorContinuer():
 
     @property
     def hilbert_space(self):
-        """ I'm this EC's hilbert space """
+        """ I'm this EVC's hilbert space """
         return self._hilbert_space
 
     @property
     def overlap_matrix(self):
-        """ I'm this EC's last calculated overlap matrix """
+        """ I'm this EVC's last calculated overlap matrix """
         return self._overlap_matrix
 
     @property
     def sub_ham(self):
-        """ I'm this EC's last calculated subspace hamiltonian """
+        """ I'm this EVC's last calculated subspace hamiltonian """
         return self._sub_ham
 
     @property
     def current_target_point(self):
-        """ I'm this EC's current target point. I'm used to create the sub_ham"""
+        """ I'm this EVC's current target point. I'm used to create the sub_ham"""
         return self._current_target_point
 
     @property
     def evals(self):
-        """ I'm this EC's last calculated set of eigenvalues for the diagonalized subspace ham """
+        """ I'm this EVC's last calculated set of eigenvalues for the diagonalized subspace ham """
         return self._evals
 
     @property
     def evecs(self):
-        """ I'm this EC's last calculated set of eigenvectors for the diagonalized subspace ham """
+        """ I'm this EVC's last calculated set of eigenvectors for the diagonalized subspace ham """
         return self._evecs
 
     def __init__(self, hilbert_space, target_point):
-        """ initializes the EC
+        """ initializes the EVC
 
             :param hilbert_space:   the Hilbert Space used for Eigenvector Continuation in
                                     conjunction with a target point
@@ -815,11 +817,11 @@ class EigenvectorContinuer():
         return self.overlap_matrix
 
     def calc_sub_ham(self, input_target_point=None):
-        """ calculates the subspace hamiltonian based on the EC's current Hilbert Space and
+        """ calculates the subspace hamiltonian based on the EVC's current Hilbert Space and
             target point
 
             :param input_target_point:  [OPTIONAL] can be used to update the current target
-                                        point of the EC as needed
+                                        point of the EVC as needed
 
             :returns:                   the subspace hamiltonian
         """
@@ -841,14 +843,14 @@ class EigenvectorContinuer():
         self._sub_ham = self.hilbert_space.calc_sub_ham(target_ham)
 
     def solve_gep(self, input_training_points=None, input_target_point=None):
-        """ solves the generalized eigencvalue problem for this EC
+        """ solves the generalized eigencvalue problem for this EVC
 
             :param input_training_points:   used to calculate the current hilbert space's
                                             overlap matrix. If None is passed, will default
                                             to current training_points in the hilbert space
             :param input_target_point:      used to calculate the current hilbert space's
                                             subspace hamiltonian. If None is passed, will default
-                                            to current_target_point in this EC
+                                            to current_target_point in this EVC
             :returns:                       the evals, evecs calculated
         """
 
@@ -864,11 +866,11 @@ class EigenvectorContinuer():
 # Plotting tools
 
 def plot_xxz_spectrum(bzmin, bzmax, evec_cont: EigenvectorContinuer):
-    """ plots the spectrum of eigenvalues for a given EC
+    """ plots the spectrum of eigenvalues for a given EVC
 
         :param bzmin:       the minimum b_z value to plot
         :param bzmax:       the maximum b_z value to plot
-        :param evec_cont:   the EC to plot (plots training and target points, and expected energies)
+        :param evec_cont:   the EVC to plot (plots training and target points, and expected energies)
 
     """
 
@@ -881,11 +883,11 @@ def plot_xxz_spectrum(bzmin, bzmax, evec_cont: EigenvectorContinuer):
     axes.set_xlabel("$B_Z$")
     axes.set_ylabel("Energy")
 
-    # PLOT POINTS FROM INPUT EC
+    # PLOT POINTS FROM INPUT EVC
     # sets up hamiltonian initializer to reduce overhead in for loop
     ham_init = evec_cont.hilbert_space.HamiltonianInitializer()
 
-    # "for every training point in the EC, ..."
+    # "for every training point in the EVC, ..."
     for training_point in evec_cont.hilbert_space.training_points:
         # "... calculate its hamiltonian, ..."
         ham = ham_init.xxztype_hamiltonian(param_set=training_point,
@@ -898,12 +900,12 @@ def plot_xxz_spectrum(bzmin, bzmax, evec_cont: EigenvectorContinuer):
             plt.plot(training_point.b_z, current_eval, marker="o", color="blue")
 
 
-    # gets the evals of the ec to reduce overhead of the for loop
-    ec_evals = evec_cont.evals
+    # gets the evals of the evc to reduce overhead of the for loop
+    evc_evals = evec_cont.evals
 
     # plot each target point
-    for ec_eval in ec_evals:
-        plt.plot(evec_cont.current_target_point.b_z, ec_eval, marker="o", color="red")
+    for evc_eval in evc_evals:
+        plt.plot(evec_cont.current_target_point.b_z, evc_eval, marker="o", color="red")
 
     # PLOT EXPECTED ENERGY CURVES
     # get parameters for expected curves
