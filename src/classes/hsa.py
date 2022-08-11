@@ -1,7 +1,10 @@
-"""
-    HilbertSpaceAbstract:   Abstract class used to outline how concrete Hilbert Spaces should
-                            behave. Hilbert Spaces are used to create EigenvectorContinuer
-                            objects. (abbr: HSA)
+""" HilbertSpaceAbstract:   Abstract class used to outline how concrete Hilbert Spaces behave
+
+Hilbert Spaces are used to create EigenvectorContinuer objects. They require an implementation of
+an inner product and an expectation value, which are used to calculate the overlap matrix and
+subspace hamiltonian of the system. Additionally, they require a method of determinig which vector
+to select from a list of eigenvectors (usually these correspond to different energy levels in a
+system).
 """
 
 
@@ -16,13 +19,24 @@ from abc import ABC, abstractmethod
 # Local Imports
 # import src.util.param_set
 
-__author__ = "Jack Howard"
+__author__ = "Jack H. Howard, Akhil Francis, Alexander F. Kemper"
+__citation__ = "" # TODO Arxiv or doi
 __copyright__ = "Copyright (c) 2022 Kemper Lab"
-__credits__ = "Jack Howard, Akhil Francis, Lex Kemper"
+__credits__ = ["Jack H. Howard", "Akhil Francis", "Alexander F. Kemper",
+               "Anjali A. Agrawal", "Efekan Kökcü"]
+__license__ = "BSD-2-Clause-Patent"
+__version__ = "1.0.1"
+__maintainer__ = "Jack H. Howard"
+__email__ = "jhhoward@ncsu.edu"
+__status__ = "Development"
 
 class HilbertSpaceAbstract(ABC):
-    """ defines behavior for objects to have a hamiltonian, inner product,
-        and expectation value
+    """ Defines behavior for objects to have a hamiltonian, inner product, expectation value, and
+    selected vector
+
+        INPUT:
+            a set of training vectors
+
     """
 
     @property

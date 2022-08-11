@@ -9,7 +9,7 @@ This code implements the process found in the paper linked below. The program co
 
 Authors:
 
-- Jack Howard
+- Jack H. Howard
 - Akhil Francis
 - Alexander F. Kemper
 

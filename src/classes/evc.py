@@ -1,7 +1,8 @@
-"""
-    EigenvectorContinuer:   A class used to take in any type of HSA and perform eigenvector
-                            continuation operations using the HSA and some representation of
-                            a target point. (abbr: EVC)
+""" Class that performs Eigenvector Continuation on any type of HSA given some type of target point
+
+An EigenvectorContinuer object is flexible to take any valid implementation of an HSA and use it
+to calculate values relevant to EVC. Requires input of both training points (used in creation of
+the HSA), and a target point.
 """
 
 
@@ -16,29 +17,38 @@ from scipy.linalg import eigh
 # Local Imports
 from src.classes.hsa import HilbertSpaceAbstract
 
-__author__ = "Jack Howard"
+__author__ = "Jack H. Howard, Akhil Francis, Alexander F. Kemper"
+__citation__ = "" # TODO Arxiv or doi
 __copyright__ = "Copyright (c) 2022 Kemper Lab"
-__credits__ = "Jack Howard, Akhil Francis, Lex Kemper"
+__credits__ = ["Jack H. Howard", "Akhil Francis", "Alexander F. Kemper",
+               "Anjali A. Agrawal", "Efekan Kökcü"]
+__license__ = "BSD-2-Clause-Patent"
+__version__ = "1.0.1"
+__maintainer__ = "Jack H. Howard"
+__email__ = "jhhoward@ncsu.edu"
+__status__ = "Development"
 
 class EigenvectorContinuer():
-    """ Houses the functionality to create a Hilbert Space of specified type and perform
-        Eigenvector Continuation for a given set of training points and target points
+    """ Computes EVC on a given HSA and target point.
 
-        USE CASE:
-        1.  Create an instance of a HilbertSpaceAbstract concrete class/subclass. Requires training
-        points (and/or other input depending on implementation)
-        2.  Input: a target point to use and calculate the subspace hamiltonian
+    Houses the functionality to create a Hilbert Space of specified type and perform
+    Eigenvector Continuation for a given set of training points and target points
 
-        OUTPUT:
-            Eigenvalues and Eigenvectors from the Generalized Eigenvalue Problem constructed from
-            the subspace hamiltonian and overlap matrix calculated by the training and target
-            points
+    USE CASE:
+    1.  Create an instance of a HilbertSpaceAbstract concrete class/subclass. Requires training
+    points (and/or other input depending on implementation)
+    2.  Input: a target point to use and calculate the subspace hamiltonian
 
-        USEFUL METHODS (documentation given below):
-            __init__(...)
-            calc_overlap_matrix(...)
-            calc_sub_ham(...)
-            solve_gep(...)
+    OUTPUT:
+        Eigenvalues and Eigenvectors from the Generalized Eigenvalue Problem constructed from
+        the subspace hamiltonian and overlap matrix calculated by the training and target
+        points
+
+    USEFUL METHODS (documentation given below):
+        __init__(...)
+        calc_overlap_matrix(...)
+        calc_sub_ham(...)
+        solve_gep(...)
 
     """
 
@@ -130,7 +140,7 @@ class EigenvectorContinuer():
         self._overlap_matrix = self.hilbert_space.calc_overlap_matrix()
 
     def refresh_sub_ham(self):
-        """ rereshed the current subspace hamiltonian based on current properties """
+        """ refreshes the current subspace hamiltonian based on current properties """
         ham_init = self.hilbert_space.HamiltonianInitializer()
         target_ham = ham_init.xxztype_hamiltonian(self.current_target_point,
                                                   self.hilbert_space.num_qubits)

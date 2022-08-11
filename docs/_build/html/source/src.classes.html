@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>src.classes package &mdash; EVC .1 documentation</title>
+  <title>src.classes package &mdash; EVC 0.1 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -82,32 +82,33 @@
 </section>
 <section id="module-src.classes.cms">
 <span id="src-classes-cms-module"></span><h2>src.classes.cms module<a class="headerlink" href="#module-src.classes.cms" title="Permalink to this heading"></a></h2>
+<p>Concrete implementation of HSA that mimics the algebra used in a quantum circuit</p>
+<p>CircuitMimicSpace is a simplified linear algebra representation of the computations run on
+quantum circuits. For a set of input training points, it defines the behavior for inner products
+and expectation values in this space and uses that behavior to calculate the overlap matrix and
+subspace hamiltonian for the given space. Does not use Qiskit (Please see CircuitSpace for the
+Qiskit implementation).</p>
 <p>NOT YET IMPLEMENTED</p>
-<dl class="simple">
-<dt>CircuitMimicSpace:      A concrete implementation of HSA that stores and calculates data</dt><dd><p>as a simplified linear algebra representation used in quantum
-circuits. Does not use Qiskit</p>
-</dd>
-</dl>
 </section>
 <section id="module-src.classes.cs">
 <span id="src-classes-cs-module"></span><h2>src.classes.cs module<a class="headerlink" href="#module-src.classes.cs" title="Permalink to this heading"></a></h2>
+<p>Concrete implementation of HSA that stores and calculates products using the Qiskit library</p>
+<p>CircuitSpace uses the Qiskit library to define the behavior for inner products and expectation
+values for data represented as quatum circuits. For a set of input training points, it can use
+these to calculate the overlap matrix and subspace hamiltonian for the given space.</p>
 <p>NOT YET IMPLEMENTED</p>
-<dl class="simple">
-<dt>CircuitSpace:           A concrete implementation of HSA that stores and calculates data</dt><dd><p>using the Qiskit library</p>
-</dd>
-</dl>
 </section>
 <section id="module-src.classes.evc">
 <span id="src-classes-evc-module"></span><h2>src.classes.evc module<a class="headerlink" href="#module-src.classes.evc" title="Permalink to this heading"></a></h2>
-<dl class="simple">
-<dt>EigenvectorContinuer:   A class used to take in any type of HSA and perform eigenvector</dt><dd><p>continuation operations using the HSA and some representation of
-a target point. (abbr: EVC)</p>
-</dd>
-</dl>
+<p>Class that performs Eigenvector Continuation on any type of HSA given some type of target point</p>
+<p>An EigenvectorContinuer object is flexible to take any valid implementation of an HSA and use it
+to calculate values relevant to EVC. Requires input of both training points (used in creation of
+the HSA), and a target point.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="src.classes.evc.EigenvectorContinuer">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.classes.evc.</span></span><span class="sig-name descname"><span class="pre">EigenvectorContinuer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">hilbert_space</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target_point</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.classes.evc.EigenvectorContinuer" title="Permalink to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Computes EVC on a given HSA and target point.</p>
 <p>Houses the functionality to create a Hilbert Space of specified type and perform
 Eigenvector Continuation for a given set of training points and target points</p>
 <p>USE CASE:
@@ -195,7 +196,7 @@ point of the EVC as needed</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="src.classes.evc.EigenvectorContinuer.refresh_sub_ham">
 <span class="sig-name descname"><span class="pre">refresh_sub_ham</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#src.classes.evc.EigenvectorContinuer.refresh_sub_ham" title="Permalink to this definition"></a></dt>
-<dd><p>rereshed the current subspace hamiltonian based on current properties</p>
+<dd><p>refreshes the current subspace hamiltonian based on current properties</p>
 </dd></dl>
 
 <dl class="py method">
@@ -230,17 +231,24 @@ to current_target_point in this EVC</p></li>
 </section>
 <section id="module-src.classes.hsa">
 <span id="src-classes-hsa-module"></span><h2>src.classes.hsa module<a class="headerlink" href="#module-src.classes.hsa" title="Permalink to this heading"></a></h2>
-<dl class="simple">
-<dt>HilbertSpaceAbstract:   Abstract class used to outline how concrete Hilbert Spaces should</dt><dd><p>behave. Hilbert Spaces are used to create EigenvectorContinuer
-objects. (abbr: HSA)</p>
-</dd>
-</dl>
+<p>HilbertSpaceAbstract:   Abstract class used to outline how concrete Hilbert Spaces behave</p>
+<p>Hilbert Spaces are used to create EigenvectorContinuer objects. They require an implementation of
+an inner product and an expectation value, which are used to calculate the overlap matrix and
+subspace hamiltonian of the system. Additionally, they require a method of determinig which vector
+to select from a list of eigenvectors (usually these correspond to different energy levels in a
+system).</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="src.classes.hsa.HilbertSpaceAbstract">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.classes.hsa.</span></span><span class="sig-name descname"><span class="pre">HilbertSpaceAbstract</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">training_points</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.classes.hsa.HilbertSpaceAbstract" title="Permalink to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ABC</span></code></p>
-<p>defines behavior for objects to have a hamiltonian, inner product,
-and expectation value</p>
+<p>Defines behavior for objects to have a hamiltonian, inner product, expectation value, and
+selected vector</p>
+<blockquote>
+<div><dl class="simple">
+<dt>INPUT:</dt><dd><p>a set of training vectors</p>
+</dd>
+</dl>
+</div></blockquote>
 <dl class="py property">
 <dt class="sig sig-object py" id="src.classes.hsa.HilbertSpaceAbstract.basis_vecs">
 <em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">basis_vecs</span></span><a class="headerlink" href="#src.classes.hsa.HilbertSpaceAbstract.basis_vecs" title="Permalink to this definition"></a></dt>
@@ -763,7 +771,7 @@ denoted as <a href="#id1"><span class="problematic" id="id2">|</span></a>0&gt; a
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2022, Jack Howard, Akhil Francis, Alexander F. Kemper.</p>
+    <p>&#169; Copyright Copyright (c) 2022 Kemper Lab, Jack H. Howard, Akhil Francis, Alexander F. Kemper.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

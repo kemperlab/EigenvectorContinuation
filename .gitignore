@@ -3,3 +3,6 @@ __pycache__/
 **-workspace
 scratch_work/
 .DS_Store
+build/
+dist/
+ec_abstract.egg-info
