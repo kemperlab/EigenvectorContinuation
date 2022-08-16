@@ -16,11 +16,10 @@ sys.path.insert(0, os.path.abspath('..'))
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
-project = 'EVC'
+project = 'EigenvectorContinuation'
 copyright = 'Copyright (c) 2022 Kemper Lab, Jack H. Howard, Akhil Francis, Alexander F. Kemper'
 author = 'Jack H. Howard, Akhil Francis, Alexander F. Kemper'
 release = '0.1'
-
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration

@@ -5,4 +5,4 @@ scratch_work/
 .DS_Store
 build/
 dist/
-ec_abstract.egg-info
+EigenvectorContinuation.egg-info

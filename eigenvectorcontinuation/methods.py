@@ -16,7 +16,7 @@ from matplotlib import pyplot as plt
 
 # Local Imports
 # from src.classes.hsa import HilbertSpaceAbstract
-from src.classes.evc import EigenvectorContinuer
+from eigenvectorcontinuation.continuer.eigenvector_continuer import EigenvectorContinuer
 
 __author__ = "Jack H. Howard, Akhil Francis, Alexander F. Kemper"
 __citation__ = "" # TODO Arxiv or doi

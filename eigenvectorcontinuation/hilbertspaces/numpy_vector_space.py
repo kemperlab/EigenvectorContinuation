@@ -13,7 +13,7 @@ import numpy as np
 # from matplotlib import pyplot as plt
 
 # Local Imports
-from src.classes.hsa import HilbertSpaceAbstract
+from eigenvectorcontinuation.hilbertspaces.hilbert_space_abstract import HilbertSpaceAbstract
 
 __author__ = "Jack H. Howard, Akhil Francis, Alexander F. Kemper"
 __citation__ = "" # TODO Arxiv or doi

@@ -1,7 +1,7 @@
-src
-===
+eigenvectorcontinuation
+=======================
 
 .. toctree::
    :maxdepth: 4
 
-   src
+   eigenvectorcontinuation
