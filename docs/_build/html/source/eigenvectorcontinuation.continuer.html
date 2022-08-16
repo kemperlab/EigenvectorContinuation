@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>eigenvectorcontinuation.continuer package &mdash; EigenvectorContinuation 0.1 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> EigenvectorContinuation
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">eigenvectorcontinuation.continuer package</a><ul>
+<li><a class="reference internal" href="#submodules">Submodules</a></li>
+<li><a class="reference internal" href="#module-eigenvectorcontinuation.continuer.eigenvector_continuer">eigenvectorcontinuation.continuer.eigenvector_continuer module</a></li>
+<li><a class="reference internal" href="#module-eigenvectorcontinuation.continuer">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">EigenvectorContinuation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>eigenvectorcontinuation.continuer package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/source/eigenvectorcontinuation.continuer.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="eigenvectorcontinuation-continuer-package">
+<h1>eigenvectorcontinuation.continuer package<a class="headerlink" href="#eigenvectorcontinuation-continuer-package" title="Permalink to this heading"></a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-eigenvectorcontinuation.continuer.eigenvector_continuer">
+<span id="eigenvectorcontinuation-continuer-eigenvector-continuer-module"></span><h2>eigenvectorcontinuation.continuer.eigenvector_continuer module<a class="headerlink" href="#module-eigenvectorcontinuation.continuer.eigenvector_continuer" title="Permalink to this heading"></a></h2>
+<p>Class that performs Eigenvector Continuation on any type of HSA given some type of target point</p>
+<p>An EigenvectorContinuer object is flexible to take any valid implementation of an HSA and use it
+to calculate values relevant to EVC. Requires input of both training points (used in creation of
+the HSA), and a target point.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="eigenvectorcontinuation.continuer.eigenvector_continuer.EigenvectorContinuer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">eigenvectorcontinuation.continuer.eigenvector_continuer.</span></span><span class="sig-name descname"><span class="pre">EigenvectorContinuer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">hilbert_space</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target_point</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#eigenvectorcontinuation.continuer.eigenvector_continuer.EigenvectorContinuer" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Computes EVC on a given HSA and target point.</p>
+<p>Houses the functionality to create a Hilbert Space of specified type and perform
+Eigenvector Continuation for a given set of training points and target points</p>
+<p>USE CASE:
+1.  Create an instance of a HilbertSpaceAbstract concrete class/subclass. Requires training
+points (and/or other input depending on implementation)
+2.  Input: a target point to use and calculate the subspace hamiltonian</p>
+<dl class="simple">
+<dt>OUTPUT:</dt><dd><p>Eigenvalues and Eigenvectors from the Generalized Eigenvalue Problem constructed from
+the subspace hamiltonian and overlap matrix calculated by the training and target
+points</p>
+</dd>
+<dt>USEFUL METHODS (documentation given below):</dt><dd><p>__init__(…)
+calc_overlap_matrix(…)
+calc_sub_ham(…)
+solve_gep(…)</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="eigenvectorcontinuation.continuer.eigenvector_continuer.EigenvectorContinuer.calc_overlap_matrix">
+<span class="sig-name descname"><span class="pre">calc_overlap_matrix</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input_training_points</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#eigenvectorcontinuation.continuer.eigenvector_continuer.EigenvectorContinuer.calc_overlap_matrix" title="Permalink to this definition"></a></dt>
+<dd><p>caclulates the overlap matrix based on the Hilbert Space’s current training points</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>input_training_points</strong> – [OPTIONAL] can be used to update the hilbert
+space’s training points as needed</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>the overlap matrix</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="eigenvectorcontinuation.continuer.eigenvector_continuer.EigenvectorContinuer.calc_sub_ham">
+<span class="sig-name descname"><span class="pre">calc_sub_ham</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input_target_point</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#eigenvectorcontinuation.continuer.eigenvector_continuer.EigenvectorContinuer.calc_sub_ham" title="Permalink to this definition"></a></dt>
+<dd><p>calculates the subspace hamiltonian based on the EVC’s current Hilbert Space and
+target point</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>input_target_point</strong> – [OPTIONAL] can be used to update the current target
+point of the EVC as needed</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>the subspace hamiltonian</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="eigenvectorcontinuation.continuer.eigenvector_continuer.EigenvectorContinuer.current_target_point">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">current_target_point</span></span><a class="headerlink" href="#eigenvectorcontinuation.continuer.eigenvector_continuer.EigenvectorContinuer.current_target_point" title="Permalink to this definition"></a></dt>
+<dd><p>I’m this EVC’s current target point. I’m used to create the sub_ham</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="eigenvectorcontinuation.continuer.eigenvector_continuer.EigenvectorContinuer.evals">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">evals</span></span><a class="headerlink" href="#eigenvectorcontinuation.continuer.eigenvector_continuer.EigenvectorContinuer.evals" title="Permalink to this definition"></a></dt>
+<dd><p>I’m this EVC’s last calculated set of eigenvalues for the diagonalized subspace ham</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="eigenvectorcontinuation.continuer.eigenvector_continuer.EigenvectorContinuer.evecs">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">evecs</span></span><a class="headerlink" href="#eigenvectorcontinuation.continuer.eigenvector_continuer.EigenvectorContinuer.evecs" title="Permalink to this definition"></a></dt>
+<dd><p>I’m this EVC’s last calculated set of eigenvectors for the diagonalized subspace ham</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="eigenvectorcontinuation.continuer.eigenvector_continuer.EigenvectorContinuer.hilbert_space">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">hilbert_space</span></span><a class="headerlink" href="#eigenvectorcontinuation.continuer.eigenvector_continuer.EigenvectorContinuer.hilbert_space" title="Permalink to this definition"></a></dt>
+<dd><p>I’m this EVC’s hilbert space</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="eigenvectorcontinuation.continuer.eigenvector_continuer.EigenvectorContinuer.overlap_matrix">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">overlap_matrix</span></span><a class="headerlink" href="#eigenvectorcontinuation.continuer.eigenvector_continuer.EigenvectorContinuer.overlap_matrix" title="Permalink to this definition"></a></dt>
+<dd><p>I’m this EVC’s last calculated overlap matrix</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="eigenvectorcontinuation.continuer.eigenvector_continuer.EigenvectorContinuer.refresh_overlap_matrix">
+<span class="sig-name descname"><span class="pre">refresh_overlap_matrix</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#eigenvectorcontinuation.continuer.eigenvector_continuer.EigenvectorContinuer.refresh_overlap_matrix" title="Permalink to this definition"></a></dt>
+<dd><p>refreshes the current overlap matrix property based on current properties</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="eigenvectorcontinuation.continuer.eigenvector_continuer.EigenvectorContinuer.refresh_sub_ham">
+<span class="sig-name descname"><span class="pre">refresh_sub_ham</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#eigenvectorcontinuation.continuer.eigenvector_continuer.EigenvectorContinuer.refresh_sub_ham" title="Permalink to this definition"></a></dt>
+<dd><p>refreshes the current subspace hamiltonian based on current properties</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="eigenvectorcontinuation.continuer.eigenvector_continuer.EigenvectorContinuer.solve_gep">
+<span class="sig-name descname"><span class="pre">solve_gep</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input_training_points</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">input_target_point</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#eigenvectorcontinuation.continuer.eigenvector_continuer.EigenvectorContinuer.solve_gep" title="Permalink to this definition"></a></dt>
+<dd><p>solves the generalized eigencvalue problem for this EVC</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>input_training_points</strong> – used to calculate the current hilbert space’s
+overlap matrix. If None is passed, will default
+to current training_points in the hilbert space</p></li>
+<li><p><strong>input_target_point</strong> – used to calculate the current hilbert space’s
+subspace hamiltonian. If None is passed, will default
+to current_target_point in this EVC</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>the evals, evecs calculated</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="eigenvectorcontinuation.continuer.eigenvector_continuer.EigenvectorContinuer.sub_ham">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">sub_ham</span></span><a class="headerlink" href="#eigenvectorcontinuation.continuer.eigenvector_continuer.EigenvectorContinuer.sub_ham" title="Permalink to this definition"></a></dt>
+<dd><p>I’m this EVC’s last calculated subspace hamiltonian</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-eigenvectorcontinuation.continuer">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-eigenvectorcontinuation.continuer" title="Permalink to this heading"></a></h2>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright Copyright (c) 2022 Kemper Lab, Jack H. Howard, Akhil Francis, Alexander F. Kemper.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
