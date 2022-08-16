@@ -1,12 +1,14 @@
-""" Concrete implementation of HSA that stores and calculates products using the Qiskit library
+""" Concrete implementation of HSA that mimics the algebra used in a quantum circuit
 
-CircuitSpace uses the Qiskit library to define the behavior for inner products and expectation
-values for data represented as quatum circuits. For a set of input training points, it can use
-these to calculate the overlap matrix and subspace hamiltonian for the given space.
+CircuitMimicSpace is a simplified linear algebra representation of the computations run on
+quantum circuits. For a set of input training points, it defines the behavior for inner products
+and expectation values in this space and uses that behavior to calculate the overlap matrix and
+subspace hamiltonian for the given space. Does not use Qiskit (Please see CircuitSpace for the
+Qiskit implementation).
 
 NOT YET IMPLEMENTED
 """
-
+# TODO Implement CircuitMimicSpace
 
 # # General Imports
 # from collections import namedtuple
@@ -25,7 +27,7 @@ __copyright__ = "Copyright (c) 2022 Kemper Lab"
 __credits__ = ["Jack H. Howard", "Akhil Francis", "Alexander F. Kemper",
                "Anjali A. Agrawal", "Efekan Kökcü"]
 __license__ = "BSD-2-Clause-Patent"
-__version__ = "1.0.1"
+__version__ = "0.1"
 __maintainer__ = "Jack H. Howard"
 __email__ = "jhhoward@ncsu.edu"
 __status__ = "Development"
