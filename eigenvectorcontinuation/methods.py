@@ -17,7 +17,7 @@ from matplotlib import pyplot as plt
 # Local Imports
 # from src.classes.hsa import HilbertSpaceAbstract
 from eigenvectorcontinuation.continuer.eigenvector_continuer import EigenvectorContinuer
-from eigenvectorcontinuation.util.param_set import ParamSet as ps
+from eigenvectorcontinuation.util.param_set import ParamSet
 
 __author__ = "Jack H. Howard, Akhil Francis, Alexander F. Kemper"
 __citation__ = "" # TODO Arxiv or doi
@@ -86,7 +86,7 @@ def plot_xxz_spectrum(bzmin, bzmax, evec_cont: EigenvectorContinuer):
     # plot the lines
     all_evals = np.zeros([len(bzlist), 2**evec_cont.hilbert_space.num_qubits])
     for idx, b_z in enumerate(bzlist):
-        param_set = ps(j_x, j_z, b_x, b_z)
+        param_set = ParamSet(j_x, j_z, b_x, b_z)
 
         ham = ham_init.xxztype_hamiltonian(param_set=param_set,
                                            n_qubits=evec_cont.hilbert_space.num_qubits)
