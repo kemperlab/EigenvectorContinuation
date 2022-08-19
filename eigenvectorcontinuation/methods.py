@@ -62,10 +62,10 @@ def plot_xxz_spectrum(bzmin, bzmax, evec_cont: EigenvectorContinuer):
         # "... get the eigenvalues of that hamiltonian, ..."
         evals = ham_init.calc_eigenpairs(ham)[0]
 
-        # " ... and plot each eigenvalue"
-        for current_eval in evals:
-            plt.plot(training_point.b_z, current_eval, marker="o", color="blue")
-
+        # " ... and plot the lowest energy eigenvalue"
+        # ground_state_eval = EigenvectorContinuer.hilbert_space.select_vec(evals)
+        # for current_eval in evals: TODO add support for select_vec
+        plt.plot(training_point.b_z, evals[0], marker="o", color="blue")
 
     # gets the evals of the evc to reduce overhead of the for loop
     evc_evals = evec_cont.evals

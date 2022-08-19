@@ -30,7 +30,7 @@ num_qubits = 2
 b_x = .05
 j_x = -1
 j_z = 0
-b_zs = np.array([0,2])  # put your custom bz inputs here
+b_zs = np.array([0.1, 2])  # put your custom bz inputs here
 
 tbx = b_x
 tjx = j_x

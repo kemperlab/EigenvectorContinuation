@@ -5,6 +5,9 @@ an inner product and an expectation value, which are used to calculate the overl
 subspace hamiltonian of the system. Additionally, they require a method of determinig which vector
 to select from a list of eigenvectors (usually these correspond to different energy levels in a
 system).
+
+SOON TO BE ADDED:
+Support for non-ground-state eigenvector continuation
 """
 
 
