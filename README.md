@@ -25,4 +25,5 @@ Authors:
 [clone repo]
 [cd into repo]
 [python3 setup.py install]
+
 # Other Notes
