@@ -4,12 +4,8 @@
 """
 
 # General Imports
-# from collections import namedtuple
-# from abc import ABC, abstractmethod
 import numpy as np
-# from scipy.linalg import eigh
 from scipy.linalg import null_space
-# from matplotlib import pyplot as plt
 
 # Local Imports
 from eigenvectorcontinuation.hilbertspaces.hilbert_space_abstract import HilbertSpaceAbstract

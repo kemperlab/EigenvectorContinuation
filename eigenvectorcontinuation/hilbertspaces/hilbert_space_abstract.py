@@ -12,15 +12,10 @@ Support for non-ground-state eigenvector continuation
 
 
 # General Imports
-# from collections import namedtuple
 from abc import ABC, abstractmethod
-# import numpy as np
-# from scipy.linalg import eigh
-# from scipy.linalg import null_space
-# from matplotlib import pyplot as plt
 
 # Local Imports
-# import src.util.param_set
+# none
 
 __author__ = "Jack H. Howard, Akhil Francis, Alexander F. Kemper"
 __citation__ = "" # TODO Arxiv or doi

@@ -22,7 +22,7 @@ NOT YET IMPLEMENTED
 # import src.util.param_set
 
 __author__ = "Jack H. Howard, Akhil Francis, Alexander F. Kemper"
-__citation__ = "" # TODO Arxiv  or doi
+__citation__ = "" # TODO Arxiv or doi
 __copyright__ = "Copyright (c) 2022 Kemper Lab"
 __credits__ = ["Jack H. Howard", "Akhil Francis", "Alexander F. Kemper",
                "Anjali A. Agrawal", "Efekan Kökcü"]

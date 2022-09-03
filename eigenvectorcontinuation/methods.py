@@ -7,15 +7,10 @@
 
 
 # General Imports
-# from collections import namedtuple
-# from abc import ABC, abstractmethod
 import numpy as np
-# from scipy.linalg import eigh
-# from scipy.linalg import null_space
 from matplotlib import pyplot as plt
 
 # Local Imports
-# from src.classes.hsa import HilbertSpaceAbstract
 from eigenvectorcontinuation.continuer.eigenvector_continuer import EigenvectorContinuer
 from eigenvectorcontinuation.util.param_set import ParamSet
 
