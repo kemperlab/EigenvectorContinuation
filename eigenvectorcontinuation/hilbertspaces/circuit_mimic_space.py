@@ -6,7 +6,7 @@ and expectation values in this space and uses that behavior to calculate the ove
 subspace hamiltonian for the given space. Does not use Qiskit (Please see CircuitSpace for the
 Qiskit implementation).
 
-NOT YET IMPLEMENTED
+NOT YET IMPLEMENTED (edit in this branch)
 """
 # TODO Implement CircuitMimicSpace
 
