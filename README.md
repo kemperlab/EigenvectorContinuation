@@ -15,7 +15,7 @@ Authors:
 
 ## Contents
 
-### EigenvectorContinuer class:
+#### EigenvectorContinuer class:
 Instances of this class run EC for a given hilbert space and set of target points. An instance can:
 - calculate the overlap matrix for the current system
 - calculate the subspace hamiltonian for the current system
@@ -23,7 +23,7 @@ Instances of this class run EC for a given hilbert space and set of target point
 - refresh the subspace hamiltonian to match the current target point property
 - solve the generalized eigenvalue problem for all the properties of the current instance
 
-### HilbertSpaceAbstract (HSA) interface/abstract class:
+#### HilbertSpaceAbstract (HSA) interface/abstract class:
 Each implementation (subclass) of this class must include methods that perform the following:
 - calculate basis vectors using the space's properties
 - define and calculate the behavior of an inner product
@@ -33,12 +33,12 @@ Each implementation (subclass) of this class must include methods that perform t
 - select which vectors are relevant in performing EC (ground state vs. a selected excited state)
 Every implementation must also include an inner class, `HamiltonInitializer`, that constructs a hamiltonian for the system given a target point.
 
-### NumPyVectorSpace concrete/subclass of HSA:
+#### NumPyVectorSpace concrete/subclass of HSA:
 Has all the functionality required for an HSA, implemented using the NumPy library and using NumPy matrices for representations of all matrices and vectors. Also contains:
 - HamiltonianInitializer inner class:
     - provides needed functions for creating hamiltonians using NumPy arrays
 
-### UnitarySpace concrete/subclass of HSA:
+#### UnitarySpace concrete/subclass of HSA:
 Has all the functionality required for an HSA, implemented using the NumPy library and using NumPy matrices as unitary matrices for representations of all matrices and vectors. Also contains:
 - HamiltonianInitializer inner class:
     - provides needed functions for creating hamiltonians using NumPy arrays
@@ -46,13 +46,13 @@ Instances of this class also can:
 - calculate a unitary for a given vector
 - calculate a set of unitaries for the instance's basis vectors
 
-### metods.py module:
+#### methods.py module:
 Includes useful methods such as: 
 - plot_xxz_spectrum: produces a plot for a given EigenvectorContinuer, a min B_z value, and max B_z value
 
 More details can be found in the **Doucumentation** section below
 
-### ParamSet tuple:
+#### ParamSet tuple:
 Convenient tuple to use for calculations throughout the program
 
 
