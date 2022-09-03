@@ -58,7 +58,7 @@ Convenient tuple to use for calculations throughout the program
 
 
 ## Documentation
-Find detailed documentation of modules [here](https://htmlpreview.github.io/?https://github.com/kemperlab/EigenvectorContinuation/tree/main/docs/_build/html/index.html) and generated documentation files [here](https://htmlpreview.github.io/?https://github.com/kemperlab/EigenvectorContinuation/tree/main/docs)
+Find detailed documentation of modules [here](https://github.com/kemperlab/EigenvectorContinuation/tree/main/docs/_build/html/index.html) and generated documentation files [here](https://github.com/kemperlab/EigenvectorContinuation/tree/main/docs)
 
 
 

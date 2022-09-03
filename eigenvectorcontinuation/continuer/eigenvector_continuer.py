@@ -1,7 +1,7 @@
 """ Class that performs Eigenvector Continuation on any type of HSA given some type of target point
 
 An EigenvectorContinuer object is flexible to take any valid implementation of an HSA and use it
-to calculate values relevant to EVC. Requires input of both training points (used in creation of
+to calculate values relevant to EC. Requires input of both training points (used in creation of
 the HSA), and a target point.
 """
 
@@ -24,7 +24,7 @@ __email__ = "jhhoward@ncsu.edu"
 __status__ = "Development"
 
 class EigenvectorContinuer():
-    """ Computes EVC on a given HSA and target point.
+    """ Computes EC on a given HSA and target point.
 
     Houses the functionality to create a Hilbert Space of specified type and perform
     Eigenvector Continuation for a given set of training points and target points
@@ -49,36 +49,36 @@ class EigenvectorContinuer():
 
     @property
     def hilbert_space(self):
-        """ I'm this EVC's hilbert space """
+        """ I'm this EC's hilbert space """
         return self._hilbert_space
 
     @property
     def overlap_matrix(self):
-        """ I'm this EVC's last calculated overlap matrix """
+        """ I'm this EC's last calculated overlap matrix """
         return self._overlap_matrix
 
     @property
     def sub_ham(self):
-        """ I'm this EVC's last calculated subspace hamiltonian """
+        """ I'm this EC's last calculated subspace hamiltonian """
         return self._sub_ham
 
     @property
     def current_target_point(self):
-        """ I'm this EVC's current target point. I'm used to create the sub_ham"""
+        """ I'm this EC's current target point. I'm used to create the sub_ham"""
         return self._current_target_point
 
     @property
     def evals(self):
-        """ I'm this EVC's last calculated set of eigenvalues for the diagonalized subspace ham """
+        """ I'm this EC's last calculated set of eigenvalues for the diagonalized subspace ham """
         return self._evals
 
     @property
     def evecs(self):
-        """ I'm this EVC's last calculated set of eigenvectors for the diagonalized subspace ham """
+        """ I'm this EC's last calculated set of eigenvectors for the diagonalized subspace ham """
         return self._evecs
 
     def __init__(self, hilbert_space, target_point):
-        """ initializes the EVC
+        """ initializes the EC
 
             :param hilbert_space:   the Hilbert Space used for Eigenvector Continuation in
                                     conjunction with a target point
@@ -116,11 +116,11 @@ class EigenvectorContinuer():
         return self.overlap_matrix
 
     def calc_sub_ham(self, input_target_point=None):
-        """ calculates the subspace hamiltonian based on the EVC's current Hilbert Space and
+        """ calculates the subspace hamiltonian based on the EC's current Hilbert Space and
             target point
 
             :param input_target_point:  [OPTIONAL] can be used to update the current target
-                                        point of the EVC as needed
+                                        point of the EC as needed
 
             :returns:                   the subspace hamiltonian
         """
@@ -142,14 +142,14 @@ class EigenvectorContinuer():
         self._sub_ham = self.hilbert_space.calc_sub_ham(target_ham)
 
     def solve_gep(self, input_training_points=None, input_target_point=None):
-        """ solves the generalized eigencvalue problem for this EVC
+        """ solves the generalized eigencvalue problem for this EC
 
             :param input_training_points:   used to calculate the current hilbert space's
                                             overlap matrix. If None is passed, will default
                                             to current training_points in the hilbert space
             :param input_target_point:      used to calculate the current hilbert space's
                                             subspace hamiltonian. If None is passed, will default
-                                            to current_target_point in this EVC
+                                            to current_target_point in this EC
             :returns:                       the evals, evecs calculated
         """
 
