@@ -4,7 +4,7 @@ CircuitSpace uses the Qiskit library to define the behavior for inner products a
 values for data represented as quatum circuits. For a set of input training points, it can use
 these to calculate the overlap matrix and subspace hamiltonian for the given space.
 
-NOT YET IMPLEMENTED
+NOT YET IMPLEMENTED (this branch is working on it)
 """
 
 
