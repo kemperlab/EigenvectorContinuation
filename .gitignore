@@ -6,3 +6,7 @@ scratch_work/
 build/
 dist/
 EigenvectorContinuation.egg-info
+# eigenvectorcontinuation/hilbertspaces/circuit_mimic_space
+# eigenvectorcontinuation/hilbertspaces/circuit_space.py
+eigenvectorcontinuation/
+

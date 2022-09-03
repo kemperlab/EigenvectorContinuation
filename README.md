@@ -1,6 +1,6 @@
-## EigenvectorContinuation
+# EigenvectorContinuation
 
-This code implements the process found in the paper linked below. The program contains a class `EigenvectorContinuer` that runs eignevector continuation for a user-implemented vector class of type `HilbertSpaceAbstract`, along with a few example implementations. Specific use cases and descriptions are detailed below.
+This code implements the eigenvector continuation (EC) process found in the paper linked below. The program contains a class `EigenvectorContinuer` that runs eignevector continuation for a user-implemented vector class of type `HilbertSpaceAbstract`, along with a few example implementations. Specific use cases and descriptions are detailed below.
 
 
 [TODO] [insert: paper title and authors, arxiv link]
@@ -13,16 +13,25 @@ Authors:
 - Akhil Francis
 - Alexander F. Kemper
 
-# Documentation
-[how to generate Sphinx docs]
-# General Notes
-[backgound info on math]
-# Contents
+## Contents
 [describe each class/method in brief (is this redundant with Documentation?)]
-# Usage
+- EigenvectorContinuer class: instances of this class run EC for a given hilbert space and set of target points. An instance can:
+    - calculate the overlap matrix for the current system
+    - calculate the subspace hamiltonian for the current system
+    - refresh the overlap matrix property to correspond to the current hilbert space's training points property
+    - refresh the subspace hamiltonian to match the current target point property
+    - solve the generalized eigenvalue problem for all the properties of the current instance
+- 
+
+
+## Documentation
+[how to generate Sphinx docs]
+## General Notes
+[backgound info on math]
+## Usage
 [step-by-step, numbered list on how to get results for a few use cases; maybe wal through an example?]
-# Installation
+## Installation
 [clone repo]
 [cd into repo]
 [python3 setup.py install]
-# Other Notes
+## Other Notes
