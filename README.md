@@ -67,23 +67,25 @@ Find detailed documentation of modules [here](https://github.com/kemperlab/Eigen
 ## Installation
 Ensure Python 3.8.0 or higher is installed using
 ```
-{
     python --version
-}
 ```
 
 Clone the git repository:
-```git clone https://github.com/kemperlab/EigenvectorContinuation```
+```
+git clone https://github.com/kemperlab/EigenvectorContinuation
+```
 
 Change directories into the newly created repository
-```cd EigenvectorContinuation```
+```
+cd EigenvectorContinuation
+```
 
 Run the EigenvectorContinuation setup script
-```python3 setup.py install```
+```
+python3 setup.py install
+```
 
 ## Usage
-[step-by-step, numbered list on how to get results for a few use cases; maybe wal through an example?]
-<<<<<<< HEAD
 This program is intended to be used on its own or as a supplement to existing programs. This means that one can:
     A. run EC straight out of the box using the included implementations of HSA (NumPyVectorSpace and UnitarySpace), and 
     B. implement and use a custom implementation of HSA, adhering to the requirements outlined in the HSA interface itself. As long as the implementation is valid, an EigenvectorContinuer will take it as a parameter, and any EC calculations should run seamlessly.
@@ -92,4 +94,4 @@ In order to use:
 1. Ensure that installation and setup (above) has completed successfully
 2. Import relevant modules from this repository and/or from custom implementations into the desired python module/script
 
-*Examples of how to import and use the modules properly are found (in the examples directory)[https://github.com/kemperlab/EigenvectorContinuation/tree/main/examples].*
+*Examples of how to import and use the modules properly are found [in the examples directory](https://github.com/kemperlab/EigenvectorContinuation/tree/main/examples).*
