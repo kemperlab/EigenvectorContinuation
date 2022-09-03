@@ -15,13 +15,13 @@ Authors:
 
 ## Contents
 
-    ### EigenvectorContinuer class:
-    Instances of this class run EC for a given hilbert space and set of target points. An instance can:
-    - calculate the overlap matrix for the current system
-    - calculate the subspace hamiltonian for the current system
-    - refresh the overlap matrix property to correspond to the current hilbert space's training points property
-    - refresh the subspace hamiltonian to match the current target point property
-    - solve the generalized eigenvalue problem for all the properties of the current instance
+### EigenvectorContinuer class:
+Instances of this class run EC for a given hilbert space and set of target points. An instance can:
+- calculate the overlap matrix for the current system
+- calculate the subspace hamiltonian for the current system
+- refresh the overlap matrix property to correspond to the current hilbert space's training points property
+- refresh the subspace hamiltonian to match the current target point property
+- solve the generalized eigenvalue problem for all the properties of the current instance
 
 ### HilbertSpaceAbstract (HSA) interface/abstract class:
 Each implementation (subclass) of this class must include methods that perform the following:
