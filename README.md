@@ -13,6 +13,7 @@ Authors:
 - Akhil Francis
 - Alexander F. Kemper
 
+
 ## Contents
 
 #### EigenvectorContinuer class:
@@ -57,12 +58,14 @@ Convenient tuple to use for calculations throughout the program
 
 
 ## Documentation
-Find detailed documentation of modules [here](https://github.com/kemperlab/EigenvectorContinuation/tree/main/docs/_build/html/index.html). 
-// [TODO] verify this
+Find detailed documentation of modules [here](https://htmlpreview.github.io/?https://github.com/kemperlab/EigenvectorContinuation/tree/main/docs/_build/html/index.html) and generated documentation files [here](https://htmlpreview.github.io/?https://github.com/kemperlab/EigenvectorContinuation/tree/main/docs)
+
 
 
 ## General Notes
 [backgound info on math @Akhil-Francis]
+
+
 
 ## Installation
 Ensure Python 3.8.0 or higher is installed using
@@ -84,6 +87,8 @@ Run the EigenvectorContinuation setup script
 ```
 python3 setup.py install
 ```
+
+
 
 ## Usage
 This program is intended to be used on its own or as a supplement to existing programs. This means that one can:

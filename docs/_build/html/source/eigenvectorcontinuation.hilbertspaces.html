@@ -1,86 +1,104 @@
-<!DOCTYPE html>
-<html class="writer-html5" lang="en" >
-<head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>eigenvectorcontinuation.hilbertspaces package &mdash; EigenvectorContinuation 0.1 documentation</title>
-      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <!--[if lt IE 9]>
-    <script src="../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
   
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/underscore.js"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script src="../_static/doctools.js"></script>
-    <script src="../_static/js/theme.js"></script>
-    <link rel="index" title="Index" href="../genindex.html" />
-    <link rel="search" title="Search" href="../search.html" /> 
-</head>
 
-<body class="wy-body-for-nav"> 
-  <div class="wy-grid-for-nav">
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
-      <div class="wy-side-scroll">
-        <div class="wy-side-nav-search" >
-            <a href="../index.html" class="icon icon-home"> EigenvectorContinuation
-          </a>
-<div role="search">
-  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
-    <input type="hidden" name="check_keywords" value="yes" />
-    <input type="hidden" name="area" value="default" />
-  </form>
-</div>
-        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <!-- Local TOC -->
-              <div class="local-toc"><ul>
-<li><a class="reference internal" href="#">eigenvectorcontinuation.hilbertspaces package</a><ul>
-<li><a class="reference internal" href="#submodules">Submodules</a></li>
-<li><a class="reference internal" href="#module-eigenvectorcontinuation.hilbertspaces.circuit_mimic_space">eigenvectorcontinuation.hilbertspaces.circuit_mimic_space module</a></li>
-<li><a class="reference internal" href="#module-eigenvectorcontinuation.hilbertspaces.circuit_space">eigenvectorcontinuation.hilbertspaces.circuit_space module</a></li>
-<li><a class="reference internal" href="#module-eigenvectorcontinuation.hilbertspaces.hilbert_space_abstract">eigenvectorcontinuation.hilbertspaces.hilbert_space_abstract module</a></li>
-<li><a class="reference internal" href="#module-eigenvectorcontinuation.hilbertspaces.numpy_vector_space">eigenvectorcontinuation.hilbertspaces.numpy_vector_space module</a></li>
-<li><a class="reference internal" href="#module-eigenvectorcontinuation.hilbertspaces.unitary_space">eigenvectorcontinuation.hilbertspaces.unitary_space module</a></li>
-<li><a class="reference internal" href="#module-eigenvectorcontinuation.hilbertspaces">Module contents</a></li>
-</ul>
-</li>
-</ul>
-</div>
-        </div>
-      </div>
-    </nav>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8" />
+    <meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
-          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../index.html">EigenvectorContinuation</a>
-      </nav>
+      <title>eigenvectorcontinuation.hilbertspaces package | EigenvectorContinuation 0.1 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" />
+      <link rel="stylesheet" href="../_static/theme.e6081a2fb60dd7bf7015.css" />
+        <link rel="search" title="Search" href="../search.html" />
+        <link rel="index" title="Index" href="../genindex.html" />
+  </head>
 
-      <div class="wy-nav-content">
-        <div class="rst-content">
-          <div role="navigation" aria-label="Page navigation">
-  <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-      <li>eigenvectorcontinuation.hilbertspaces package</li>
-      <li class="wy-breadcrumbs-aside">
-            <a href="../_sources/source/eigenvectorcontinuation.hilbertspaces.rst.txt" rel="nofollow"> View page source</a>
-      </li>
-  </ul>
-  <hr/>
+  <body class="antialiased text-gray scroll-smooth">
+    <div
+      id="page"
+      data-controller="sidebar search"
+      data-action="keydown@window->search#focus"
+      class="h-screen xl:grid xl:grid-layout"
+    >
+      <a class="block text-xl bg-white py-4 z-20 absolute top-0 h-14 inset-x-0 text-center transform -translate-y-full focus:translate-y-0 focus:outline-none transition-transform duration-75" href="#eigenvectorcontinuation-hilbertspaces-package" title="Skip navigation links">Skip to content</a>
+
+      <header class="grid-area-header z-10 h-14">
+        <div class="bg-gray-dark shadow-md flex items-center h-full xl:px-2 relative"><div class="flex items-center">
+      <button
+    data-action="sidebar#open"
+    data-sidebar-target="hamburger"
+    class="xl:hidden h-14 w-14 leading-14 text-gray-100 hover:bg-gray-700 hover:text-brand focus:outline-none focus:bg-gray-700 focus:text-brand">
+  <span class="sr-only">Open navigation menu</span>
+  <svg aria-hidden="true" class="fill-current h-8 w-8" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></svg>
+</button><a class="hover:bg-gray-700 focus:bg-gray-700 focus:outline-none tooltipped tooltipped-sw"
+   href="../index.html"
+   aria-label="Back to homepage"><span class="hidden lg:inline-block shrink-0 font-medium text-gray-100 mx-5 leading-14 tracking-wider">EigenvectorContinuation 0.1 documentation</span>
+</a></div><div class="flex justify-end items-center flex-1"><form
+  id="searchbox"
+  action="../search.html"
+  data-action="click->search#focusSearchInput"
+  method="get"
+  class="flex print:hidden justify-between items-center leading-14 md:ml-4 bg-gray-dark text-gray-300 focus-within:bg-gray-50 focus-within:text-gray-800 focus-within:absolute focus-within:inset-x-0 focus-within:top-0 md:focus-within:w-full md:focus-within:static">
+
+  <button
+    class="text-inherit h-14 w-14"
+    aria-label="Get search results"
+    tabindex="-1"
+  >
+    <svg aria-hidden="true" class="fill-current stroke-current h-8 w-8" stroke-width="0.5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0016 9.5 6.5 6.5 0 109.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+  </button>
+
+  <input
+    name="q"
+    id="search-input"
+    data-search-target="searchInput"
+    type="search"
+    aria-label="Search the docs"
+    placeholder="Search the docs"
+    class="pr-2 bg-transparent text-inherit focus:outline-none w-0 md:w-auto focus:w-full transition-all duration-100"
+  />
+</form></div>
 </div>
-          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
-           <div itemprop="articleBody">
-             
+      </header>
+
+      
+  <aside data-sidebar-target="sidebar" class="grid-area-sidebar h-full fixed xl:relative inset-y-0 left-0 z-20 xl:z-0 print:hidden overflow-y-auto transition-all transform transform-gpu -translate-x-full opacity-0 duration-300 xl:translate-x-0 xl:opacity-100">
+    <nav
+  role="navigation"
+  class="h-full overflow-y-auto bg-white text-gray-600 pt-8 flex flex-col"
+>
+  <div class="nav-toc flex-1 pl-6"></div>
+
+  <button
+      data-action="sidebar#close"
+      title="Close navigation menu"
+      class="text-4xl text-gray-800 p-4 bottom-0 hover:text-brand xl:hidden focus:text-brand self-center">
+    <span class="sr-only">Close navigation menu</span>
+    <svg aria-hidden="true" class="fill-current stroke-current h-6 w-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+  </button>
+</nav>
+  </aside>
+
+  <main
+    data-controller="scroll"
+    class="px-4 xl:ml-fluid grid-area-main overflow-y-auto flex flex-col h-full mx-0 md:mx-auto xl:mr-0"
+  ><nav role="navigation"
+     aria-label="breadcrumbs"
+     class="print:hidden mt-12 text-sm text-gray-light">
+  <a class="text-gray-light text-sm hover:text-gray-dark font-medium focus:text-gray-dark" href="../index.html">EigenvectorContinuation 0.1 documentation</a>
+  <span class="mr-1">/</span><span aria-current="page">eigenvectorcontinuation.hilbertspaces package</span>
+</nav>
+    <article role="main" class="flex-1">
+      
   <section id="eigenvectorcontinuation-hilbertspaces-package">
-<h1>eigenvectorcontinuation.hilbertspaces package<a class="headerlink" href="#eigenvectorcontinuation-hilbertspaces-package" title="Permalink to this heading"></a></h1>
+<h1>eigenvectorcontinuation.hilbertspaces package<a class="headerlink" href="#eigenvectorcontinuation-hilbertspaces-package" title="Permalink to this heading"><span>#</span></a></h1>
 <section id="submodules">
-<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this heading"></a></h2>
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this heading"><span>#</span></a></h2>
 </section>
 <section id="module-eigenvectorcontinuation.hilbertspaces.circuit_mimic_space">
-<span id="eigenvectorcontinuation-hilbertspaces-circuit-mimic-space-module"></span><h2>eigenvectorcontinuation.hilbertspaces.circuit_mimic_space module<a class="headerlink" href="#module-eigenvectorcontinuation.hilbertspaces.circuit_mimic_space" title="Permalink to this heading"></a></h2>
+<span id="eigenvectorcontinuation-hilbertspaces-circuit-mimic-space-module"></span><h2>eigenvectorcontinuation.hilbertspaces.circuit_mimic_space module<a class="headerlink" href="#module-eigenvectorcontinuation.hilbertspaces.circuit_mimic_space" title="Permalink to this heading"><span>#</span></a></h2>
 <p>Concrete implementation of HSA that mimics the algebra used in a quantum circuit</p>
 <p>CircuitMimicSpace is a simplified linear algebra representation of the computations run on
 quantum circuits. For a set of input training points, it defines the behavior for inner products
@@ -90,7 +108,7 @@ Qiskit implementation).</p>
 <p>NOT YET IMPLEMENTED</p>
 </section>
 <section id="module-eigenvectorcontinuation.hilbertspaces.circuit_space">
-<span id="eigenvectorcontinuation-hilbertspaces-circuit-space-module"></span><h2>eigenvectorcontinuation.hilbertspaces.circuit_space module<a class="headerlink" href="#module-eigenvectorcontinuation.hilbertspaces.circuit_space" title="Permalink to this heading"></a></h2>
+<span id="eigenvectorcontinuation-hilbertspaces-circuit-space-module"></span><h2>eigenvectorcontinuation.hilbertspaces.circuit_space module<a class="headerlink" href="#module-eigenvectorcontinuation.hilbertspaces.circuit_space" title="Permalink to this heading"><span>#</span></a></h2>
 <p>Concrete implementation of HSA that stores and calculates products using the Qiskit library</p>
 <p>CircuitSpace uses the Qiskit library to define the behavior for inner products and expectation
 values for data represented as quatum circuits. For a set of input training points, it can use
@@ -98,16 +116,18 @@ these to calculate the overlap matrix and subspace hamiltonian for the given spa
 <p>NOT YET IMPLEMENTED</p>
 </section>
 <section id="module-eigenvectorcontinuation.hilbertspaces.hilbert_space_abstract">
-<span id="eigenvectorcontinuation-hilbertspaces-hilbert-space-abstract-module"></span><h2>eigenvectorcontinuation.hilbertspaces.hilbert_space_abstract module<a class="headerlink" href="#module-eigenvectorcontinuation.hilbertspaces.hilbert_space_abstract" title="Permalink to this heading"></a></h2>
+<span id="eigenvectorcontinuation-hilbertspaces-hilbert-space-abstract-module"></span><h2>eigenvectorcontinuation.hilbertspaces.hilbert_space_abstract module<a class="headerlink" href="#module-eigenvectorcontinuation.hilbertspaces.hilbert_space_abstract" title="Permalink to this heading"><span>#</span></a></h2>
 <p>HilbertSpaceAbstract:   Abstract class used to outline how concrete Hilbert Spaces behave</p>
 <p>Hilbert Spaces are used to create EigenvectorContinuer objects. They require an implementation of
 an inner product and an expectation value, which are used to calculate the overlap matrix and
 subspace hamiltonian of the system. Additionally, they require a method of determinig which vector
 to select from a list of eigenvectors (usually these correspond to different energy levels in a
 system).</p>
+<p>SOON TO BE ADDED:
+Support for non-ground-state eigenvector continuation</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="eigenvectorcontinuation.hilbertspaces.hilbert_space_abstract.HilbertSpaceAbstract">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">eigenvectorcontinuation.hilbertspaces.hilbert_space_abstract.</span></span><span class="sig-name descname"><span class="pre">HilbertSpaceAbstract</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">training_points</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#eigenvectorcontinuation.hilbertspaces.hilbert_space_abstract.HilbertSpaceAbstract" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">eigenvectorcontinuation.hilbertspaces.hilbert_space_abstract.</span></span><span class="sig-name descname"><span class="pre">HilbertSpaceAbstract</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">training_points</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#eigenvectorcontinuation.hilbertspaces.hilbert_space_abstract.HilbertSpaceAbstract" title="Permalink to this definition"><span>#</span></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ABC</span></code></p>
 <p>Defines behavior for objects to have a hamiltonian, inner product, expectation value, and
 selected vector</p>
@@ -119,16 +139,16 @@ selected vector</p>
 </div></blockquote>
 <dl class="py property">
 <dt class="sig sig-object py" id="eigenvectorcontinuation.hilbertspaces.hilbert_space_abstract.HilbertSpaceAbstract.basis_vecs">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">basis_vecs</span></span><a class="headerlink" href="#eigenvectorcontinuation.hilbertspaces.hilbert_space_abstract.HilbertSpaceAbstract.basis_vecs" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">basis_vecs</span></span><a class="headerlink" href="#eigenvectorcontinuation.hilbertspaces.hilbert_space_abstract.HilbertSpaceAbstract.basis_vecs" title="Permalink to this definition"><span>#</span></a></dt>
 <dd><p>I’m the current space’s basis vectors</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="eigenvectorcontinuation.hilbertspaces.hilbert_space_abstract.HilbertSpaceAbstract.calc_basis_vecs">
-<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">calc_basis_vecs</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#eigenvectorcontinuation.hilbertspaces.hilbert_space_abstract.HilbertSpaceAbstract.calc_basis_vecs" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">calc_basis_vecs</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#eigenvectorcontinuation.hilbertspaces.hilbert_space_abstract.HilbertSpaceAbstract.calc_basis_vecs" title="Permalink to this definition"><span>#</span></a></dt>
 <dd><p>calculates the basis vectors to span the space</p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>the calculated basis vecs</p>
 </dd>
 </dl>
@@ -137,13 +157,13 @@ selected vector</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="eigenvectorcontinuation.hilbertspaces.hilbert_space_abstract.HilbertSpaceAbstract.calc_overlap_matrix">
-<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">calc_overlap_matrix</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">points</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#eigenvectorcontinuation.hilbertspaces.hilbert_space_abstract.HilbertSpaceAbstract.calc_overlap_matrix" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">calc_overlap_matrix</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">points</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#eigenvectorcontinuation.hilbertspaces.hilbert_space_abstract.HilbertSpaceAbstract.calc_overlap_matrix" title="Permalink to this definition"><span>#</span></a></dt>
 <dd><p>defines the overlap matrix for space given some set of spanning vecs (basis_vecs)</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>points</strong> – points to use as training points (optional depending on implementation)</p>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>the overlap matrix</p>
 </dd>
 </dl>
@@ -152,15 +172,15 @@ selected vector</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="eigenvectorcontinuation.hilbertspaces.hilbert_space_abstract.HilbertSpaceAbstract.calc_sub_ham">
-<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">calc_sub_ham</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ham</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#eigenvectorcontinuation.hilbertspaces.hilbert_space_abstract.HilbertSpaceAbstract.calc_sub_ham" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">calc_sub_ham</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ham</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#eigenvectorcontinuation.hilbertspaces.hilbert_space_abstract.HilbertSpaceAbstract.calc_sub_ham" title="Permalink to this definition"><span>#</span></a></dt>
 <dd><p>defines a subspace hamiltonian for space given a hamiltonian in the space and
 a set of spanning vectors (basis_vecs)</p>
 <p>NB: ham cannot be constructed using the same points used to calc basis_vecs</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>ham</strong> – the hamiltonian used to find the subspace of</p>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>the subspace hamiltonian</p>
 </dd>
 </dl>
@@ -169,17 +189,17 @@ a set of spanning vectors (basis_vecs)</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="eigenvectorcontinuation.hilbertspaces.hilbert_space_abstract.HilbertSpaceAbstract.expectation_value">
-<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">expectation_value</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vec1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ham</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vec2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#eigenvectorcontinuation.hilbertspaces.hilbert_space_abstract.HilbertSpaceAbstract.expectation_value" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">expectation_value</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vec1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ham</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vec2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#eigenvectorcontinuation.hilbertspaces.hilbert_space_abstract.HilbertSpaceAbstract.expectation_value" title="Permalink to this definition"><span>#</span></a></dt>
 <dd><p>defines expectation value calculation for space</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>vec1</strong> – the first vector in the calculation</p></li>
 <li><p><strong>ham</strong> – the hamiltonian in the calculation</p></li>
 <li><p><strong>vec2</strong> – the second vector in the calculation</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>the expectation value</p>
 </dd>
 </dl>
@@ -188,16 +208,16 @@ a set of spanning vectors (basis_vecs)</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="eigenvectorcontinuation.hilbertspaces.hilbert_space_abstract.HilbertSpaceAbstract.inner_product">
-<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">inner_product</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vec1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vec2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#eigenvectorcontinuation.hilbertspaces.hilbert_space_abstract.HilbertSpaceAbstract.inner_product" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">inner_product</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vec1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vec2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#eigenvectorcontinuation.hilbertspaces.hilbert_space_abstract.HilbertSpaceAbstract.inner_product" title="Permalink to this definition"><span>#</span></a></dt>
 <dd><p>defines inner product for space</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>vec1</strong> – the first vector in the calculation</p></li>
 <li><p><strong>vec2</strong> – the second vector in the calculation</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>the result of the inner product</p>
 </dd>
 </dl>
@@ -206,13 +226,13 @@ a set of spanning vectors (basis_vecs)</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="eigenvectorcontinuation.hilbertspaces.hilbert_space_abstract.HilbertSpaceAbstract.select_vec">
-<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">select_vec</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">evecs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#eigenvectorcontinuation.hilbertspaces.hilbert_space_abstract.HilbertSpaceAbstract.select_vec" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">select_vec</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">evecs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#eigenvectorcontinuation.hilbertspaces.hilbert_space_abstract.HilbertSpaceAbstract.select_vec" title="Permalink to this definition"><span>#</span></a></dt>
 <dd><p>defines which vector to select when chooosing from a set of evecs</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>evecs</strong> – the set of evecs</p>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>the selected vector</p>
 </dd>
 </dl>
@@ -221,7 +241,7 @@ a set of spanning vectors (basis_vecs)</p>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="eigenvectorcontinuation.hilbertspaces.hilbert_space_abstract.HilbertSpaceAbstract.training_points">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">training_points</span></span><a class="headerlink" href="#eigenvectorcontinuation.hilbertspaces.hilbert_space_abstract.HilbertSpaceAbstract.training_points" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">training_points</span></span><a class="headerlink" href="#eigenvectorcontinuation.hilbertspaces.hilbert_space_abstract.HilbertSpaceAbstract.training_points" title="Permalink to this definition"><span>#</span></a></dt>
 <dd><p>I’m the current space’s set of training points</p>
 </dd></dl>
 
@@ -229,31 +249,31 @@ a set of spanning vectors (basis_vecs)</p>
 
 </section>
 <section id="module-eigenvectorcontinuation.hilbertspaces.numpy_vector_space">
-<span id="eigenvectorcontinuation-hilbertspaces-numpy-vector-space-module"></span><h2>eigenvectorcontinuation.hilbertspaces.numpy_vector_space module<a class="headerlink" href="#module-eigenvectorcontinuation.hilbertspaces.numpy_vector_space" title="Permalink to this heading"></a></h2>
+<span id="eigenvectorcontinuation-hilbertspaces-numpy-vector-space-module"></span><h2>eigenvectorcontinuation.hilbertspaces.numpy_vector_space module<a class="headerlink" href="#module-eigenvectorcontinuation.hilbertspaces.numpy_vector_space" title="Permalink to this heading"><span>#</span></a></h2>
 <dl class="simple">
 <dt>NumPyVectorSpace:       An example concrete implementation of HilbertSpaceAbstract in which</dt><dd><p>data is represented in the form of type np.ndarray</p>
 </dd>
 </dl>
 <dl class="py class">
 <dt class="sig sig-object py" id="eigenvectorcontinuation.hilbertspaces.numpy_vector_space.NumPyVectorSpace">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">eigenvectorcontinuation.hilbertspaces.numpy_vector_space.</span></span><span class="sig-name descname"><span class="pre">NumPyVectorSpace</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">training_points</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_qubits</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#eigenvectorcontinuation.hilbertspaces.numpy_vector_space.NumPyVectorSpace" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">eigenvectorcontinuation.hilbertspaces.numpy_vector_space.</span></span><span class="sig-name descname"><span class="pre">NumPyVectorSpace</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">training_points</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_qubits</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#eigenvectorcontinuation.hilbertspaces.numpy_vector_space.NumPyVectorSpace" title="Permalink to this definition"><span>#</span></a></dt>
 <dd><p>Bases: <a class="reference internal" href="#eigenvectorcontinuation.hilbertspaces.hilbert_space_abstract.HilbertSpaceAbstract" title="eigenvectorcontinuation.hilbertspaces.hilbert_space_abstract.HilbertSpaceAbstract"><code class="xref py py-class docutils literal notranslate"><span class="pre">HilbertSpaceAbstract</span></code></a></p>
 <p>defines Hilbert Space behavior for numpy arrays</p>
 <p>contains inner class to help construct hamiltonian</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="eigenvectorcontinuation.hilbertspaces.numpy_vector_space.NumPyVectorSpace.HamiltonianInitializer">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">HamiltonianInitializer</span></span><a class="headerlink" href="#eigenvectorcontinuation.hilbertspaces.numpy_vector_space.NumPyVectorSpace.HamiltonianInitializer" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">HamiltonianInitializer</span></span><a class="headerlink" href="#eigenvectorcontinuation.hilbertspaces.numpy_vector_space.NumPyVectorSpace.HamiltonianInitializer" title="Permalink to this definition"><span>#</span></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>initializes the hamiltonian</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="eigenvectorcontinuation.hilbertspaces.numpy_vector_space.NumPyVectorSpace.HamiltonianInitializer.calc_eigenpairs">
-<span class="sig-name descname"><span class="pre">calc_eigenpairs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ham</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#eigenvectorcontinuation.hilbertspaces.numpy_vector_space.NumPyVectorSpace.HamiltonianInitializer.calc_eigenpairs" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">calc_eigenpairs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ham</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#eigenvectorcontinuation.hilbertspaces.numpy_vector_space.NumPyVectorSpace.HamiltonianInitializer.calc_eigenpairs" title="Permalink to this definition"><span>#</span></a></dt>
 <dd><p>calcs the eigenpairs for a given param_setinate in a system</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>ham</strong> – the hamiltonian to get the eigenpairs from</p>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>the eigenpairs as: evals, evecs</p>
 </dd>
 </dl>
@@ -261,10 +281,10 @@ a set of spanning vectors (basis_vecs)</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="eigenvectorcontinuation.hilbertspaces.numpy_vector_space.NumPyVectorSpace.HamiltonianInitializer.many_kron">
-<span class="sig-name descname"><span class="pre">many_kron</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ops</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#eigenvectorcontinuation.hilbertspaces.numpy_vector_space.NumPyVectorSpace.HamiltonianInitializer.many_kron" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">many_kron</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ops</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#eigenvectorcontinuation.hilbertspaces.numpy_vector_space.NumPyVectorSpace.HamiltonianInitializer.many_kron" title="Permalink to this definition"><span>#</span></a></dt>
 <dd><p>produces Kronecker (Tensor) product from list of Pauli charaters</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>ops</strong> – the operations [as characters] to apply to a matrix</p>
 </dd>
 </dl>
@@ -272,17 +292,17 @@ a set of spanning vectors (basis_vecs)</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="eigenvectorcontinuation.hilbertspaces.numpy_vector_space.NumPyVectorSpace.HamiltonianInitializer.xxztype_hamiltonian">
-<span class="sig-name descname"><span class="pre">xxztype_hamiltonian</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">param_set</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_qubits</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pbc</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#eigenvectorcontinuation.hilbertspaces.numpy_vector_space.NumPyVectorSpace.HamiltonianInitializer.xxztype_hamiltonian" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">xxztype_hamiltonian</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">param_set</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_qubits</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pbc</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#eigenvectorcontinuation.hilbertspaces.numpy_vector_space.NumPyVectorSpace.HamiltonianInitializer.xxztype_hamiltonian" title="Permalink to this definition"><span>#</span></a></dt>
 <dd><p>produces the hamiltonian for a system where j_x = j_y and b_x = b_y</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>param_set</strong> – the set of parameters: j_x, j_z, b_x, b_z</p></li>
 <li><p><strong>n_qubits</strong> – the number of quibits</p></li>
 <li><p><strong>pbc</strong> – periodic boundary condition wrap around logic boolean</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>hamiltonian of the system</p>
 </dd>
 </dl>
@@ -292,11 +312,11 @@ a set of spanning vectors (basis_vecs)</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="eigenvectorcontinuation.hilbertspaces.numpy_vector_space.NumPyVectorSpace.calc_basis_vecs">
-<span class="sig-name descname"><span class="pre">calc_basis_vecs</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#eigenvectorcontinuation.hilbertspaces.numpy_vector_space.NumPyVectorSpace.calc_basis_vecs" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">calc_basis_vecs</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#eigenvectorcontinuation.hilbertspaces.numpy_vector_space.NumPyVectorSpace.calc_basis_vecs" title="Permalink to this definition"><span>#</span></a></dt>
 <dd><p>calculates the basis vectors for the given space
 creates a hamiltonian for each point, and determines eigenvecs for each hamiltonian</p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>the calculated basis vecs</p>
 </dd>
 </dl>
@@ -304,17 +324,17 @@ creates a hamiltonian for each point, and determines eigenvecs for each hamilton
 
 <dl class="py method">
 <dt class="sig sig-object py" id="eigenvectorcontinuation.hilbertspaces.numpy_vector_space.NumPyVectorSpace.calc_overlap_matrix">
-<span class="sig-name descname"><span class="pre">calc_overlap_matrix</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">points</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#eigenvectorcontinuation.hilbertspaces.numpy_vector_space.NumPyVectorSpace.calc_overlap_matrix" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">calc_overlap_matrix</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">points</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#eigenvectorcontinuation.hilbertspaces.numpy_vector_space.NumPyVectorSpace.calc_overlap_matrix" title="Permalink to this definition"><span>#</span></a></dt>
 <dd><p>defines the overlap matrix for a NumPyVectorSpace</p>
 <p>if points are passed in, these become the new training points of the space
 otherwise, the existing training points are used</p>
 <p>For an overlap matrix S:
 S[i,j] = inner_product(basis_vec_i, basis_vec_j)</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>points</strong> – points to use as training points (optional)</p>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>the calculated overlap matrix</p>
 </dd>
 </dl>
@@ -322,16 +342,16 @@ S[i,j] = inner_product(basis_vec_i, basis_vec_j)</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="eigenvectorcontinuation.hilbertspaces.numpy_vector_space.NumPyVectorSpace.calc_sub_ham">
-<span class="sig-name descname"><span class="pre">calc_sub_ham</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ham</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#eigenvectorcontinuation.hilbertspaces.numpy_vector_space.NumPyVectorSpace.calc_sub_ham" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">calc_sub_ham</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ham</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#eigenvectorcontinuation.hilbertspaces.numpy_vector_space.NumPyVectorSpace.calc_sub_ham" title="Permalink to this definition"><span>#</span></a></dt>
 <dd><p>defines a subspace hamiltonian for space given a hamiltonian in the space and
 a set of spanning vectors (basis_vecs)</p>
 <p>NB: ham cannot be constructed using the same points used to calc basis_vecs</p>
 <p>Subspace Ham[i,j] = expectation_value(basis_vec_i, ham, basis_vec_j)</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>ham</strong> – the hamiltonian used to find the subspace of</p>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>the subspace hamiltonian</p>
 </dd>
 </dl>
@@ -339,17 +359,17 @@ a set of spanning vectors (basis_vecs)</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="eigenvectorcontinuation.hilbertspaces.numpy_vector_space.NumPyVectorSpace.expectation_value">
-<span class="sig-name descname"><span class="pre">expectation_value</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vec1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ham</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vec2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#eigenvectorcontinuation.hilbertspaces.numpy_vector_space.NumPyVectorSpace.expectation_value" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">expectation_value</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vec1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ham</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vec2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#eigenvectorcontinuation.hilbertspaces.numpy_vector_space.NumPyVectorSpace.expectation_value" title="Permalink to this definition"><span>#</span></a></dt>
 <dd><p>defines expectation value calculation for numpy array space</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>vec1</strong> – the left vector of the expectation value calculation</p></li>
 <li><p><strong>ham</strong> – retrieve the expectation value w.r.t. this hamiltonian</p></li>
 <li><p><strong>vec2</strong> – the right vector of the expectation value calculation</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>the expectation value of the system</p>
 </dd>
 </dl>
@@ -357,22 +377,22 @@ a set of spanning vectors (basis_vecs)</p>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="eigenvectorcontinuation.hilbertspaces.numpy_vector_space.NumPyVectorSpace.implementation_type">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">implementation_type</span></span><a class="headerlink" href="#eigenvectorcontinuation.hilbertspaces.numpy_vector_space.NumPyVectorSpace.implementation_type" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">implementation_type</span></span><a class="headerlink" href="#eigenvectorcontinuation.hilbertspaces.numpy_vector_space.NumPyVectorSpace.implementation_type" title="Permalink to this definition"><span>#</span></a></dt>
 <dd><p>I’m the current space’s implementation type</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="eigenvectorcontinuation.hilbertspaces.numpy_vector_space.NumPyVectorSpace.inner_product">
-<span class="sig-name descname"><span class="pre">inner_product</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vec1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vec2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#eigenvectorcontinuation.hilbertspaces.numpy_vector_space.NumPyVectorSpace.inner_product" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">inner_product</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vec1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vec2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#eigenvectorcontinuation.hilbertspaces.numpy_vector_space.NumPyVectorSpace.inner_product" title="Permalink to this definition"><span>#</span></a></dt>
 <dd><p>defines inner product for numpy array space</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>vec1</strong> – the left vector of the inner product</p></li>
 <li><p><strong>vec2</strong> – the right vector of the inner product</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>inner product of vec1 &amp; vec2</p>
 </dd>
 </dl>
@@ -380,19 +400,19 @@ a set of spanning vectors (basis_vecs)</p>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="eigenvectorcontinuation.hilbertspaces.numpy_vector_space.NumPyVectorSpace.num_qubits">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">num_qubits</span></span><a class="headerlink" href="#eigenvectorcontinuation.hilbertspaces.numpy_vector_space.NumPyVectorSpace.num_qubits" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">num_qubits</span></span><a class="headerlink" href="#eigenvectorcontinuation.hilbertspaces.numpy_vector_space.NumPyVectorSpace.num_qubits" title="Permalink to this definition"><span>#</span></a></dt>
 <dd><p>I’m the current space’s number of qubits</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="eigenvectorcontinuation.hilbertspaces.numpy_vector_space.NumPyVectorSpace.select_vec">
-<span class="sig-name descname"><span class="pre">select_vec</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">evecs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#eigenvectorcontinuation.hilbertspaces.numpy_vector_space.NumPyVectorSpace.select_vec" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">select_vec</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">evecs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#eigenvectorcontinuation.hilbertspaces.numpy_vector_space.NumPyVectorSpace.select_vec" title="Permalink to this definition"><span>#</span></a></dt>
 <dd><p>returns the lowest energy evec</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>evecs</strong> – the set of evecs</p>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>the selected vector</p>
 </dd>
 </dl>
@@ -402,31 +422,31 @@ a set of spanning vectors (basis_vecs)</p>
 
 </section>
 <section id="module-eigenvectorcontinuation.hilbertspaces.unitary_space">
-<span id="eigenvectorcontinuation-hilbertspaces-unitary-space-module"></span><h2>eigenvectorcontinuation.hilbertspaces.unitary_space module<a class="headerlink" href="#module-eigenvectorcontinuation.hilbertspaces.unitary_space" title="Permalink to this heading"></a></h2>
+<span id="eigenvectorcontinuation-hilbertspaces-unitary-space-module"></span><h2>eigenvectorcontinuation.hilbertspaces.unitary_space module<a class="headerlink" href="#module-eigenvectorcontinuation.hilbertspaces.unitary_space" title="Permalink to this heading"><span>#</span></a></h2>
 <dl class="simple">
 <dt>UnitarySpace:           An example concrete implementation of HSA in which vectors are</dt><dd><p>defined as their corresponding unitary matrices</p>
 </dd>
 </dl>
 <dl class="py class">
 <dt class="sig sig-object py" id="eigenvectorcontinuation.hilbertspaces.unitary_space.UnitarySpace">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">eigenvectorcontinuation.hilbertspaces.unitary_space.</span></span><span class="sig-name descname"><span class="pre">UnitarySpace</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">training_points</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_qubits</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#eigenvectorcontinuation.hilbertspaces.unitary_space.UnitarySpace" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">eigenvectorcontinuation.hilbertspaces.unitary_space.</span></span><span class="sig-name descname"><span class="pre">UnitarySpace</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">training_points</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_qubits</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#eigenvectorcontinuation.hilbertspaces.unitary_space.UnitarySpace" title="Permalink to this definition"><span>#</span></a></dt>
 <dd><p>Bases: <a class="reference internal" href="#eigenvectorcontinuation.hilbertspaces.hilbert_space_abstract.HilbertSpaceAbstract" title="eigenvectorcontinuation.hilbertspaces.hilbert_space_abstract.HilbertSpaceAbstract"><code class="xref py py-class docutils literal notranslate"><span class="pre">HilbertSpaceAbstract</span></code></a></p>
 <p>defines Hilbert Space behavior for unitary matrices stored as numpy arrays</p>
 <p>contains inner class to help construct hamiltonian</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="eigenvectorcontinuation.hilbertspaces.unitary_space.UnitarySpace.HamiltonianInitializer">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">HamiltonianInitializer</span></span><a class="headerlink" href="#eigenvectorcontinuation.hilbertspaces.unitary_space.UnitarySpace.HamiltonianInitializer" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">HamiltonianInitializer</span></span><a class="headerlink" href="#eigenvectorcontinuation.hilbertspaces.unitary_space.UnitarySpace.HamiltonianInitializer" title="Permalink to this definition"><span>#</span></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>initializes the hamiltonian</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="eigenvectorcontinuation.hilbertspaces.unitary_space.UnitarySpace.HamiltonianInitializer.calc_eigenpairs">
-<span class="sig-name descname"><span class="pre">calc_eigenpairs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ham</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#eigenvectorcontinuation.hilbertspaces.unitary_space.UnitarySpace.HamiltonianInitializer.calc_eigenpairs" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">calc_eigenpairs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ham</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#eigenvectorcontinuation.hilbertspaces.unitary_space.UnitarySpace.HamiltonianInitializer.calc_eigenpairs" title="Permalink to this definition"><span>#</span></a></dt>
 <dd><p>calcs the eigenpairs for a given param_setinate in a system</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>ham</strong> – the hamiltonian to get the eigenpairs from</p>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>the eigenpairs as: evals, evecs</p>
 </dd>
 </dl>
@@ -434,10 +454,10 @@ a set of spanning vectors (basis_vecs)</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="eigenvectorcontinuation.hilbertspaces.unitary_space.UnitarySpace.HamiltonianInitializer.many_kron">
-<span class="sig-name descname"><span class="pre">many_kron</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ops</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#eigenvectorcontinuation.hilbertspaces.unitary_space.UnitarySpace.HamiltonianInitializer.many_kron" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">many_kron</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ops</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#eigenvectorcontinuation.hilbertspaces.unitary_space.UnitarySpace.HamiltonianInitializer.many_kron" title="Permalink to this definition"><span>#</span></a></dt>
 <dd><p>produces Kronecker (Tensor) product from list of Pauli charaters</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>ops</strong> – the operations [as characters] to apply to a matrix</p>
 </dd>
 </dl>
@@ -445,17 +465,17 @@ a set of spanning vectors (basis_vecs)</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="eigenvectorcontinuation.hilbertspaces.unitary_space.UnitarySpace.HamiltonianInitializer.xxztype_hamiltonian">
-<span class="sig-name descname"><span class="pre">xxztype_hamiltonian</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">param_set</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_qubits</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pbc</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#eigenvectorcontinuation.hilbertspaces.unitary_space.UnitarySpace.HamiltonianInitializer.xxztype_hamiltonian" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">xxztype_hamiltonian</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">param_set</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_qubits</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pbc</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#eigenvectorcontinuation.hilbertspaces.unitary_space.UnitarySpace.HamiltonianInitializer.xxztype_hamiltonian" title="Permalink to this definition"><span>#</span></a></dt>
 <dd><p>produces the hamiltonian for a system where j_x = j_y and b_x = b_y</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>param_set</strong> – the set of parameters: j_x, j_z, b_x, b_z</p></li>
 <li><p><strong>n_qubits</strong> – the number of quibits</p></li>
 <li><p><strong>pbc</strong> – periodic boundary condition wrap around logic boolean</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>hamiltonian of the system</p>
 </dd>
 </dl>
@@ -465,11 +485,11 @@ a set of spanning vectors (basis_vecs)</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="eigenvectorcontinuation.hilbertspaces.unitary_space.UnitarySpace.calc_basis_vecs">
-<span class="sig-name descname"><span class="pre">calc_basis_vecs</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#eigenvectorcontinuation.hilbertspaces.unitary_space.UnitarySpace.calc_basis_vecs" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">calc_basis_vecs</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#eigenvectorcontinuation.hilbertspaces.unitary_space.UnitarySpace.calc_basis_vecs" title="Permalink to this definition"><span>#</span></a></dt>
 <dd><p>calculates the basis vectors for the given space
 creates a hamiltonian for each point, and determines eigenvecs for each hamiltonian</p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>the calculated basis vecs</p>
 </dd>
 </dl>
@@ -477,17 +497,17 @@ creates a hamiltonian for each point, and determines eigenvecs for each hamilton
 
 <dl class="py method">
 <dt class="sig sig-object py" id="eigenvectorcontinuation.hilbertspaces.unitary_space.UnitarySpace.calc_overlap_matrix">
-<span class="sig-name descname"><span class="pre">calc_overlap_matrix</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">points</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#eigenvectorcontinuation.hilbertspaces.unitary_space.UnitarySpace.calc_overlap_matrix" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">calc_overlap_matrix</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">points</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#eigenvectorcontinuation.hilbertspaces.unitary_space.UnitarySpace.calc_overlap_matrix" title="Permalink to this definition"><span>#</span></a></dt>
 <dd><p>defines the overlap matrix for a UnitarySpace</p>
 <p>if points are passed in, these become the new training points of the space
 otherwise, the existing training points are used</p>
 <p>For an overlap matrix S:
 S[i,j] = inner_product(unitary_i, unitary_j)</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>points</strong> – points to use as training points (optional)</p>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>the calculated overlap matrix</p>
 </dd>
 </dl>
@@ -495,16 +515,16 @@ S[i,j] = inner_product(unitary_i, unitary_j)</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="eigenvectorcontinuation.hilbertspaces.unitary_space.UnitarySpace.calc_sub_ham">
-<span class="sig-name descname"><span class="pre">calc_sub_ham</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ham</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#eigenvectorcontinuation.hilbertspaces.unitary_space.UnitarySpace.calc_sub_ham" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">calc_sub_ham</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ham</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#eigenvectorcontinuation.hilbertspaces.unitary_space.UnitarySpace.calc_sub_ham" title="Permalink to this definition"><span>#</span></a></dt>
 <dd><p>defines a subspace hamiltonian for space given a hamiltonian in the space and
 a set of spanning vectors (basis_vecs)</p>
 <p>NB: ham cannot be constructed using the same points used to calc basis_vecs</p>
 <p>Subspace Ham[i,j] = expectation_value(unitary_i, ham, unitary_j)</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>ham</strong> – the hamiltonian used to find the subspace of</p>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>the subspace hamiltonian</p>
 </dd>
 </dl>
@@ -512,13 +532,13 @@ a set of spanning vectors (basis_vecs)</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="eigenvectorcontinuation.hilbertspaces.unitary_space.UnitarySpace.calc_unitaries">
-<span class="sig-name descname"><span class="pre">calc_unitaries</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#eigenvectorcontinuation.hilbertspaces.unitary_space.UnitarySpace.calc_unitaries" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">calc_unitaries</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#eigenvectorcontinuation.hilbertspaces.unitary_space.UnitarySpace.calc_unitaries" title="Permalink to this definition"><span>#</span></a></dt>
 <dd><p>calculates the unitary for each vector in this instance’s basis_vecs</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>vecs</strong> – the vectors from which to calculate the unitaries</p>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>the unitary matrix, one for each vector.</p>
 </dd>
 </dl>
@@ -526,13 +546,13 @@ a set of spanning vectors (basis_vecs)</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="eigenvectorcontinuation.hilbertspaces.unitary_space.UnitarySpace.calc_unitary">
-<span class="sig-name descname"><span class="pre">calc_unitary</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input_vec</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#eigenvectorcontinuation.hilbertspaces.unitary_space.UnitarySpace.calc_unitary" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">calc_unitary</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input_vec</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#eigenvectorcontinuation.hilbertspaces.unitary_space.UnitarySpace.calc_unitary" title="Permalink to this definition"><span>#</span></a></dt>
 <dd><p>calculates the unitary for a given vector</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>input_vec</strong> – the vector from which to calculate the unitary</p>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>the unitary matrix for the vector</p>
 </dd>
 </dl>
@@ -540,17 +560,17 @@ a set of spanning vectors (basis_vecs)</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="eigenvectorcontinuation.hilbertspaces.unitary_space.UnitarySpace.expectation_value">
-<span class="sig-name descname"><span class="pre">expectation_value</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vec1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ham</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vec2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#eigenvectorcontinuation.hilbertspaces.unitary_space.UnitarySpace.expectation_value" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">expectation_value</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vec1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ham</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vec2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#eigenvectorcontinuation.hilbertspaces.unitary_space.UnitarySpace.expectation_value" title="Permalink to this definition"><span>#</span></a></dt>
 <dd><p>defines expectation value calculation for numpy array space</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>vec1</strong> – the left vector of the expectation value calculation</p></li>
 <li><p><strong>ham</strong> – retrieve the expectation value w.r.t. this hamiltonian</p></li>
 <li><p><strong>vec2</strong> – the right vector of the expectation value calculation</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>the expectation value of the system</p>
 </dd>
 </dl>
@@ -558,23 +578,23 @@ a set of spanning vectors (basis_vecs)</p>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="eigenvectorcontinuation.hilbertspaces.unitary_space.UnitarySpace.implementation_type">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">implementation_type</span></span><a class="headerlink" href="#eigenvectorcontinuation.hilbertspaces.unitary_space.UnitarySpace.implementation_type" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">implementation_type</span></span><a class="headerlink" href="#eigenvectorcontinuation.hilbertspaces.unitary_space.UnitarySpace.implementation_type" title="Permalink to this definition"><span>#</span></a></dt>
 <dd><p>I’m the current space’s implementation type</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="eigenvectorcontinuation.hilbertspaces.unitary_space.UnitarySpace.inner_product">
-<span class="sig-name descname"><span class="pre">inner_product</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vec1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vec2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#eigenvectorcontinuation.hilbertspaces.unitary_space.UnitarySpace.inner_product" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">inner_product</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vec1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vec2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#eigenvectorcontinuation.hilbertspaces.unitary_space.UnitarySpace.inner_product" title="Permalink to this definition"><span>#</span></a></dt>
 <dd><p>defines inner product for numpy array space. The vectors used as input are
 assumed to be unitary matrices for this class</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>vec1</strong> – the left vector of the inner product</p></li>
 <li><p><strong>vec2</strong> – the right vector of the inner product</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>inner product of vec1 &amp; vec2</p>
 </dd>
 </dl>
@@ -582,19 +602,19 @@ assumed to be unitary matrices for this class</p>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="eigenvectorcontinuation.hilbertspaces.unitary_space.UnitarySpace.num_qubits">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">num_qubits</span></span><a class="headerlink" href="#eigenvectorcontinuation.hilbertspaces.unitary_space.UnitarySpace.num_qubits" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">num_qubits</span></span><a class="headerlink" href="#eigenvectorcontinuation.hilbertspaces.unitary_space.UnitarySpace.num_qubits" title="Permalink to this definition"><span>#</span></a></dt>
 <dd><p>I’m the current space’s number of qubits</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="eigenvectorcontinuation.hilbertspaces.unitary_space.UnitarySpace.select_vec">
-<span class="sig-name descname"><span class="pre">select_vec</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">evecs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#eigenvectorcontinuation.hilbertspaces.unitary_space.UnitarySpace.select_vec" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">select_vec</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">evecs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#eigenvectorcontinuation.hilbertspaces.unitary_space.UnitarySpace.select_vec" title="Permalink to this definition"><span>#</span></a></dt>
 <dd><p>returns the lowest energy evec</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>evecs</strong> – the set of evecs</p>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>the selected vector</p>
 </dd>
 </dl>
@@ -602,14 +622,14 @@ assumed to be unitary matrices for this class</p>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="eigenvectorcontinuation.hilbertspaces.unitary_space.UnitarySpace.unitaries">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">unitaries</span></span><a class="headerlink" href="#eigenvectorcontinuation.hilbertspaces.unitary_space.UnitarySpace.unitaries" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">unitaries</span></span><a class="headerlink" href="#eigenvectorcontinuation.hilbertspaces.unitary_space.UnitarySpace.unitaries" title="Permalink to this definition"><span>#</span></a></dt>
 <dd><p>I’m this space’s list of unitaries. Each unitary is calculated from a basis vector
 (all basis vectors are calculated from the input training points)</p>
 </dd></dl>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="eigenvectorcontinuation.hilbertspaces.unitary_space.UnitarySpace.zero_bra">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">zero_bra</span></span><a class="headerlink" href="#eigenvectorcontinuation.hilbertspaces.unitary_space.UnitarySpace.zero_bra" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">zero_bra</span></span><a class="headerlink" href="#eigenvectorcontinuation.hilbertspaces.unitary_space.UnitarySpace.zero_bra" title="Permalink to this definition"><span>#</span></a></dt>
 <dd><p>I’m this space’s zero_bra, to be used in many calculations. zero_bra is often
 denoted as &lt;0| and is defined as the row vector: (1 0 0 … 0)  with length
 2**num_qubits</p>
@@ -617,7 +637,7 @@ denoted as &lt;0| and is defined as the row vector: (1 0 0 … 0)  with length
 
 <dl class="py property">
 <dt class="sig sig-object py" id="eigenvectorcontinuation.hilbertspaces.unitary_space.UnitarySpace.zero_ket">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">zero_ket</span></span><a class="headerlink" href="#eigenvectorcontinuation.hilbertspaces.unitary_space.UnitarySpace.zero_ket" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">zero_ket</span></span><a class="headerlink" href="#eigenvectorcontinuation.hilbertspaces.unitary_space.UnitarySpace.zero_ket" title="Permalink to this definition"><span>#</span></a></dt>
 <dd><p>I’m this space’s zero_ket, to be used in many calculations. zero_ket is often
 denoted as <a href="#id1"><span class="problematic" id="id2">|</span></a>0&gt; and is defined as the column vector: (1 0 0 … 0).T  with length
 2**num_qubits</p>
@@ -627,36 +647,40 @@ denoted as <a href="#id1"><span class="problematic" id="id2">|</span></a>0&gt; a
 
 </section>
 <section id="module-eigenvectorcontinuation.hilbertspaces">
-<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-eigenvectorcontinuation.hilbertspaces" title="Permalink to this heading"></a></h2>
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-eigenvectorcontinuation.hilbertspaces" title="Permalink to this heading"><span>#</span></a></h2>
 </section>
 </section>
 
 
-           </div>
-          </div>
-          <footer>
+    </article>
 
-  <hr/>
+    <footer>
+      
+        <div class="mt-20 mb-4 text-sm text-gray-700">&copy; Copyright (c) 2022 Kemper Lab, Jack H. Howard, Akhil Francis, Alexander F. Kemper&nbsp;Made with <a href="https://www.sphinx-doc.org">Sphinx 5.0.2</a></div>
+      
+    </footer></main>
 
-  <div role="contentinfo">
-    <p>&#169; Copyright Copyright (c) 2022 Kemper Lab, Jack H. Howard, Akhil Francis, Alexander F. Kemper.</p>
-  </div>
 
-  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
-    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
-    provided by <a href="https://readthedocs.org">Read the Docs</a>.
-   
-
-</footer>
-        </div>
-      </div>
-    </section>
-  </div>
-  <script>
-      jQuery(function () {
-          SphinxRtdTheme.Navigation.enable(true);
-      });
-  </script> 
-
-</body>
+      <button
+  data-search-target="snackbar"
+  data-action="search#hideSnackbar"
+  class="fixed bottom-0 right-0 z-20 opacity-0 p-4 m-4 tracking-wide bg-gray-900 text-gray-100 transition transform transform-gpu duration-500 translate-y-full"
+>
+  Clear highlights
+</button><div
+  data-sidebar-target="screen"
+  data-action="click->sidebar#close"
+  class="fixed hidden inset-0 bg-black bg-opacity-50">
+</div>
+    </div>
+    
+      
+  <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+  <script src="../_static/jquery.js"></script>
+  <script src="../_static/underscore.js"></script>
+  <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+  <script src="../_static/doctools.js"></script>
+<script src="../_static/theme.a9d041328d1560cbc665.js"></script>
+    
+  </body>
 </html>
