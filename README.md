@@ -87,8 +87,10 @@ python3 setup.py install
 
 ## Usage
 This program is intended to be used on its own or as a supplement to existing programs. This means that one can:
-    A. run EC straight out of the box using the included implementations of HSA (NumPyVectorSpace and UnitarySpace), and 
-    B. implement and use a custom implementation of HSA, adhering to the requirements outlined in the HSA interface itself. As long as the implementation is valid, an EigenvectorContinuer will take it as a parameter, and any EC calculations should run seamlessly.
+
+A. run EC straight out of the box using the included implementations of HSA (NumPyVectorSpace and UnitarySpace), and 
+
+B. implement and use a custom implementation of HSA, adhering to the requirements outlined in the HSA interface itself. As long as the implementation is valid, an EigenvectorContinuer will take it as a parameter, and any EC calculations should run seamlessly.
 
 In order to use:
 1. Ensure that installation and setup (above) has completed successfully
