@@ -63,8 +63,26 @@ Find detailed documentation of modules [here](https://github.com/kemperlab/Eigen
 
 
 ## General Notes
-[backgound info on math @Akhil-Francis]
+### Eigenvector Continuation to perform Quantum Subspace Diagonalization
 
+Finding the ground state energy and preparing the ground state are two important related problems in the domains of physics and chemistry which are hard to solve in general because of the exponential growth of Hilbert space with respect to system size. Eigenvector continuation (EC),  a particular subspace diagonalization method, introduced by Frame et.al., provides a way to address this problem by projecting  the Hamiltonian to a smaller subspace and solving the corresponding smaller generalized eigenvalue problem. In this method,  the Hamiltonian (H') is considered as a function of the system parameter, and low energy states (training states) at a few parameter points (training points) are taken as the basis vectors to span the subspace which serves as a good approximation for ground states (target states) at the desired parameter values (target points). 
+
+This subspace diagonalization can be summarised into the following steps; 
+
+(i) finding the low energy states (training states) {|n>}) to span the subspace 
+
+(ii) computing the overlap matrix (S) and projected subspace Hamiltonian (H);
+
+        H_ij  = <ni|H'_target|nj>,        
+        S_ij = <ni|nj>   
+(iii) solving the smaller generalized eigenvalue problem to get the target ground state (v) and its energy (E)
+
+    H v = E S v
+
+In our work, we perform step (ii) which requires calculations in the actual bigger Hilbert space using a quantum computer (by employing Hadamard test circuits). Step (i) could also be performed in quantum computers (using methods like VQE, QAOA, etc.). Thus EC can be now performed as a quantum subspace diagonalization method enabling to employ this approach to system sizes much larger than classical computers can handle. 
+
+EC can be applied to any Hamiltonian and the code given here provides a base to employ EC agnostic to any particular representation (e.g, unitary, circuit, etc.). It is abstracted enough to incorporate any method or representation to perform step(i) and step(ii) either classically or using quantum computers without much effort. Step (iii) is solved easily in a classical computer as long as only a reasonable number of training states are used.
+ 
 
 
 ## Installation
