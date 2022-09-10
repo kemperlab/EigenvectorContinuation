@@ -19,7 +19,7 @@ sys.path.insert(0, os.path.abspath('..'))
 project = 'EigenvectorContinuation'
 copyright = 'Copyright (c) 2022 Kemper Lab, Jack H. Howard, Akhil Francis, Alexander F. Kemper'
 author = 'Jack H. Howard, Akhil Francis, Alexander F. Kemper'
-release = '0.1'
+release = '1.0'
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
