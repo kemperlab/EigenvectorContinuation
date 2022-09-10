@@ -1,4 +1,4 @@
-# EigenvectorContinuation
+# EigenvectorContinuation [![DOI](https://zenodo.org/badge/409994389.svg)](https://zenodo.org/badge/latestdoi/409994389)
 
 This code implements the eigenvector continuation (EC) process found in the paper linked below. The program contains a class `EigenvectorContinuer` that runs eignevector continuation for a user-implemented vector class of type `HilbertSpaceAbstract`, along with a few example implementations.
 
