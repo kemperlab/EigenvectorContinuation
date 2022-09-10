@@ -20,7 +20,7 @@ __copyright__ = "Copyright (c) 2022 Kemper Lab"
 __credits__ = ["Jack H. Howard", "Akhil Francis", "Alexander F. Kemper",
                "Anjali A. Agrawal", "Efekan Kökcü"]
 __license__ = "BSD-2-Clause-Patent"
-__version__ = "0.1"
+__version__ = "1.0"
 __maintainer__ = "Jack H. Howard"
 __email__ = "jhhoward@ncsu.edu"
 __status__ = "Development"

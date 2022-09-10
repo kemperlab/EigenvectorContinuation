@@ -12,7 +12,7 @@ setup(
         "Arxiv or DOI": "" # TODO Arxiv ro DOI
     },
     install_requires=['numpy','scipy','matplotlib'],
-    version='0.1',
+    version='1.0',
     license='BSD-2-Clause-Patent',
     description='Abstract class implementation of Eigenvector Continuation subspace diagonalization',
 )
