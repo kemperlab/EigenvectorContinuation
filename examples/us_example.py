@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-""" This script runs through the process of using the EC code with the provided NumPyVectorSpace
+""" This script runs through the process of using the EC code with the provided UnitarySpace
 concrete implementation of a HilbertSpaceAbstract
 
 """
@@ -21,7 +21,7 @@ import numpy as np
 # Local Imports
 from eigenvectorcontinuation.continuer.eigenvector_continuer import EigenvectorContinuer as evc
 from eigenvectorcontinuation.util.param_set import ParamSet
-from eigenvectorcontinuation.hilbertspaces.numpy_vector_space import NumPyVectorSpace as npvs
+from eigenvectorcontinuation.hilbertspaces.unitary_space import UnitarySpace as us
 from eigenvectorcontinuation.methods import plot_xxz_spectrum
 
 # Custom Input
@@ -49,7 +49,7 @@ for idx, train_bz in enumerate (train_bzs):
     train_pts[idx] = ParamSet(j_x=train_jx, j_z=train_jz, b_x=train_bx, b_z=train_bz)
 
 # Create Hilbert Space
-hilbert_space = npvs(training_points=train_pts, num_qubits=num_qubits)
+hilbert_space = us(training_points=train_pts, num_qubits=num_qubits)
 
 # Create EigenvectorContinuer
 ec = evc(hilbert_space=hilbert_space, target_point=targ_pt)
